@@ -1,0 +1,25 @@
+@import '../scss/utils/color.scss';
+
+.footer-container {
+  background-color: $black;
+}
+.footer-logo {
+  width: 71px;
+  height: 37px;
+}
+.footer-link {
+  font-weight: 700;
+  font-size: 7px;
+  text-decoration: none;
+  text-align: start;
+}
+
+@media only screen and (min-width: 1024px) {
+  .footer-logo {
+    width: 229px;
+    height: 120px;
+  }
+  .footer-link {
+    font-size: 15px;
+  }
+}

@@ -1,0 +1,96 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat&display=swap');
+@import './utils/color.scss';
+* {
+  font-family: 'Montserrat', sans-serif !important;
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  overflow-x: hidden;
+}
+
+body {
+  overflow-x: hidden;
+}
+
+@font-face {
+  font-family: 'Akira';
+  src: url('../../../src/fonts/Akira\ Expanded.otf') format('opentype');
+}
+
+.bold-15 {
+  font-weight: 700;
+  font-size: 12px;
+  text-decoration: none;
+  text-align: center;
+}
+
+.akira-fill- {
+  &white {
+    color: $white;
+    font-family: 'Akira' !important;
+    font-weight: '800';
+    font-size: 32px;
+    letter-spacing: 5%;
+    text-align: center;
+  }
+  &blue {
+    font-family: 'Akira' !important;
+    font-weight: '800';
+    font-size: 32px;
+    letter-spacing: 5%;
+    text-align: center;
+    color: $blue;
+  }
+}
+
+.akira-outlined-white {
+  letter-spacing: 5%;
+  color: transparent;
+  font-family: 'Akira' !important;
+  font-weight: '800';
+  font-size: 32px;
+  -webkit-text-stroke-width: 1px;
+  -webkit-text-stroke-color: white;
+  text-align: center;
+}
+
+.akira-outlined-blue {
+  letter-spacing: 5%;
+  color: transparent;
+  font-family: 'Akira' !important;
+  font-weight: '800';
+  font-size: 32px;
+  -webkit-text-stroke-width: 1px;
+  -webkit-text-stroke-color: #4e27af;
+  text-align: center;
+}
+
+.text-blue {
+  color: $blue;
+}
+
+.text-white {
+  color: $white;
+}
+
+.text-black {
+  color: $black;
+}
+
+@media only screen and (min-width: 1024px) {
+  .bold-15 {
+    font-weight: 700;
+    font-size: 15px;
+    text-decoration: none;
+    text-align: start;
+  }
+
+  .akira-outlined-white,
+  .akira-outlined-blue,
+  .akira-fill-white,
+  .akira-fill-blue {
+    font-size: 52px;
+    line-height: 56px;
+    text-align: start;
+  }
+}
