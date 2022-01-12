@@ -90,8 +90,7 @@ const Home = () => {
         <div className="row gx-0 p-0 m-0">
           <div className="col-sm-12 col-lg-6 p-3 p-lg-5 my-auto">
             <p className="akira-outlined-blue">
-              REGISTER &{' '}
-              <span className="akira-fill-blue">ENJOY YOUR BENEFITS</span>
+              MINT YOUR <span className="akira-fill-blue">GUILD BADGE</span>
             </p>
             <p className="bold-15 mt-3">
               You can enjoy access to our NFTs and other boons with your ranker
@@ -137,7 +136,7 @@ const Home = () => {
           </div>
           <div className="col-sm-12 col-lg-6 p-3 p-lg-5 my-auto">
             <p className="akira-outlined-blue">
-              GROWING <span className="akira-fill-blue">COMMUNITY</span>
+              A DAO <span className="akira-fill-blue">COMMUNITY</span>
             </p>
             <p className="bold-15 mt-3">
               We are for a community and made by the community. Our members have
@@ -161,7 +160,7 @@ const Home = () => {
         <div className="row">
           <div className="col-sm-12 col-lg-6 p-3 p-lg-5 my-auto">
             <p className="akira-outlined-blue">
-              TOGETHER WE ARE <span className="akira-fill-blue">STRONG</span>
+              SOCIAL - FI <span className="akira-fill-blue">STRONG</span>
             </p>
             <p className="bold-15 mt-3">
               Start your adventure together! With our network, you can socialize

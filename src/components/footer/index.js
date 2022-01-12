@@ -1,14 +1,11 @@
-import { Link } from 'react-router-dom';
-
 import Logo from '../../assets/img/logo-big.png';
 import './style.scss';
 const Footer = () => {
   const footerLinkList = [
-    { name: 'TELEGRAM', link: 'https://telegram.com' },
-    { name: 'CONTACT US', link: '' },
-    { name: 'TWITTER', link: 'https://twitter.com' },
-    { name: '$RANKER', link: '' },
-    { name: 'DISCORD', link: 'https://discord.com' },
+    { name: 'TELEGRAM', link: 'https://t.me/rankerdao' },
+    { name: 'TWITTER', link: 'https://twitter.com/rankerdao' },
+    { name: '$RANKER', link: '/about' },
+    { name: 'DISCORD', link: 'http://discord.gg/rankerdao' },
   ];
 
   return (
@@ -26,7 +23,7 @@ const Footer = () => {
               <a
                 href={link.link}
                 target="_blank"
-                rel="noopener"
+                rel="noopener noreferrer"
                 className="footer-link text-start text-white">
                 {link.name}
               </a>

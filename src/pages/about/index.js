@@ -57,6 +57,10 @@ const About = () => {
           alt={img.alt}
         />
       ))}
+      <p className="bold-15 text-white text-center d-block d-sm-none py-5">
+        *DISCLAIMER : The information in this document is subject to change
+        without notice
+      </p>
     </div>
   );
 };

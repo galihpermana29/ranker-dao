@@ -26,7 +26,7 @@ const Header = () => {
               <a
                 href="https://t.me/rankerdao"
                 target="_blank"
-                rel="noopener"
+                rel="noopener noreferrer"
                 className="nav-link-custom"
                 aria-current="page">
                 TELEGRAM
@@ -36,26 +36,22 @@ const Header = () => {
               <a
                 href="https://twitter.com/rankerdao"
                 target="_blank"
-                rel="noopener"
+                rel="noopener noreferrer"
                 className="nav-link-custom">
                 TWITTER
               </a>
             </li>
             <li className="nav-item">
               <a
-                // href="https://https://t.me/rankerdao"
+                href="http://discord.gg/rankerdao"
                 target="_blank"
-                rel="noopener"
+                rel="noopener noreferrer"
                 className="nav-link-custom">
                 DISCORD
               </a>
             </li>
             <li className="nav-item">
-              <a
-                // href="https://https://t.me/rankerdao"
-                target="_blank"
-                rel="noopener"
-                className="nav-link-custom">
+              <a href="/about" className="nav-link-custom">
                 $RANKER
               </a>
             </li>
