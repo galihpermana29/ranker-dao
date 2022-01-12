@@ -1,18 +1,13 @@
 import { Link } from 'react-router-dom';
-
 import { Hero } from '../../components';
 import Gameplay from '../../assets/img/gameplay.png';
-import Adventure from '../../assets/img/adventure.png';
-import GrowingCommunity from '../../assets/img/growing-community.png';
 import AxieIcon from '../../assets/img/axie.png';
 import ThetanIcon from '../../assets/img/thetan.png';
-import Register from '../../assets/img/register.png';
 import ShieldText from '../../assets/img/shield-text.png';
 import Shield from '../../assets/img/shield.png';
 import ShieldShadow from '../../assets/img/shield-shadow.png';
 import GuildIllustration from '../../assets/img/guild-illustration.png';
 import TogetherIllustration from '../../assets/img/together-illustration.png';
-import TogetherText from '../../assets/img/together-we-are-strong.png';
 import OurFriendText from '../../assets/img/our-friend.png';
 import BGThirdSection from '../../assets/img/bg-third-section.png';
 import BGFourthSection from '../../assets/img/bg-fourth-section.png';
@@ -62,7 +57,7 @@ const Home = () => {
                 <a
                   href="https://axieinfinity.com/"
                   target="_blank"
-                  rel="noopener">
+                  rel="noopener noreferrer">
                   <img
                     src={AxieIcon}
                     alt="axie infinity"
@@ -74,7 +69,7 @@ const Home = () => {
                 <a
                   href="https://thetanarena.com/"
                   target="_blank"
-                  rel="noopener">
+                  rel="noopener noreferrer">
                   <img
                     src={ThetanIcon}
                     alt="thetan arena"

@@ -1,31 +1,34 @@
 module.exports = {
-  root: true,
-  extends: ['plugin:import/errors'],
-  settings: {
-    // https://github.com/benmosher/eslint-plugin-import/issues/1754
-    'import/ignore': ['react-native'],
+  env: {
+    browser: true,
+    es6: true,
+    node: true,
   },
+  extends: [
+    'eslint:recommended',
+    'plugin:react/recommended',
+    // 'plugin:jest/recommended',
+  ],
+  globals: {
+    Atomics: 'readonly',
+    SharedArrayBuffer: 'readonly',
+  },
+  parserOptions: {
+    ecmaFeatures: {
+      jsx: true,
+    },
+    ecmaVersion: 2018,
+    sourceType: 'module',
+  },
+  plugins: ['react', 'jest', 'react-hooks'],
   rules: {
-    'no-unused-vars': ['error'],
-    'no-console': ['error'],
-    'import/order': [
-      'error',
-      {
-        groups: ['builtin', 'external', 'internal'],
-        pathGroups: [
-          {
-            pattern: 'react',
-            group: 'external',
-            position: 'before',
-          },
-        ],
-        pathGroupsExcludedImportTypes: ['react'],
-        'newlines-between': 'always',
-        alphabetize: {
-          order: 'asc',
-          caseInsensitive: true,
-        },
-      },
-    ],
+    'react-hooks/rules-of-hooks': 'error',
+    'react-hooks/exhaustive-deps': 'warn',
+    'react/react-in-jsx-scope': 'off',
+  },
+  settings: {
+    react: {
+      version: 'detect',
+    },
   },
 };
