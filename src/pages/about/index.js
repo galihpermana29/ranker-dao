@@ -14,6 +14,7 @@ import MobileEighth from '../../assets/img/about/MobileEighth.png';
 import MobileNineth from '../../assets/img/about/MobileNineth.png';
 import MobileTenth from '../../assets/img/about/MobileTenth.png';
 import MobileEleventh from '../../assets/img/about/MobileEleventh.png';
+import RankersBadge from '../../assets/img/about/rankers-badge.png';
 import './style.scss';
 
 const About = () => {
@@ -31,36 +32,48 @@ const About = () => {
     { img: MobileEleventh, alt: 'mobile graph 11' },
   ];
 
+  const RenderAboutShield = () => {
+    return <div>shield</div>;
+  };
+
   return (
-    <div className="container-fluid about-container h-100 px-3">
-      <div className="d-flex justify-content-center flex-column pt-5">
-        <img src={Coin} className="img-fluid coin mx-auto" />
-        <p className="akira-fill-white text-center">
-          $RANKER <span className="akira-outlined-white">TOKEN</span>
-        </p>
-        <p className="bold-15 text-white text-center">
-          Level up your badge with $RANKER and unlock our exclusive NFTs,
-          tournaments, coaching sessions and many more!
+    <div className="container-fluid h-100 p-0">
+      <div className="about-wrapper px-3">
+        <div className="d-flex justify-content-center flex-column pt-5">
+          <img src={Coin} className="img-fluid coin mx-auto" />
+          <p className="akira-fill-white text-center">
+            $RANKER <span className="akira-outlined-white">TOKEN</span>
+          </p>
+          <p className="bold-15 text-white text-center">
+            Level up your badge with $RANKER and unlock our exclusive NFTs,
+            tournaments, coaching sessions and many more!
+          </p>
+        </div>
+        {/* DESKTOP ONLY */}
+        <img src={GraphFirst} className="img-fluid d-none d-sm-block" />
+        <img src={GraphSecond} className="img-fluid d-none d-sm-block" />
+        <img src={GraphThird} className="img-fluid d-none d-sm-block" />
+
+        {/* MOBILE ONLY */}
+        {mobileGraphList.map(img => (
+          <img
+            key={img.alt}
+            className="img-fluid d-block d-sm-none"
+            src={img.img}
+            alt={img.alt}
+          />
+        ))}
+        <p className="bold-15 text-white text-center d-block d-sm-none py-5">
+          *DISCLAIMER : The information in this document is subject to change
+          without notice
         </p>
       </div>
-      {/* DESKTOP ONLY */}
-      <img src={GraphFirst} className="img-fluid d-none d-sm-block" />
-      <img src={GraphSecond} className="img-fluid d-none d-sm-block" />
-      <img src={GraphThird} className="img-fluid d-none d-sm-block" />
 
-      {/* MOBILE ONLY */}
-      {mobileGraphList.map(img => (
-        <img
-          key={img.alt}
-          className="img-fluid d-block d-sm-none"
-          src={img.img}
-          alt={img.alt}
-        />
-      ))}
-      <p className="bold-15 text-white text-center d-block d-sm-none py-5">
-        *DISCLAIMER : The information in this document is subject to change
-        without notice
+      <p className="akira-outlined-blue text-center my-5">
+        RANKERS <span className="akira-fill-blue">BADGE</span>
       </p>
+
+      <img src={RankersBadge} alt="rankers badge" className="img-fluid" />
     </div>
   );
 };

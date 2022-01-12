@@ -3,12 +3,9 @@ import { Hero } from '../../components';
 import Gameplay from '../../assets/img/gameplay.png';
 import AxieIcon from '../../assets/img/axie.png';
 import ThetanIcon from '../../assets/img/thetan.png';
-import ShieldText from '../../assets/img/shield-text.png';
-import Shield from '../../assets/img/shield.png';
-import ShieldShadow from '../../assets/img/shield-shadow.png';
+import RankersBadge from '../../assets/img/about/rankers-badge.png';
 import GuildIllustration from '../../assets/img/guild-illustration.png';
 import TogetherIllustration from '../../assets/img/together-illustration.png';
-import OurFriendText from '../../assets/img/our-friend.png';
 import BGThirdSection from '../../assets/img/bg-third-section.png';
 import BGFourthSection from '../../assets/img/bg-fourth-section.png';
 
@@ -33,7 +30,7 @@ const Home = () => {
           <div className="col-sm-12 col-lg-6 p-3 p-lg-5 my-auto">
             <img src={Gameplay} alt="gameplay" className="image-section" />
           </div>
-          <div className="col-sm-12 col-lg-6 p-2 p-lg-5">
+          <div className="col-sm-12 col-lg-6 p-3 p-lg-5">
             <p className="akira-outlined-blue">
               YOUR ADVENTURE <span className="akira-fill-blue">STARTS NOW</span>
             </p>
@@ -48,7 +45,7 @@ const Home = () => {
               With out currently owned 500+ gaming NFTs, you are free to explore
               each world according to your own tactics and gameplay.
             </p>
-            <p className="bld-15 text-blue fw-bold">
+            <p className="bold-15 text-blue fw-bold">
               All our members have full access to our DAO inventory of NFTs, and
               also a step by step guide on how to start P2E.
             </p>
@@ -88,7 +85,7 @@ const Home = () => {
     return (
       <section className="container-fluid p-0 mb-5">
         <div className="row gx-0 p-0 m-0">
-          <div className="col-sm-12 col-lg-6 p-3 p-lg-5 my-auto">
+          <div className="col-sm-12 col-lg-6 p-3 p-lg-5 my-auto mx-auto">
             <p className="akira-outlined-blue">
               MINT YOUR <span className="akira-fill-blue">GUILD BADGE</span>
             </p>
@@ -100,20 +97,12 @@ const Home = () => {
               Level up your badge with $RANKER and unlock our exclusive NFTs,
               tournaments, coaching sessions and many more!
             </p>
-            <Link to="/about">
+            <Link to="/about" className="mx-auto">
               <button className="join-our-guild">LEARN ABOUT $RANKER</button>
             </Link>
           </div>
-          <div className="col-sm-12 col-lg-6 ps-0 ps-lg-5">
-            <div className="shield-container position-relative pt-0 pt-lg-5">
-              <img src={ShieldText} className="shield-text" />
-              <img src={Shield} className="shield-small" />
-              <img
-                src={ShieldShadow}
-                alt="shield shadow"
-                className="shield-shadow"
-              />
-            </div>
+          <div className="col-sm-12 col-lg-6 ps-0 ps-lg-5 my-auto">
+            <img src={RankersBadge} alt="rankers badge" className="img-fluid" />
           </div>
         </div>
       </section>
@@ -204,17 +193,10 @@ const Home = () => {
 
     return (
       <section className="container-fluid pb-5">
-        <div className="row">
-          <div className="col d-none d-sm-inline"></div>
-          <div className="col-6">
-            <img
-              src={OurFriendText}
-              alt="our friend"
-              className="image-section"
-            />
-          </div>
-          <div className="col d-none d-sm-inline"></div>
-        </div>
+        <p className="akira-outlined-blue text-center">
+          OUR <span className="akira-fill-blue">FRIENDS</span>
+        </p>
+
         <div className="row row-cols-2 row-cols-lg-5 px-5 mt-4">
           {imageList.map((img, index) => {
             return (
