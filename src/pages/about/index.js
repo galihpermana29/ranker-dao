@@ -32,10 +32,6 @@ const About = () => {
     { img: MobileEleventh, alt: 'mobile graph 11' },
   ];
 
-  const RenderAboutShield = () => {
-    return <div>shield</div>;
-  };
-
   return (
     <div className="container-fluid h-100 p-0">
       <div className="about-wrapper px-3">
