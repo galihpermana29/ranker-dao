@@ -85,7 +85,7 @@ const Home = () => {
     return (
       <section className="container-fluid p-0 mb-5">
         <div className="row gx-0 p-0 m-0">
-          <div className="col-sm-12 col-lg-6 p-3 p-lg-5 my-auto mx-auto">
+          <div className="col-sm-12 col-lg-6 p-3 p-lg-5 ">
             <p className="akira-outlined-blue">
               MINT YOUR <span className="akira-fill-blue">GUILD BADGE</span>
             </p>
