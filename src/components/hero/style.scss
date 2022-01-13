@@ -1,7 +1,7 @@
 @import '../scss/utils/color.scss';
 
 .hero-container {
-  background-image: url('../../assets/img/hero-background.png');
+  background-image: url('../../assets/img/hero-bg-mobile.png');
   background-repeat: no-repeat;
   background-size: cover;
   object-fit: cover;
@@ -34,8 +34,16 @@
   border: none;
   background-color: $black;
   padding: 16px 18px;
-  margin-top: 32px;
   color: $white;
   font-size: 15px;
   font-weight: 700;
+}
+
+@media only screen and (min-width: 1024px) {
+  .hero-container {
+    background-image: url('../../assets/img/hero-background.png');
+    background-repeat: no-repeat;
+    background-size: contain;
+    object-fit: contain;
+  }
 }

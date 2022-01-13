@@ -1,3 +1,5 @@
+import { Link } from 'react-router-dom';
+
 import Logo from '../../assets/img/logo-big.png';
 import './style.scss';
 const Footer = () => {
@@ -11,7 +13,9 @@ const Footer = () => {
   return (
     <footer className="footer-container d-flex justify-content-between p-sm-5 p-2">
       <div className="text-white w-100">
-        <img src={Logo} className="img-fluid footer-logo" alt="logo" />
+        <Link to="/">
+          <img src={Logo} className="img-fluid footer-logo" alt="logo" />
+        </Link>
         <p className="bold-15 mt-5 d-none d-sm-block">
           © RankerDao. All Rights Reserved 2022
         </p>

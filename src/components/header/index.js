@@ -5,7 +5,7 @@ import Logo from '../../assets/img/Logo.png';
 import './style.scss';
 const Header = () => {
   return (
-    <nav className="navbar navbar-expand-lg navbar-light nav-container">
+    <nav className="navbar navbar-expand-lg navbar-dark nav-container">
       <div className="container-fluid">
         <Link to="/">
           <img src={Logo} className="nav-logo" />

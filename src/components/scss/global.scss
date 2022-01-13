@@ -17,6 +17,18 @@ body {
   src: url('../../../src/fonts/Akira\ Expanded.otf') format('opentype');
 }
 
+.navbar-toggler {
+  border: none;
+}
+
+.navbar-toggler:focus,
+.navbar-toggler:active,
+.navbar-toggler-icon:focus {
+  outline: none;
+  box-shadow: none;
+  border: none;
+}
+
 .bold-15 {
   font-weight: 700;
   font-size: 12px;
@@ -29,14 +41,16 @@ body {
     color: $white;
     font-family: 'Akira' !important;
     font-weight: '800';
-    font-size: 38px;
+    font-size: 32px;
+    line-height: 36px;
     letter-spacing: 5%;
     text-align: center;
   }
   &blue {
     font-family: 'Akira' !important;
     font-weight: '800';
-    font-size: 38px;
+    font-size: 32px;
+    line-height: 36px;
     letter-spacing: 5%;
     text-align: center;
     color: $blue;
@@ -48,7 +62,8 @@ body {
   color: transparent;
   font-family: 'Akira' !important;
   font-weight: '800';
-  font-size: 38px;
+  font-size: 32px;
+  line-height: 36px;
   -webkit-text-stroke-width: 1px;
   -webkit-text-stroke-color: white;
   text-align: center;
@@ -59,7 +74,8 @@ body {
   color: transparent;
   font-family: 'Akira' !important;
   font-weight: '800';
-  font-size: 38px;
+  font-size: 32px;
+  line-height: 36px;
   -webkit-text-stroke-width: 1px;
   -webkit-text-stroke-color: #4e27af;
   text-align: center;
@@ -89,7 +105,7 @@ body {
   .akira-outlined-blue,
   .akira-fill-white,
   .akira-fill-blue {
-    font-size: 52px;
+    font-size: 58px;
     line-height: 56px;
     text-align: start;
   }

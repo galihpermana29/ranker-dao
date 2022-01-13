@@ -26,11 +26,14 @@ const Home = () => {
     return (
       <section className="container-fluid">
         <div className="row">
-          <div className="col-sm-12 col-lg-6 p-3 p-lg-5 my-auto">
+          <p className="akira-outlined-blue d-block d-lg-none">
+            YOUR ADVENTURE <span className="akira-fill-blue">STARTS NOW</span>
+          </p>
+          <div className="col-sm-12 col-lg-6 px-4 py-3 p-lg-5 my-auto">
             <img src={Gameplay} alt="gameplay" className="image-section" />
           </div>
-          <div className="col-sm-12 col-lg-6 p-3 p-lg-5">
-            <p className="akira-outlined-blue">
+          <div className="col-sm-12 col-lg-6 px-4 py-3 p-lg-5">
+            <p className="akira-outlined-blue d-none d-lg-block">
               YOUR ADVENTURE <span className="akira-fill-blue">STARTS NOW</span>
             </p>
 
@@ -48,8 +51,8 @@ const Home = () => {
               All our members have full access to our DAO inventory of NFTs, and
               also a step by step guide on how to start P2E.
             </p>
-            <div className="d-flex flex-row row ">
-              <div className="col">
+            <div className="row ">
+              <div className="col-6 col-lg-4">
                 <a
                   href="https://axieinfinity.com/"
                   target="_blank"
@@ -57,11 +60,11 @@ const Home = () => {
                   <img
                     src={AxieIcon}
                     alt="axie infinity"
-                    className="image-section"
+                    className="img-fluid"
                   />
                 </a>
               </div>
-              <div className="col">
+              <div className="col-6 col-lg-4">
                 <a
                   href="https://thetanarena.com/"
                   target="_blank"
@@ -69,7 +72,7 @@ const Home = () => {
                   <img
                     src={ThetanIcon}
                     alt="thetan arena"
-                    className="image-section"
+                    className="img-fluid"
                   />
                 </a>
               </div>
@@ -84,7 +87,7 @@ const Home = () => {
     return (
       <section className="container-fluid p-0 mb-5">
         <div className="row gx-0 p-0 m-0">
-          <div className="col-sm-12 col-lg-6 p-3 p-lg-5 d-flex justify-content-start align-items-center align-items-lg-start flex-column ">
+          <div className="col-sm-12 col-lg-6 px-4 py-3 p-lg-5 d-flex justify-content-start align-items-center align-items-lg-start flex-column ">
             <p className="akira-outlined-blue">
               MINT YOUR <span className="akira-fill-blue">GUILD BADGE</span>
             </p>
@@ -100,7 +103,7 @@ const Home = () => {
               <button className="join-our-guild">LEARN ABOUT $RANKER</button>
             </Link>
           </div>
-          <div className="col-sm-12 col-lg-6 ps-0 ps-lg-5 my-auto">
+          <div className="col-sm-12 col-lg-6 px-4 py-3 ps-lg-5 py-lg-0 px-lg-0 my-auto">
             <img src={RankersBadge} alt="rankers badge" className="img-fluid" />
           </div>
         </div>
@@ -111,8 +114,8 @@ const Home = () => {
   const RenderThirdSection = () => {
     return (
       <section className="container-fluid p-0 mb-5">
-        <div className="row flex-column-reverse flex-lg-row">
-          <div className="col-sm-12 col-lg-6 pe-0 pe-lg-5 my-auto">
+        <div className="row gx-0 p-0 m-0 flex-column-reverse flex-lg-row">
+          <div className="col-sm-12 col-lg-6 px-4 py-3 px-lg-0 pe-lg-5 my-auto">
             <div className="position-relative">
               <img src={BGThirdSection} className="background-section" />
               <img
@@ -122,7 +125,7 @@ const Home = () => {
               />
             </div>
           </div>
-          <div className="col-sm-12 col-lg-6 p-3 p-lg-5 my-auto">
+          <div className="col-sm-12 col-lg-6 px-4 py-3 p-lg-5 my-auto">
             <p className="akira-outlined-blue">
               A DAO <span className="akira-fill-blue">COMMUNITY</span>
             </p>
@@ -145,8 +148,8 @@ const Home = () => {
   const RenderFourthSection = () => {
     return (
       <section className="container-fluid p-0 mb-5">
-        <div className="row">
-          <div className="col-sm-12 col-lg-6 p-3 p-lg-5 my-auto">
+        <div className="row gx-0 p-0 m-0">
+          <div className="col-sm-12 col-lg-6 px-4 py-3 p-lg-5 my-auto">
             <p className="akira-outlined-blue">
               SOCIAL - FI <span className="akira-fill-blue">STRONG</span>
             </p>
@@ -161,7 +164,7 @@ const Home = () => {
               house tournaments and other exciting activities and portfolios!
             </p>
           </div>
-          <div className="col-sm-12 col-lg-6 ps-0 ps-lg-5 my-auto">
+          <div className="col-sm-12 col-lg-6 px-4 py-3 pe-lg-0 ps-lg-5 my-auto">
             <div className="position-relative">
               <img
                 src={TogetherIllustration}
@@ -191,12 +194,12 @@ const Home = () => {
     ];
 
     return (
-      <section className="container-fluid pb-5">
+      <section className="container-fluid pb-5 mb-5 pt-5">
         <p className="akira-outlined-blue text-center">
           OUR <span className="akira-fill-blue">FRIENDS</span>
         </p>
 
-        <div className="row row-cols-2 row-cols-lg-5 px-5 mt-4">
+        <div className="row row-cols-2 row-cols-lg-5 px-5 mt-2 gy-5">
           {imageList.map((img, index) => {
             return (
               <div
