@@ -25,7 +25,7 @@ const Home = () => {
   const RenderFirstHomeSection = () => {
     return (
       <section className="container-fluid">
-        <div className="row">
+        <div className="row h-100">
           <p className="akira-outlined-blue d-block d-lg-none">
             YOUR ADVENTURE <span className="akira-fill-blue">STARTS NOW</span>
           </p>
