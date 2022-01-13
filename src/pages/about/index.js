@@ -2,18 +2,17 @@ import Coin from '../../assets/img/about/coin.png';
 import GraphFirst from '../../assets/img/about/Graph-1.png';
 import GraphSecond from '../../assets/img/about/Graph-2.png';
 import GraphThird from '../../assets/img/about/Graph-3.png';
-
-import MobileFirst from '../../assets/img/about/MobileFirst.png';
-import MobileSecond from '../../assets/img/about/MobileSecond.png';
-import MobileThird from '../../assets/img/about/MobileThird.png';
-import MobileFourth from '../../assets/img/about/MobileFourth.png';
-import MobileFifth from '../../assets/img/about/MobileFifth.png';
-import MobileSixth from '../../assets/img/about/MobileSixth.png';
-import MobileSeventh from '../../assets/img/about/MobileSeventh.png';
 import MobileEighth from '../../assets/img/about/MobileEighth.png';
-import MobileNineth from '../../assets/img/about/MobileNineth.png';
-import MobileTenth from '../../assets/img/about/MobileTenth.png';
 import MobileEleventh from '../../assets/img/about/MobileEleventh.png';
+import MobileFifth from '../../assets/img/about/MobileFifth.png';
+import MobileFirst from '../../assets/img/about/MobileFirst.png';
+import MobileFourth from '../../assets/img/about/MobileFourth.png';
+import MobileNineth from '../../assets/img/about/MobileNineth.png';
+import MobileSecond from '../../assets/img/about/MobileSecond.png';
+import MobileSeventh from '../../assets/img/about/MobileSeventh.png';
+import MobileSixth from '../../assets/img/about/MobileSixth.png';
+import MobileTenth from '../../assets/img/about/MobileTenth.png';
+import MobileThird from '../../assets/img/about/MobileThird.png';
 import RankersBadge from '../../assets/img/about/rankers-badge.png';
 import './style.scss';
 

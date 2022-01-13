@@ -1,27 +1,26 @@
 import { Link } from 'react-router-dom';
+
 import { Hero } from '../../components';
-import Gameplay from '../../assets/img/gameplay.png';
 import AxieIcon from '../../assets/img/axie.png';
-import ThetanIcon from '../../assets/img/thetan.png';
-import RankersBadge from '../../assets/img/about/rankers-badge.png';
-import GuildIllustration from '../../assets/img/guild-illustration.png';
-import TogetherIllustration from '../../assets/img/together-illustration.png';
-import BGThirdSection from '../../assets/img/bg-third-section.png';
 import BGFourthSection from '../../assets/img/bg-fourth-section.png';
-
-//PARTNERSHIP
-import Oddz from '../../assets/img/partnership/Oddz.png';
-import Raptor from '../../assets/img/partnership/Raptor Capital.png';
-import BlackMamba from '../../assets/img/partnership/Black Mamba.png';
-import Hooga from '../../assets/img/partnership/Hooga Hooga.png';
+import BGThirdSection from '../../assets/img/bg-third-section.png';
 import Bitcoin from '../../assets/img/partnership/Bitcoin Addict.png';
-import Gems from '../../assets/img/partnership/Gems.png';
+import BlackMamba from '../../assets/img/partnership/Black Mamba.png';
 import Frontier from '../../assets/img/partnership/Frontier.png';
-import J8Venture from '../../assets/img/partnership/J8 Ventures.png';
-import ProjectSeed from '../../assets/img/partnership/Project Seed.png';
+import Gameplay from '../../assets/img/gameplay.png';
+import Gems from '../../assets/img/partnership/Gems.png';
+import GuildIllustration from '../../assets/img/guild-illustration.png';
+import Hooga from '../../assets/img/partnership/Hooga Hooga.png';
 import HotCross from '../../assets/img/partnership/Hot Cross.png';
-
+import J8Venture from '../../assets/img/partnership/J8 Ventures.png';
+import Oddz from '../../assets/img/partnership/Oddz.png';
+import ProjectSeed from '../../assets/img/partnership/Project Seed.png';
+import RankersBadge from '../../assets/img/about/rankers-badge.png';
+import Raptor from '../../assets/img/partnership/Raptor Capital.png';
+import ThetanIcon from '../../assets/img/thetan.png';
+import TogetherIllustration from '../../assets/img/together-illustration.png';
 import './style.scss';
+
 const Home = () => {
   const RenderFirstHomeSection = () => {
     return (
