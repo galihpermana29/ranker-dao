@@ -21,11 +21,11 @@ const Hero = () => {
           </a>
         </div>
 
-        <div className="col-sm-12 col-lg-6 pb-5 px-5 p-lg-5">
+        <div className="col-sm-12 col-lg-6 pb-5 p-lg-5">
           <img
             src={HeroIllustration}
-            className="hero-illustration"
-            alt="illustration hero"
+            className="img-fluid"
+            alt="hero illustration"
           />
         </div>
       </div>
