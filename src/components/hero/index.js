@@ -1,5 +1,4 @@
 import HeroIllustration from '../../assets/img/hero-illustration.png';
-
 import './style.scss';
 const Hero = () => {
   return (
