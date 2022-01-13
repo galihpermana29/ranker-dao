@@ -85,7 +85,7 @@ const Home = () => {
     return (
       <section className="container-fluid p-0 mb-5">
         <div className="row gx-0 p-0 m-0">
-          <div className="col-sm-12 col-lg-6 p-3 p-lg-5 ">
+          <div className="col-sm-12 col-lg-6 p-3 p-lg-5 d-flex justify-content-start align-items-center align-items-lg-start flex-column ">
             <p className="akira-outlined-blue">
               MINT YOUR <span className="akira-fill-blue">GUILD BADGE</span>
             </p>
@@ -97,7 +97,7 @@ const Home = () => {
               Level up your badge with $RANKER and unlock our exclusive NFTs,
               tournaments, coaching sessions and many more!
             </p>
-            <Link to="/about" className="mx-auto">
+            <Link to="/about">
               <button className="join-our-guild">LEARN ABOUT $RANKER</button>
             </Link>
           </div>
