@@ -1,0 +1,73 @@
+.mint-container {
+  background-image: url('../../assets/img/background-full.png');
+  background-repeat: no-repeat;
+  background-size: cover;
+  height: 100%;
+  width: 110%
+}
+
+.hero-hero {
+  background-image: url('../../assets/img/background-full.png');
+  background-repeat: no-repeat;
+  background-size: 100% calc(95% + 50px);
+}
+
+.hero-illustration {
+  width: calc(110% + 0px);
+}
+
+.hero-title {
+  width: 100%;
+  height: 141px;
+}
+.hero-desc {
+  margin-top: 24px;
+  color: white;
+  font-size: 15px;
+  font-weight: 500;
+}
+
+.mint-btn {
+  border-radius: 10px;
+  border: none;
+  background-color: black;
+  padding: 16px 18px;
+  color: white;
+  font-size: 15px;
+  font-weight: 700;
+}
+
+.mint-shield {
+  height: 100%;
+  width: 100%;
+}
+
+.bold-white {
+  color: white;
+  font-weight: 900;
+  text-shadow: 1px 0 white;
+  letter-spacing: 1px;
+}
+
+.pad-right {
+  padding-right: 150px;
+}
+
+.connect-btn {
+  border-radius: 10px;
+  border: none;
+  background-color: white;
+  padding: 16px 18px;
+  color: #8836F0;
+  font-size: 15px;
+  font-weight: 700;
+}
+
+@media only screen and (min-width: 1024px) {
+  .hero-container {
+    background-image: url('../../assets/img/hero-background.png');
+    background-repeat: no-repeat;
+    background-size: contain;
+    object-fit: contain;
+  }
+}

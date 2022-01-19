@@ -83,6 +83,9 @@ body {
 
 .text-blue {
   color: $blue;
+  font-weight: 900;
+  text-shadow: 1px 0 $blue;
+  letter-spacing: 1px;
 }
 
 .text-white {
@@ -96,6 +99,13 @@ body {
 @media only screen and (min-width: 1024px) {
   .bold-15 {
     font-weight: 700;
+    font-size: 15px;
+    text-decoration: none;
+    text-align: start;
+  }
+
+  .bold-16 {
+    font-weight: 900;
     font-size: 15px;
     text-decoration: none;
     text-align: start;

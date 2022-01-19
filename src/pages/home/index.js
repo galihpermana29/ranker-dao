@@ -24,7 +24,7 @@ import './style.scss';
 const Home = () => {
   const RenderFirstHomeSection = () => {
     return (
-      <section className="container-fluid">
+      <section className="container-fluid my-5">
         <div className="row">
           <p className="akira-outlined-blue d-block d-lg-none">
             YOUR ADVENTURE <span className="akira-fill-blue">STARTS NOW</span>
@@ -37,7 +37,7 @@ const Home = () => {
               YOUR ADVENTURE <span className="akira-fill-blue">STARTS NOW</span>
             </p>
 
-            <p className="bold-15 mt-3">
+            <p className="bold-15 mt-3 d-none d-sm-block">
               Currently guild members can choose between two of the biggest P2E
               games:{' '}
               <b className="text-blue fw-bold">
@@ -47,7 +47,22 @@ const Home = () => {
               With out currently owned 500+ gaming NFTs, you are free to explore
               each world according to your own tactics and gameplay.
             </p>
-            <p className="bold-15 text-blue fw-bold">
+            <p className="bold-15 text-blue fw-bold d-none d-sm-block">
+              All our members have full access to our DAO inventory of NFTs, and
+              also a step by step guide on how to start P2E.
+            </p>
+
+            <p className="bold-15 mt-3 d-block d-sm-none px-5 mb-3">
+              Currently guild members can choose between two of the biggest P2E
+              games:{' '}
+              <b className="text-blue fw-bold">
+                {' '}
+                Axie Infinity and Thetan Arena.
+              </b>{' '}
+              With out currently owned 500+ gaming NFTs, you are free to explore
+              each world according to your own tactics and gameplay.
+            </p>
+            <p className="bold-15 text-blue fw-bold d-block d-sm-none px-5 mb-3">
               All our members have full access to our DAO inventory of NFTs, and
               also a step by step guide on how to start P2E.
             </p>
@@ -85,11 +100,11 @@ const Home = () => {
 
   const RenderSecondSection = () => {
     return (
-      <section className="container-fluid p-0 mb-5">
+      <section className="container-fluid p-0 my-5">
         <div className="row gx-0 p-0 m-0">
-          <div className="col-sm-12 col-lg-6 px-4 py-3 p-lg-5 d-flex justify-content-start align-items-center align-items-lg-start flex-column ">
+          <div className="col-sm-12 col-lg-6 px-4 py-3 p-lg-5 d-none d-sm-block">
             <p className="akira-outlined-blue">
-              MINT YOUR <span className="akira-fill-blue">GUILD BADGE</span>
+                MINT YOUR <span className="akira-fill-blue">GUILD BADGE</span>
             </p>
             <p className="bold-15 mt-3">
               You can enjoy access to our NFTs and other boons with your ranker
@@ -99,48 +114,85 @@ const Home = () => {
               Level up your badge with $RANKER and unlock our exclusive NFTs,
               tournaments, coaching sessions and many more!
             </p>
-            <Link to="/about">
-              <button className="join-our-guild">LEARN ABOUT $RANKER</button>
+            <Link to="/about" className="mt-3">
+              <button className="join-our-guild bold-white">LEARN ABOUT $RANKER</button>
             </Link>
           </div>
-          <div className="col-sm-12 col-lg-6 px-4 py-3 ps-lg-5 py-lg-0 px-lg-0 my-auto">
+          <div className="col-sm-12 col-lg-6 px-4 py-3 p-lg-5 my-auto d-none d-sm-block">
             <img src={RankersBadge} alt="rankers badge" className="img-fluid" />
           </div>
         </div>
+
+          <div className="col-sm-12 col-lg-6 px-4 py-3 p-lg-5 my-auto d-block d-lg-none">
+            <p className="akira-outlined-blue">
+                MINT YOUR <span className="akira-fill-blue">GUILD BADGE</span>
+            </p>
+            <img src={RankersBadge} alt="rankers badge" className="img-fluid mt-3" />
+          </div>
+          <div className="col-sm-12 col-lg-6 px-4 py-3 pe-lg-0 ps-lg-5 my-auto d-block d-lg-none">
+            <p className="bold-15 mt-3 px-5">
+              You can enjoy access to our NFTs and other boons with your ranker
+              badge that you will receive upon joining up with us.
+            </p>
+            <p className="bold-15 text-blue px-5">
+              Level up your badge with $RANKER and unlock our exclusive NFTs,
+              tournaments, coaching sessions and many more!
+            </p>
+          </div>
+          <div className="d-flex d-block d-lg-none">
+          <Link to="/about" className="mx-auto">
+              <button className="join-our-guild bold-white">LEARN ABOUT $RANKER</button>
+          </Link>
+          </div>
       </section>
     );
   };
 
   const RenderThirdSection = () => {
     return (
-      <section className="container-fluid p-0 mb-5">
-        <div className="row gx-0 p-0 m-0 flex-column-reverse flex-lg-row">
-          <div className="col-sm-12 col-lg-6 px-4 py-3 px-lg-0 pe-lg-5 my-auto">
-            <div className="position-relative">
-              <img src={BGThirdSection} className="background-section" />
-              <img
-                src={GuildIllustration}
-                alt="guild member plus"
-                className="image-section pe-3 pe-lg-5"
-              />
+      <section className="container-fluid p-0 my-5">
+          <div className="row">
+            <p className="akira-outlined-blue d-block d-lg-none">
+                A DAO <span className="akira-fill-blue">COMMUNITY</span>
+            </p>
+            <div className="col-sm-12 col-lg-6 px-4 py-3 p-lg-5 my-auto">
+              <div className="position-relative">
+                <img src={BGThirdSection} className="background-section" />
+                <img
+                  src={GuildIllustration}
+                  alt="guild member plus"
+                  className="image-section pe-3 pe-lg-5"
+                />
+              </div>
+            </div>
+            <div className="col-sm-12 col-lg-6 px-4 py-3 p-lg-5">
+              <p className="akira-outlined-blue d-none d-lg-block">
+                A DAO <span className="akira-fill-blue">COMMUNITY</span>
+              </p>
+
+              <p className="bold-15 mt-3 d-none d-sm-block">
+                We are for a community and made by the community. Our members have
+                the previlege to vote on how we grow our platform, such as voting
+                for our next collection of NFTs or the De-Fi assets to explore!
+              </p>
+              <p className="bold-15 text-blue d-none d-sm-block">
+                In the future, the participants of the DAO may vote on how we want
+                to expand our portfolio, be it metaverses, sports NFTs, works of
+                arts, etc.
+              </p>
+
+              <p className="bold-15 mt-3 d-block d-sm-none px-5">
+                We are for a community and made by the community. Our members have
+                the previlege to vote on how we grow our platform, such as voting
+                for our next collection of NFTs or the De-Fi assets to explore!
+              </p>
+              <p className="bold-15 text-blue d-block d-sm-none px-5">
+                In the future, the participants of the DAO may vote on how we want
+                to expand our portfolio, be it metaverses, sports NFTs, works of
+                arts, etc.
+              </p>
             </div>
           </div>
-          <div className="col-sm-12 col-lg-6 px-4 py-3 p-lg-5 my-auto">
-            <p className="akira-outlined-blue">
-              A DAO <span className="akira-fill-blue">COMMUNITY</span>
-            </p>
-            <p className="bold-15 mt-3">
-              We are for a community and made by the community. Our members have
-              the previlege to vote on how we grow our platform, such as voting
-              for our next collection of NFTs or the De-Fi assets to explore!
-            </p>
-            <p className="bold-15 text-blue">
-              In the future, the participants of the DAO may vote on how we want
-              to expand our portfolio, be it metaverses, sports NFTs, works of
-              arts, etc.
-            </p>
-          </div>
-        </div>
       </section>
     );
   };
@@ -149,7 +201,7 @@ const Home = () => {
     return (
       <section className="container-fluid p-0 mb-5">
         <div className="row gx-0 p-0 m-0">
-          <div className="col-sm-12 col-lg-6 px-4 py-3 p-lg-5 my-auto">
+          <div className="col-sm-12 col-lg-6 px-4 py-3 p-lg-5 d-none d-sm-block">
             <p className="akira-outlined-blue">
               SOCIAL - FI <span className="akira-fill-blue">STRONG</span>
             </p>
@@ -159,22 +211,48 @@ const Home = () => {
               than ever before! Compete with your friends and rank up to get
               more of our guild’s exclusive NFTs!
             </p>
-            <p className="bold-15 text-blue">
+            <p className="text-blue">
               As we grow, we will implement more SocialFi features such as in
               house tournaments and other exciting activities and portfolios!
             </p>
           </div>
-          <div className="col-sm-12 col-lg-6 px-4 py-3 pe-lg-0 ps-lg-5 my-auto">
-            <div className="position-relative">
-              <img
-                src={TogetherIllustration}
-                alt="together we are strong"
-                className="image-section ps-3 ps-lg-5"
-              />
-              <img src={BGFourthSection} className="background-section" />
-            </div>
+          <div className="col-sm-12 col-lg-6 px-4 py-3 p-lg-5 my-auto d-none d-sm-block">
+          <div className="position-relative">
+            <img
+              src={TogetherIllustration}
+              alt="together we are strong"
+              className="image-section ps-3 ps-lg-5"
+            />
+            <img src={BGFourthSection} className="background-section" />
+          </div>
           </div>
         </div>
+        
+          <div className="col-sm-12 col-lg-6 px-4 py-3 p-lg-5 my-auto d-block d-lg-none">
+            <p className="akira-outlined-blue">
+              SOCIAL - FI <span className="akira-fill-blue">STRONG</span>
+            </p>
+            <div className="position-relative">
+            <img
+              src={TogetherIllustration}
+              alt="together we are strong"
+              className="image-section ps-3 ps-lg-5"
+            />
+            <img src={BGFourthSection} className="background-section" />
+            </div>    
+          </div>
+          <div className="col-sm-12 col-lg-6 px-4 py-3 pe-lg-0 ps-lg-5 my-auto d-block d-lg-none">
+            <p className="bold-15 mt-3 px-5">
+              Start your adventure together! With our network, you can socialize
+              and strategize with your peers, create new tactics and earn more
+              than ever before! Compete with your friends and rank up to get
+              more of our guild’s exclusive NFTs!
+            </p>
+            <p className="bold-15 text-blue px-5">
+              As we grow, we will implement more SocialFi features such as in
+              house tournaments and other exciting activities and portfolios!
+            </p>
+          </div>
       </section>
     );
   };

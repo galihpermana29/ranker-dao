@@ -4,10 +4,12 @@ import Logo from '../../assets/img/logo-big.png';
 import './style.scss';
 const Footer = () => {
   const footerLinkList = [
-    { name: 'TELEGRAM', link: 'https://t.me/rankerdao' },
-    { name: 'TWITTER', link: 'https://twitter.com/rankerdao' },
+    { name: 'TELEGRAM', link: 'https://t.me/rankerdao', target: '_blank', rel:'noopener noreferrer'},
+    { name: 'INVENTORY', link: 'https://rankerdao.com/axies/index.html', target: '_blank', rel:'noopener noreferrer'},
+    { name: 'TWITTER', link: 'https://twitter.com/rankerdao', target: '_blank', rel:'noopener noreferrer' },
     { name: '$RANKER', link: '/about' },
-    { name: 'DISCORD', link: 'http://discord.gg/rankerdao' },
+    { name: 'DISCORD', link: 'http://discord.gg/rankerdao', target: '_blank', rel:'noopener noreferrer' },
+    { name: 'MINT BADGE', link: '/mint-badge' },
   ];
 
   return (
@@ -26,8 +28,8 @@ const Footer = () => {
             <div className="col" key={link.name}>
               <a
                 href={link.link}
-                target="_blank"
-                rel="noopener noreferrer"
+                target={link.target}
+                rel={link.rel}
                 className="footer-link text-start text-white">
                 {link.name}
               </a>

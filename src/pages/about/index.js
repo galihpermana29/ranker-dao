@@ -69,6 +69,18 @@ const About = () => {
       </p>
 
       <img src={RankersBadge} alt="rankers badge" className="img-fluid" />
+      <div className="d-flex">
+
+      
+      <a
+        href="/mint-badge"
+        target="_blank"
+        rel="noopener noreferrer"
+        className="mx-auto">
+        <button className="mint-badge-btn mb-5 mt-1 bold-white">MINT YOUR BADGE</button>
+      </a>
+      </div>
+
     </div>
   );
 };

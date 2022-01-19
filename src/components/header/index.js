@@ -22,6 +22,11 @@ const Header = () => {
         <div className="collapse navbar-collapse" id="navbarNav">
           <ul className="navbar-nav ms-auto">
             <li className="nav-item">
+              <a href="/mint-badge" className="nav-link-custom">
+                MINT BADGE
+              </a>
+            </li>
+            <li className="nav-item">
               <a
                 href="https://t.me/rankerdao"
                 target="_blank"
@@ -55,12 +60,9 @@ const Header = () => {
               </a>
             </li>
             <li className="nav-item">
-              <a
-                // href="https://https://t.me/rankerdao"
-                target="_blank"
-                rel="noopener"
-                className="nav-link-custom">
-                COMING SOON
+              <a href="https://rankerdao.com/axies/index.html" 
+              className="nav-link-custom">
+                INVENTORY
               </a>
             </li>
           </ul>

@@ -1,5 +1,5 @@
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
-import { Home, About } from './pages';
+import { Home, About, MintBadge } from './pages';
 import { Header, Footer } from './components';
 
 import './components/scss/global.scss';
@@ -9,6 +9,7 @@ const App = () => {
       <Header />
       <Routes>
         <Route path="/" element={<Home />} />
+        <Route path="/mint-badge" element={<MintBadge />} />
         <Route path="/about" element={<About />} />
       </Routes>
       <Footer />

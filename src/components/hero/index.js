@@ -17,7 +17,7 @@ const Hero = () => {
             href="https://t.me/rankerdao"
             target="_blank"
             rel="noopener noreferrer">
-            <button className="join-our-guild my-4">JOIN OUR GUILD NOW</button>
+            <button className="join-our-guild my-4 bold-white">JOIN OUR GUILD NOW</button>
           </a>
         </div>
 
