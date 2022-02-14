@@ -63,6 +63,25 @@
   font-weight: 700;
 }
 
+.mint-btn-disabled {
+  border-radius: 10px;
+  border: none;
+  background-color: #a9a9a9;
+  padding: 16px 18px;
+  color: white;
+  font-size: 15px;
+  font-weight: 700;
+}
+
+.link, .link:hover {
+  color: white;
+  cursor: pointer;
+}
+
+.error {
+  color: yellow !important;
+}
+
 @media only screen and (min-width: 1024px) {
   .hero-container {
     background-image: url('../../assets/img/hero-background.png');
