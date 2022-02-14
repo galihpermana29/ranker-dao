@@ -36,8 +36,15 @@ const Footer = () => {
       rel: 'noopener noreferrer',
       link: 'https://instagram.com/rankerdao?utm_medium=copy_link',
     },
-    { name: 'LITEPAPER', link: '/litepaper' },
+    { name: 'LITEPAPER', link: '[RNKR] Litepaper.pdf', download: true },
   ];
+
+  //   <a
+  //   href="[RNKR] Litepaper.pdf"
+  //   download
+  //   className="nav-link-custom">
+  //   LITEPAPER
+  // </a>
 
   return (
     <footer className="footer-container d-flex justify-content-between p-sm-5 p-2">
@@ -54,6 +61,7 @@ const Footer = () => {
           {footerLinkList.map(link => (
             <div className="col" key={link.name}>
               <a
+                {...link}
                 href={link.link}
                 target={link.target}
                 rel={link.rel}
