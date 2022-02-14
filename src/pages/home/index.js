@@ -363,7 +363,7 @@ const Home = () => {
                   key={index}>
                   <img
                     src={img}
-                    className="img-fluid partnership-image mx-auto p-1"
+                    className="img-fluid partnership-image-big mx-auto p-1"
                   />
                 </div>
               );

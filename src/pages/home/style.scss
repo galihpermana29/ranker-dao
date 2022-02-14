@@ -22,6 +22,10 @@
 
 .partnership-image {
   max-width: 200px;
+  max-height: 90px;
+}
+.partnership-image-big {
+  max-width: 270px;
   max-height: 83px;
 }
 
@@ -69,6 +73,10 @@
 
 @media only screen and (max-width: 768px) {
   .partnership-image {
+    max-width: 150px;
+    max-height: 40px;
+  }
+  .partnership-image-big {
     max-width: 150px;
     max-height: 40px;
   }

@@ -39,13 +39,6 @@ const Footer = () => {
     { name: 'LITEPAPER', link: '[RNKR] Litepaper.pdf', download: true },
   ];
 
-  //   <a
-  //   href="[RNKR] Litepaper.pdf"
-  //   download
-  //   className="nav-link-custom">
-  //   LITEPAPER
-  // </a>
-
   return (
     <footer className="footer-container d-flex justify-content-between p-sm-5 p-2">
       <div className="text-white w-100">
