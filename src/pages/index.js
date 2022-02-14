@@ -1,5 +1,6 @@
 import About from './about';
 import Home from './home';
+import LitePaper from './litepaper';
 import MintBadge from './mintbadge';
 
-export { Home, About, MintBadge };
+export { About, Home, LitePaper, MintBadge };

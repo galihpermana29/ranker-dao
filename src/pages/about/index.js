@@ -37,7 +37,8 @@ const About = () => {
         <div className="d-flex justify-content-center flex-column pt-5">
           <img src={Coin} className="img-fluid coin mx-auto" />
           <p className="akira-fill-white text-center">
-            $RANKER <span className="akira-outlined-white">TOKEN</span>
+            <span className="akira-fill-white yellow-half-bottom">$RANKER</span>{' '}
+            <span className="akira-outlined-white">TOKEN</span>
           </p>
           <p className="bold-15 text-white text-center">
             Level up your badge with $RANKER and unlock our exclusive NFTs,
@@ -70,17 +71,16 @@ const About = () => {
 
       <img src={RankersBadge} alt="rankers badge" className="img-fluid" />
       <div className="d-flex">
-
-      
-      <a
-        href="/mint-badge"
-        target="_blank"
-        rel="noopener noreferrer"
-        className="mx-auto">
-        <button className="mint-badge-btn mb-5 mt-1 bold-white">MINT YOUR BADGE</button>
-      </a>
+        <a
+          href="/mint-badge"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="mx-auto">
+          <button className="mint-badge-btn mb-5 mt-1 bold-white">
+            MINT YOUR BADGE
+          </button>
+        </a>
       </div>
-
     </div>
   );
 };

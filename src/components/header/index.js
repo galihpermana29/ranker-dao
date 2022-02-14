@@ -1,5 +1,6 @@
 import { Link } from 'react-router-dom';
 
+// import LitePaperPDF from '../../../public/[RNKR] Litepaper.pdf';
 import Logo from '../../assets/img/Logo.png';
 import './style.scss';
 const Header = () => {
@@ -60,9 +61,18 @@ const Header = () => {
               </a>
             </li>
             <li className="nav-item">
-              <a href="https://rankerdao.com/axies/index.html" 
-              className="nav-link-custom">
+              <a
+                href="https://rankerdao.com/axies/index.html"
+                className="nav-link-custom">
                 INVENTORY
+              </a>
+            </li>
+            <li className="nav-item">
+              <a
+                href="[RNKR] Litepaper.pdf"
+                download
+                className="nav-link-custom">
+                LITEPAPER
               </a>
             </li>
           </ul>

@@ -36,6 +36,11 @@ body {
   text-align: center;
 }
 
+.yellow-half-bottom {
+  background: linear-gradient(180deg, transparent 55%, #eeb908 45%);
+  padding: 0 8px;
+}
+
 .akira-fill- {
   &white {
     color: $white;
@@ -116,7 +121,7 @@ body {
   .akira-fill-white,
   .akira-fill-blue {
     font-size: 58px;
-    line-height: 60px;
+    line-height: 62px;
     text-align: start;
   }
 }

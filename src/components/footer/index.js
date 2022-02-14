@@ -4,12 +4,39 @@ import Logo from '../../assets/img/logo-big.png';
 import './style.scss';
 const Footer = () => {
   const footerLinkList = [
-    { name: 'TELEGRAM', link: 'https://t.me/rankerdao', target: '_blank', rel:'noopener noreferrer'},
-    { name: 'INVENTORY', link: 'https://rankerdao.com/axies/index.html', target: '_blank', rel:'noopener noreferrer'},
-    { name: 'TWITTER', link: 'https://twitter.com/rankerdao', target: '_blank', rel:'noopener noreferrer' },
+    {
+      name: 'TELEGRAM',
+      link: 'https://t.me/rankerdao',
+      target: '_blank',
+      rel: 'noopener noreferrer',
+    },
+    {
+      name: 'INVENTORY',
+      link: 'https://rankerdao.com/axies/index.html',
+      target: '_blank',
+      rel: 'noopener noreferrer',
+    },
+    {
+      name: 'TWITTER',
+      link: 'https://twitter.com/rankerdao',
+      target: '_blank',
+      rel: 'noopener noreferrer',
+    },
     { name: '$RANKER', link: '/about' },
-    { name: 'DISCORD', link: 'http://discord.gg/rankerdao', target: '_blank', rel:'noopener noreferrer' },
+    {
+      name: 'DISCORD',
+      link: 'http://discord.gg/rankerdao',
+      target: '_blank',
+      rel: 'noopener noreferrer',
+    },
     { name: 'MINT BADGE', link: '/mint-badge' },
+    {
+      name: 'INSTAGRAM',
+      target: '_blank',
+      rel: 'noopener noreferrer',
+      link: 'https://instagram.com/rankerdao?utm_medium=copy_link',
+    },
+    { name: 'LITEPAPER', link: '/litepaper' },
   ];
 
   return (
