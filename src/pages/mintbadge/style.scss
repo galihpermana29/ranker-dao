@@ -3,7 +3,7 @@
   background-repeat: no-repeat;
   background-size: cover;
   height: 100%;
-  width: 110%
+  width: 110%;
 }
 
 .hero-hero {
@@ -42,6 +42,11 @@
   width: 100%;
 }
 
+.mint-badge-shield-img {
+  max-height: 450px;
+  object-fit: contain;
+}
+
 .bold-white {
   color: white;
   font-weight: 900;
@@ -58,7 +63,7 @@
   border: none;
   background-color: white;
   padding: 16px 18px;
-  color: #8836F0;
+  color: #8836f0;
   font-size: 15px;
   font-weight: 700;
 }
@@ -73,7 +78,8 @@
   font-weight: 700;
 }
 
-.link, .link:hover {
+.link,
+.link:hover {
   color: white;
   cursor: pointer;
 }

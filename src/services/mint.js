@@ -1,6 +1,6 @@
-import {ethers} from 'ethers';
+import { ethers } from 'ethers';
 import ERC721Abi from './ERC721.json';
-import {getProvider} from './provider';
+import { getProvider } from './provider';
 
 export const mint = async () => {
   const provider = getProvider();
@@ -8,13 +8,13 @@ export const mint = async () => {
   const contract = new ethers.Contract(
     process.env.REACT_APP_NFT_ADDRESS,
     ERC721Abi,
-    signer
+    signer,
   );
 
   const tx = await contract.mint();
 
   return tx;
-}
+};
 
 export const getAccountBalance = async account => {
   const provider = getProvider();
@@ -22,8 +22,8 @@ export const getAccountBalance = async account => {
   const contract = new ethers.Contract(
     process.env.REACT_APP_NFT_ADDRESS,
     ERC721Abi,
-    signer
+    signer,
   );
 
   return await contract.balanceOf(account);
-}
+};
