@@ -1,6 +1,6 @@
 import './style.scss';
 import { useState, useEffect } from 'react';
-import ShieldBadge from '../../assets/img/shield-with-shadow.png';
+import ShieldBadge from '../../assets/img/shield-with-shadow.webp';
 import {
   connectWallet,
   getAccounts,
