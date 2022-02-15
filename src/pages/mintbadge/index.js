@@ -93,7 +93,7 @@ const MintBadge = () => {
         <p className="akira-outlined-white">
                 MINT YOUR 
               </p>
-              <p className="akira-fill-white">GUILD BADGE</p>
+              <p className="akira-fill-white">GUILD{' '} <span className="akira-fill-white yellow-half-bottom">BADGE</span></p>
               <p className="bold-15 text-white my-4 d-none d-lg-block pad-right">
               You can enjoy our inventory of NFTs and other boons with your <span className="bold-white">RANKER Badge</span>. Exclusive NFTs, Tournaments, 
               coaching sessions and beyond. Mint your RGUILD basic beta badge to become part of the RankerDAO guild today.
