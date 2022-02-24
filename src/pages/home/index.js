@@ -6,36 +6,55 @@ import BGFourthSection from '../../assets/img/bg-fourth-section.png';
 import BGThirdSection from '../../assets/img/bg-third-section.png';
 import Bitcoin from '../../assets/img/partnership/Bitcoin Addict.png';
 import BlackMamba from '../../assets/img/partnership/Black Mamba.png';
-import Frontier from '../../assets/img/partnership/Frontier.png';
-import SouniSovi from '../../assets/img/partnership/Souni.png';
-import LightNite from '../../assets/img/partnership/Light-Nite-Purple.png';
-import Monstax from '../../assets/img/partnership/Monstax-Purple.png';
-import MexC from '../../assets/img/partnership/Mexc-Purple.png';
+import ButtonApeswap from '../../assets/img/home/apeswap-button.png';
+import ButtonGateio from '../../assets/img/home/gateio-button.png';
+import ButtonHuobi from '../../assets/img/home/huobi-button.png';
+import ButtonKucoin from '../../assets/img/home/kucoin-button.png';
+import ButtonMexci from '../../assets/img/home/mexc-button.png';
+import Coin from '../../assets/img/home/coin.png';
 import DegenGang from '../../assets/img/partnership/Degen-Gang-Purple.png';
-import WonderHero from '../../assets/img/partnership/Wonder-Hero-Purple.png';
-import Zephyrus from '../../assets/img/partnership/Zephyrus-Capital-Purple.png';
-import SpaceFalcon from '../../assets/img/partnership/Space-Falcon-Purple.png';
-import HelixFund from '../../assets/img/partnership/Helix-Fund-Purple.png';
-import TheKillBox from '../../assets/img/partnership/The-Kill-Box-Purple.png';
-import NothingResearch from '../../assets/img/partnership/Nothing-Research-Purple.png';
-import Monstropoly from '../../assets/img/partnership/Monstropoly-purple.png';
-import Shiba from '../../assets/img/partnership/Shiba-Friends-Purple.png';
-import Pegaxy from '../../assets/img/partnership/Pegaxy-Purple.png';
+import Frontier from '../../assets/img/partnership/Frontier.png';
 import Gameplay from '../../assets/img/gameplay.png';
 import Gems from '../../assets/img/partnership/Gems.png';
 import GuildIllustration from '../../assets/img/guild-illustration.png';
+import HelixFund from '../../assets/img/partnership/Helix-Fund-Purple.png';
 import Hooga from '../../assets/img/partnership/Hooga Hooga.png';
 import HotCross from '../../assets/img/partnership/Hot Cross.png';
 import J8Venture from '../../assets/img/partnership/J8 Ventures.png';
+import LightNite from '../../assets/img/partnership/Light-Nite-Purple.png';
+import Monstax from '../../assets/img/partnership/Monstax-Purple.png';
+import Monstropoly from '../../assets/img/partnership/Monstropoly-purple.png';
+import NothingResearch from '../../assets/img/partnership/Nothing-Research-Purple.png';
 import Oddz from '../../assets/img/partnership/Oddz.png';
+import HouseOfChimera from '../../assets/img/partnership/HouseOfChimera.png';
+import Remnant from '../../assets/img/partnership/Remnant.png';
+import Huobi from '../../assets/img/partnership/Huobi.png';
+import TofuNFT from '../../assets/img/partnership/TofuNFT.png';
+import ReignOfTerror from '../../assets/img/partnership/ReignOfTerror.png';
+import Pawtime from '../../assets/img/partnership/Pawtime.png';
+import Sidus from '../../assets/img/partnership/Sidus.png';
+import Metagear from '../../assets/img/partnership/Metagear.png';
+import Apeswap from '../../assets/img/partnership/Apeswap.png';
+import Getio from '../../assets/img/partnership/Getio.png';
+import Avg from '../../assets/img/partnership/Avg.png';
+import Koakuma2 from '../../assets/img/partnership/Koakuma2.png';
+import Mexc from '../../assets/img/partnership/Mexc.png';
+import Kucoin from '../../assets/img/partnership/Kucoin.png';
+import Pegaxy from '../../assets/img/partnership/Pegaxy-Purple.png';
 import ProjectSeed from '../../assets/img/partnership/Project Seed.png';
 import RankersBadge from '../../assets/img/about/rankers-badge.png';
-import Raptor from '../../assets/img/partnership/Raptor Capital.png';
+import Shiba from '../../assets/img/partnership/Shiba-Friends-Purple.png';
+import SouniSovi from '../../assets/img/partnership/Souni.png';
+import SpaceFalcon from '../../assets/img/partnership/Space-Falcon-Purple.png';
+import TheKillBox from '../../assets/img/partnership/The-Kill-Box-Purple.png';
 import ThetanIcon from '../../assets/img/thetan.png';
 import TogetherIllustration from '../../assets/img/together-illustration.png';
+import WonderHero from '../../assets/img/partnership/Wonder-Hero-Purple.png';
+import Zephyrus from '../../assets/img/partnership/Zephyrus-Capital-Purple.png';
 import './style.scss';
 
 const Home = () => {
+  // YOUR ADVENTURE
   const RenderFirstHomeSection = () => {
     return (
       <section className="container-fluid my-5">
@@ -112,6 +131,7 @@ const Home = () => {
     );
   };
 
+  // MINT YOUR BADGE
   const RenderSecondSection = () => {
     return (
       <section className="container-fluid p-0 my-5">
@@ -170,7 +190,79 @@ const Home = () => {
     );
   };
 
+  // GET YOUR TOKEN
   const RenderThirdSection = () => {
+    const mintLinkList = [
+      {
+        img: ButtonMexci,
+        link: 'https://www.mexc.com/exchange/RANKER_USDT',
+        alt: 'mexc',
+      },
+      {
+        img: ButtonKucoin,
+        link: 'https://www.kucoin.com/trade/RANKER-USDT',
+        alt: 'kucon',
+      },
+      { img: ButtonGateio, link: 'https://www.gate.io/', alt: 'gate io' },
+      { img: ButtonApeswap, link: 'https://apeswap.finance/', alt: 'apeswap' },
+      {
+        img: ButtonHuobi,
+        link: 'https://www.huobi.com/en-us/exchange/ranker_usdt/',
+        alt: 'huobi',
+      },
+    ];
+
+    return (
+      <section className="container-fluid my-5">
+        <div className="row">
+          <p className="akira-outlined-blue d-block d-lg-none">
+            GET YOUR <span className="akira-fill-blue">TOKENS</span>
+          </p>
+          <div className="col-sm-12 col-lg-6 px-4 py-3 p-lg-5 my-auto">
+            <img src={Coin} alt="guild member plus" className="img-fluid" />
+          </div>
+          <div className="col-sm-12 col-lg-6 px-4 py-3 p-lg-5">
+            <p className="akira-outlined-blue d-none d-lg-block">
+              GET YOUR <span className="akira-fill-blue">TOKENS</span>
+            </p>
+
+            <p className="bold-15 mt-3 d-none d-sm-block">
+              Use $RANKER tokens to mint your guild badge and unlock access to
+              the DAO! You can get our tokens at these following site.
+            </p>
+
+            <p className="bold-15 mt-3 d-block d-sm-none px-5 mb-3">
+              Use $RANKER tokens to mint your guild badge and unlock access to
+              the DAO! You can get our tokens at these following site.
+            </p>
+
+            <div className="d-flex flex-row flex-wrap flex-lg-nowrap justify-content-center align-items-center gy-4">
+              {mintLinkList.map(({ img, alt, link }) => {
+                return (
+                  <div
+                    className="d-flex justify-content-center align-items-center my-2 pe-4"
+                    key={link}>
+                    <button type="button" className="btn btn-mint-link">
+                      <a
+                        href={link}
+                        className="mint-link"
+                        target="_blank"
+                        rel="noopener noreferrer">
+                        <img src={img} alt={alt} className="mint-link-image" />
+                      </a>
+                    </button>
+                  </div>
+                );
+              })}
+            </div>
+          </div>
+        </div>
+      </section>
+    );
+  };
+
+  // A DAO COMMUNITY
+  const RenderFourthSection = () => {
     return (
       <section className="container-fluid p-0 my-5">
         <div className="row">
@@ -219,7 +311,8 @@ const Home = () => {
     );
   };
 
-  const RenderFourthSection = () => {
+  // SOCIAL FI
+  const RenderFifthSection = () => {
     return (
       <section className="container-fluid p-0 mb-5">
         <div className="row gx-0 p-0 m-0">
@@ -280,57 +373,122 @@ const Home = () => {
   };
 
   const Partnership = () => {
-    const imageListDesktop = [
-      Oddz,
-      Raptor,
+    // const imageListDesktop = [
+    //   Oddz,
+    //   Raptor,
+    //   BlackMamba,
+    //   Hooga,
+    //   Bitcoin,
+    //   Gems,
+    //   Frontier,
+    //   J8Venture,
+    //   ProjectSeed,
+    //   HotCross,
+    //   SouniSovi,
+    //   LightNite,
+    //   Monstax,
+    //   MexC,
+    //   DegenGang,
+    // ];
+    // const imageList4Col = [WonderHero, Zephyrus, SpaceFalcon, HelixFund];
+    // const last5Image = [
+    //   TheKillBox,
+    //   NothingResearch,
+    //   Monstropoly,
+    //   Shiba,
+    //   Pegaxy,
+    // ];
+
+    const imageDesktopFirstList = [ProjectSeed, Kucoin, HotCross, Mexc];
+    const imageDesktopSecondList = [
       BlackMamba,
-      Hooga,
-      Bitcoin,
-      Gems,
-      Frontier,
       J8Venture,
-      ProjectSeed,
-      HotCross,
-      SouniSovi,
-      LightNite,
-      Monstax,
-      MexC,
-      DegenGang,
+      Getio,
+      Avg,
+
+      WonderHero,
+      Oddz,
     ];
-    const imageList4Col = [WonderHero, Zephyrus, SpaceFalcon, HelixFund];
-    const last5Image = [
+    const imageDesktopThirdList = [
+      Frontier,
+
+      Apeswap,
       TheKillBox,
-      NothingResearch,
-      Monstropoly,
-      Shiba,
-      Pegaxy,
+      Metagear,
+      SpaceFalcon,
     ];
 
-    const imageListAll = [
-      Oddz,
-      Raptor,
-      BlackMamba,
-      Hooga,
-      Bitcoin,
-      Gems,
-      Frontier,
-      J8Venture,
-      ProjectSeed,
-      HotCross,
-      SouniSovi,
-      LightNite,
-      Monstax,
-      MexC,
-      DegenGang,
-      WonderHero,
-      Zephyrus,
-      SpaceFalcon,
+    const imageDesktopFourthList = [
+      Sidus,
       HelixFund,
-      TheKillBox,
-      NothingResearch,
-      Monstropoly,
-      Shiba,
       Pegaxy,
+      Pawtime,
+      Bitcoin,
+      ReignOfTerror,
+      Gems,
+      Zephyrus,
+      TofuNFT,
+      NothingResearch,
+      SouniSovi,
+      Monstax,
+      Remnant,
+      Shiba,
+      Monstropoly,
+      HouseOfChimera,
+      Koakuma2,
+      LightNite,
+    ];
+
+    const imageDesktopFifthList = [Huobi, DegenGang, Hooga];
+
+    const imageMobileList = [
+      ProjectSeed,
+      Kucoin,
+      HotCross,
+      Mexc,
+
+      BlackMamba,
+      J8Venture,
+      Getio,
+      Avg,
+
+      WonderHero,
+      Oddz,
+      Frontier,
+      TheKillBox,
+
+      Apeswap,
+      Metagear,
+      SpaceFalcon,
+      Sidus,
+
+      HelixFund,
+      Pegaxy,
+      Pawtime,
+      Bitcoin,
+
+      ReignOfTerror,
+      Gems,
+      Zephyrus,
+      TofuNFT,
+
+      NothingResearch,
+      SouniSovi,
+      Monstax,
+      Remnant,
+
+      Shiba,
+      Monstropoly,
+      HouseOfChimera,
+      Koakuma2,
+
+      LightNite,
+      Huobi,
+      DegenGang,
+      Hooga,
+
+      // Raptor,
+      // MexC,
     ];
 
     return (
@@ -341,8 +499,8 @@ const Home = () => {
 
         {/* DESKTOP ONLY */}
         <div className="d-none d-lg-block">
-          <div className="row row-cols-4 row-cols-lg-5 px-5 mt-2 gy-4">
-            {imageListDesktop.map((img, index) => {
+          <div className="row row-cols-4 px-5 mt-2 gy-4">
+            {imageDesktopFirstList.map((img, index) => {
               return (
                 <div
                   className="col d-flex justify-content-center align-items-center"
@@ -355,8 +513,8 @@ const Home = () => {
               );
             })}
           </div>
-          <div className="row row-cols-4 row-cols-lg-4 px-0 mt-2 gy-4">
-            {imageList4Col.map((img, index) => {
+          <div className="row row-cols-6 px-5 mt-2 gy-4">
+            {imageDesktopSecondList.map((img, index) => {
               return (
                 <div
                   className="col d-flex justify-content-between align-items-center"
@@ -369,8 +527,8 @@ const Home = () => {
               );
             })}
           </div>
-          <div className="row row-cols-4 row-cols-lg-5 px-5 mt-2 gy-4">
-            {last5Image.map((img, index) => {
+          <div className="row row-cols-5 px-5 mt-2 gy-4">
+            {imageDesktopThirdList.map((img, index) => {
               return (
                 <div
                   className="col d-flex justify-content-between align-items-center"
@@ -383,12 +541,40 @@ const Home = () => {
               );
             })}
           </div>
+          <div className="row row-cols-6 px-5 mt-2 gy-4">
+            {imageDesktopFourthList.map((img, index) => {
+              return (
+                <div
+                  className="col d-flex justify-content-between align-items-center"
+                  key={index}>
+                  <img
+                    src={img}
+                    className="img-fluid partnership-image-big mx-auto p-1"
+                  />
+                </div>
+              );
+            })}
+          </div>
+          <div className="row row-cols-3 px-5 mt-2 gy-4">
+            {imageDesktopFifthList.map((img, index) => {
+              return (
+                <div
+                  className="col d-flex justify-content-between align-items-center"
+                  key={index}>
+                  <img
+                    src={img}
+                    className="img-fluid partnership-image-big mx-auto p-1"
+                  />
+                </div>
+              );
+            })}
+          </div>
         </div>
 
         {/* MOBILE & TABLET*/}
         <div className="d-block d-lg-none">
           <div className="row row-cols-4 row-cols-lg-5 px-3 mt-2 gy-4">
-            {imageListAll.map((img, index) => {
+            {imageMobileList.map((img, index) => {
               return (
                 <div
                   className="col d-flex justify-content-center align-items-center px-1"
@@ -410,6 +596,7 @@ const Home = () => {
       <RenderSecondSection />
       <RenderThirdSection />
       <RenderFourthSection />
+      <RenderFifthSection />
       <Partnership />
     </div>
   );
