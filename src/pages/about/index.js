@@ -69,7 +69,7 @@ const About = () => {
         RANKERS <span className="akira-fill-blue">BADGE</span>
       </p>
 
-      <img src={RankersBadge} alt="rankers badge" className="img-fluid" />
+      <img src={RankersBadge} alt="rankers badge" className="img-fluid w-100" />
       <div className="d-flex">
         <a
           href="/mint-badge"
