@@ -26,6 +26,16 @@
   font-weight: 700;
 }
 
+.btn-mint-link-ranker-page {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 140px;
+  height: auto;
+  background-color: #ffffff;
+  // padding: 20px;
+}
+
 @media only screen and (min-width: 1024px) {
   .about-wrapper {
     background-image: url('../../assets/img/about/about-background.png');

@@ -1,3 +1,8 @@
+import ButtonApeswap from '../../assets/img/about/apeswap-color.png';
+import ButtonGateio from '../../assets/img/about/gateio-color.png';
+import ButtonHuobi from '../../assets/img/about/huobi-color.png';
+import ButtonKucoin from '../../assets/img/about/kucoin-color.png';
+import ButtonMexci from '../../assets/img/about/mexc-color.png';
 import Coin from '../../assets/img/about/coin.png';
 import GraphFirst from '../../assets/img/about/Graph-1.png';
 import GraphSecond from '../../assets/img/about/Graph-2.png';
@@ -31,10 +36,60 @@ const About = () => {
     { img: MobileEleventh, alt: 'mobile graph 11' },
   ];
 
+  const RenderMintList = () => {
+    const mintLinkList = [
+      {
+        img: ButtonMexci,
+        link: 'https://www.mexc.com/exchange/RANKER_USDT',
+        alt: 'mexc',
+      },
+      {
+        img: ButtonKucoin,
+        link: 'https://www.kucoin.com/trade/RANKER-USDT',
+        alt: 'kucon',
+      },
+      {
+        img: ButtonGateio,
+        link: 'https://www.gate.io/trade/RANKER_USDT',
+        alt: 'gate io',
+      },
+      { img: ButtonApeswap, link: 'https://apeswap.finance/', alt: 'apeswap' },
+      {
+        img: ButtonHuobi,
+        link: 'https://www.huobi.com/en-us/exchange/ranker_usdt/',
+        alt: 'huobi',
+      },
+    ];
+
+    return (
+      <section className="container-fluid my-5">
+        <div className="d-flex flex-row flex-wrap flex-lg-nowrap justify-content-center align-items-center gy-4">
+          {mintLinkList.map(({ img, alt, link }) => {
+            return (
+              <div
+                className="d-flex justify-content-center align-items-center m-2"
+                key={link}>
+                <button type="button" className="btn btn-mint-link-ranker-page">
+                  <a
+                    href={link}
+                    className="mint-link"
+                    target="_blank"
+                    rel="noopener noreferrer">
+                    <img src={img} alt={alt} className="img-fluid w-100" />
+                  </a>
+                </button>
+              </div>
+            );
+          })}
+        </div>
+      </section>
+    );
+  };
+
   return (
     <div className="container-fluid h-100 p-0">
       <div className="about-wrapper px-3">
-        <div className="d-flex justify-content-center flex-column pt-5">
+        <div className="d-flex justify-content-center flex-column pt-2 pt-md-3 pt-lg-5 ">
           <img src={Coin} className="img-fluid coin mx-auto" />
           <p className="akira-fill-white text-center">
             <span className="akira-fill-white yellow-half-bottom">$RANKER</span>{' '}
@@ -42,8 +97,10 @@ const About = () => {
           </p>
           <p className="bold-15 text-white text-center">
             Level up your badge with $RANKER and unlock our exclusive NFTs,
-            tournaments, coaching sessions and many more!
+            tournaments, coaching sessions and many more!<br></br> You can get
+            our tokens at these following site:
           </p>
+          <RenderMintList />
         </div>
         {/* DESKTOP ONLY */}
         <img src={GraphFirst} className="img-fluid d-none d-sm-block" />

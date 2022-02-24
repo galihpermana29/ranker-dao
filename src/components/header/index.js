@@ -69,7 +69,7 @@ const Header = () => {
             </li>
             <li className="nav-item">
               <a
-                href="[RNKR] Litepaper.pdf"
+                href="[RNKR] Handout Page.pdf"
                 download
                 className="nav-link-custom">
                 LITEPAPER

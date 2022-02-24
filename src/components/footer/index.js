@@ -36,7 +36,7 @@ const Footer = () => {
       rel: 'noopener noreferrer',
       link: 'https://instagram.com/rankerdao?utm_medium=copy_link',
     },
-    { name: 'LITEPAPER', link: '[RNKR] Litepaper.pdf', download: true },
+    { name: 'LITEPAPER', link: '[RNKR] Handout Page.pdf', download: true },
   ];
 
   return (
