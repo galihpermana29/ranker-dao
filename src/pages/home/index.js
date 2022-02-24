@@ -269,16 +269,7 @@ const Home = () => {
           <p className="akira-outlined-blue d-block d-lg-none">
             A DAO <span className="akira-fill-blue">COMMUNITY</span>
           </p>
-          <div className="col-sm-12 col-lg-6 px-4 py-3 p-lg-5 my-auto">
-            <div className="position-relative">
-              <img src={BGThirdSection} className="background-section" />
-              <img
-                src={GuildIllustration}
-                alt="guild member plus"
-                className="image-section pe-3 pe-lg-5"
-              />
-            </div>
-          </div>
+
           <div className="col-sm-12 col-lg-6 px-4 py-3 p-lg-5">
             <p className="akira-outlined-blue d-none d-lg-block">
               A DAO <span className="akira-fill-blue">COMMUNITY</span>
@@ -306,6 +297,16 @@ const Home = () => {
               arts, etc.
             </p>
           </div>
+          <div className="col-sm-12 col-lg-6 px-4 py-3 p-lg-5 my-auto">
+            <div className="position-relative">
+              <img src={BGThirdSection} className="background-section" />
+              <img
+                src={GuildIllustration}
+                alt="guild member plus"
+                className="image-section pe-3 pe-lg-5"
+              />
+            </div>
+          </div>
         </div>
       </section>
     );
@@ -316,6 +317,16 @@ const Home = () => {
     return (
       <section className="container-fluid p-0 mb-5">
         <div className="row gx-0 p-0 m-0">
+          <div className="col-sm-12 col-lg-6 px-4 py-3 p-lg-5 my-auto d-none d-sm-block">
+            <div className="position-relative">
+              <img
+                src={TogetherIllustration}
+                alt="together we are strong"
+                className="image-section ps-3 ps-lg-5"
+              />
+              <img src={BGFourthSection} className="background-section" />
+            </div>
+          </div>
           <div className="col-sm-12 col-lg-6 px-4 py-3 p-lg-5 d-none d-sm-block">
             <p className="akira-outlined-blue">
               SOCIAL - FI <span className="akira-fill-blue">STRONG</span>
@@ -330,16 +341,6 @@ const Home = () => {
               As we grow, we will implement more SocialFi features such as in
               house tournaments and other exciting activities and portfolios!
             </p>
-          </div>
-          <div className="col-sm-12 col-lg-6 px-4 py-3 p-lg-5 my-auto d-none d-sm-block">
-            <div className="position-relative">
-              <img
-                src={TogetherIllustration}
-                alt="together we are strong"
-                className="image-section ps-3 ps-lg-5"
-              />
-              <img src={BGFourthSection} className="background-section" />
-            </div>
           </div>
         </div>
 
@@ -373,32 +374,6 @@ const Home = () => {
   };
 
   const Partnership = () => {
-    // const imageListDesktop = [
-    //   Oddz,
-    //   Raptor,
-    //   BlackMamba,
-    //   Hooga,
-    //   Bitcoin,
-    //   Gems,
-    //   Frontier,
-    //   J8Venture,
-    //   ProjectSeed,
-    //   HotCross,
-    //   SouniSovi,
-    //   LightNite,
-    //   Monstax,
-    //   MexC,
-    //   DegenGang,
-    // ];
-    // const imageList4Col = [WonderHero, Zephyrus, SpaceFalcon, HelixFund];
-    // const last5Image = [
-    //   TheKillBox,
-    //   NothingResearch,
-    //   Monstropoly,
-    //   Shiba,
-    //   Pegaxy,
-    // ];
-
     const imageDesktopFirstList = [ProjectSeed, Kucoin, HotCross, Mexc];
     const imageDesktopSecondList = [
       BlackMamba,
@@ -417,7 +392,6 @@ const Home = () => {
       Metagear,
       SpaceFalcon,
     ];
-
     const imageDesktopFourthList = [
       Sidus,
       HelixFund,
@@ -438,9 +412,7 @@ const Home = () => {
       Koakuma2,
       LightNite,
     ];
-
     const imageDesktopFifthList = [Huobi, DegenGang, Hooga];
-
     const imageMobileList = [
       ProjectSeed,
       Kucoin,
