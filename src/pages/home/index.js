@@ -1,7 +1,9 @@
 import { Link } from 'react-router-dom';
 
 import { Hero } from '../../components';
-import AxieIcon from '../../assets/img/axie.png';
+import Apeswap from '../../assets/img/partnership/Apeswap.png';
+import Avg from '../../assets/img/partnership/Avg.png';
+import AxieBtn from '../../assets/img/home/axie-btn.png';
 import BGFourthSection from '../../assets/img/bg-fourth-section.png';
 import BGThirdSection from '../../assets/img/bg-third-section.png';
 import Bitcoin from '../../assets/img/partnership/Bitcoin Addict.png';
@@ -12,44 +14,45 @@ import ButtonHuobi from '../../assets/img/home/huobi-button.png';
 import ButtonKucoin from '../../assets/img/home/kucoin-button.png';
 import ButtonMexci from '../../assets/img/home/mexc-button.png';
 import Coin from '../../assets/img/home/coin.png';
+import Cyball from '../../assets/img/partnership/Cyball.png';
+import CyballBtn from '../../assets/img/home/cyball-btn.png';
 import DegenGang from '../../assets/img/partnership/Degen-Gang-Purple.png';
 import Frontier from '../../assets/img/partnership/Frontier.png';
-import Gameplay from '../../assets/img/gameplay.png';
+import Gameplay from '../../assets/img/gameplay2.png';
 import Gems from '../../assets/img/partnership/Gems.png';
+import Getio from '../../assets/img/partnership/Getio.png';
 import GuildIllustration from '../../assets/img/guild-illustration.png';
 import HelixFund from '../../assets/img/partnership/Helix-Fund-Purple.png';
 import Hooga from '../../assets/img/partnership/Hooga Hooga.png';
 import HotCross from '../../assets/img/partnership/Hot Cross.png';
+import HouseOfChimera from '../../assets/img/partnership/HouseOfChimera.png';
+import Huobi from '../../assets/img/partnership/Huobi.png';
 import J8Venture from '../../assets/img/partnership/J8 Ventures.png';
+import Koakuma2 from '../../assets/img/partnership/Koakuma2.png';
+import Kucoin from '../../assets/img/partnership/Kucoin.png';
 import LightNite from '../../assets/img/partnership/Light-Nite-Purple.png';
+import Metagear from '../../assets/img/partnership/Metagear.png';
+import Mexc from '../../assets/img/partnership/Mexc.png';
 import Monstax from '../../assets/img/partnership/Monstax-Purple.png';
 import Monstropoly from '../../assets/img/partnership/Monstropoly-purple.png';
 import NothingResearch from '../../assets/img/partnership/Nothing-Research-Purple.png';
 import Oddz from '../../assets/img/partnership/Oddz.png';
-import HouseOfChimera from '../../assets/img/partnership/HouseOfChimera.png';
-import Remnant from '../../assets/img/partnership/Remnant.png';
-import Huobi from '../../assets/img/partnership/Huobi.png';
-import TofuNFT from '../../assets/img/partnership/TofuNFT.png';
-import ReignOfTerror from '../../assets/img/partnership/ReignOfTerror.png';
 import Pawtime from '../../assets/img/partnership/Pawtime.png';
-import Sidus from '../../assets/img/partnership/Sidus.png';
-import Metagear from '../../assets/img/partnership/Metagear.png';
-import Apeswap from '../../assets/img/partnership/Apeswap.png';
-import Getio from '../../assets/img/partnership/Getio.png';
-import Avg from '../../assets/img/partnership/Avg.png';
-import Koakuma2 from '../../assets/img/partnership/Koakuma2.png';
-import Mexc from '../../assets/img/partnership/Mexc.png';
-import Kucoin from '../../assets/img/partnership/Kucoin.png';
 import Pegaxy from '../../assets/img/partnership/Pegaxy-Purple.png';
+import PegaxyBtn from '../../assets/img/home/pegaxy-btn.png';
 import ProjectSeed from '../../assets/img/partnership/Project Seed.png';
-import RankersBadge from '../../assets/img/about/rankers-badge.png';
+import RankersBadge from '../../assets/img/home/five-shields.webp';
+import ReignOfTerror from '../../assets/img/partnership/ReignOfTerror.png';
+import Remnant from '../../assets/img/partnership/Remnant.png';
 import Shiba from '../../assets/img/partnership/Shiba-Friends-Purple.png';
+import Sidus from '../../assets/img/partnership/Sidus.png';
 import SouniSovi from '../../assets/img/partnership/Souni.png';
 import SpaceFalcon from '../../assets/img/partnership/Space-Falcon-Purple.png';
 import TheKillBox from '../../assets/img/partnership/The-Kill-Box-Purple.png';
-import ThetanIcon from '../../assets/img/thetan.png';
-import TogetherIllustration from '../../assets/img/together-illustration.png';
+import TofuNFT from '../../assets/img/partnership/TofuNFT.png';
+import TogetherIllustration from '../../assets/img/home/TogetherIllustration2.png';
 import WonderHero from '../../assets/img/partnership/Wonder-Hero-Purple.png';
+import WonderheroBtn from '../../assets/img/home/wonderhero-btn.png';
 import Zephyrus from '../../assets/img/partnership/Zephyrus-Capital-Purple.png';
 import './style.scss';
 
@@ -71,14 +74,9 @@ const Home = () => {
             </p>
 
             <p className="bold-15 mt-3 d-none d-sm-block">
-              Currently guild members can choose between two of the biggest P2E
-              games:{' '}
-              <b className="text-blue fw-bold">
-                {' '}
-                Axie Infinity and Thetan Arena.
-              </b>{' '}
-              With out currently owned 500+ gaming NFTs, you are free to explore
-              each world according to your own tactics and gameplay.
+              We currently owned 1000+ gaming NFTs and will add more in the
+              future. You are free to explore each world according to your own
+              tactics and gameplay.
             </p>
             <p className="bold-15 text-blue fw-bold d-none d-sm-block">
               All our members have full access to our DAO inventory of NFTs, and
@@ -86,41 +84,66 @@ const Home = () => {
             </p>
 
             <p className="bold-15 mt-3 d-block d-sm-none px-5 mb-3">
-              Currently guild members can choose between two of the biggest P2E
-              games:{' '}
-              <b className="text-blue fw-bold">
-                {' '}
-                Axie Infinity and Thetan Arena.
-              </b>{' '}
-              With out currently owned 500+ gaming NFTs, you are free to explore
-              each world according to your own tactics and gameplay.
+              We currently owned 1000+ gaming NFTs and will add more in the
+              future. You are free to explore each world according to your own
+              tactics and gameplay.
             </p>
             <p className="bold-15 text-blue fw-bold d-block d-sm-none px-5 mb-3">
               All our members have full access to our DAO inventory of NFTs, and
               also a step by step guide on how to start P2E.
             </p>
+
             <div className="row ">
-              <div className="col-6 col-lg-4">
+              <div className="col-6 col-lg-3 p-2 d-flex justfify-content-center">
                 <a
-                  href="https://axieinfinity.com/"
+                  href="https://cyball.com/"
                   target="_blank"
-                  rel="noopener noreferrer">
+                  rel="noopener noreferrer"
+                  className="adventure-btn">
                   <img
-                    src={AxieIcon}
-                    alt="axie infinity"
-                    className="img-fluid"
+                    src={CyballBtn}
+                    alt="cyball"
+                    className="w-100 adventure-image-btn"
                   />
                 </a>
               </div>
-              <div className="col-6 col-lg-4">
+              <div className="col-6 col-lg-3 p-2 d-flex justfify-content-center">
                 <a
-                  href="https://thetanarena.com/"
+                  href="https://pegaxy.io/"
                   target="_blank"
-                  rel="noopener noreferrer">
+                  rel="noopener noreferrer"
+                  className="adventure-btn">
                   <img
-                    src={ThetanIcon}
-                    alt="thetan arena"
-                    className="img-fluid"
+                    src={PegaxyBtn}
+                    alt="pegaxy io"
+                    className="w-100 adventure-image-btn"
+                  />
+                </a>
+              </div>
+
+              <div className="col-6 col-lg-3 p-2 d-flex justfify-content-center">
+                <a
+                  href="https://wonderhero.io/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="adventure-btn">
+                  <img
+                    src={WonderheroBtn}
+                    alt="wonderhero"
+                    className="w-100 adventure-image-btn"
+                  />
+                </a>
+              </div>
+              <div className="col-6 col-lg-3 p-2 d-flex justfify-content-center">
+                <a
+                  href="https://axieinfinity.com/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="adventure-btn">
+                  <img
+                    src={AxieBtn}
+                    alt="axie infinity"
+                    className="w-100 adventure-image-btn"
                   />
                 </a>
               </div>
@@ -136,29 +159,28 @@ const Home = () => {
     return (
       <section className="container-fluid p-0 my-5">
         <div className="row gx-0 p-0 m-0">
-          <div className="col-sm-12 col-lg-6 px-4 py-3 p-lg-5 d-none d-sm-block">
+          {/* DESKTOP ONLY */}
+          <div className="col-sm-12 col-lg-6 px-4 py-3 p-lg-5 d-none d-sm-flex justify-content-between flex-column">
             <p className="akira-outlined-blue">
               MINT YOUR <span className="akira-fill-blue">GUILD BADGE</span>
             </p>
-            <p className="bold-15 mt-3">
-              You can enjoy access to our NFTs and other boons with your ranker
-              badge that you will receive upon joining up with us.
-            </p>
-            <p className="bold-15 text-blue">
-              Level up your badge with $RANKER and unlock our exclusive NFTs,
-              tournaments, coaching sessions and many more!
+            <p className="bold-15 mt-3 w-75">
+              You can enjoy our inventory of NFTs and other boons with yout
+              RANKER Badge. Exclusive NFTs, Tournaments, coaching sessions and
+              beyond.
             </p>
             <Link to="/about" className="mt-3">
-              <button className="join-our-guild bold-white">
+              <button className="learn-about-ranker-btn bold-white">
                 LEARN ABOUT $RANKER
               </button>
             </Link>
           </div>
-          <div className="col-sm-12 col-lg-6 px-4 py-3 p-lg-5 my-auto d-none d-sm-block">
+          <div className="col-sm-12 col-lg-6 px-4 py-3 p-lg-5 pe-lg-0 my-auto d-none d-sm-block">
             <img src={RankersBadge} alt="rankers badge" className="img-fluid" />
           </div>
         </div>
 
+        {/* MOBILE ONLY */}
         <div className="col-sm-12 col-lg-6 px-4 py-3 p-lg-5 my-auto d-block d-lg-none">
           <p className="akira-outlined-blue">
             MINT YOUR <span className="akira-fill-blue">GUILD BADGE</span>
@@ -171,17 +193,13 @@ const Home = () => {
         </div>
         <div className="col-sm-12 col-lg-6 px-4 py-3 pe-lg-0 ps-lg-5 my-auto d-block d-lg-none">
           <p className="bold-15 mt-3 px-5">
-            You can enjoy access to our NFTs and other boons with your ranker
-            badge that you will receive upon joining up with us.
-          </p>
-          <p className="bold-15 text-blue px-5">
-            Level up your badge with $RANKER and unlock our exclusive NFTs,
-            tournaments, coaching sessions and many more!
+            You can enjoy our inventory of NFTs and other boons with yout RANKER
+            Badge. Exclusive NFTs, Tournaments, coaching sessions and beyond.
           </p>
         </div>
         <div className="d-flex d-block d-lg-none">
           <Link to="/about" className="mx-auto">
-            <button className="join-our-guild bold-white">
+            <button className="learn-about-ranker-btn bold-white">
               LEARN ABOUT $RANKER
             </button>
           </Link>
@@ -218,11 +236,11 @@ const Home = () => {
           <p className="akira-outlined-blue d-block d-lg-none">
             GET YOUR <span className="akira-fill-blue">TOKENS</span>
           </p>
-          <div className="col-sm-12 col-lg-6 px-4 py-3 p-lg-5 my-auto">
+          <div className="col-sm-12 col-lg-6 px-4 py-3 p-lg-5 ps-lg-0 my-auto">
             <img src={Coin} alt="guild member plus" className="img-fluid" />
           </div>
-          <div className="col-sm-12 col-lg-6 px-4 py-3 p-lg-5">
-            <p className="akira-outlined-blue d-none d-lg-block">
+          <div className="col-sm-12 col-lg-6 px-4 py-3 p-lg-5 d-flex justify-content-around flex-column">
+            <p className="akira-outlined-blue d-none d-lg-block mt-5">
               GET YOUR <span className="akira-fill-blue">TOKENS</span>
             </p>
 
@@ -236,24 +254,28 @@ const Home = () => {
               the DAO! You can get our tokens at these following site.
             </p>
 
-            <div className="d-flex flex-row flex-wrap flex-lg-nowrap justify-content-center align-items-center gy-4">
-              {mintLinkList.map(({ img, alt, link }) => {
-                return (
-                  <div
-                    className="d-flex justify-content-center align-items-center my-2 pe-4"
-                    key={link}>
-                    <button type="button" className="btn btn-mint-link">
-                      <a
-                        href={link}
-                        className="mint-link"
-                        target="_blank"
-                        rel="noopener noreferrer">
-                        <img src={img} alt={alt} className="mint-link-image" />
-                      </a>
-                    </button>
-                  </div>
-                );
-              })}
+            <div className="mink-link-list-wrapper">
+              <div className="d-flex justify-content-lg-start justify-content-center flex-wrap row gy-4 row-cols-2 row-cols-lg-3">
+                {mintLinkList.map(({ img, alt, link }) => {
+                  return (
+                    <div className="col" key={link}>
+                      <button type="button" className="btn btn-mint-link">
+                        <a
+                          href={link}
+                          className="mint-link"
+                          target="_blank"
+                          rel="noopener noreferrer">
+                          <img
+                            src={img}
+                            alt={alt}
+                            className="mint-link-image"
+                          />
+                        </a>
+                      </button>
+                    </div>
+                  );
+                })}
+              </div>
             </div>
           </div>
         </div>
@@ -269,35 +291,30 @@ const Home = () => {
           <p className="akira-outlined-blue d-block d-lg-none">
             A DAO <span className="akira-fill-blue">COMMUNITY</span>
           </p>
-
-          <div className="col-sm-12 col-lg-6 px-4 py-3 p-lg-5">
-            <p className="akira-outlined-blue d-none d-lg-block">
+          <div className="col-sm-12 col-lg-6 px-4 py-3 p-lg-5 d-flex justify-content-around flex-column">
+            <p className="akira-outlined-blue d-none d-lg-block mt-5">
               A DAO <span className="akira-fill-blue">COMMUNITY</span>
             </p>
 
-            <p className="bold-15 mt-3 d-none d-sm-block">
-              We are for a community and made by the community. Our members have
-              the previlege to vote on how we grow our platform, such as voting
-              for our next collection of NFTs or the De-Fi assets to explore!
+            <p className="bold-15 w-75 mt-3 d-none d-sm-block">
+              We are a collective community of crypto adopters that welcomes our
+              guild badge owners to vote on how we grow our platform.
             </p>
-            <p className="bold-15 text-blue d-none d-sm-block">
-              In the future, the participants of the DAO may vote on how we want
-              to expand our portfolio, be it metaverses, sports NFTs, works of
-              arts, etc.
+            <p className="bold-15 w-75 text-blue d-none d-sm-block">
+              Participants of the DAO may vote on how we expand our portfolio,
+              be it a metaverse land, sports NFTs, works of art, etc.
             </p>
 
             <p className="bold-15 mt-3 d-block d-sm-none px-5">
-              We are for a community and made by the community. Our members have
-              the previlege to vote on how we grow our platform, such as voting
-              for our next collection of NFTs or the De-Fi assets to explore!
+              We are a collective community of crypto adopters that welcomes our
+              guild badge owners to vote on how we grow our platform.
             </p>
             <p className="bold-15 text-blue d-block d-sm-none px-5">
-              In the future, the participants of the DAO may vote on how we want
-              to expand our portfolio, be it metaverses, sports NFTs, works of
-              arts, etc.
+              Participants of the DAO may vote on how we expand our portfolio,
+              be it a metaverse land, sports NFTs, works of art, etc.
             </p>
           </div>
-          <div className="col-sm-12 col-lg-6 px-4 py-3 p-lg-5 my-auto">
+          <div className="col-sm-12 col-lg-6 px-4 py-3 p-lg-5 pe-lg-0 my-auto">
             <div className="position-relative">
               <img src={BGThirdSection} className="background-section" />
               <img
@@ -317,7 +334,7 @@ const Home = () => {
     return (
       <section className="container-fluid p-0 mb-5">
         <div className="row gx-0 p-0 m-0">
-          <div className="col-sm-12 col-lg-6 px-4 py-3 p-lg-5 my-auto d-none d-sm-block">
+          <div className="col-sm-12 col-lg-6 px-4 py-3 p-lg-5 ps-lg-0 my-auto d-none d-sm-block">
             <div className="position-relative">
               <img
                 src={TogetherIllustration}
@@ -327,8 +344,8 @@ const Home = () => {
               <img src={BGFourthSection} className="background-section" />
             </div>
           </div>
-          <div className="col-sm-12 col-lg-6 px-4 py-3 p-lg-5 d-none d-sm-block">
-            <p className="akira-outlined-blue">
+          <div className="col-sm-12 col-lg-6 px-4 py-3 p-lg-5 d-none d-sm-flex justify-content-around flex-column">
+            <p className="akira-outlined-blue mt-5">
               SOCIAL - FI <span className="akira-fill-blue">STRONG</span>
             </p>
             <p className="bold-15 mt-3">
@@ -344,6 +361,7 @@ const Home = () => {
           </div>
         </div>
 
+        {/* MOBILE */}
         <div className="col-sm-12 col-lg-6 px-4 py-3 p-lg-5 my-auto d-block d-lg-none">
           <p className="akira-outlined-blue">
             SOCIAL - FI <span className="akira-fill-blue">STRONG</span>
@@ -412,7 +430,7 @@ const Home = () => {
       Koakuma2,
       LightNite,
     ];
-    const imageDesktopFifthList = [Huobi, DegenGang, Hooga];
+    const imageDesktopFifthList = [DegenGang, Hooga, Cyball, Huobi];
     const imageMobileList = [
       ProjectSeed,
       Kucoin,
@@ -454,13 +472,16 @@ const Home = () => {
       HouseOfChimera,
       Koakuma2,
 
+      // Raptor,
+      // MexC,
+    ];
+
+    const imageMobileListLastFive = [
       LightNite,
       Huobi,
       DegenGang,
       Hooga,
-
-      // Raptor,
-      // MexC,
+      Cyball,
     ];
 
     return (
@@ -527,7 +548,7 @@ const Home = () => {
               );
             })}
           </div>
-          <div className="row row-cols-3 px-5 mt-2 gy-4">
+          <div className="row row-cols-4 px-5 mt-2 gy-4 gx-5">
             {imageDesktopFifthList.map((img, index) => {
               return (
                 <div
@@ -547,6 +568,17 @@ const Home = () => {
         <div className="d-block d-lg-none">
           <div className="row row-cols-4 row-cols-lg-5 px-3 mt-2 gy-4">
             {imageMobileList.map((img, index) => {
+              return (
+                <div
+                  className="col d-flex justify-content-center align-items-center px-1"
+                  key={index}>
+                  <img src={img} className="img-fluid partnership-image p-0 " />
+                </div>
+              );
+            })}
+          </div>
+          <div className="row row-cols-5 row-cols-lg-5 px-3 mt-2 gy-4">
+            {imageMobileListLastFive.map((img, index) => {
               return (
                 <div
                   className="col d-flex justify-content-center align-items-center px-1"

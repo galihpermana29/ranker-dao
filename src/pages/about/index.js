@@ -3,7 +3,7 @@ import ButtonGateio from '../../assets/img/about/gateio-color.png';
 import ButtonHuobi from '../../assets/img/about/huobi-color.png';
 import ButtonKucoin from '../../assets/img/about/kucoin-color.png';
 import ButtonMexci from '../../assets/img/about/mexc-color.png';
-import Coin from '../../assets/img/about/coin.png';
+import Coin from '../../assets/img/about/token.png';
 import GraphFirst from '../../assets/img/about/Graph-1.png';
 import GraphSecond from '../../assets/img/about/Graph-2.png';
 import GraphThird from '../../assets/img/about/Graph-3.png';
@@ -18,7 +18,7 @@ import MobileSeventh from '../../assets/img/about/MobileSeventh.png';
 import MobileSixth from '../../assets/img/about/MobileSixth.png';
 import MobileTenth from '../../assets/img/about/MobileTenth.png';
 import MobileThird from '../../assets/img/about/MobileThird.png';
-import RankersBadge from '../../assets/img/about/rankers-badge.png';
+import RankersBadge from '../../assets/img/about/rankers-badge-2.png';
 import './style.scss';
 
 const About = () => {

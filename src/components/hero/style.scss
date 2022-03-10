@@ -3,11 +3,11 @@
 .hero-container {
   background-image: url('../../assets/img/hero-bg-mobile.png');
   background-repeat: no-repeat;
-  background-size: 100% calc(95% + 26px);
+  background-size: 100% calc(100% + 30px);
 }
 
-.hero-illustration {
-  width: calc(110% + 0px);
+.hero-illustration-wrapper {
+  padding: 0;
 }
 
 .hero-title {
@@ -21,10 +21,10 @@
   font-weight: 500;
 }
 
-.join-our-guild {
+.join-our-guild-btn {
   border-radius: 10px;
   border: none;
-  background-color: $black;
+  background-color: black;
   padding: 16px 18px;
   color: $white;
   font-size: 15px;
@@ -35,7 +35,10 @@
   .hero-container {
     background-image: url('../../assets/img/hero-background.png');
     background-repeat: no-repeat;
-    background-size: contain;
-    object-fit: contain;
+    background-size: 100% calc(95% + 17px) !important;
+  }
+
+  .hero-illustration-wrapper {
+    padding-bottom: 2rem;
   }
 }

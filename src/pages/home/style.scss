@@ -3,6 +3,38 @@
   height: auto;
 }
 
+.adventure-btn {
+  background: rgb(243, 123, 254);
+  background: linear-gradient(
+    90deg,
+    rgba(243, 123, 254, 1) 0%,
+    rgba(110, 17, 238, 1) 100%
+  );
+  box-shadow: 3px 3px 3px 1px rgba(0, 0, 0, 0.69);
+  cursor: pointer;
+  // max-width: 149px;
+  width: 149px;
+  height: 70px;
+  display: flex;
+  justify-content: center;
+  padding: 8px;
+  border-radius: 4px;
+}
+
+.adventure-image-btn {
+  object-fit: contain;
+}
+
+.learn-about-ranker-btn {
+  border-radius: 10px;
+  border: none;
+  background-color: #a743f3;
+  padding: 16px 18px;
+  color: white;
+  font-size: 15px;
+  font-weight: 700;
+}
+
 .background-section {
   position: absolute;
   margin-left: auto;
@@ -65,7 +97,7 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  width: 140px;
+  min-width: 120px;
   height: 57px;
   background-color: #a743f3;
   // padding: 20px;
@@ -78,9 +110,13 @@
 }
 
 .mint-link-image {
-  width: 60px;
-  height: 33px;
+  width: 100%;
+  height: auto;
+  max-height: 40px;
   object-fit: contain;
+}
+.mink-link-list-wrapper {
+  width: 100%;
 }
 
 @media only screen and (min-width: 1024px) {
@@ -90,6 +126,10 @@
     bottom: 0;
     width: 100%;
     z-index: -1;
+  }
+
+  .mink-link-list-wrapper {
+    width: 420px;
   }
 }
 

@@ -1,6 +1,9 @@
-import './style.scss';
 import { useState, useEffect } from 'react';
-import ShieldBadge from '../../assets/img/shield-with-shadow.webp';
+import ShieldBadge from '../../assets/img/sharper-shield.png';
+import PegaxyBadge from '../../assets/img/mint/pegaxy-badge.png';
+import WonderheroBadge from '../../assets/img/mint/wonderhero-badge.png';
+import AxieBadge from '../../assets/img/mint/axie-badge.png';
+import CyballBadge from '../../assets/img/mint/cyball-badge.png';
 import {
   connectWallet,
   getAccounts,
@@ -8,6 +11,7 @@ import {
 } from '../../services/provider';
 import { mint, getAccountBalance } from '../../services/mint';
 
+import './style.scss';
 const MintBadge = () => {
   const [txHash, setTxHash] = useState('');
   const [account, setAccount] = useState();
@@ -256,6 +260,73 @@ const MintBadge = () => {
             className="img-fluid mint-badge-shield-img w-100"
             alt="hero illustration"
           />
+        </div>
+      </div>
+
+      <div className="my-5 d-flex justify-content-center flex-column">
+        <div className="mb-5 px-5">
+          <p className="akira-fill-blue text-center">
+            MINT <span className="akira-outlined-blue">YOURS NOW</span>
+          </p>
+
+          <p className="bold-15 text-blue text-center">
+            And start Your P2E Journey As a RankerDAO Scholar Today!
+          </p>
+        </div>
+
+        <div className="row row-cols-1 row-cols-lg-4 px-5 gx-5 pb-5">
+          <div className="col d-flex justify-content-center flex-column px-3 mb-3">
+            <img src={PegaxyBadge} className="img-fluid" />
+            <p className="mint-title mb-5">PEGAXY</p>
+            <p className="mint-sub-title">Fees:</p>
+            <p className="bold-15 text-center">5000 $RANKER</p>
+            <p className="mint-sub-title">Durations:</p>
+            <p className="bold-15 text-center">30 days</p>
+            <p className="mint-sub-title">Split:</p>
+            <p className="bold-15 text-center">60/40</p>
+            <p className="mint-sub-title">Limit / Availability:</p>
+            <p className="bold-15 text-center">10000 / 40</p>
+            <button className="join-our-guild-btn mt-5">MINT THIS BADGE</button>
+          </div>
+          <div className="col d-flex justify-content-center flex-column px-3 mb-3">
+            <img src={WonderheroBadge} className="img-fluid" />
+            <p className="mint-title mb-5">WONDER HERO</p>
+            <p className="mint-sub-title">Fees:</p>
+            <p className="bold-15 text-center">5000 $RANKER</p>
+            <p className="mint-sub-title">Durations:</p>
+            <p className="bold-15 text-center">30 days</p>
+            <p className="mint-sub-title">Split:</p>
+            <p className="bold-15 text-center">60/40</p>
+            <p className="mint-sub-title">Limit / Availability:</p>
+            <p className="bold-15 text-center">10000 / 40</p>
+            <button className="join-our-guild-btn mt-5">MINT THIS BADGE</button>
+          </div>
+          <div className="col d-flex justify-content-center flex-column px-3 mb-3">
+            <img src={AxieBadge} className="img-fluid" />
+            <p className="mint-title mb-5">AXIE INFINITY</p>
+            <p className="mint-sub-title">Fees:</p>
+            <p className="bold-15 text-center">5000 $RANKER</p>
+            <p className="mint-sub-title">Durations:</p>
+            <p className="bold-15 text-center">30 days</p>
+            <p className="mint-sub-title">Split:</p>
+            <p className="bold-15 text-center">60/40</p>
+            <p className="mint-sub-title">Limit / Availability:</p>
+            <p className="bold-15 text-center">10000 / 40</p>
+            <button className="join-our-guild-btn mt-5">MINT THIS BADGE</button>
+          </div>
+          <div className="col d-flex justify-content-center flex-column px-3 mb-3">
+            <img src={CyballBadge} className="img-fluid" />
+            <p className="mint-title mb-5">CYBALL</p>
+            <p className="mint-sub-title">Fees:</p>
+            <p className="bold-15 text-center">5000 $RANKER</p>
+            <p className="mint-sub-title">Durations:</p>
+            <p className="bold-15 text-center">30 days</p>
+            <p className="mint-sub-title">Split:</p>
+            <p className="bold-15 text-center">60/40</p>
+            <p className="mint-sub-title">Limit / Availability:</p>
+            <p className="bold-15 text-center">10000 / 40</p>
+            <button className="join-our-guild-btn mt-5">MINT THIS BADGE</button>
+          </div>
         </div>
       </div>
     </div>

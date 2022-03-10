@@ -101,6 +101,22 @@ body {
   color: $black;
 }
 
+.mint-title {
+  color: #a743f3;
+  font-family: 'Akira' !important;
+  font-weight: '800';
+  font-size: 20px;
+  text-align: center;
+}
+
+.mint-sub-title {
+  color: #4e27af;
+  font-family: 'Akira' !important;
+  font-weight: '700';
+  font-size: 18px;
+  text-align: center;
+}
+
 @media only screen and (min-width: 1024px) {
   .bold-15 {
     font-weight: 700;
