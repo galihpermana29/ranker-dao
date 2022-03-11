@@ -66,7 +66,13 @@ const Home = () => {
             YOUR ADVENTURE <span className="akira-fill-blue">STARTS NOW</span>
           </p>
           <div className="col-sm-12 col-lg-6 px-4 py-3 p-lg-5 my-auto">
-            <img src={Gameplay} alt="gameplay" className="image-section" />
+            <div className="border-gradient-image">
+              <img
+                src={Gameplay}
+                alt="gameplay"
+                className="image-section p-0 gameplay-image w-100"
+              />
+            </div>
           </div>
           <div className="col-sm-12 col-lg-6 px-4 py-3 p-lg-5">
             <p className="akira-outlined-blue d-none d-lg-block">
@@ -93,8 +99,8 @@ const Home = () => {
               also a step by step guide on how to start P2E.
             </p>
 
-            <div className="row ">
-              <div className="col-6 col-lg-3 p-2 d-flex justfify-content-center">
+            <div className="row gx-0 gy-0">
+              <div className="col-6 col-lg-3 p-2 d-flex justify-content-center align-items-center">
                 <a
                   href="https://cyball.com/"
                   target="_blank"
@@ -107,7 +113,7 @@ const Home = () => {
                   />
                 </a>
               </div>
-              <div className="col-6 col-lg-3 p-2 d-flex justfify-content-center">
+              <div className="col-6 col-lg-3 p-2 d-flex justify-content-center align-items-center">
                 <a
                   href="https://pegaxy.io/"
                   target="_blank"
@@ -121,7 +127,7 @@ const Home = () => {
                 </a>
               </div>
 
-              <div className="col-6 col-lg-3 p-2 d-flex justfify-content-center">
+              <div className="col-6 col-lg-3 p-2 d-flex justify-content-center align-items-center">
                 <a
                   href="https://wonderhero.io/"
                   target="_blank"
@@ -134,7 +140,7 @@ const Home = () => {
                   />
                 </a>
               </div>
-              <div className="col-6 col-lg-3 p-2 d-flex justfify-content-center">
+              <div className="col-6 col-lg-3 p-2 d-flex justify-content-center align-items-center">
                 <a
                   href="https://axieinfinity.com/"
                   target="_blank"
@@ -160,11 +166,11 @@ const Home = () => {
       <section className="container-fluid p-0 my-5">
         <div className="row gx-0 p-0 m-0">
           {/* DESKTOP ONLY */}
-          <div className="col-sm-12 col-lg-6 px-4 py-3 p-lg-5 d-none d-sm-flex justify-content-between flex-column">
+          <div className="col-sm-12 col-lg-6 px-4 py-3 p-lg-5 d-none d-lg-flex justify-content-center align-items-center align-items-lg-start align flex-column">
             <p className="akira-outlined-blue">
               MINT YOUR <span className="akira-fill-blue">GUILD BADGE</span>
             </p>
-            <p className="bold-15 mt-3 w-75">
+            <p className="bold-15 mt-3 w-100">
               You can enjoy our inventory of NFTs and other boons with yout
               RANKER Badge. Exclusive NFTs, Tournaments, coaching sessions and
               beyond.
@@ -175,8 +181,12 @@ const Home = () => {
               </button>
             </Link>
           </div>
-          <div className="col-sm-12 col-lg-6 px-4 py-3 p-lg-5 pe-lg-0 my-auto d-none d-sm-block">
-            <img src={RankersBadge} alt="rankers badge" className="img-fluid" />
+          <div className="col-sm-12 col-lg-6 px-4 py-3 p-lg-5 pe-lg-0 my-auto d-none d-lg-block">
+            <img
+              src={RankersBadge}
+              alt="rankers badge"
+              className="img-fluid display-block"
+            />
           </div>
         </div>
 
@@ -188,7 +198,7 @@ const Home = () => {
           <img
             src={RankersBadge}
             alt="rankers badge"
-            className="img-fluid mt-3"
+            className="img-fluid display-block mt-3"
           />
         </div>
         <div className="col-sm-12 col-lg-6 px-4 py-3 pe-lg-0 ps-lg-5 my-auto d-block d-lg-none">
@@ -208,7 +218,7 @@ const Home = () => {
     );
   };
 
-  // GET YOUR TOKEN
+  // GET YOUR RANKER
   const RenderThirdSection = () => {
     const mintLinkList = [
       {
@@ -234,14 +244,14 @@ const Home = () => {
       <section className="container-fluid my-5">
         <div className="row">
           <p className="akira-outlined-blue d-block d-lg-none">
-            GET YOUR <span className="akira-fill-blue">TOKENS</span>
+            GET YOUR <span className="akira-fill-blue">RANKER</span>
           </p>
           <div className="col-sm-12 col-lg-6 px-4 py-3 p-lg-5 ps-lg-0 my-auto">
             <img src={Coin} alt="guild member plus" className="img-fluid" />
           </div>
-          <div className="col-sm-12 col-lg-6 px-4 py-3 p-lg-5 d-flex justify-content-around flex-column">
+          <div className="col-sm-12 col-lg-6 px-4 py-3 p-lg-5 d-flex justify-content-center flex-column">
             <p className="akira-outlined-blue d-none d-lg-block mt-5">
-              GET YOUR <span className="akira-fill-blue">TOKENS</span>
+              GET YOUR <span className="akira-fill-blue">RANKER</span>
             </p>
 
             <p className="bold-15 mt-3 d-none d-sm-block">
@@ -253,12 +263,11 @@ const Home = () => {
               Use $RANKER tokens to mint your guild badge and unlock access to
               the DAO! You can get our tokens at these following site.
             </p>
-
-            <div className="mink-link-list-wrapper">
-              <div className="d-flex justify-content-lg-start justify-content-center flex-wrap row gy-4 row-cols-2 row-cols-lg-3">
+            <div className="mink-link-list-wrapper mt-3">
+              <div className="row d-flex justify-content-lg-start justify-content-center flex-wrap px-4">
                 {mintLinkList.map(({ img, alt, link }) => {
                   return (
-                    <div className="col" key={link}>
+                    <div className="col-6 col-lg-4 p-2" key={link}>
                       <button type="button" className="btn btn-mint-link">
                         <a
                           href={link}
@@ -291,16 +300,16 @@ const Home = () => {
           <p className="akira-outlined-blue d-block d-lg-none">
             A DAO <span className="akira-fill-blue">COMMUNITY</span>
           </p>
-          <div className="col-sm-12 col-lg-6 px-4 py-3 p-lg-5 d-flex justify-content-around flex-column">
+          <div className="col-sm-12 col-lg-6 px-4 py-3 p-lg-5 d-flex justify-content-center flex-column">
             <p className="akira-outlined-blue d-none d-lg-block mt-5">
               A DAO <span className="akira-fill-blue">COMMUNITY</span>
             </p>
 
-            <p className="bold-15 w-75 mt-3 d-none d-sm-block">
+            <p className="bold-15 w-100 mt-3 d-none d-sm-block">
               We are a collective community of crypto adopters that welcomes our
               guild badge owners to vote on how we grow our platform.
             </p>
-            <p className="bold-15 w-75 text-blue d-none d-sm-block">
+            <p className="bold-15 w-100 text-blue d-none d-sm-block">
               Participants of the DAO may vote on how we expand our portfolio,
               be it a metaverse land, sports NFTs, works of art, etc.
             </p>
@@ -332,9 +341,9 @@ const Home = () => {
   // SOCIAL FI
   const RenderFifthSection = () => {
     return (
-      <section className="container-fluid p-0 mb-5">
+      <section className="container-fluid p-0 my-5">
         <div className="row gx-0 p-0 m-0">
-          <div className="col-sm-12 col-lg-6 px-4 py-3 p-lg-5 ps-lg-0 my-auto d-none d-sm-block">
+          <div className="col-sm-12 col-lg-6 px-4 py-3 p-lg-5 ps-lg-0 my-auto d-none d-lg-block">
             <div className="position-relative">
               <img
                 src={TogetherIllustration}
@@ -344,7 +353,7 @@ const Home = () => {
               <img src={BGFourthSection} className="background-section" />
             </div>
           </div>
-          <div className="col-sm-12 col-lg-6 px-4 py-3 p-lg-5 d-none d-sm-flex justify-content-around flex-column">
+          <div className="col-sm-12 col-lg-6 px-4 py-3 p-lg-5 d-none d-lg-flex justify-content-evenly flex-column">
             <p className="akira-outlined-blue mt-5">
               SOCIAL - FI <span className="akira-fill-blue">STRONG</span>
             </p>
@@ -485,7 +494,7 @@ const Home = () => {
     ];
 
     return (
-      <section className="container-fluid pb-5 mb-5 pt-5">
+      <section className="container-fluid pb-5 mb-5">
         <p className="akira-outlined-blue text-center">
           OUR <span className="akira-fill-blue">FRIENDS</span>
         </p>
