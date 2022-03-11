@@ -26,14 +26,21 @@
   font-weight: 700;
 }
 
+.mint-link {
+  height: 100%;
+}
 .btn-mint-link-ranker-page {
   display: flex;
   justify-content: center;
   align-items: center;
   width: 140px;
   height: auto;
+  height: 60px;
   background-color: #ffffff;
-  // padding: 20px;
+}
+.mint-link-ranker-page-image {
+  height: 100%;
+  object-fit: contain;
 }
 
 @media only screen and (min-width: 1024px) {

@@ -19,6 +19,7 @@ import MobileSixth from '../../assets/img/about/MobileSixth.png';
 import MobileTenth from '../../assets/img/about/MobileTenth.png';
 import MobileThird from '../../assets/img/about/MobileThird.png';
 import RankersBadge from '../../assets/img/about/rankers-badge-2.png';
+import RankersBadgeMobile from '../../assets/img/about/rankers-badge-mobile.png';
 import './style.scss';
 
 const About = () => {
@@ -75,7 +76,11 @@ const About = () => {
                     className="mint-link"
                     target="_blank"
                     rel="noopener noreferrer">
-                    <img src={img} alt={alt} className="img-fluid w-100" />
+                    <img
+                      src={img}
+                      alt={alt}
+                      className="mint-link-ranker-page-image"
+                    />
                   </a>
                 </button>
               </div>
@@ -126,7 +131,16 @@ const About = () => {
         RANKERS <span className="akira-fill-blue">BADGE</span>
       </p>
 
-      <img src={RankersBadge} alt="rankers badge" className="img-fluid w-100" />
+      <img
+        src={RankersBadge}
+        alt="rankers badge"
+        className="img-fluid w-100 d-block d-none d-sm-block"
+      />
+      <img
+        src={RankersBadgeMobile}
+        alt="rankers badge mobile"
+        className="img-fluid w-100 d-block d-sm-none"
+      />
       <div className="d-flex">
         <a
           href="/mint-badge"

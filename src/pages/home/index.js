@@ -562,7 +562,7 @@ const Home = () => {
               );
             })}
           </div>
-          <div className="row row-cols-4 px-5 mt-2 gy-4 gx-5">
+          <div className="row row-cols-4 px-5 mt-2 gy-4 gx-0">
             {imageDesktopFifthList.map((img, index) => {
               return (
                 <div
