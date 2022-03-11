@@ -264,10 +264,10 @@ const Home = () => {
               the DAO! You can get our tokens at these following site.
             </p>
             <div className="mink-link-list-wrapper mt-3">
-              <div className="row d-flex justify-content-lg-start justify-content-center flex-wrap px-4">
+              <div className="row d-flex justify-content-lg-start justify-content-center flex-wrap px-4 px-lg-1">
                 {mintLinkList.map(({ img, alt, link }) => {
                   return (
-                    <div className="col-6 col-lg-4 p-2" key={link}>
+                    <div className="col-6 col-sm-4 col-lg-4 p-2 " key={link}>
                       <button type="button" className="btn btn-mint-link">
                         <a
                           href={link}
@@ -357,15 +357,18 @@ const Home = () => {
             <p className="akira-outlined-blue mt-5">
               SOCIAL - FI <span className="akira-fill-blue">STRONG</span>
             </p>
-            <p className="bold-15 mt-3">
-              Start your adventure together! With our network, you can socialize
-              and strategize with your peers, create new tactics and earn more
-              than ever before! Compete with your friends and rank up to get
-              more of our guild’s exclusive NFTs!
+            <p className="bold-15">
+              Start your adventure together! Our community is ready to
+              strategize, practice and formulate new ideas!
+            </p>
+
+            <p className="bold-15">
+              Compete in the highest level of gaming against other guilds, and
+              fellow rankers. Good luck, have fun!
             </p>
             <p className="text-blue">
-              As we grow, we will implement more SocialFi features such as in
-              house tournaments and other exciting activities and portfolios!
+              As we grow, we will implement more SocialFi features such as
+              in-guild tournaments, and other exciting activities
             </p>
           </div>
         </div>
@@ -386,10 +389,12 @@ const Home = () => {
         </div>
         <div className="col-sm-12 col-lg-6 px-4 py-3 pe-lg-0 ps-lg-5 my-auto d-block d-lg-none">
           <p className="bold-15 mt-3 px-5">
-            Start your adventure together! With our network, you can socialize
-            and strategize with your peers, create new tactics and earn more
-            than ever before! Compete with your friends and rank up to get more
-            of our guild’s exclusive NFTs!
+            Start your adventure together! Our community is ready to strategize,
+            practice and formulate new ideas!
+          </p>
+          <p className="bold-15 mt-3 px-5">
+            Compete in the highest level of gaming against other guilds, and
+            fellow rankers. Good luck, have fun!
           </p>
           <p className="bold-15 text-blue px-5">
             As we grow, we will implement more SocialFi features such as in
@@ -494,7 +499,7 @@ const Home = () => {
     ];
 
     return (
-      <section className="container-fluid pb-5 mb-5">
+      <section className="container-fluid pb-5 my-5">
         <p className="akira-outlined-blue text-center">
           OUR <span className="akira-fill-blue">FRIENDS</span>
         </p>
