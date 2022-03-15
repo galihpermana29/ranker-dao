@@ -3,13 +3,15 @@ import './style.scss';
 const Hero = () => {
   return (
     <div className="container-fluid p-0 mb-5 position-relative">
-      <div className="row p-0 m-0 hero-container gx-5">
-        <div className="col-sm-12 col-lg-6 py-1 px-5 p-lg-5 d-flex flex-column align-items-center align-items-lg-start justify-content-start mt-3 mt-lg-5">
-          <p className="akira-outlined-white">
+      <div className="row p-0 m-0 hero-container gx-3">
+        <div className="col-sm-12 col-lg-6 py-1 px-5 p-lg-5 d-flex flex-column align-items-center align-items-lg-start justify-content-start mt-3 mt-xl-5">
+          <p className="akira-outlined-white hero-font-size">
             GET SET, PLAY,{' '}
-            <span className="akira-fill-white yellow-half-bottom">EARN</span>
+            <span className="akira-fill-white yellow-half-bottom hero-font-size">
+              EARN
+            </span>
           </p>
-          <p className="bold-15 text-white my-4">
+          <p className="regular-15 text-white text-content-wrapper my-4">
             We are a guild of gamers who are passionate about P2E. We aim to
             empower our guild members to enjoy all the benefits as they explore
             the vast emergent socialfi ecosystem.
@@ -24,7 +26,7 @@ const Hero = () => {
           </a>
         </div>
 
-        <div className="hero-illustration-wrapper col-sm-12 col-lg-6 d-flex justify-content-end align-items-end">
+        <div className="col-sm-12 col-lg-6 hero-illustration-wrapper d-flex justify-content-end align-items-end">
           <img
             src={HeroIllustration}
             className="w-100 hero-img"

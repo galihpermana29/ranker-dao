@@ -30,6 +30,9 @@
   font-size: 15px;
   font-weight: 700;
 }
+.hero-text-wrapper {
+  width: 100%;
+}
 
 @media only screen and (min-width: 1024px) {
   .hero-container {
@@ -40,5 +43,9 @@
 
   .hero-illustration-wrapper {
     padding-bottom: 2rem;
+  }
+
+  .hero-text-wrapper {
+    width: 75%;
   }
 }

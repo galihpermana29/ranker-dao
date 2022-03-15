@@ -79,22 +79,22 @@ const Home = () => {
               YOUR ADVENTURE <span className="akira-fill-blue">STARTS NOW</span>
             </p>
 
-            <p className="bold-15 mt-3 d-none d-sm-block">
+            <p className="regular-15 mt-3 d-none d-sm-block">
               We currently owned 1000+ gaming NFTs and will add more in the
               future. You are free to explore each world according to your own
               tactics and gameplay.
             </p>
-            <p className="bold-15 text-blue fw-bold d-none d-sm-block">
+            <p className="bold-15 text-blue d-none d-sm-block">
               All our members have full access to our DAO inventory of NFTs, and
               also a step by step guide on how to start P2E.
             </p>
 
-            <p className="bold-15 mt-3 d-block d-sm-none px-5 mb-3">
+            <p className="regular-15 mt-3 d-block d-sm-none px-5 mb-3">
               We currently owned 1000+ gaming NFTs and will add more in the
               future. You are free to explore each world according to your own
               tactics and gameplay.
             </p>
-            <p className="bold-15 text-blue fw-bold d-block d-sm-none px-5 mb-3">
+            <p className="bold-15 text-blue d-block d-sm-none px-5 mb-3">
               All our members have full access to our DAO inventory of NFTs, and
               also a step by step guide on how to start P2E.
             </p>
@@ -170,7 +170,7 @@ const Home = () => {
             <p className="akira-outlined-blue">
               MINT YOUR <span className="akira-fill-blue">GUILD BADGE</span>
             </p>
-            <p className="bold-15 mt-3 w-100">
+            <p className="regular-15 mt-3 text-content-wrapper">
               You can enjoy our inventory of NFTs and other boons with yout
               RANKER Badge. Exclusive NFTs, Tournaments, coaching sessions and
               beyond.
@@ -202,7 +202,7 @@ const Home = () => {
           />
         </div>
         <div className="col-sm-12 col-lg-6 px-4 py-3 pe-lg-0 ps-lg-5 my-auto d-block d-lg-none">
-          <p className="bold-15 mt-3 px-5">
+          <p className="regular-15 mt-3 px-5">
             You can enjoy our inventory of NFTs and other boons with yout RANKER
             Badge. Exclusive NFTs, Tournaments, coaching sessions and beyond.
           </p>
@@ -254,12 +254,12 @@ const Home = () => {
               GET YOUR <span className="akira-fill-blue">RANKER</span>
             </p>
 
-            <p className="bold-15 mt-3 d-none d-sm-block">
+            <p className="regular-15 mt-3 d-none d-sm-block">
               Use $RANKER tokens to mint your guild badge and unlock access to
               the DAO! You can get our tokens at these following site.
             </p>
 
-            <p className="bold-15 mt-3 d-block d-sm-none px-5 mb-3">
+            <p className="regular-15 mt-3 d-block d-sm-none px-5 mb-3">
               Use $RANKER tokens to mint your guild badge and unlock access to
               the DAO! You can get our tokens at these following site.
             </p>
@@ -305,7 +305,7 @@ const Home = () => {
               A DAO <span className="akira-fill-blue">COMMUNITY</span>
             </p>
 
-            <p className="bold-15 w-100 mt-3 d-none d-sm-block">
+            <p className="regular-15 w-100 mt-3 d-none d-sm-block">
               We are a collective community of crypto adopters that welcomes our
               guild badge owners to vote on how we grow our platform.
             </p>
@@ -314,7 +314,7 @@ const Home = () => {
               be it a metaverse land, sports NFTs, works of art, etc.
             </p>
 
-            <p className="bold-15 mt-3 d-block d-sm-none px-5">
+            <p className="regular-15 mt-3 d-block d-sm-none px-5">
               We are a collective community of crypto adopters that welcomes our
               guild badge owners to vote on how we grow our platform.
             </p>
@@ -357,16 +357,16 @@ const Home = () => {
             <p className="akira-outlined-blue mt-5">
               SOCIAL - FI <span className="akira-fill-blue">STRONG</span>
             </p>
-            <p className="bold-15">
+            <p className="regular-15">
               Start your adventure together! Our community is ready to
               strategize, practice and formulate new ideas!
             </p>
 
-            <p className="bold-15">
+            <p className="regular-15">
               Compete in the highest level of gaming against other guilds, and
               fellow rankers. Good luck, have fun!
             </p>
-            <p className="text-blue">
+            <p className="bold-15 text-blue">
               As we grow, we will implement more SocialFi features such as
               in-guild tournaments, and other exciting activities
             </p>

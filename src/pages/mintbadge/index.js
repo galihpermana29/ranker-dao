@@ -111,12 +111,14 @@ const MintBadge = () => {
 
   return (
     <div className="container-fluid p-0">
-      <div className="row p-0 m-0 hero-hero gx-5">
-        <div className="col-sm-12 col-lg-7 py-4 px-5 p-lg-5 pe-lg-3 d-flex flex-column align-items-center align-items-lg-start justify-content-start mt-3 mt-lg-5">
-          <p className="akira-outlined-white">MINT YOUR</p>
-          <p className="akira-fill-white">
+      <div className="row p-0 m-0 hero-hero gx-5 px-lg-5">
+        <div className="col-sm-12 col-lg-7 py-4 d-flex flex-column align-items-center align-items-lg-start justify-content-start mt-3 mt-lg-5">
+          <p className="akira-outlined-white hero-font-size">MINT YOUR</p>
+          <p className="akira-fill-white hero-font-size">
             GUILD{' '}
-            <span className="akira-fill-white yellow-half-bottom">BADGE</span>
+            <span className="akira-fill-white yellow-half-bottom hero-font-size">
+              BADGE
+            </span>
           </p>
           <p className="bold-15 text-white my-4 d-none d-lg-block pad-right">
             You can enjoy our inventory of NFTs and other boons with your{' '}
@@ -254,7 +256,7 @@ const MintBadge = () => {
           {renderError()}
         </div>
 
-        <div className="col-sm-12 col-lg-5 pb-5 p-lg-5 d-flex justify-content-center">
+        <div className="col-sm-12 col-lg-5 d-flex justify-content-center align-items-center">
           <img
             src={ShieldBadge}
             className="img-fluid mint-badge-shield-img w-100"

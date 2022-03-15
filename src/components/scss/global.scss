@@ -30,8 +30,16 @@ body {
 }
 
 .bold-15 {
-  font-family: 'Monserrat';
-  font-weight: 900;
+  font-family: 'Montserrat' !important;
+  font-size: 12px;
+  text-decoration: none;
+  text-align: center;
+  font-weight: 700;
+}
+
+.regular-15 {
+  font-family: 'Montserrat' !important;
+  font-weight: 500;
   font-size: 12px;
   text-decoration: none;
   text-align: center;
@@ -89,9 +97,6 @@ body {
 
 .text-blue {
   color: $blue;
-  font-weight: 900;
-  text-shadow: 1px 0 $blue;
-  letter-spacing: 1px;
 }
 
 .text-white {
@@ -118,27 +123,52 @@ body {
   text-align: center;
 }
 
+.text-content-wrapper {
+  width: 100%;
+}
+
 @media only screen and (min-width: 1024px) {
   .bold-15 {
-    font-weight: 900;
-    font-size: 15px;
+    font-weight: 700;
+    font-size: 16px;
     text-decoration: none;
     text-align: start;
+    font-family: 'Montserrat' !important;
+  }
+
+  .regular-15 {
+    font-weight: 500;
+    font-size: 16px;
+    text-decoration: none;
+    text-align: start;
+    font-family: 'Montserrat' !important;
   }
 
   .bold-16 {
-    font-weight: 900;
-    font-size: 15px;
+    font-weight: 700;
+    font-size: 16px;
     text-decoration: none;
     text-align: start;
+    font-family: 'Montserrat' !important;
   }
 
   .akira-outlined-white,
   .akira-outlined-blue,
   .akira-fill-white,
   .akira-fill-blue {
-    font-size: 58px;
-    line-height: 62px;
+    font-size: 64px;
+    line-height: 68px;
     text-align: start;
+  }
+
+  .text-content-wrapper {
+    width: 75%;
+  }
+}
+
+@media only screen and (min-width: 1200px) {
+  .hero-font-size {
+    font-size: 72px;
+    line-height: 76px;
   }
 }
