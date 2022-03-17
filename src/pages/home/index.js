@@ -163,7 +163,7 @@ const Home = () => {
   // MINT YOUR BADGE
   const RenderSecondSection = () => {
     return (
-      <section className="container-fluid p-0 my-5">
+      <section className="container-fluid p-0 my-5 ms-5">
         <div className="row gx-0 p-0 m-0">
           {/* DESKTOP ONLY */}
           <div className="col-sm-12 col-lg-6 p-0 d-none d-lg-flex justify-content-center align-items-center align-items-lg-start align flex-column">

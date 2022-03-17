@@ -156,28 +156,28 @@ const MintBadge = () => {
               </a>
             </p>
           ) : null}
-          <div className="d-flex flex-row">
-            <div className="pe-4 d-none d-lg-block">
+          <div className="d-flex flex-row flex-wrap mb-4">
+            <div className="pe-4 d-none d-lg-block mt-2">
               <button
                 onClick={isButtonDisabled() ? () => {} : onMint}
-                className={`${getButtonClass()} my-4 bold-white`}>
+                className={`${getButtonClass()} bold-white`}>
                 MINT YOUR BADGE
               </button>
             </div>
 
             {account ? (
-              <div className="px-0 d-none d-lg-block">
+              <div className="px-0 d-none d-lg-block mt-2">
                 <button
                   onClick={onDisconnect}
-                  className="connect-btn my-4 text-blue">
+                  className="connect-btn text-blue">
                   DISCONNECT WALLET
                 </button>
               </div>
             ) : (
-              <div className="px-0 d-none d-lg-block">
+              <div className="px-0 d-none d-lg-block mt-2">
                 <button
                   onClick={onConnect}
-                  className="connect-btn my-4 text-blue">
+                  className="connect-btn text-blue">
                   CONNECT WALLET
                 </button>
               </div>
