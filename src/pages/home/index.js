@@ -176,7 +176,7 @@ const Home = () => {
               beyond.
             </p>
             <Link to="/about" className="mt-3">
-              <button className="learn-about-ranker-btn bold-white">
+              <button className="learn-about-ranker-btn">
                 LEARN ABOUT $RANKER
               </button>
             </Link>
@@ -209,7 +209,7 @@ const Home = () => {
         </div>
         <div className="d-flex d-block d-lg-none">
           <Link to="/about" className="mx-auto">
-            <button className="learn-about-ranker-btn bold-white">
+            <button className="learn-about-ranker-btn">
               LEARN ABOUT $RANKER
             </button>
           </Link>
@@ -388,11 +388,11 @@ const Home = () => {
           </div>
         </div>
         <div className="col-sm-12 col-lg-6 px-4 py-3 pe-lg-0 ps-lg-5 my-auto d-block d-lg-none">
-          <p className="bold-15 mt-3 px-5">
+          <p className="regular-15 mt-3 px-5">
             Start your adventure together! Our community is ready to strategize,
             practice and formulate new ideas!
           </p>
-          <p className="bold-15 mt-3 px-5">
+          <p className="regular-15 mt-3 px-5">
             Compete in the highest level of gaming against other guilds, and
             fellow rankers. Good luck, have fun!
           </p>

@@ -63,7 +63,7 @@ const About = () => {
     ];
 
     return (
-      <section className="container-fluid my-5">
+      <section className="container-fluid mb-5 mt-2">
         <div className="d-flex flex-row flex-wrap flex-lg-nowrap justify-content-center align-items-center gy-4">
           {mintLinkList.map(({ img, alt, link }) => {
             return (

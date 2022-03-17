@@ -9,7 +9,8 @@
 .hero-hero {
   background-image: url('../../assets/img/background-full.png');
   background-repeat: no-repeat;
-  background-size: 100% calc(95% + 50px);
+  // background-size: 100% calc(95% + 50px);
+  background-size: cover;
 }
 
 .hero-illustration {
@@ -28,13 +29,14 @@
 }
 
 .mint-btn {
-  border-radius: 10px;
+  border-radius: 15px;
   border: none;
   background-color: black;
   padding: 16px 18px;
   color: white;
   font-size: 15px;
   font-weight: 700;
+  width: 300px;
 }
 
 .mint-shield {
@@ -59,23 +61,29 @@
 }
 
 .connect-btn {
-  border-radius: 10px;
+  border-radius: 15px;
   border: none;
   background-color: white;
   padding: 16px 18px;
   color: #8836f0;
   font-size: 15px;
   font-weight: 700;
+  width: 300px;
 }
 
 .mint-btn-disabled {
-  border-radius: 10px;
+  border-radius: 15px;
   border: none;
   background-color: #a9a9a9;
   padding: 16px 18px;
   color: white;
   font-size: 15px;
   font-weight: 700;
+  width: 300px;
+}
+
+.join-our-guild-btn {
+  font-family: 'Akira' !important;
 }
 
 .link,

@@ -183,11 +183,11 @@ const MintBadge = () => {
               </div>
             )}
           </div>
-          <div className="row d-block d-lg-none">
+          <div className="row d-block d-lg-none mb-4">
             <div className="col-sm-12 col-lg-6">
               <button
                 onClick={isButtonDisabled() ? () => {} : onMint}
-                className={`${getButtonClass()} my-4 bold-white`}>
+                className={`${getButtonClass()} my-2 bold-white`}>
                 MINT YOUR BADGE
               </button>
             </div>
@@ -195,7 +195,7 @@ const MintBadge = () => {
               <div className="col-sm-12 col-lg-6">
                 <button
                   onClick={onDisconnect}
-                  className="connect-btn my-4 text-blue">
+                  className="connect-btn my-2 text-blue">
                   DISCONNECT WALLET
                 </button>
               </div>
@@ -203,7 +203,7 @@ const MintBadge = () => {
               <div className="col-sm-12 col-lg-6">
                 <button
                   onClick={onConnect}
-                  className="connect-btn my-4 text-blue">
+                  className="connect-btn my-2 text-blue">
                   CONNECT WALLET
                 </button>
               </div>
