@@ -30,6 +30,18 @@
   font-size: 15px;
   font-weight: 700;
 }
+
+.join-our-guild-btn-blue {
+  border-radius: 10px;
+  border: none;
+  background-color: #a743f3;
+  padding: 10px 14px;
+  color: $white;
+  font-size: 15px;
+  font-weight: 700;
+  width: 199px;
+  margin: auto;
+}
 .hero-text-wrapper {
   width: 100%;
 }
@@ -47,5 +59,15 @@
 
   .hero-text-wrapper {
     width: 75%;
+  }
+
+  .join-our-guild-btn-blue {
+    border-radius: 10px;
+    border: none;
+    background-color: #a743f3;
+    padding: 16px 18px;
+    color: $white;
+    font-size: 15px;
+    font-weight: 700;
   }
 }

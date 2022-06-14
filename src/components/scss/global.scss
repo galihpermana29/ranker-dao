@@ -166,9 +166,30 @@ body {
   }
 }
 
-@media only screen and (min-width: 1300px) {
+.mintbadge-font-size {
+  font-size: 24px;
+  line-height: 8px;
+  overflow-x: visible;
+  text-align: start;
+}
+
+.hero-font-size {
+  height: auto;
+  width: 300px;
+}
+
+.hero-top-wrapper {
+  margin-top: 84px;
+}
+
+@media only screen and (min-width: 768px) {
+  .mintbadge-font-size {
+    font-size: 52px;
+    line-height: 36px;
+  }
   .hero-font-size {
     font-size: 72px;
     line-height: 76px;
+    width: auto;
   }
 }

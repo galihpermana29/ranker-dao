@@ -4,7 +4,7 @@ const Hero = () => {
   return (
     <div className="container-fluid p-0 mb-5 position-relative">
       <div className="row p-0 m-0 hero-container gx-3">
-        <div className="col-sm-12 col-lg-6 py-1 px-5 p-lg-5 d-flex flex-column align-items-center align-items-lg-start justify-content-start mt-3 mt-xl-5">
+        <div className="col-sm-12 col-lg-6 py-1 px-5 p-lg-5 pb-lg-0 d-flex flex-column align-items-center align-items-lg-start justify-content-start mt-xl-5 hero-top-wrapper">
           <p className="akira-outlined-white hero-font-size">
             GET SET, PLAY,{' '}
             <span className="akira-fill-white yellow-half-bottom hero-font-size">

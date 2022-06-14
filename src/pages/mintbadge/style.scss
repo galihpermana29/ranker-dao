@@ -96,11 +96,61 @@
   color: yellow !important;
 }
 
+.mx-p {
+  max-width: 227px;
+}
+
+.mx-image {
+  width: 214px;
+}
+
+.mx-card {
+  gap: 2rem;
+}
+
+.mx-single-image {
+  width: 272px;
+}
+.mx-multy-image {
+  width: 272px;
+}
+
+.mx-ranker {
+  width: 269px;
+  overflow-x: visible;
+}
+
 @media only screen and (min-width: 1024px) {
   .hero-container {
     background-image: url('../../assets/img/hero-background.png');
     background-repeat: no-repeat;
     background-size: contain;
     object-fit: contain;
+  }
+
+  .mx-ranker {
+    width: auto;
+    // overflow-x: hidden;
+  }
+
+  .mx-p {
+    max-width: 603px;
+  }
+
+  .mx-card {
+    max-width: '80%';
+    width: '80%';
+    padding: 0 10rem;
+    gap: 0;
+  }
+  .mx-image {
+    width: 308px;
+  }
+
+  .mx-single-image {
+    width: 518px;
+  }
+  .mx-multy-image {
+    width: auto;
   }
 }
