@@ -166,7 +166,7 @@ const Home = () => {
       <section className="container-fluid p-0">
         <div className="row gx-0 p-0 m-0">
           {/* DESKTOP ONLY */}
-          <div className="col-sm-12 col-lg-6 p-0 d-none d-lg-flex justify-content-center align-items-center align-items-lg-start align flex-column">
+          <div className="col-sm-12 col-lg-6 p-0 p-5 d-none d-lg-flex justify-content-center align-items-center align-items-lg-start align flex-column">
             <p className="akira-outlined-blue">
               MINT YOUR <span className="akira-fill-blue">GUILD BADGE</span>
             </p>
