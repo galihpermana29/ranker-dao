@@ -11,18 +11,24 @@ export default function WhiteListBadge() {
       url: BronzeBadge,
       title: 'bronze badge',
       description: 'A chance at investment slots on upcoming IGOs.',
+      price: '20.000 $ranker',
+      limit: '(NO LIMIT)',
     },
     {
       id: Math.floor(Math.random() * 1000000),
       url: SilverBadge,
       title: 'silver badge',
       description: 'Higher chance at investment slots on upcoming IGOs.',
+      price: '100.000 $ranker',
+      limit: '(NO LIMIT)',
     },
     {
       id: Math.floor(Math.random() * 1000000),
       url: GoldBadge,
       title: 'gold badge',
       description: 'Guaranteed investment slots on upcoming IGOs.',
+      price: '500.000 $ranker',
+      limit: '(LIMITED TO 25 BADGE)',
     },
   ];
   return (
@@ -59,13 +65,17 @@ export default function WhiteListBadge() {
               <div className="d-flex align-items-center justify-content-center w-100">
                 <img src={data.url} className="mx-image" />
               </div>
-              <p className="mint-sub-title mb-lg-5 mb-2">{data.title}</p>
-              <div className="mx-auto mx-multy-image">
+              <p className="mint-sub-title mb-lg-4 mb-2">{data.title}</p>
+              <div className="mx-auto mx-multy-image mb-lg-4 mb-2">
                 <p className="regular-15 text-center px-2">
                   {data.description}
                 </p>
               </div>
-              <button className="join-our-guild-btn-blue mt-lg-5 mt-2">
+              <div className="mx-auto d-flex align-items-center justify-content-center flex-column">
+                <p className="mint-price mb-1">{data.price}</p>
+                <p className="mb-2 mint-limit">{data.limit}</p>
+              </div>
+              <button className="join-our-guild-btn-blue mt-lg-4 mt-2">
                 GET YOUR BADGE
               </button>
             </div>

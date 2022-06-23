@@ -3,7 +3,7 @@ import WhiteListBadge from '../../components/whitelist-badge';
 import GamingBadge from '../../components/gaming-badge';
 
 import './style.scss';
-import BasicBadge from '../../components/basic-badge';
+
 const MintBadge = () => {
   return (
     <div className="container-fluid p-0 mt-5">
@@ -50,7 +50,6 @@ const MintBadge = () => {
 
       <WhiteListBadge />
       <GamingBadge />
-      <BasicBadge />
     </div>
   );
 };

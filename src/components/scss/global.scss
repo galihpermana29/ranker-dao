@@ -115,12 +115,29 @@ body {
   text-align: center;
 }
 
-.mint-sub-title {
+.mint-sub-title,
+.mint-price {
   color: #4e27af;
   font-family: 'Akira' !important;
   font-weight: '700';
-  font-size: 18px;
   text-align: center;
+}
+
+.mint-sub-title {
+  font-size: 16px;
+}
+
+.mint-price {
+  font-size: 23px;
+}
+
+.mint-limit {
+  font-weight: 700;
+  font-size: 16px;
+  line-height: 20px;
+  text-align: center;
+  color: #ada8c1;
+  font-family: 'Montserrat';
 }
 
 .text-content-wrapper {
