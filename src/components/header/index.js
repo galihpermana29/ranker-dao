@@ -56,7 +56,7 @@ const Header = () => {
               </a>
             </li>
             <li className="nav-item">
-              <a href="/about" className="nav-link-custom">
+              <a href="/ranker-token" className="nav-link-custom">
                 $RANKER
               </a>
             </li>

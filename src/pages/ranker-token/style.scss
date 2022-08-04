@@ -1,0 +1,708 @@
+.container-ranker-token {
+  padding: 0 70px;
+
+  .hero {
+    margin-bottom: 126px;
+    .img-coin {
+      width: 598px;
+      height: 555px;
+      margin-bottom: 46px;
+    }
+    .ranker-text {
+      font-family: 'Akira';
+      font-weight: 800;
+      font-size: 65px;
+      line-height: 60px;
+      letter-spacing: 0.05em;
+      color: #ffc700;
+      overflow: hidden;
+      margin-bottom: 24px;
+
+      .token-text {
+        font-weight: 800;
+        color: #1f2326;
+      }
+    }
+
+    .sub-text {
+      font-weight: 500;
+      font-size: 25px;
+      line-height: 30px;
+      max-width: 863px;
+    }
+  }
+
+  .chart {
+    margin-bottom: 126px;
+    .pie-chart {
+      width: 692px;
+      height: 692px;
+    }
+  }
+
+  .information {
+    border: 2px solid #cacaca;
+    padding: 118px 0;
+    border-left: none;
+    border-right: none;
+
+    .text-token-information {
+      font-weight: 800;
+      font-size: 25px;
+      line-height: 30px;
+      color: #1f2326;
+      margin-bottom: 34px;
+    }
+
+    .title-text-information {
+      flex: 0.75;
+      font-weight: 800;
+      font-size: 19px;
+      line-height: 23px;
+      margin-bottom: 20px;
+      color: #1f2326;
+      &.margin-title {
+        margin-left: 10px;
+      }
+      &.margin-subtitle {
+        margin-left: 20px;
+      }
+    }
+
+    .subtitle-text-information {
+      flex: 0.25;
+      font-weight: 400;
+      font-size: 19px;
+      line-height: 23px;
+      color: #1f2326;
+    }
+
+    .text-token-allocation {
+      font-weight: 800;
+      font-size: 25px;
+      line-height: 30px;
+      color: #1f2326;
+      margin-bottom: 34px;
+    }
+
+    .text-row {
+      font-weight: 800;
+      font-size: 14px;
+      line-height: 17px;
+      color: #1f2326;
+    }
+    .text-col {
+      font-weight: 400;
+      font-size: 12px;
+      line-height: 15px;
+      color: #1f2326;
+
+      .text-col-1 {
+        border-left: none;
+      }
+
+      .text-col-sale-1 {
+        font-weight: 600;
+        border-left: none;
+        border-right: none;
+      }
+
+      .text-col-3 {
+        border-right: none;
+      }
+    }
+  }
+
+  .table-sale {
+    border: 2px solid #cacaca;
+    border-left: none;
+    border-right: none;
+    border-top: none;
+    padding: 116px 0;
+
+    .table-bottom {
+      width: 67%;
+    }
+
+    .text-row {
+      font-weight: 800;
+      font-size: 14px;
+      line-height: 17px;
+      color: #1f2326;
+      margin-bottom: 40px;
+    }
+
+    .text-col {
+      margin-bottom: 8px;
+
+      .text-start {
+        margin-top: 40px;
+      }
+
+      .text-last {
+        margin-top: 37px;
+      }
+      .text-col-1 {
+        flex: 0.55;
+        font-weight: 600;
+        font-size: 12px;
+        line-height: 15px;
+        color: #1f2326;
+      }
+      .text-col-2 {
+        flex: 0.45;
+        font-weight: 400;
+        font-size: 12px;
+        line-height: 15px;
+        color: #1f2326;
+      }
+      .text-col-1-dev {
+        flex: 0.5;
+        font-weight: 600;
+        font-size: 12px;
+        line-height: 15px;
+        color: #1f2326;
+      }
+      .text-col-2-dev {
+        flex: 0.5;
+        font-weight: 400;
+        font-size: 12px;
+        line-height: 15px;
+        color: #1f2326;
+      }
+      .text-col-1-player {
+        flex: 0.55;
+        font-weight: 600;
+        font-size: 12px;
+        line-height: 15px;
+        color: #1f2326;
+      }
+      .text-col-2-player {
+        flex: 0.45;
+        font-weight: 400;
+        font-size: 12px;
+        line-height: 15px;
+        color: #1f2326;
+      }
+    }
+  }
+
+  .table-sale-mobile {
+    display: none;
+  }
+
+  .ranker-badge {
+    margin-bottom: 120px;
+    margin-top: 102px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+
+    .text-ranker-badge {
+      font-family: 'Akira';
+      font-weight: 800;
+      font-size: 65px;
+      line-height: 60px;
+      letter-spacing: 0.05em;
+      overflow: hidden;
+      color: #ffc700;
+      margin-bottom: 12px;
+      span {
+        color: #1f2326;
+      }
+    }
+
+    .sub-text-ranker-1 {
+      max-width: 766px;
+      font-weight: 500;
+      font-size: 25px;
+      line-height: 30px;
+      text-align: center;
+      color: #000000;
+      margin-bottom: 65px;
+    }
+
+    .sub-text-ranker-2 {
+      margin-top: 55px;
+      font-weight: 800;
+      font-size: 24px;
+      line-height: 29px;
+      color: #1f2326;
+    }
+
+    .sub-text-ranker-3 {
+      margin-top: 12px;
+      font-weight: 500;
+      font-size: 17px;
+      line-height: 21px;
+      color: #000000;
+    }
+
+    .button-ranker {
+      margin-top: 51px;
+      padding: 12px 27px;
+      border: none;
+      outline: none;
+      color: white;
+      background: #1f2326;
+      font-weight: 700;
+      font-size: 16px;
+      line-height: 20px;
+      color: #ffffff;
+    }
+  }
+}
+
+@media only screen and (max-width: 1200px) {
+  .container-ranker-token {
+    padding: 0 70px;
+
+    .hero {
+      margin-bottom: 83px;
+      .img-coin {
+        width: 392px;
+        height: 364px;
+        margin-bottom: 31px;
+      }
+      .ranker-text {
+        font-size: 40px;
+        line-height: 36px;
+        margin-bottom: 16px;
+      }
+
+      .sub-text {
+        font-size: 13px;
+        line-height: 16px;
+        max-width: 457px;
+      }
+    }
+
+    .chart {
+      margin-bottom: 104px;
+    }
+
+    .information {
+      padding: 78px 0;
+
+      .text-token-information {
+        font-size: 20px;
+        line-height: 24px;
+        margin-bottom: 22px;
+      }
+
+      .title-text-information {
+        font-size: 15px;
+        line-height: 18px;
+        margin-bottom: 13px;
+        &.margin-title {
+          margin-left: 0px;
+        }
+        &.margin-subtitle {
+          margin-left: 0px;
+        }
+      }
+
+      .subtitle-text-information {
+        font-size: 15px;
+        line-height: 18px;
+      }
+
+      .text-token-allocation {
+        font-size: 20px;
+        line-height: 24px;
+        margin-bottom: 22px;
+      }
+
+      .text-row {
+        font-size: 10px;
+        line-height: 12px;
+      }
+      .text-col {
+        font-size: 8px;
+        line-height: 10px;
+      }
+    }
+
+    .table-sale {
+      padding: 63px 0;
+
+      .text-row {
+        font-size: 10px;
+        line-height: 12px;
+      }
+
+      .text-col {
+        margin-bottom: 8px;
+
+        .text-start {
+          margin-top: 26px;
+        }
+
+        .text-last {
+          margin-top: 24px;
+        }
+        .text-col-1 {
+          font-size: 8px;
+          line-height: 10px;
+        }
+        .text-col-2 {
+          font-size: 8px;
+          line-height: 10px;
+        }
+        .text-col-1-dev {
+          font-size: 8px;
+          line-height: 10px;
+        }
+        .text-col-2-dev {
+          font-size: 8px;
+          line-height: 10px;
+        }
+        .text-col-1-player {
+          font-size: 8px;
+          line-height: 10px;
+        }
+        .text-col-2-player {
+          font-size: 8px;
+          line-height: 10px;
+        }
+      }
+    }
+
+    .ranker-badge {
+      margin-bottom: 80px;
+      margin-top: 57px;
+
+      .text-ranker-badge {
+        font-size: 40px;
+        line-height: 36px;
+        margin-bottom: 12px;
+        span {
+          color: #1f2326;
+        }
+      }
+
+      .sub-text-ranker-1 {
+        max-width: 457px;
+        font-size: 13px;
+        line-height: 16px;
+        margin-bottom: 49px;
+      }
+
+      .sub-text-ranker-2 {
+        margin-top: 36px;
+        font-size: 20px;
+        line-height: 24px;
+      }
+
+      .sub-text-ranker-3 {
+        margin-top: 8px;
+        font-size: 13px;
+        line-height: 16px;
+      }
+
+      .button-ranker {
+        margin-top: 33px;
+        padding: 8px 18px;
+        font-size: 12px;
+        line-height: 15px;
+      }
+    }
+  }
+}
+
+@media only screen and (max-width: 992px) {
+  .container-ranker-token {
+    padding: 0 50px;
+
+    .hero {
+      margin-bottom: 65px;
+      .img-coin {
+        width: 304px;
+        height: 282px;
+        margin-bottom: 25px;
+      }
+      .ranker-text {
+        font-size: 31px;
+        line-height: 36px;
+        margin-bottom: 12px;
+      }
+
+      .sub-text {
+        font-size: 9px;
+        line-height: 11px;
+        max-width: 315px;
+      }
+    }
+
+    .chart {
+      margin-bottom: 81px;
+    }
+
+    .information {
+      padding: 60px 0;
+
+      .text-token-information {
+        font-size: 16px;
+        line-height: 20px;
+        margin-bottom: 17px;
+      }
+
+      .title-text-information {
+        font-size: 11px;
+        line-height: 13px;
+        margin-bottom: 10px;
+        &.margin-title {
+          margin-left: 10px;
+        }
+        &.margin-subtitle {
+          margin-left: 20px;
+        }
+      }
+
+      .subtitle-text-information {
+        font-size: 11px;
+        line-height: 13px;
+      }
+
+      .text-token-allocation {
+        font-size: 16px;
+        line-height: 20px;
+        margin-bottom: 17px;
+      }
+
+      .text-row {
+        font-size: 6px;
+        line-height: 7px;
+      }
+      .text-col {
+        font-size: 6px;
+        line-height: 7px;
+      }
+    }
+
+    .table-sale {
+      padding: 49px 0;
+
+      .text-row {
+        font-size: 6px;
+        line-height: 7px;
+      }
+
+      .text-col {
+        margin-bottom: 4px;
+
+        .text-start {
+          margin-top: 20px;
+        }
+
+        .text-last {
+          margin-top: 19px;
+        }
+        .text-col-1 {
+          font-size: 6px;
+          line-height: 7px;
+        }
+        .text-col-2 {
+          font-size: 6px;
+          line-height: 7px;
+        }
+        .text-col-1-dev {
+          font-size: 6px;
+          line-height: 7px;
+        }
+        .text-col-2-dev {
+          font-size: 6px;
+          line-height: 7px;
+        }
+        .text-col-1-player {
+          font-size: 6px;
+          line-height: 7px;
+        }
+        .text-col-2-player {
+          font-size: 6px;
+          line-height: 7px;
+        }
+      }
+    }
+
+    .ranker-badge {
+      margin-bottom: 70px;
+      margin-top: 45px;
+
+      .text-ranker-badge {
+        font-size: 31px;
+        line-height: 36px;
+        margin-bottom: 11px;
+      }
+
+      .sub-text-ranker-1 {
+        max-width: 355px;
+        font-size: 9px;
+        line-height: 11px;
+        margin-bottom: 38px;
+      }
+
+      .sub-text-ranker-2 {
+        margin-top: 29px;
+        font-size: 16px;
+        line-height: 20px;
+      }
+
+      .sub-text-ranker-3 {
+        margin-top: 6px;
+        font-size: 9px;
+        line-height: 11px;
+      }
+
+      .button-ranker {
+        margin-top: 25px;
+        padding: 6px 14px;
+        font-size: 9px;
+        line-height: 11px;
+      }
+    }
+  }
+}
+
+@media only screen and (max-width: 768px) {
+  .container-ranker-token {
+    padding: 0 28px;
+
+    .hero {
+      margin-bottom: 61px;
+      .img-coin {
+        width: 100%;
+        height: 100%;
+        margin-bottom: 61px;
+      }
+      .ranker-text {
+        font-size: 26px;
+        line-height: 36px;
+        margin-bottom: 12px;
+      }
+
+      .sub-text {
+        font-size: 9px;
+        line-height: 11px;
+        max-width: 315px;
+      }
+    }
+
+    .chart {
+      margin-bottom: 93px;
+    }
+
+    .information {
+      padding: 33px 0;
+
+      .text-token-information {
+        font-size: 16px;
+        line-height: 20px;
+        margin-bottom: 21px;
+      }
+
+      .title-text-information {
+        font-size: 11px;
+        line-height: 13px;
+        margin-bottom: 10px;
+      }
+
+      .subtitle-text-information {
+        font-size: 11px;
+        line-height: 13px;
+      }
+
+      .text-token-allocation {
+        font-size: 16px;
+        line-height: 20px;
+        margin-bottom: 20px;
+      }
+
+      .text-row {
+        font-size: 6px;
+        line-height: 7px;
+      }
+      .text-col {
+        font-size: 6px;
+        line-height: 7px;
+      }
+    }
+
+    .table-sale {
+      display: none;
+    }
+
+    .table-sale-mobile {
+      display: block;
+      padding: 45px 0px;
+      border: 2px solid #cacaca;
+      border-top: none;
+      border-left: none;
+      border-right: none;
+
+      .text-row-mobile {
+        font-weight: 800;
+        font-size: 8px;
+        line-height: 10px;
+      }
+
+      .text-col-mobile {
+        margin-bottom: 6px;
+        .text-start-mobile {
+          margin-top: 20px;
+        }
+        .text-last-mobile {
+          margin-top: 20px;
+        }
+        .text-col-1-mobile {
+          font-weight: 600;
+          font-size: 8px;
+          line-height: 10px;
+        }
+        .text-col-2-mobile {
+          font-weight: 400;
+          font-size: 8px;
+          line-height: 10px;
+        }
+      }
+    }
+
+    .ranker-badge {
+      margin-bottom: 70px;
+      margin-top: 34px;
+
+      .text-ranker-badge {
+        font-size: 26px;
+        line-height: 36px;
+        margin-bottom: 11px;
+      }
+
+      .sub-text-ranker-1 {
+        max-width: 100%;
+        font-size: 9px;
+        line-height: 11px;
+        margin-bottom: 58px;
+      }
+
+      .sub-text-ranker-2 {
+        margin-top: 43px;
+        font-size: 16px;
+        line-height: 20px;
+      }
+
+      .sub-text-ranker-3 {
+        margin-top: 6px;
+        font-size: 9px;
+        line-height: 11px;
+      }
+
+      .button-ranker {
+        margin-top: 25px;
+        padding: 7px 14px;
+        font-size: 12px;
+        line-height: 15px;
+      }
+    }
+  }
+}

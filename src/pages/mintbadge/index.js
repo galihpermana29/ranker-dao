@@ -1,56 +1,51 @@
-import HeroBadge from '../../assets/img/mint/hero.png';
+import { useState } from 'react';
+import heroBadge from '../../assets/img/mint/hero.png';
+import GamingBadges from '../../components/gaming-badges';
 import WhiteListBadge from '../../components/whitelist-badge';
-import GamingBadge from '../../components/gaming-badge';
-
 import './style.scss';
 
 const MintBadge = () => {
+  const [isActive, setIsActive] = useState({ name: 'mint' })
+  const [classFadeOut, setClassFadeOut] = useState('animate__fadeIn')
+
+  const handleChange = (name) => {
+    setTimeout(() => {
+      setIsActive({ name })
+    }, 1500)
+    setClassFadeOut('animate__fadeOut')
+  }
+
   return (
-    <div className="container-fluid p-0 mt-5">
-      <div className="row p-0 m-0 gx-5 px-lg-5">
-        <div className="col-sm-12 order-lg-1 order-2 col-lg-6 d-flex flex-column flex-lg-row justify-content-center align-items-center">
-          <div className="h-100 d-flex align-items-center">
+    <>
+      {isActive.name === 'mint' && <div className="container-hero my-5">
+        <div className={`content-wrapper animate__animated animate__slow ${classFadeOut}`}>
+          <div className="column-left">
+            <h1 className='font-hero'>BE A PART <br /> OF OUR <br /> <span>FAMILY</span></h1>
+            <p className='subtext-mint'>You can enjoy our inventory of NFTs and other boons with yout RANKER Badge. Exclusive NFTs, Tournaments, coaching sessions and beyond.
+            </p>
+            <div className='badges-mint d-flex align-items-center justify-content-between'>
+              <h3>WHITELIST BADGES</h3>
+              <span className='plus' onClick={() => handleChange('whitelist')}>+</span>
+            </div>
+            <div className='badges-mint d-flex align-items-center justify-content-between'>
+              <h3>GAMING BADGES</h3>
+              <span className='plus' onClick={() => handleChange('gaming')}>+</span>
+            </div>
+          </div>
+          <div className="column-right">
             <img
-              src={HeroBadge}
-              className="img-fluid mint-badge-shield-img w-100"
+              src={heroBadge}
+              className="img-fluid mint-badge-shield-img"
               alt="hero illustration"
             />
-          </div>
-          <div className="mx-ranker">
-            <p className="regular-15 mt-3 d-lg-none d-block">
-              You can enjoy our inventory of NFTs and other boons with yout
-              RANKER Badge. Exclusive NFTs, Tournaments, coaching sessions and
-              beyond.
-            </p>
-            <p className="bold-15 text-blue d-lg-none d-block">
-              Different badges have their own unique features! Join our family
-              and enjoy the boons that comes with badge ownership.{' '}
-            </p>
+            <p className='text-collections'>Our badge collections!</p>
           </div>
         </div>
+      </div>}
+      {isActive.name === 'whitelist' && <WhiteListBadge />}
+      {isActive.name === 'gaming' && <GamingBadges />}
+    </>
 
-        <div className="col-sm-12 order-lg-2 order-1 col-lg-6 py-4 d-flex flex-column align-items-center align-items-lg-center justify-content-center">
-          <div style={{ overflowX: 'visible' }}>
-            <p className="akira-outlined-blue mintbadge-font-size">
-              be a part of
-            </p>
-            <p className="akira-fill-blue mintbadge-font-size">our family</p>
-            <p className="regular-15 mt-3 d-none d-lg-block">
-              You can enjoy our inventory of NFTs and other boons with yout
-              RANKER Badge. Exclusive NFTs, Tournaments, coaching sessions and
-              beyond.
-            </p>
-            <p className="bold-15 text-blue d-none d-lg-block">
-              Different badges have their own unique features! Join our family
-              and enjoy the boons that comes with badge ownership.{' '}
-            </p>
-          </div>
-        </div>
-      </div>
-
-      <WhiteListBadge />
-      <GamingBadge />
-    </div>
   );
 };
 
