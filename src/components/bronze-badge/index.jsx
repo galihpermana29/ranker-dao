@@ -12,16 +12,16 @@ const BronzeBadge = () => {
   const handleChange = (name) => {
     setTimeout(() => {
       setIsActive({ name })
-    }, 1500)
+    }, 900)
     setClassFadeOut('animate__fadeOut')
   }
 
   return (
     <>
-      {isActive.name === 'bronze' && <div className={`container-hero my-5 animate__animated animate__slow ${classFadeOut}`}>
-        <div className="content-wrapper">
+      {isActive.name === 'bronze' && <div className={`container-hero height-hero-bronze animate__animated animate__slow ${classFadeOut}`}>
+        <div className="content-wrapper my-4">
           <div className="column-left-bronze">
-            <h1 className='font-hero-bronze'>BRONZE <br /> BADGES</h1>
+            <h1 className='font-hero-bronze'>BRONZE <br /> BADGE</h1>
             <p className='subtext-1-bronze'>A chance at investment slots on upcoming IGOs.</p>
             <p className='subtext-2-bronze'>20.000 $ranker<br /><span>(UNLIMITED SUPPLY)</span></p>
             <button className='button-bronze'>MINT YOURS NOW</button>

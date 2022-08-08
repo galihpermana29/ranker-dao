@@ -11,6 +11,7 @@
 
     .column-left-silver {
       .font-hero-silver {
+        margin-top: 3rem;
         overflow: hidden;
         margin-bottom: 13px;
         max-width: 503px;
@@ -101,6 +102,9 @@
   .container-hero {
     padding: 0 44px;
     width: 100%;
+    &.height-hero-silver {
+      height: 82vh;
+    }
 
     .content-wrapper {
       width: 100%;
@@ -227,6 +231,9 @@
   .container-hero {
     padding: 0 32px;
     width: 100%;
+    &.height-hero-silver {
+      height: 100%;
+    }
 
     .content-wrapper {
       width: 100%;

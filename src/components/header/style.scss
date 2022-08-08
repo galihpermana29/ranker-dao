@@ -1,6 +1,8 @@
 @import '../scss/utils/color.scss';
 .nav-container {
   background-color: $black;
+  height: 10vh;
+  overflow: hidden;
   //   min-height: 100px;
   padding-left: 12px;
   padding-right: 12px;

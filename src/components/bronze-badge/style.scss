@@ -12,6 +12,7 @@
     .column-left-bronze {
       .font-hero-bronze {
         overflow: hidden;
+        margin-top: 3rem;
         margin-bottom: 13px;
         max-width: 503px;
         font-family: 'Akira';
@@ -101,6 +102,9 @@
   .container-hero {
     padding: 0 44px;
     width: 100%;
+    &.height-hero-bronze {
+      height: 82vh;
+    }
 
     .content-wrapper {
       width: 100%;
@@ -227,6 +231,9 @@
   .container-hero {
     padding: 0 32px;
     width: 100%;
+    &.height-hero-bronze {
+      height: 100%;
+    }
 
     .content-wrapper {
       width: 100%;

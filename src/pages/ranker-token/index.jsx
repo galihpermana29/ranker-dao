@@ -1,13 +1,13 @@
 import React from 'react'
 import Coin from '../../assets/img/about/coin.png';
 import rankerBadge from '../../assets/img/about/badges-info.png'
-import './style.scss'
 import chart from '../../assets/img/about/Chart.png'
 import dataTokenInfo from './dataTokenInfo'
 import dataTokenAllocation from './dataTokenAllocation'
 import dataTableSale from './dataTableSale'
 import dataTableDevelopment from './dataTableDevelopment'
 import dataTablePlayer from './dataTablePlayer'
+import './style.scss'
 
 
 const RankerToken = () => {

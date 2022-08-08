@@ -13,14 +13,14 @@ export default function WhiteListBadge() {
   const handleChange = (name) => {
     setTimeout(() => {
       setIsActive({ name })
-    }, 1500)
+    }, 900)
     setClassFadeOut('animate__fadeOut')
   }
 
   return (
     <>
-      {isActive.name === 'whitelist' && <div className={`container-hero my-5 animate__animated animate__slow ${classFadeOut}`}>
-        <div className="content-wrapper">
+      {isActive.name === 'whitelist' && <div className={`container-hero height-hero-whitelist animate__animated animate__slow ${classFadeOut}`}>
+        <div className="content-wrapper my-4">
           <div className="column-left-whitelist">
             <h1 className='font-hero-whitelist'>WHITELIST <br /> BADGES</h1>
             <p className='subtext-1-whitelist'>Our investment badge allows you to participate and get a chance to earn in our upcoming IGOs.</p>

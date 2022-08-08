@@ -11,14 +11,14 @@ const MintBadge = () => {
   const handleChange = (name) => {
     setTimeout(() => {
       setIsActive({ name })
-    }, 1500)
+    }, 900)
     setClassFadeOut('animate__fadeOut')
   }
 
   return (
     <>
-      {isActive.name === 'mint' && <div className="container-hero my-5">
-        <div className={`content-wrapper animate__animated animate__slow ${classFadeOut}`}>
+      {isActive.name === 'mint' && <div className="container-hero height-hero">
+        <div className={`content-wrapper my-3 animate__animated animate__slow ${classFadeOut}`}>
           <div className="column-left">
             <h1 className='font-hero'>BE A PART <br /> OF OUR <br /> <span>FAMILY</span></h1>
             <p className='subtext-mint'>You can enjoy our inventory of NFTs and other boons with yout RANKER Badge. Exclusive NFTs, Tournaments, coaching sessions and beyond.

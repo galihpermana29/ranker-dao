@@ -1,9 +1,9 @@
 import React, { useState } from 'react'
-import './style.scss'
 import goldBadge from '../../assets/img/mint/whitelist-badge/gold-badge.png'
 import BronzeBadge from '../bronze-badge'
 import SilverBadge from '../silver-badge'
 import GamingBadges from '../gaming-badges'
+import './style.scss'
 
 const GoldBadge = () => {
   const [isActive, setIsActive] = useState({ name: 'gold' })
@@ -12,14 +12,14 @@ const GoldBadge = () => {
   const handleChange = (name) => {
     setTimeout(() => {
       setIsActive({ name })
-    }, 1500)
+    }, 900)
     setClassFadeOut('animate__fadeOut')
   }
 
   return (
     <>
-      {isActive.name === 'gold' && <div className={`container-hero my-5 animate__animated animate__slow ${classFadeOut}`}>
-        <div className="content-wrapper">
+      {isActive.name === 'gold' && <div className={`container-hero height-hero-gold animate__animated animate__slow ${classFadeOut}`}>
+        <div className="content-wrapper my-4">
           <div className="column-left-gold">
             <h1 className='font-hero-gold'>GOLD <br /> BADGE</h1>
             <p className='subtext-1-gold'><strong>Guaranteed</strong> investment slots on upcoming IGOs.</p>

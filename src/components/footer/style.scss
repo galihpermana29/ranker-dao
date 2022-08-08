@@ -1,25 +1,25 @@
 @import '../scss/utils/color.scss';
 
-.footer-container {
+.container-footer {
   background-color: $black;
-}
-.footer-logo {
-  width: 71px;
-  height: 37px;
-}
-.footer-link {
-  font-weight: 700;
-  font-size: 7px;
-  text-decoration: none;
-  text-align: start;
+  padding: 9px 12px;
+  height: 8vh;
+  overflow: hidden;
+
+  .text-footer {
+    margin: 0;
+    font-weight: 700;
+    font-size: 15px;
+    line-height: 36px;
+    color: #ffffff;
+  }
 }
 
-@media only screen and (min-width: 1024px) {
-  .footer-logo {
-    width: 229px;
-    height: 120px;
-  }
-  .footer-link {
-    font-size: 15px;
+@media only screen and (max-width: 768px) {
+  .container-footer {
+    .text-footer {
+      font-size: 12px;
+      line-height: 20px;
+    }
   }
 }

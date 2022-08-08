@@ -18,10 +18,10 @@ const GamingBadges = () => {
 
   return (
     <>
-      {isActive.name === 'gaming' && <div className={`container-hero my-5 animate__animated animate__slow ${classFadeOut}`}>
-        <div className="content-wrapper">
+      {isActive.name === 'gaming' && <div className={`container-hero height-hero-gaming animate__animated animate__slow ${classFadeOut}`}>
+        <div className="content-wrapper my-4">
           <div className="column-left-gaming">
-            <h1 className='font-hero-gaming'>GAMING <br /> BADGES</h1>
+            <h1 className='font-hero-gaming'>GAMING <br /> BADGE</h1>
             <p className='subtext-1-gaming'>With the gaming badge you will be notified of the hottest new games available for scholarships ! Start earning by playing a collection of the latest blockchain games.</p>
             <p className='subtext-2-gaming'>500.000 $ranker<br /><span>(UNLIMITED BADGE)</span></p>
             <button className='button-gaming'>MINT YOURS NOW</button>

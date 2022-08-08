@@ -2,6 +2,10 @@
 .container-hero {
   padding: 0px 80px;
   width: 100%;
+  overflow: hidden;
+  &.height-hero {
+    height: 82vh;
+  }
 
   .content-wrapper {
     width: 100%;
@@ -10,13 +14,15 @@
     justify-content: space-between;
     .column-left {
       .font-hero {
-        min-height: 174px;
+        margin-top: 3rem;
+        overflow: hidden;
         max-width: 503px;
         font-family: 'Akira';
         font-weight: 800;
         font-size: 62px;
         letter-spacing: 0.05em;
-        line-height: 50px;
+        line-height: 60px;
+        margin-bottom: 33px;
         color: #1f2326;
         span {
           color: #ffc700;
@@ -28,8 +34,8 @@
       font-weight: 500;
       line-height: 30px;
       font-size: 25px;
-      min-height: 127px;
       max-width: 526px;
+      margin-bottom: 46px;
     }
     .badges-mint {
       padding: 7px 0 14px 0;
@@ -73,7 +79,7 @@
   }
 }
 
-@media only screen and (max-width: 1200px) {
+@media only screen and (max-width: 1199px) {
   .container-hero {
     padding: 0 49px;
     width: 100%;
@@ -86,8 +92,9 @@
 
       .column-left {
         .font-hero {
-          min-height: 114px;
+          margin-top: 3rem;
           font-size: 40px;
+          margin-bottom: 21px;
           line-height: 36px;
           color: #1f2326;
           span {
@@ -98,6 +105,7 @@
           font-size: 16px;
           line-height: 20px;
           max-width: 307px;
+          margin-bottom: 30px;
         }
         .badges-mint {
           padding: 5px 0 9px 0;
@@ -121,7 +129,7 @@
   }
 }
 
-@media only screen and (max-width: 992px) {
+@media only screen and (max-width: 991px) {
   .container-hero {
     padding: 0 40px;
     width: 100%;
@@ -131,8 +139,8 @@
 
       .column-left {
         .font-hero {
-          min-height: 90px;
           max-width: 255px;
+          margin-bottom: 16px;
           font-size: 31px;
           line-height: 36px;
         }
@@ -140,6 +148,7 @@
           font-size: 12px;
           line-height: 15px;
           max-width: 238px;
+          margin-bottom: 22px;
         }
         .badges-mint {
           padding: 4px 0 7px 0;
@@ -167,10 +176,13 @@
   }
 }
 
-@media only screen and (max-width: 768px) {
+@media only screen and (max-width: 767px) {
   .container-hero {
     padding: 0 32px;
     width: 100%;
+    &.height-hero {
+      height: 100%;
+    }
 
     .content-wrapper {
       width: 100%;
@@ -181,8 +193,9 @@
 
       .column-left {
         .font-hero {
-          min-height: 120px;
           max-width: 100%;
+          margin-top: 3rem;
+          margin-bottom: 30px;
           font-size: 41px;
           line-height: 36px;
           overflow: hidden;
@@ -191,7 +204,7 @@
           font-size: 16px;
           line-height: 20px;
           max-width: 100%;
-          min-height: 107px;
+          margin-bottom: 20px;
           overflow: hidden;
         }
         .badges-mint {
