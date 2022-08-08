@@ -1,6 +1,6 @@
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import { About, Home, LitePaper, MintBadge } from './pages';
-import { Header, Footer } from './components';
+import { Header } from './components';
 
 import './components/scss/global.scss';
 const App = () => {
@@ -13,7 +13,7 @@ const App = () => {
         <Route path="/about" element={<About />} />
         <Route path="/litepaper" element={<LitePaper />} />
       </Routes>
-      <Footer />
+      {/* <Footer /> */}
     </BrowserRouter>
   );
 };

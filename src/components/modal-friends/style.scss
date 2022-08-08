@@ -1,0 +1,49 @@
+.modal {
+  &-content {
+    border-radius: 0;
+    overflow: scroll;
+  }
+  &-dialog {
+    overflow: scroll;
+    width: 359px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  &-title {
+    margin: 30px auto;
+    font-size: 26px;
+    font-weight: 800;
+    color: #191919;
+    font-family: 'Akira' !important;
+    letter-spacing: 5%;
+    overflow: hidden;
+    // height: 100px;
+    &-yellow {
+      font-size: 26px;
+      line-height: 36px;
+      font-weight: 800;
+      font-family: 'Akira' !important;
+      letter-spacing: 5%;
+      color: #ffc700;
+    }
+  }
+  //   .our-friend-logo {
+  //     width: ;
+  //   }
+}
+
+.modal-friends {
+  &-list {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-around;
+    margin: 0 auto;
+    flex-wrap: wrap;
+    direction: rtl;
+    gap: 15px;
+  }
+  &-logo {
+    direction: ltr;
+  }
+}
