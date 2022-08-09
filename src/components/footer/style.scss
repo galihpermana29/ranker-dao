@@ -1,16 +1,17 @@
 @import '../scss/utils/color.scss';
 
 .container-footer {
+  position: fixed;
+  bottom: 0px;
   background-color: $black;
   padding: 9px 12px;
-  height: 8vh;
-  overflow: hidden;
+  // height: 100%;
+  width: 100%;
+  z-index: 30;
 
   .text-footer {
-    margin: 0;
     font-weight: 700;
-    font-size: 15px;
-    line-height: 36px;
+    font-size: 4px;
     color: #ffffff;
   }
 }

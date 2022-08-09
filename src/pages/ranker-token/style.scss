@@ -1,5 +1,6 @@
 .container-ranker-token {
   padding: 0 70px;
+  padding-top: 10vh;
 
   .hero {
     margin-bottom: 126px;
@@ -257,6 +258,7 @@
 @media only screen and (max-width: 1199px) {
   .container-ranker-token {
     padding: 0 70px;
+    padding-top: 10vh;
 
     .hero {
       margin-bottom: 83px;
@@ -414,6 +416,7 @@
 @media only screen and (max-width: 991px) {
   .container-ranker-token {
     padding: 0 50px;
+    padding-top: 10vh;
 
     .hero {
       margin-bottom: 65px;
@@ -568,6 +571,7 @@
 @media only screen and (max-width: 767px) {
   .container-ranker-token {
     padding: 0 28px;
+    padding-top: 10vh;
 
     .hero {
       margin-bottom: 61px;
@@ -709,6 +713,8 @@
 
 @media only screen and (max-width: 400px) {
   .container-ranker-token {
+    padding-top: 10vh;
+
     .hero {
       .ranker-text {
         font-size: 1.5rem;
