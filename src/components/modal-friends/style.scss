@@ -1,10 +1,8 @@
 .modal {
   &-content {
     border-radius: 0;
-    overflow: scroll;
   }
   &-dialog {
-    overflow: scroll;
     width: 359px;
     margin-left: auto;
     margin-right: auto;
@@ -34,6 +32,17 @@
 
 .modal-friends {
   &-list {
+    ::-webkit-scrollbar-thumb {
+      background: #191919;
+    }
+
+    ::-webkit-scrollbar-track {
+      box-shadow: inset 0 0 5px #7e7e7e;
+    }
+
+    // ::-webkit-scrollbar {
+    //   width: 10px;
+    // }
     display: flex;
     flex-direction: row;
     align-items: center;
@@ -41,6 +50,7 @@
     margin: 0 auto;
     flex-wrap: wrap;
     direction: rtl;
+    overflow: scroll;
     gap: 15px;
   }
   &-logo {

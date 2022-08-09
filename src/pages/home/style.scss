@@ -216,6 +216,13 @@
         line-height: 31px;
       }
     }
+    &-right {
+      flex: 1;
+    }
+    &-hero-image {
+      height: 100%;
+      max-height: 600px;
+    }
   }
   .pd-button {
     &-text {

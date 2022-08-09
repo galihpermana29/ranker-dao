@@ -1,8 +1,10 @@
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
-import { About, Home, LitePaper, MintBadge } from './pages';
+import { RankerToken, Home, LitePaper, MintBadge } from './pages';
 import { Header } from './components';
 
 import './components/scss/global.scss';
+import 'animate.css';
+
 const App = () => {
   return (
     <BrowserRouter>
@@ -10,7 +12,7 @@ const App = () => {
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/mint-badge" element={<MintBadge />} />
-        <Route path="/about" element={<About />} />
+        <Route path="/ranker-token" element={<RankerToken />} />
         <Route path="/litepaper" element={<LitePaper />} />
       </Routes>
       {/* <Footer /> */}

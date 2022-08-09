@@ -1,7 +1,7 @@
 /* eslint-disable no-unused-vars */
 
 import { useState } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useLocation } from 'react-router-dom';
 
 // import LitePaperPDF from '../../../public/[RNKR] Litepaper.pdf';
 
@@ -11,6 +11,8 @@ import './style.scss';
 const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
+  const { pathname } = useLocation();
+  console.log('pathname', pathname, pathname === '');
   const NAV_LIST = [
     {
       href: '/mint-badge',
@@ -35,7 +37,7 @@ const Header = () => {
       rel: 'noopener noreferrer',
     },
     {
-      href: '/about',
+      href: '/ranker-token',
       label: '$RANKER',
     },
     {
@@ -52,7 +54,9 @@ const Header = () => {
   ];
 
   return (
-    <nav className="pd-nav px-4 pt-4">
+    <nav
+      className="pd-nav px-4 py-4"
+      style={{ backgroundColor: pathname === '/' ? 'transparent' : 'black' }}>
       <div className="d-flex justify-content-between align-items-center">
         <Link to="/">
           <img src={Logo} className="pd-nav-logo" />
@@ -132,7 +136,9 @@ const Header = () => {
               </a>
             </li>
             <li className="nav-item">
-              <a href="/about">$RANKER</a>
+              <a href="/ranker-token" className="nav-link-custom">
+                $RANKER
+              </a>
             </li>
             <li className="nav-item">
               <a href="https://rankerdao.com/axies/index.html">INVENTORY</a>

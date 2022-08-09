@@ -1,8 +1,9 @@
-import React, { useRef, useState } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 
 import { Modal } from 'bootstrap';
 import 'animate.css';
 
+import { Footer } from '../../components';
 import { ModalFriends, Sidebar } from 'components';
 import { HomeButton } from './HomeButton';
 
@@ -33,17 +34,41 @@ import SixthHeroMobile from 'assets/img/home/background/teal-bg-mobile.png';
 import './style.scss';
 
 const MINTING_SITES = [
-  { label: 'MEXC PIONEER', url: '' },
-  { label: 'KUCOIN', url: '' },
-  { label: 'APESWAP', url: '' },
-  { label: 'HUOBI GLOBAL', url: '' },
-  { label: 'GATE.IO', url: '' },
+  {
+    label: 'MEXC PIONEER',
+    href: 'https://www.mexc.com/pioneer',
+    target: '_blank',
+    rel: 'noopener noreferrer',
+  },
+  {
+    label: 'KUCOIN',
+    href: 'https://www.kucoin.com/',
+    target: '_blank',
+    rel: 'noopener noreferrer',
+  },
+  {
+    label: 'APESWAP',
+    href: 'https://apeswap.finance/',
+    target: '_blank',
+    rel: 'noopener noreferrer',
+  },
+  {
+    label: 'HUOBI GLOBAL',
+    href: 'https://www.huobi.com/',
+    target: '_blank',
+    rel: 'noopener noreferrer',
+  },
+  {
+    label: 'GATE.IO',
+    href: 'https://www.gate.io/',
+    target: '_blank',
+    rel: 'noopener noreferrer',
+  },
 ];
 
 const Home = () => {
   const [activeSection, setActiveSection] = useState('home-first-section');
   const [isOpenMintingSites, setIsOpenMintingSites] = useState(false);
-  const scrollRef = useRef(null);
   const modalRef = useRef(null);
 
   const showFriendsModal = () => {
@@ -60,14 +85,14 @@ const Home = () => {
     bsModal.hide();
   };
 
-  const onScroll = () => {
-    if (scrollRef.current) {
-      const { scrollTop, scrollHeight, clientHeight } = scrollRef.current;
-      if (scrollTop + clientHeight === scrollHeight) {
+  useEffect(() => {
+    const showModal = () => {
+      if (activeSection === 'home-sixth-section') {
         showFriendsModal();
       }
-    }
-  };
+    };
+    showModal();
+  }, [activeSection]);
 
   // Couldnt create a reusable/map the component, bug with react-scroll
   // const RenderSection = useCallback(
@@ -112,11 +137,7 @@ const Home = () => {
   };
 
   return (
-    <div
-      className="container-fluid p-0 m-0 home-section-parent"
-      id="home"
-      onScroll={onScroll}
-      ref={scrollRef}>
+    <div className="container-fluid p-0 m-0 home-section-parent" id="home">
       <Sidebar
         activeSection={activeSection}
         setActiveSection={setActiveSection}
@@ -153,8 +174,10 @@ const Home = () => {
             the vast emergent socialfi ecosystem.
           </p>
           <HomeButton
+            href="https://t.me/rankerdao"
+            target="_blank"
+            rel="noopener noreferrer"
             label="JOIN OUR GUILD"
-            url="https://t.me/rankerdao"
             size={{ mobile: '157px', tablet: '136px', desktop: '234px' }}
           />
         </div>
@@ -167,6 +190,7 @@ const Home = () => {
             )}`}
           />
         </div>
+        <Footer />
       </section>
 
       {/* Second */}
@@ -206,16 +230,35 @@ const Home = () => {
           </p>
           <div className="second-section-button-wrapper">
             {[
-              { label: 'PLAY AXIE INFINITY', url: 'https://axieinfinity.com/' },
-              { label: 'PLAY SOUNI ', url: 'https://souni.io/' },
-              { label: 'PLAY METAGEAR', url: 'https://metagear.game/' },
-              { label: 'PLAY APEIRON', url: 'https://www.apeironnft.com/' },
-            ].map(({ label, url }, index) => {
+              {
+                label: 'PLAY AXIE INFINITY',
+                href: 'https://axieinfinity.com/',
+                target: '_blank',
+                rel: 'noopener noreferrer',
+              },
+              {
+                label: 'PLAY SOUNI ',
+                href: 'https://souni.io/',
+                target: '_blank',
+                rel: 'noopener noreferrer',
+              },
+              {
+                label: 'PLAY METAGEAR',
+                href: 'https://metagear.game/',
+                target: '_blank',
+                rel: 'noopener noreferrer',
+              },
+              {
+                label: 'PLAY APEIRON',
+                href: 'https://www.apeironnft.com/',
+                target: '_blank',
+                rel: 'noopener noreferrer',
+              },
+            ].map((item, index) => {
               return (
                 <HomeButton
+                  {...item}
                   key={index}
-                  label={label}
-                  url={url}
                   size={{ mobile: '136px', tablet: '136px', desktop: '234px' }}
                 />
               );
@@ -252,7 +295,7 @@ const Home = () => {
             'home-third-section',
           )}`}>
           <p className="home-title">
-            MINT YOUR GUILD
+            MINT YOUR GUILD{' '}
             <span className="home-title yellow-half-bottom">BADGE</span>
           </p>
           <p className="description-common">
@@ -261,14 +304,13 @@ const Home = () => {
           </p>
           <div className="second-section-button-wrapper">
             {[
-              { label: 'TYPES OF BADGES', url: '/mint-badge' },
-              { label: 'MINT YOURS NOW', url: '/about' },
-            ].map(({ label, url }, index) => {
+              { label: 'TYPES OF BADGES', href: '/mint-badge' },
+              { label: 'MINT YOURS NOW', href: '/ranker-token' },
+            ].map((item, index) => {
               return (
                 <HomeButton
                   key={index}
-                  label={label}
-                  url={url}
+                  {...item}
                   size={{ mobile: '150px', tablet: '136px', desktop: '234px' }}
                 />
               );
@@ -315,7 +357,7 @@ const Home = () => {
 
           <HomeButton
             label="LEARN ABOUT $RANKER"
-            url="/about"
+            href="/ranker-token"
             size={{ mobile: '172px', tablet: '175px', desktop: '278px' }}
           />
           <p className="description-common">
@@ -350,12 +392,11 @@ const Home = () => {
           </div>
 
           <div className="second-section-button-wrapper d-none d-sm-flex">
-            {MINTING_SITES.map(({ label, url }, index) => {
+            {MINTING_SITES.map((item, index) => {
               return (
                 <HomeButton
                   key={index}
-                  label={label}
-                  url={url}
+                  {...item}
                   size={{ mobile: '172px', tablet: '119px', desktop: '233px' }}
                 />
               );
@@ -453,7 +494,7 @@ const Home = () => {
           </p>
           <HomeButton
             label="START YOUR ADVENTURE NOW!"
-            url="h"
+            href="/mint-badge"
             size={{ mobile: '213px', tablet: '218px', desktop: '359px' }}
           />
         </div>

@@ -1,87 +1,62 @@
-import React from 'react';
-import ArrowSvg from '../../assets/svg/arrow';
-import BronzeBadge from '../../assets/img/mint/whitelist-badge/bronze-badge.png';
-import SilverBadge from '../../assets/img/mint/whitelist-badge/silver-badge.png';
-import GoldBadge from '../../assets/img/mint/whitelist-badge/gold-badge.png';
+import React, { useState } from 'react';
+import WhitelistBadge from '../../assets/img/mint/whitelist-badge/whitelist-badge.png';
+import BronzeBadge from '../bronze-badge';
+import GamingBadges from '../gaming-badges';
+import GoldBadge from '../gold-badge';
+import SilverBadge from '../silver-badge';
+import './style.scss'
 
 export default function WhiteListBadge() {
-  const whiteListBadge = [
-    {
-      id: Math.floor(Math.random() * 1000000),
-      url: BronzeBadge,
-      title: 'bronze badge',
-      description: 'A chance at investment slots on upcoming IGOs.',
-      price: '20.000 $ranker',
-      limit: '(NO LIMIT)',
-    },
-    {
-      id: Math.floor(Math.random() * 1000000),
-      url: SilverBadge,
-      title: 'silver badge',
-      description: 'Higher chance at investment slots on upcoming IGOs.',
-      price: '100.000 $ranker',
-      limit: '(NO LIMIT)',
-    },
-    {
-      id: Math.floor(Math.random() * 1000000),
-      url: GoldBadge,
-      title: 'gold badge',
-      description: 'Guaranteed investment slots on upcoming IGOs.',
-      price: '500.000 $ranker',
-      limit: '(LIMITED TO 25 BADGE)',
-    },
-  ];
-  return (
-    <div className="my-5 d-flex justify-content-center flex-column">
-      <button
-        className="mint-badge-btn title-dropdown mb-4 mt-1 bold-white mx-auto d-flex align-items-center justify-content-between w-100"
-        style={{ maxWidth: '80%', width: '80%', borderRadius: 0 }}
-        type="button"
-        data-bs-toggle="collapse"
-        data-bs-target="#WHITELISTBADGES"
-        aria-expanded="false"
-        aria-controls="WHITELISTBADGES">
-        <ArrowSvg />
-        WHITELIST BADGES
-        <ArrowSvg />
-      </button>
-      <div id="WHITELISTBADGES" className="collapse">
-        <div className="mx-auto mx-p">
-          <p className="regular-15 d-sm-block text-center">
-            Our investment badge allows you to participate and get a chance to
-            earn in our upcoming IGOs.
-          </p>
-          <p className="bold-15 text-blue d-sm-block text-center">
-            Be the first to fully experience our new partner games with the best
-            price using our investment badges!
-          </p>
-        </div>
+  const [isActive, setIsActive] = useState({ name: 'whitelist' })
+  const [classFadeOut, setClassFadeOut] = useState('animate__fadeIn')
 
-        <div className="row mx-auto row-cols-1 row-cols-lg-3 pb-5 mx-card">
-          {whiteListBadge.map(data => (
-            <div
-              className="col d-flex justify-content-center flex-column px-3 mb-3"
-              key={data.id}>
-              <div className="d-flex align-items-center justify-content-center w-100">
-                <img src={data.url} className="mx-image" />
-              </div>
-              <p className="mint-sub-title mb-lg-4 mb-2">{data.title}</p>
-              <div className="mx-auto mx-multy-image mb-lg-4 mb-2">
-                <p className="regular-15 text-center px-2">
-                  {data.description}
-                </p>
-              </div>
-              <div className="mx-auto d-flex align-items-center justify-content-center flex-column">
-                <p className="mint-price mb-1">{data.price}</p>
-                <p className="mb-2 mint-limit">{data.limit}</p>
-              </div>
-              <button className="join-our-guild-btn-blue mt-lg-4 mt-2">
-                GET YOUR BADGE
-              </button>
+  const handleChange = (name) => {
+    setTimeout(() => {
+      setIsActive({ name })
+    }, 900)
+    setClassFadeOut('animate__fadeOut')
+  }
+
+  return (
+    <>
+      {isActive.name === 'whitelist' && <div className={`container-hero height-hero-whitelist animate__animated animate__slow ${classFadeOut}`}>
+        <div className="content-wrapper my-4">
+          <div className="column-left-whitelist">
+            <h1 className='font-hero-whitelist'>WHITELIST <br /> BADGES</h1>
+            <p className='subtext-1-whitelist'>Our investment badge allows you to participate and get a chance to earn in our upcoming IGOs.</p>
+            <p className='subtext-2-whitelist'>Be the first to fully experience our new partner games with the best price using our investment badges!</p>
+            <div className='badges-whitelist d-flex align-items-center justify-content-between'>
+              <h3>BRONZE BADGES</h3>
+              <span className='plus' onClick={() => handleChange('bronze')}>+</span>
             </div>
-          ))}
+            <div className='badges-whitelist d-flex align-items-center justify-content-between'>
+              <h3>SILVER BADGES</h3>
+              <span className='plus' onClick={() => handleChange('silver')}>+</span>
+            </div>
+            <div className='badges-whitelist d-flex align-items-center justify-content-between'>
+              <h3>GOLD BADGES</h3>
+              <span className='plus' onClick={() => handleChange('gold')}>+</span>
+            </div>
+            <div className='badges-whitelist d-flex align-items-center justify-content-between'>
+              <h3>GAMING BADGES</h3>
+              <span className='plus' onClick={() => handleChange('gaming')}>+</span>
+            </div>
+          </div>
+          <div className="column-right-whitelist">
+            <img
+              src={WhitelistBadge}
+              className="img-fluid whitelist-badge-shield-img"
+              alt="hero illustration"
+            />
+            <p className='text-whitelist'>Our whitelist badges.</p>
+          </div>
         </div>
-      </div>
-    </div>
+      </div>}
+      {isActive.name === 'bronze' && <BronzeBadge />}
+      {isActive.name === 'silver' && <SilverBadge />}
+      {isActive.name === 'gold' && <GoldBadge />}
+      {isActive.name === 'gaming' && <GamingBadges />}
+
+    </>
   );
 }

@@ -1,14 +1,11 @@
-export const HomeButton = ({ label = '', url = '', size = {} }) => {
+export const HomeButton = props => {
+  const { size, label } = props;
   const { mobile = '', tablet = '', desktop = '' } = size;
 
   return (
     <>
       {/* xs  */}
-      <a
-        href={url}
-        target="_blank"
-        rel="noreferrer"
-        className="d-block p-0 m-0  d-sm-none">
+      <a {...props} className="d-block p-0 m-0  d-sm-none">
         <button className="pd-button" style={{ width: mobile }}>
           <strong>
             <p className="regular-15 p-0 m-0 text-center">{label}</p>
@@ -16,11 +13,7 @@ export const HomeButton = ({ label = '', url = '', size = {} }) => {
         </button>
       </a>
       {/* md */}
-      <a
-        href={url}
-        target="_blank"
-        rel="noreferrer"
-        className="d-none p-0 m-0 d-md-block d-lg-none">
+      <a {...props} className="d-none p-0 m-0 d-md-block d-lg-none">
         <button className="pd-button" style={{ width: tablet }}>
           <strong>
             <p className="regular-15 p-0 m-0 text-center">{label}</p>
@@ -29,11 +22,7 @@ export const HomeButton = ({ label = '', url = '', size = {} }) => {
       </a>
 
       {/* desktop */}
-      <a
-        href={url}
-        target="_blank"
-        rel="noreferrer"
-        className="d-none p-0 m-0 d-lg-block">
+      <a {...props} className="d-none p-0 m-0 d-lg-block">
         <button className="pd-button" style={{ width: desktop }}>
           <strong>
             <p className="regular-15 p-0 m-0 text-center">{label}</p>

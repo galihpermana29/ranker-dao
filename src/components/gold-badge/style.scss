@@ -1,0 +1,296 @@
+// Screen 1200++
+.container-hero {
+  padding: 0px 80px;
+  width: 100%;
+
+  .content-wrapper {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    .column-left-gold {
+      .font-hero-gold {
+        margin-top: 3rem;
+        overflow: hidden;
+        margin-bottom: 13px;
+        max-width: 503px;
+        font-family: 'Akira';
+        font-weight: 800;
+        font-size: 65px;
+        letter-spacing: 0.05em;
+        line-height: 60px;
+        color: #1f2326;
+      }
+      .subtext-1-gold {
+        font-weight: 500;
+        font-size: 25px;
+        line-height: 30px;
+        margin-bottom: 14px;
+        max-width: 467px;
+      }
+      .subtext-2-gold {
+        font-weight: 800;
+        font-size: 25px;
+        line-height: 36px;
+        letter-spacing: 0.05em;
+        color: #ffc700;
+        max-width: 433px;
+        margin-bottom: 13px;
+        span {
+          font-weight: 700;
+          font-size: 22px;
+          line-height: 27px;
+          color: #a8a6a6;
+        }
+      }
+      .button-gold {
+        border: none;
+        outline: none;
+        color: white;
+        font-size: 16px;
+        line-height: 20px;
+        padding: 12px 28px;
+        background: #1f2326;
+        margin-bottom: 42px;
+      }
+      .badges-gold {
+        padding: 9px 0 12px 0;
+        border-top: 1px solid #cacaca;
+        border-left: none;
+        border-right: none;
+        max-width: 451px;
+        &.badges-gold:last-child {
+          border-bottom: 1px solid #cacaca;
+        }
+        h3 {
+          font-weight: 700;
+          font-size: 16px;
+          line-height: 20px;
+          margin: 0;
+          color: #1f2326;
+        }
+        .plus {
+          font-weight: 900;
+          font-size: 15px;
+          line-height: 18px;
+          color: #1f2326;
+          cursor: pointer;
+          margin-right: 5px;
+        }
+      }
+    }
+    .column-right-gold {
+      margin-right: 75px;
+      .gold-badge-shield-img {
+        max-width: 450px;
+        max-height: 592px;
+      }
+      .text-gold {
+        width: 100%;
+        text-align: center;
+        font-style: italic;
+        font-weight: 500;
+        font-size: 20px;
+        line-height: 24px;
+      }
+    }
+  }
+}
+
+@media only screen and (max-width: 1200px) {
+  .container-hero {
+    padding: 0 44px;
+    width: 100%;
+    &.height-hero-gold {
+      height: 82vh;
+    }
+
+    .content-wrapper {
+      width: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+
+      .column-left-gold {
+        .font-hero-gold {
+          font-size: 40px;
+          line-height: 36px;
+          margin-bottom: 8px;
+          max-width: 329px;
+        }
+        .subtext-1-gold {
+          font-size: 16px;
+          line-height: 20px;
+          max-width: 307px;
+        }
+        .subtext-2-gold {
+          font-size: 20px;
+          line-height: 36px;
+          margin-bottom: 24px;
+          max-width: 285px;
+
+          span {
+            font-size: 16px;
+            line-height: 20px;
+          }
+        }
+        .button-gold {
+          font-size: 12px;
+          line-height: 15px;
+          padding: 8px 18px;
+          margin-bottom: 28px;
+        }
+        .badges-gold {
+          padding: 6px 0 8px 0;
+          border-top: 1px solid #cacaca;
+          max-width: 296px;
+          h3 {
+            font-size: 12px;
+            line-height: 15px;
+          }
+        }
+      }
+
+      .column-right-gold {
+        .gold-badge-shield-img {
+          max-width: 295px;
+          max-height: 389px;
+        }
+        .text-gold {
+          font-size: 16px;
+          line-height: 20px;
+        }
+      }
+    }
+  }
+}
+
+@media only screen and (max-width: 991px) {
+  .container-hero {
+    padding: 0 40px;
+    width: 100%;
+
+    .content-wrapper {
+      width: 100%;
+
+      .column-left-gold {
+        .font-hero-gold {
+          max-width: 255px;
+          font-size: 31px;
+          line-height: 36px;
+        }
+        .subtext-1-gold {
+          font-size: 12px;
+          line-height: 15px;
+          margin-bottom: 8px;
+          max-width: 238px;
+        }
+        .subtext-2-gold {
+          font-size: 16px;
+          line-height: 15px;
+          margin-bottom: 10px;
+          max-width: 232px;
+          span {
+            font-size: 12px;
+            // line-height: 15px;
+          }
+        }
+        .button-gold {
+          font-size: 9px;
+          line-height: 11px;
+          margin-bottom: 20px;
+          padding: 7px 14px;
+        }
+        .badges-gold {
+          padding: 5px 0 6px 0;
+          border-top: 1px solid #cacaca;
+          max-width: 230px;
+          h3 {
+            font-size: 9px;
+            line-height: 11px;
+          }
+        }
+      }
+
+      .column-right-gold {
+        .gold-badge-shield-img {
+          max-width: 231px;
+          max-height: 301px;
+        }
+        .text-gold {
+          font-size: 8px;
+          line-height: 10px;
+        }
+      }
+    }
+  }
+}
+
+@media only screen and (max-width: 767px) {
+  .container-hero {
+    padding: 0 32px;
+    width: 100%;
+    &.height-hero-gold {
+      height: 100%;
+    }
+
+    .content-wrapper {
+      width: 100%;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      row-gap: 40px;
+
+      .column-left-gold {
+        .font-hero-gold {
+          max-width: 100%;
+          font-size: 41px;
+          line-height: 36px;
+          overflow: hidden;
+          margin-bottom: 37px;
+        }
+        .subtext-1-gold {
+          font-size: 16px;
+          line-height: 20px;
+          max-width: 100%;
+          margin-bottom: 12px;
+          overflow: hidden;
+        }
+        .subtext-2-gold {
+          font-size: 21px;
+          line-height: 20px;
+          max-width: 100%;
+          overflow: hidden;
+          margin-bottom: 20px;
+          span {
+            font-size: 16px;
+          }
+        }
+        .button-gold {
+          font-size: 12px;
+          line-height: 15px;
+          padding: 10px 16px;
+        }
+        .badges-gold {
+          padding: 6px 0 8px 0;
+          border-top: 1px solid #cacaca;
+          max-width: 100%;
+          h3 {
+            font-size: 12px;
+            line-height: 15px;
+          }
+        }
+      }
+
+      .column-right-gold {
+        margin-right: 0;
+        .gold-badge-shield-img {
+          max-width: 190px;
+          max-height: 247px;
+        }
+      }
+    }
+  }
+}

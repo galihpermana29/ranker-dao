@@ -245,7 +245,7 @@ const FRIENDS_LIST = [
 const ModalFriends = ({ modalRef, onClose }) => {
   return (
     <div
-      onClick={onClose}
+      // onClick={onClose}
       ref={modalRef}
       className="modal fade"
       id="friends-modal"
