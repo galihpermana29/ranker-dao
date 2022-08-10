@@ -254,10 +254,17 @@ const ModalFriends = ({ modalRef, onClose }) => {
       aria-hidden="true">
       <div className="modal-dialog modal-dialog-scrollable">
         <div className="modal-content p-0">
-          <div className="modal-friends-list p-3" onClick={onClose}>
-            <p className="modal-title text-center p-3">
+          <div className="modal-header">
+            <p className="modal-title text-center">
               OUR <span className="modal-title-yellow">FRIENDS</span>
             </p>
+            <button
+              type="button"
+              className="btn-close"
+              data-bs-dismiss="modal"
+              aria-label="Close"></button>
+          </div>
+          <div className="modal-body modal-friends-list" onClick={onClose}>
             <div className="modal-friends-list">
               {FRIENDS_LIST.map(({ img, width, height, alt }, index) => {
                 return (
