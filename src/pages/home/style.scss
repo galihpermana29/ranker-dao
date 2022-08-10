@@ -57,9 +57,9 @@
     justify-content: flex-start;
     align-items: flex-start;
     .home-title {
-      font-size: 41px;
+      font-size: 26px;
+      line-height: 30px;
       font-weight: 800;
-      line-height: 45px;
       color: white;
       font-family: 'Akira' !important;
       letter-spacing: 5%;
@@ -68,8 +68,8 @@
     .description-common {
       font-family: 'Montserrat' !important;
       font-weight: 500;
-      font-size: 16px;
-      line-height: 20px;
+      font-size: 12px;
+      line-height: 16px;
       text-decoration: none;
       text-align: start;
       color: white;
@@ -97,7 +97,7 @@
   // height: ;
   text-align: center;
   &-text {
-    font-weight: '700';
+    font-weight: 700;
     font-family: 'Montserrat' !important;
     font-size: 11px;
     text-align: center;
@@ -127,6 +127,21 @@
     z-index: 200;
     position: absolute;
     bottom: 0;
+  }
+}
+
+@media only screen and (min-width: 425px) {
+  .home-section {
+    &-left {
+      .home-title {
+        font-size: 41px;
+        line-height: 45px;
+      }
+      .description-common {
+        font-size: 16px;
+        line-height: 20px;
+      }
+    }
   }
 }
 
@@ -230,235 +245,3 @@
     }
   }
 }
-
-// .home-section {
-//   // transition: all 700ms ease 0s;
-
-//   &-background {
-//     position: absolute;
-//     top: 0;
-//     width: 100%;
-//     height: 100%;
-//     // make it behind header
-//     z-index: -1;
-//     object-fit: cover;
-//   }
-//   &-left,
-//   &-right {
-//     flex: 1;
-//   }
-//   &-right {
-//     align-self: flex-end;
-//   }
-//   &-left {
-//     padding-left: 50px;
-//     .second-section-button-wrapper {
-//       display: flex;
-//       flex-wrap: wrap;
-//       gap: 20px;
-//     }
-//   }
-//   &-hero-image {
-//     width: 100%;
-//     object-fit: contain;
-//   }
-// }
-
-// @media only screen and (max-width: 428px) {
-// }
-
-// @media only screen and (max-width: 768px) {
-//   .home-section {
-//     &-left {
-//       flex: 1;
-//       padding: 0 0 0 50px;
-//       .home-title {
-//         font-size: 31px;
-//         font-weight: 800;
-//         line-height: 36px;
-//       }
-//       .description-common {
-//         font-family: 'Montserrat' !important;
-//         font-weight: 500;
-//         font-size: 12px;
-//         line-height: 15px;
-//       }
-//     }
-//     &-right {
-//       display: flex;
-//       justify-content: center;
-//       align-items: flex-end;
-//       flex: 1;
-
-//       align-self: center;
-//     }
-//   }
-// }
-
-// .home-section {
-//   display: flex;
-//   flex-direction: row;
-//   flex-wrap: wrap;
-//   justify-content: center;
-//   align-items: center;
-// }
-
-// .image-section {
-//   width: 100%;
-//   height: auto;
-// }
-
-// .gameplay-image {
-//   background-color: #6c10ee;
-// }
-
-// .border-gradient-image {
-//   border: 6px solid transparent;
-//   border-image: linear-gradient(
-//     90deg,
-//     #f980ff 0%,
-//     #b348f7 44.81%,
-//     #8020f0 81.51%,
-//     #6c10ee 99.46%
-//   );
-//   border-image-slice: 2;
-//   padding: 0;
-// }
-
-// .adventure-btn {
-//   background: rgb(243, 123, 254);
-//   background: linear-gradient(
-//     90deg,
-//     rgba(243, 123, 254, 1) 0%,
-//     rgba(110, 17, 238, 1) 100%
-//   );
-//   box-shadow: 3px 3px 3px 1px rgba(0, 0, 0, 0.69);
-//   cursor: pointer;
-//   width: 149px;
-//   max-width: 200px;
-//   width: 100%;
-//   height: 70px;
-//   display: flex;
-//   justify-content: center;
-//   padding: 8px;
-//   border-radius: 4px;
-// }
-
-// .adventure-image-btn {
-//   object-fit: contain;
-// }
-
-// .learn-about-ranker-btn {
-//   border-radius: 10px;
-//   border: none;
-//   background-color: #a743f3;
-//   padding: 16px 18px;
-//   color: white;
-//   font-size: 15px;
-//   font-weight: 600;
-// }
-
-// .background-section {
-//   position: absolute;
-//   margin-left: auto;
-//   margin-right: auto;
-//   left: 0;
-//   right: 0;
-//   bottom: 0;
-//   text-align: center;
-//   width: 100%;
-//   z-index: -1;
-// }
-
-// .our-friend-text {
-//   width: 100%;
-//   height: 40px;
-// }
-
-// .partnership-image {
-//   max-width: 200px;
-//   max-height: 90px;
-// }
-// .partnership-image-big {
-//   max-width: 270px;
-//   max-height: 83px;
-// }
-
-// .shield-container {
-//   overflow: visible;
-// }
-
-// .shield-small {
-//   display: inline-block;
-//   position: absolute;
-//   top: 68%;
-//   width: 32%;
-//   left: 26%;
-//   transform: translate(10%, -50%);
-// }
-
-// .shield-text {
-//   width: 100%;
-//   height: auto;
-//   object-fit: contain;
-// }
-// .shield-shadow {
-//   display: inline-block;
-//   position: absolute;
-//   bottom: -30%;
-//   width: 40%;
-//   left: 16%;
-//   transform: translate(10%, -50%);
-//   z-index: 100000;
-// }
-// .img-badge {
-//   height: 50%;
-//   width: 50%;
-// }
-
-// .btn-mint-link {
-//   display: flex;
-//   justify-content: center;
-//   align-items: center;
-//   width: 100%;
-//   // width: 150px;
-//   max-width: 200px;
-//   height: 65px;
-//   background-color: #a743f3;
-//   // padding: 20px;
-// }
-
-// .mint-link {
-//   display: flex;
-//   justify-content: center;
-//   align-items: center;
-//   width: 100%;
-//   height: 100%;
-// }
-
-// .mint-link-image {
-//   width: 100%;
-//   height: 100%;
-//   // max-height: 100%;
-//   object-fit: contain;
-// }
-// .mink-link-list-wrapper {
-//   width: 100%;
-// }
-
-// @media only screen and (min-width: 1024px) {
-//   .background-section {
-//     position: absolute;
-//     left: 0;
-//     bottom: 0;
-//     width: 100%;
-//     z-index: -1;
-//   }
-
-//   .mink-link-list-wrapper {
-//     width: 420px;
-//   }
-//   .partner-desktop-last-row {
-//     width: 75%;
-//   }
-// }
