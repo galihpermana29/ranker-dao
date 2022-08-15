@@ -13,7 +13,7 @@ import FirstBgMobile from 'assets/img/home/background/blue-bg-mobile.png';
 
 import SecondBg from 'assets/img/home/background/orange-bg.png';
 import SecondHero from 'assets/img/home/hero/second-hero.png';
-import SecondBgMobile from 'assets/img/home/background/blue-bg-mobile.png';
+import SecondBgMobile from 'assets/img/home/background/orange-bg-mobile.png';
 
 import ThirdBg from 'assets/img/home/background/green-bg.png';
 import ThirdHero from 'assets/img/home/hero/third-hero.png';
@@ -129,9 +129,16 @@ const Home = () => {
   //   [activeSection],
   // );
 
-  const animationClass = id => {
+  const animationFadeInClass = id => {
     if (id === activeSection) {
       return 'animate__fadeIn';
+    }
+    return 'animate__fadeOut';
+  };
+
+  const animationSlideClass = id => {
+    if (id === activeSection) {
+      return 'animate__fadeInLeft';
     }
     return 'animate__fadeOut';
   };
@@ -146,7 +153,7 @@ const Home = () => {
       <ModalFriends modalRef={modalRef} onClose={closeFriendsModal} />
 
       {/* First */}
-      <section className="home-section px-4 pb-0" id={'home-first-section'}>
+      <section className={`home-section px-4 pb-0`} id={'home-first-section'}>
         {/* Mobile */}
 
         <img
@@ -161,7 +168,7 @@ const Home = () => {
           className="home-section-background d-none d-sm-block"
         />
         <div
-          className={`home-section-left animate__animated ${animationClass(
+          className={`home-section-left animate__animated ${animationSlideClass(
             'home-first-section',
           )}`}>
           <p className="home-title">
@@ -185,7 +192,7 @@ const Home = () => {
           <img
             src={FirstHero}
             alt="get set play earn"
-            className={`home-section-hero-image animate__animated ${animationClass(
+            className={`home-section-hero-image animate__animated ${animationFadeInClass(
               'home-first-section',
             )}`}
           />
@@ -208,7 +215,7 @@ const Home = () => {
           className="home-section-background d-none d-sm-block"
         />
         <div
-          className={`home-section-left animate__animated ${animationClass(
+          className={`home-section-left animate__animated ${animationSlideClass(
             'home-second-section',
           )}`}>
           <p className="home-title">
@@ -269,7 +276,7 @@ const Home = () => {
           <img
             src={SecondHero}
             alt="get set play earn"
-            className={`home-section-hero-image animate__animated ${animationClass(
+            className={`home-section-hero-image animate__animated ${animationFadeInClass(
               'home-second-section',
             )}`}
           />
@@ -291,7 +298,7 @@ const Home = () => {
           className=" home-section-background d-none d-sm-block"
         />
         <div
-          className={`home-section-left animate__animated ${animationClass(
+          className={`home-section-left animate__animated ${animationSlideClass(
             'home-third-section',
           )}`}>
           <p className="home-title">
@@ -321,7 +328,7 @@ const Home = () => {
           <img
             src={ThirdHero}
             alt="get set play earn"
-            className={`home-section-hero-image animate__animated ${animationClass(
+            className={`home-section-hero-image animate__animated ${animationFadeInClass(
               'home-third-section',
             )}`}
           />
@@ -343,7 +350,7 @@ const Home = () => {
           className=" home-section-background d-none d-sm-block"
         />
         <div
-          className={`home-section-left animate__animated ${animationClass(
+          className={`home-section-left animate__animated ${animationSlideClass(
             'home-fourth-section',
           )}`}>
           <p className="home-title">
@@ -369,7 +376,7 @@ const Home = () => {
               className="pd-button"
               style={{ width: '172px' }}>
               <strong>
-                <p className="regular-15 p-0 m-0 text-center">
+                <p className="pd-button-text p-0 m-0 text-center">
                   OUR MINTING SITES
                 </p>
               </strong>
@@ -407,7 +414,7 @@ const Home = () => {
           <img
             src={FourthHero}
             alt="get set play earn"
-            className={`home-section-hero-image animate__animated ${animationClass(
+            className={`home-section-hero-image animate__animated ${animationFadeInClass(
               'home-fourth-section',
             )}`}
           />
@@ -429,7 +436,7 @@ const Home = () => {
           className=" home-section-background d-none d-sm-block"
         />
         <div
-          className={`home-section-left animate__animated ${animationClass(
+          className={`home-section-left animate__animated ${animationSlideClass(
             'home-fifth-section',
           )}`}>
           <p className="home-title">
@@ -449,7 +456,7 @@ const Home = () => {
           <img
             src={FifthHero}
             alt="get set play earn"
-            className={`home-section-hero-image animate__animated ${animationClass(
+            className={`home-section-hero-image animate__animated ${animationFadeInClass(
               'home-fifth-section',
             )}`}
           />
@@ -471,7 +478,7 @@ const Home = () => {
           className=" home-section-background d-none d-sm-block"
         />
         <div
-          className={`home-section-left animate__animated ${animationClass(
+          className={`home-section-left animate__animated ${animationSlideClass(
             'home-sixth-section',
           )}`}>
           <p className="home-title">
@@ -502,7 +509,7 @@ const Home = () => {
           <img
             src={SixthHero}
             alt="get set play earn"
-            className={`home-section-hero-image animate__animated ${animationClass(
+            className={`home-section-hero-image animate__animated ${animationFadeInClass(
               'home-sixth-section',
             )}`}
           />

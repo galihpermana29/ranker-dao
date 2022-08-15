@@ -43,8 +43,6 @@ const Sidebar = ({ activeSection, setActiveSection }) => {
     return () => window.removeEventListener('resize', handleResize);
   }, []);
 
-  console.log('windowDimensions: ', windowDimensions);
-
   // useEffect(() => {
   //   getUserWidth();
   // }, []);
@@ -62,7 +60,7 @@ const Sidebar = ({ activeSection, setActiveSection }) => {
                 to={`home-${name}-section`}
                 onSetActive={e => setActiveSection(e)}
                 spy={true}
-                smooth={true}
+                smooth={false}
                 duration={500}
                 horizontal={true}
                 isDynamic={true}
