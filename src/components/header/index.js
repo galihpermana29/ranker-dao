@@ -12,7 +12,6 @@ const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
   const { pathname } = useLocation();
-  console.log('pathname', pathname, pathname === '');
   const NAV_LIST = [
     {
       href: '/mint-badge',
