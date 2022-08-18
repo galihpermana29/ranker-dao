@@ -5,12 +5,13 @@
 //   --animate-duration: 200ms;
 // }
 
+body {
+  scroll-behavior: auto !important;
+}
+
 .home-section-parent {
   display: flex;
   flex-direction: row;
-  // scroll-snap-points-y: repeat(100vh);
-  scroll-snap-points-x: repeat(100vw);
-  // scroll-snap-type: y mandatory;
   max-height: 100vh;
   // width: 100vw;
   max-width: 100vw;
@@ -154,9 +155,7 @@
 @media only screen and (min-width: 768px) {
   .home-section-parent {
     display: block;
-    scroll-snap-points-y: repeat(100vh);
-    // scroll-snap-points-x: repeat(100vw);
-    scroll-snap-type: y mandatory;
+    scroll-snap-type: y mandatory !important;
     // scroll-snap-type: x mandatory;
     max-height: 100vh;
     // width: 100vw;

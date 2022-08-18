@@ -60,11 +60,11 @@ const Sidebar = ({ activeSection, setActiveSection }) => {
                 to={`home-${name}-section`}
                 onSetActive={e => setActiveSection(e)}
                 spy={true}
-                smooth={false}
+                smooth={true}
                 duration={500}
                 horizontal={true}
-                isDynamic={true}
-                ignoreCancelEvents={false}
+                // isDynamic={true}
+                // ignoreCancelEvents={false}
                 containerId="home">
                 <img
                   src={
@@ -86,12 +86,13 @@ const Sidebar = ({ activeSection, setActiveSection }) => {
                 key={index}
                 activeClass="active-sidebar"
                 to={`home-${name}-section`}
-                onSetActive={e => setActiveSection(e)}
+                onSetActive={setActiveSection}
                 spy={true}
-                smooth={true}
-                duration={500}
-                isDynamic={true}
-                ignoreCancelEvents={true}
+                hashSpy={true}
+                smooth={false}
+                // duration={100}
+                // isDynamic={true}
+                // ignoreCancelEvents={true}
                 containerId="home">
                 <img
                   src={
