@@ -19,12 +19,12 @@ jobs:
         uses: actions/setup-node@v3
         with:
           node-version: ${{ matrix.node-version }}
-      - name: Yarn install
+      - name: NPM install
         run: |
-          yarn install
+          npm install
       - name: Staging build
         run: |
-          yarn build
+          npm build
       - name: Deployment
         uses: jakejarvis/s3-sync-action@master
         with:
