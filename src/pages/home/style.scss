@@ -1,5 +1,6 @@
 @import '../../components/scss/utils/color.scss';
 @import '../../components/scss/utils/fontSize.scss';
+@import '../../components/scss/utils/lineHeight.scss';
 @import url('https://fonts.googleapis.com/css2?family=Montserrat&display=swap');
 
 // :root {
@@ -66,7 +67,7 @@ body {
     align-items: flex-start;
     .home-title {
       font-size: $mobile-title;
-      line-height: 30px;
+      line-height: $mobile-title-line-height;
       font-weight: 800;
       color: white;
       font-family: 'Akira' !important;
@@ -77,7 +78,7 @@ body {
       font-family: 'Montserrat' !important;
       font-weight: 500;
       font-size: $mobile-description;
-      line-height: 16px;
+      line-height: $mobile-description-line-height;
       text-decoration: none;
       text-align: start;
       color: white;
@@ -176,12 +177,12 @@ body {
       justify-content: center;
       .home-title {
         font-size: $tablet-title;
-        line-height: 36px;
+        line-height: $tablet-title-line-height;
       }
       .description-common {
         font-weight: 500;
         font-size: $tablet-description;
-        line-height: 15px;
+        line-height: $tablet-description-line-height;
       }
     }
     &-hero-image {
@@ -208,12 +209,12 @@ body {
     &-left {
       .home-title {
         font-size: $desktop-title;
-        line-height: 46px;
+        line-height: $desktop-title-line-height;
       }
       .description-common {
         font-weight: 500;
         font-size: $desktop-description;
-        line-height: 21px;
+        line-height: $desktop-description-line-height;
       }
     }
   }
@@ -229,12 +230,12 @@ body {
     &-left {
       .home-title {
         font-size: $large-desktop-title;
-        line-height: 54px;
+        line-height: $large-desktop-title-line-height;
       }
       .description-common {
         font-weight: 500;
         font-size: $large-desktop-description;
-        line-height: 24px;
+        line-height: $large-desktop-description-line-height;
       }
     }
     &-right {
