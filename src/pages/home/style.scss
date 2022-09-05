@@ -1,4 +1,5 @@
 @import '../../components/scss/utils/color.scss';
+@import '../../components/scss/utils/fontSize.scss';
 @import url('https://fonts.googleapis.com/css2?family=Montserrat&display=swap');
 
 // :root {
@@ -64,7 +65,7 @@ body {
     justify-content: flex-start;
     align-items: flex-start;
     .home-title {
-      font-size: 26px;
+      font-size: $mobile-title;
       line-height: 30px;
       font-weight: 800;
       color: white;
@@ -75,7 +76,7 @@ body {
     .description-common {
       font-family: 'Montserrat' !important;
       font-weight: 500;
-      font-size: 12px;
+      font-size: $mobile-description;
       line-height: 16px;
       text-decoration: none;
       text-align: start;
@@ -137,20 +138,20 @@ body {
   }
 }
 
-@media only screen and (min-width: 425px) {
-  .home-section {
-    &-left {
-      .home-title {
-        font-size: 41px;
-        line-height: 45px;
-      }
-      .description-common {
-        font-size: 16px;
-        line-height: 20px;
-      }
-    }
-  }
-}
+// @media only screen and (min-width: 425px) {
+//   .home-section {
+//     &-left {
+//       .home-title {
+//         font-size: 41px;
+//         line-height: 45px;
+//       }
+//       .description-common {
+//         font-size: 16px;
+//         line-height: 20px;
+//       }
+//     }
+//   }
+// }
 
 @media only screen and (min-width: 768px) {
   .home-section-parent {
@@ -174,12 +175,12 @@ body {
       padding: 0 0 0 50px;
       justify-content: center;
       .home-title {
-        font-size: 31px;
+        font-size: $tablet-title;
         line-height: 36px;
       }
       .description-common {
         font-weight: 500;
-        font-size: 12px;
+        font-size: $tablet-description;
         line-height: 15px;
       }
     }
@@ -206,12 +207,12 @@ body {
     }
     &-left {
       .home-title {
-        font-size: 40px;
+        font-size: $desktop-title;
         line-height: 46px;
       }
       .description-common {
         font-weight: 500;
-        font-size: 15px;
+        font-size: $desktop-description;
         line-height: 21px;
       }
     }
@@ -227,12 +228,12 @@ body {
   .home-section {
     &-left {
       .home-title {
-        font-size: 50px;
+        font-size: $large-desktop-title;
         line-height: 54px;
       }
       .description-common {
         font-weight: 500;
-        font-size: 18px;
+        font-size: $large-desktop-description;
         line-height: 24px;
       }
     }
