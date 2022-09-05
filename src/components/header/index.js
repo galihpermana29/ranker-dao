@@ -99,7 +99,14 @@ const Header = () => {
           </ul>
         )}
       </div>
-      {/* <button
+    </nav>
+  );
+};
+
+export default Header;
+
+{
+  /* <button
           className="navbar-toggler"
           ">
           <span className="navbar-toggler-icon"></span>
@@ -148,9 +155,5 @@ const Header = () => {
               </a>
             </li>
           </ul>
-        </div> */}
-    </nav>
-  );
-};
-
-export default Header;
+        </div> */
+}
