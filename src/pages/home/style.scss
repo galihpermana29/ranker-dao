@@ -28,8 +28,8 @@ body {
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  padding: 100px 18px 0 18px;
-  padding-top: 10vh;
+  // padding: 100px 18px 0 18px;
+  padding-top: 100px;
   position: relative;
   height: 100%;
   min-height: 100vh;
@@ -66,8 +66,8 @@ body {
     justify-content: flex-start;
     align-items: flex-start;
     .home-title {
-      font-size: $mobile-title;
-      line-height: $mobile-title-line-height;
+      font-size: $small-mobile-title;
+      line-height: $small-mobile-title-line-height;
       font-weight: 800;
       color: white;
       font-family: 'Akira' !important;
@@ -77,8 +77,8 @@ body {
     .description-common {
       font-family: 'Montserrat' !important;
       font-weight: 500;
-      font-size: $mobile-description;
-      line-height: $mobile-description-line-height;
+      font-size: $small-mobile-description;
+      line-height: $small-mobile-description-line-height;
       text-decoration: none;
       text-align: start;
       color: white;
@@ -139,20 +139,20 @@ body {
   }
 }
 
-// @media only screen and (min-width: 425px) {
-//   .home-section {
-//     &-left {
-//       .home-title {
-//         font-size: 41px;
-//         line-height: 45px;
-//       }
-//       .description-common {
-//         font-size: 16px;
-//         line-height: 20px;
-//       }
-//     }
-//   }
-// }
+@media only screen and (min-width: 425px) {
+  .home-section {
+    &-left {
+      .home-title {
+        font-size: $mobile-title;
+        line-height: $mobile-title-line-height;
+      }
+      .description-common {
+        font-size: $mobile-description;
+        line-height: $mobile-description-line-height;
+      }
+    }
+  }
+}
 
 @media only screen and (min-width: 768px) {
   .home-section-parent {
@@ -167,6 +167,7 @@ body {
 
   .home-section {
     flex-direction: row;
+    padding-top: 0;
     &-right {
       flex: 1.2 1;
       align-self: flex-end;

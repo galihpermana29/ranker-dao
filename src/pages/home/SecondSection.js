@@ -43,11 +43,11 @@ export const SecondSection = ({ id = '' }) => {
           You are free to explore each world according to your own tactics and
           gameplay.
         </p>
-        <p className="description-common">
+        <p className="d-none d-sm-block description-common">
           All our members have full access to our DAO inventory of NFTs, and
           also a step by step guide on how to start P2E.
         </p>
-        <p className="description-common">
+        <p className="d-none d-sm-block description-common">
           Here are samples of our top games, and theres many more waiting for
           you!
         </p>
