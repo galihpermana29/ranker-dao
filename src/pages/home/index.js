@@ -36,6 +36,8 @@ const Home = () => {
   const showModal = useCallback(() => {
     if (activeSection === 'home-sixth-section') {
       showFriendsModal();
+    } else {
+      return null;
     }
   }, [activeSection]);
 

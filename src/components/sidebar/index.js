@@ -2,16 +2,7 @@
 
 import { useState, useEffect } from 'react';
 
-import * as Scroll from 'react-scroll';
-import {
-  Link,
-  Button,
-  Element,
-  Events,
-  animateScroll as scroll,
-  scrollSpy,
-  scroller,
-} from 'react-scroll';
+import { Link, animateScroll as scroll } from 'react-scroll';
 
 import SidebarActive from 'assets/img/home/sidebar/sidebar-active.png';
 import SidebarInactive from 'assets/img/home/sidebar/sidebar-inactive.png';
@@ -29,7 +20,6 @@ function getWindowDimensions() {
 
 const Sidebar = ({ activeSection, setActiveSection }) => {
   const SECTION_LIST = ['first', 'second', 'third', 'fourth', 'fifth', 'sixth'];
-
   const [windowDimensions, setWindowDimensions] = useState(
     getWindowDimensions(),
   );
@@ -42,10 +32,6 @@ const Sidebar = ({ activeSection, setActiveSection }) => {
     window.addEventListener('resize', handleResize);
     return () => window.removeEventListener('resize', handleResize);
   }, []);
-
-  // useEffect(() => {
-  //   getUserWidth();
-  // }, []);
 
   return (
     <>
@@ -63,8 +49,7 @@ const Sidebar = ({ activeSection, setActiveSection }) => {
                 smooth={true}
                 duration={500}
                 horizontal={true}
-                // isDynamic={true}
-                // ignoreCancelEvents={false}
+                // hashSpy={true}
                 containerId="home">
                 <img
                   src={
@@ -90,9 +75,6 @@ const Sidebar = ({ activeSection, setActiveSection }) => {
                 spy={true}
                 // hashSpy={true}
                 smooth={false}
-                // duration={100}
-                // isDynamic={true}
-                // ignoreCancelEvents={true}
                 containerId="home">
                 <img
                   src={
