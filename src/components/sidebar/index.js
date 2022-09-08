@@ -88,7 +88,7 @@ const Sidebar = ({ activeSection, setActiveSection }) => {
                 to={`home-${name}-section`}
                 onSetActive={setActiveSection}
                 spy={true}
-                hashSpy={true}
+                // hashSpy={true}
                 smooth={false}
                 // duration={100}
                 // isDynamic={true}
