@@ -41,7 +41,6 @@ const Home = () => {
 
   useEffect(() => {
     showModal();
-    console.log('test');
   }, [showModal]);
 
   return (
