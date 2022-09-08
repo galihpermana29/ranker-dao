@@ -1,4 +1,4 @@
-import React, { useEffect, useRef, useState } from 'react';
+import React, { useCallback, useEffect, useRef, useState } from 'react';
 
 import { Modal } from 'bootstrap';
 import 'animate.css';
@@ -33,14 +33,15 @@ const Home = () => {
     bsModal.hide();
   };
 
-  useEffect(() => {
-    const showModal = () => {
-      if (activeSection === 'home-sixth-section') {
-        showFriendsModal();
-      }
-    };
-    showModal();
+  const showModal = useCallback(() => {
+    if (activeSection === 'home-sixth-section') {
+      showFriendsModal();
+    }
   }, [activeSection]);
+
+  useEffect(() => {
+    showModal();
+  }, [showModal]);
 
   return (
     <div className="container-fluid p-0 m-0 home-section-parent" id="home">
