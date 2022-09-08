@@ -1,17 +1,8 @@
 /* eslint-disable no-unused-vars */
 
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useMemo } from 'react';
 
-import * as Scroll from 'react-scroll';
-import {
-  Link,
-  Button,
-  Element,
-  Events,
-  animateScroll as scroll,
-  scrollSpy,
-  scroller,
-} from 'react-scroll';
+import { Link, animateScroll as scroll } from 'react-scroll';
 
 import SidebarActive from 'assets/img/home/sidebar/sidebar-active.png';
 import SidebarInactive from 'assets/img/home/sidebar/sidebar-inactive.png';
@@ -29,7 +20,6 @@ function getWindowDimensions() {
 
 const Sidebar = ({ activeSection, setActiveSection }) => {
   const SECTION_LIST = ['first', 'second', 'third', 'fourth', 'fifth', 'sixth'];
-
   const [windowDimensions, setWindowDimensions] = useState(
     getWindowDimensions(),
   );
@@ -43,71 +33,56 @@ const Sidebar = ({ activeSection, setActiveSection }) => {
     return () => window.removeEventListener('resize', handleResize);
   }, []);
 
-  // useEffect(() => {
-  //   getUserWidth();
-  // }, []);
+  const isMobile = useMemo(() => {
+    if (windowDimensions.width <= 425) {
+      return true;
+    } else {
+      return false;
+    }
+  }, [windowDimensions]);
 
   return (
-    <>
-      {/* Mobile */}
-      {windowDimensions.width <= 425 ? (
-        <div className="home-sidebar-mobile d-flex d-sm-none">
-          {SECTION_LIST.map((name, index) => {
-            return (
-              <Link
-                key={index}
-                activeClass="active-sidebar"
-                to={`home-${name}-section`}
-                onSetActive={e => setActiveSection(e)}
-                spy={true}
-                smooth={true}
-                duration={500}
-                horizontal={true}
-                // isDynamic={true}
-                // ignoreCancelEvents={false}
-                containerId="home">
-                <img
-                  src={
-                    activeSection === `home-${name}-section`
-                      ? MobileActive
-                      : MobileInactive
-                  }
-                  className="home-sidebar-mobile-button"
-                />
-              </Link>
-            );
-          })}
-        </div>
-      ) : (
-        <div className="home-sidebar d-none d-sm-flex ">
-          {SECTION_LIST.map((name, index) => {
-            return (
-              <Link
-                key={index}
-                activeClass="active-sidebar"
-                to={`home-${name}-section`}
-                onSetActive={setActiveSection}
-                spy={true}
-                // hashSpy={true}
-                smooth={false}
-                // duration={100}
-                // isDynamic={true}
-                // ignoreCancelEvents={true}
-                containerId="home">
-                <img
-                  src={
-                    activeSection === `home-${name}-section`
-                      ? SidebarActive
-                      : SidebarInactive
-                  }
-                  className="home-sidebar-button"
-                />
-              </Link>
-            );
-          })}
-        </div>
-      )}
-    </>
+    <div
+      className={`${
+        isMobile
+          ? 'home-sidebar-mobile d-flex d-sm-none'
+          : 'home-sidebar d-none d-sm-flex'
+      }`}>
+      {SECTION_LIST.map((name, index) => {
+        return (
+          <Link
+            key={index}
+            activeClass="active-sidebar"
+            to={`home-${name}-section`}
+            onSetActive={setActiveSection}
+            spy={true}
+            smooth={true}
+            duration={500}
+            horizontal={isMobile}
+            containerId="home">
+            {isMobile ? (
+              <img
+                src={
+                  activeSection === `home-${name}-section`
+                    ? MobileActive
+                    : MobileInactive
+                }
+                className="home-sidebar-mobile-button"
+              />
+            ) : (
+              <img
+                src={
+                  activeSection === `home-${name}-section`
+                    ? SidebarActive
+                    : SidebarInactive
+                }
+                className="home-sidebar-button"
+              />
+            )}
+          </Link>
+        );
+      })}
+    </div>
   );
 };
 
