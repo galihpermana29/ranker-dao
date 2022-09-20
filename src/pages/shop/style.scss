@@ -86,19 +86,23 @@
   &-selector {
     &-item {
       cursor: pointer;
+      border-top: 1px solid #cacaca;
+
       p {
         font-size: 7px;
         font-weight: 700;
         font-family: 'Montserrat';
         line-height: 9px;
-        border-top: 1px solid #cacaca;
         // padding: 8px 0;
+      }
+      .triangle-more-games {
+        width: 10px;
+        height: 10px;
+        object-fit: contain;
       }
     }
     &-item:last-child {
-      p {
-        border-bottom: 1px solid #cacaca;
-      }
+      border-bottom: 1px solid #cacaca;
     }
   }
 }

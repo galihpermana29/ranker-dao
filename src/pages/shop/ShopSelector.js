@@ -1,3 +1,5 @@
+import Triangle from 'assets/img/shop/more-games.png';
+
 const ShopSelector = ({ setActiveGame, list = {} }) => {
   const onClickChangeGame = game => {
     setActiveGame(game);
@@ -21,8 +23,9 @@ const ShopSelector = ({ setActiveGame, list = {} }) => {
             </div>
           );
         })}
-      <div className="shop-selector-item col-12 px-0">
-        <p className="m-0 py-2 px-0">More Games</p>
+      <div className="shop-selector-item d-flex justify-content-between flex-row flex-nowrap align-items-center col-12 px-0">
+        <p className="m-0 py-2 px-0">MORE GAMES</p>
+        <img src={Triangle} alt="more games" className="triangle-more-games" />
       </div>
     </div>
   );
