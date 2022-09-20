@@ -1,5 +1,7 @@
 import { useState } from 'react';
 
+import { ShopSelector } from './ShopSelector';
+
 import RankerCoinImg from 'assets/img/shop/ranker-coin.png';
 
 import MetaGearImg from 'assets/img/shop/metagear.png';
@@ -7,7 +9,6 @@ import MetaGear1 from 'assets/img/shop/metagear-1.png';
 import MetaGear2 from 'assets/img/shop/metagear-2.png';
 import MetaGear3 from 'assets/img/shop/metagear-3.png';
 import MetaGear4 from 'assets/img/shop/metagear-4.png';
-
 import ApeironImg from 'assets/img/shop/apeiron.png';
 import Apeiron1 from 'assets/img/shop/apeiron-1.png';
 import Apeiron2 from 'assets/img/shop/apeiron-2.png';
@@ -15,7 +16,6 @@ import Apeiron3 from 'assets/img/shop/apeiron-3.png';
 import Apeiron4 from 'assets/img/shop/apeiron-4.png';
 
 import './style.scss';
-import { ShopSelector } from './ShopSelector';
 
 const SHOP_GAME_LIST = {
   apeiron: {
@@ -66,8 +66,6 @@ const Shop = () => {
     setIsHovered({});
   };
 
-  console.log('isHovered: ', isHovered);
-
   return (
     <div className="shop-container">
       <div className="shop-title mt-5">
@@ -110,11 +108,15 @@ const Shop = () => {
                 <p className="title p-0 m-0 mt-2">{title}</p>
                 <p className="title p-0 m-0 mt-2">Price</p>
                 <div
-                  className="d-flex flex-row align-items-center"
+                  className={`${
+                    isHovered.title === title
+                      ? 'buy-now-wrapper-active'
+                      : 'buy-now-wrapper-inactive'
+                  } d-flex flex-row align-items-center`}
                   onMouseLeave={onMouseLeavePrice}
                   onMouseEnter={() => onMouseEnterPrice(shop)}>
                   {isHovered.title === title ? (
-                    <p>Buy Now</p>
+                    <p className="buy-now-text p-0 m-0">Buy Now</p>
                   ) : (
                     <>
                       <img
