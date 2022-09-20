@@ -17,6 +17,7 @@ const Header = () => {
       href: '/mint-badge',
       label: 'MINT BADGE',
     },
+    { href: '/shop', label: 'OUR SHOP' },
     {
       href: 'https://t.me/rankerdao',
       label: 'TELEGRAM',

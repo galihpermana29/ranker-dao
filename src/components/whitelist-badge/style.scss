@@ -1,3 +1,6 @@
+@import '../../components/scss/utils/fontSize.scss';
+@import '../../components/scss/utils/lineHeight.scss';
+
 // Screen 1200++
 .container-hero {
   padding: 0px 80px;
@@ -17,21 +20,21 @@
         max-width: 503px;
         font-family: 'Akira';
         font-weight: 800;
-        font-size: 62px;
         letter-spacing: 0.05em;
-        line-height: 60px;
+        font-size: $large-desktop-title;
+        line-height: $large-desktop-title-line-height;
         color: #1f2326;
       }
       .subtext-1-whitelist {
         font-weight: 500;
-        font-size: 25px;
-        line-height: 30px;
+        font-size: $large-desktop-description;
+        line-height: $large-desktop-description-line-height;
         max-width: 503px;
       }
       .subtext-2-whitelist {
         font-weight: 700;
-        font-size: 25px;
-        line-height: 30px;
+        font-size: $large-desktop-description;
+        line-height: $large-desktop-description-line-height;
         color: #1f2326;
         margin-bottom: 35px;
         max-width: 495px;
@@ -96,19 +99,19 @@
       .column-left-whitelist {
         .font-hero-whitelist {
           margin-top: 3rem;
-          font-size: 40px;
-          line-height: 36px;
+          font-size: $large-desktop-title;
+          line-height: $large-desktop-title-line-height;
           margin-bottom: 17px;
           max-width: 329px;
         }
         .subtext-1-whitelist {
-          font-size: 16px;
-          line-height: 20px;
+          font-size: $large-desktop-description;
+          line-height: $large-desktop-description-line-height;
           max-width: 307px;
         }
         .subtext-2-whitelist {
-          font-size: 16px;
-          line-height: 20px;
+          font-size: $large-desktop-description;
+          line-height: $large-desktop-description-line-height;
           margin-bottom: 24px;
           max-width: 299px;
         }
@@ -148,17 +151,17 @@
       .column-left-whitelist {
         .font-hero-whitelist {
           max-width: 255px;
-          font-size: 31px;
-          line-height: 36px;
+          font-size: $desktop-title;
+          line-height: $desktop-title-line-height;
         }
         .subtext-1-whitelist {
-          font-size: 12px;
-          line-height: 15px;
+          font-size: $desktop-description;
+          line-height: $desktop-description-line-height;
           max-width: 238px;
         }
         .subtext-2-whitelist {
-          font-size: 12px;
-          line-height: 15px;
+          font-size: $desktop-description;
+          line-height: $desktop-description-line-height;
           margin-bottom: 18px;
           max-width: 232px;
         }
@@ -206,21 +209,21 @@
       .column-left-whitelist {
         .font-hero-whitelist {
           max-width: 100%;
-          font-size: 41px;
-          line-height: 36px;
+          font-size: $tablet-title;
+          line-height: $tablet-title-line-height;
           overflow: hidden;
           margin-bottom: 28px;
         }
         .subtext-1-whitelist {
-          font-size: 16px;
-          line-height: 20px;
+          font-size: $tablet-description;
+          line-height: $tablet-description-line-height;
           max-width: 100%;
           margin-bottom: 14px;
           overflow: hidden;
         }
         .subtext-2-whitelist {
-          font-size: 16px;
-          line-height: 20px;
+          font-size: $tablet-description;
+          line-height: $tablet-description-line-height;
           max-width: 100%;
           overflow: hidden;
           margin-bottom: 50px;
@@ -251,7 +254,16 @@
     .content-wrapper {
       .column-left-whitelist {
         .font-hero-whitelist {
-          font-size: 2rem;
+          font-size: $mobile-title;
+          line-height: $mobile-title-line-height;
+        }
+        .subtext-1-whitelist {
+          font-size: $mobile-description;
+          line-height: $mobile-description-line-height;
+        }
+        .subtext-2-whitelist {
+          font-size: $mobile-description;
+          line-height: $mobile-description-line-height;
         }
       }
     }

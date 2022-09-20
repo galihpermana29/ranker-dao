@@ -1,28 +1,30 @@
 import React, { useState } from 'react';
-import './style.scss';
 import bronzeBadge from '../../assets/img/mint/whitelist-badge/bronze-badge.png';
 import SilverBadge from '../silver-badge';
 import GoldBadge from '../gold-badge';
 import GamingBadges from '../gaming-badges';
+import './style.scss';
 
 const BronzeBadge = () => {
   const [isActive, setIsActive] = useState({ name: 'bronze' });
-  const [classFadeOut, setClassFadeOut] = useState('animate__fadeIn');
+  const [classFadeOut, setClassFadeOut] = useState('animate__fadeInLeft');
+  const [imageFadeOut, setImageFadeOut] = useState('animate__fadeIn');
 
   const handleChange = name => {
     setTimeout(() => {
       setIsActive({ name });
-    }, 900);
+    }, 300);
     setClassFadeOut('animate__fadeOut');
+    setImageFadeOut('animate__fadeOut');
   };
 
   return (
     <>
       {isActive.name === 'bronze' && (
-        <div
-          className={`container-hero height-hero-bronze animate__animated animate__slow ${classFadeOut}`}>
+        <div className={`container-hero height-hero-bronze`}>
           <div className="content-wrapper my-4">
-            <div className="column-left-bronze">
+            <div
+              className={`column-left-bronze animate__animated ${classFadeOut}`}>
               <h1 className="font-hero-bronze">
                 BRONZE <br /> BADGE
               </h1>
@@ -54,7 +56,8 @@ const BronzeBadge = () => {
                 </span>
               </div>
             </div>
-            <div className="column-right-bronze">
+            <div
+              className={`column-right-bronze animate__animated ${imageFadeOut}`}>
               <img
                 src={bronzeBadge}
                 className="img-fluid bronze-badge-shield-img"

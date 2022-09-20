@@ -1,3 +1,6 @@
+@import '../../components/scss/utils/fontSize.scss';
+@import '../../components/scss/utils/lineHeight.scss';
+
 // Screen 1200++
 .container-hero {
   padding: 0px 80px;
@@ -17,15 +20,15 @@
         max-width: 503px;
         font-family: 'Akira';
         font-weight: 800;
-        font-size: 65px;
+        font-size: $large-desktop-title;
+        line-height: $large-desktop-title-line-height;
         letter-spacing: 0.05em;
-        line-height: 60px;
         color: #1f2326;
       }
       .subtext-1-gaming {
         font-weight: 500;
-        font-size: 25px;
-        line-height: 30px;
+        font-size: $large-desktop-description;
+        line-height: $large-desktop-description-line-height;
         margin-bottom: 14px;
         max-width: 467px;
       }
@@ -114,14 +117,14 @@
 
       .column-left-gaming {
         .font-hero-gaming {
-          font-size: 40px;
-          line-height: 36px;
+          font-size: $desktop-title;
+          line-height: $desktop-title-line-height;
           margin-bottom: 8px;
           max-width: 329px;
         }
         .subtext-1-gaming {
-          font-size: 16px;
-          line-height: 20px;
+          font-size: $desktop-description;
+          line-height: $desktop-description-line-height;
           max-width: 307px;
         }
         .subtext-2-gaming {
@@ -177,12 +180,12 @@
       .column-left-gaming {
         .font-hero-gaming {
           max-width: 255px;
-          font-size: 31px;
-          line-height: 36px;
+          font-size: $tablet-title;
+          line-height: $tablet-title-line-height;
         }
         .subtext-1-gaming {
-          font-size: 12px;
-          line-height: 15px;
+          font-size: $tablet-description;
+          line-height: $tablet-description-line-height;
           margin-bottom: 8px;
           max-width: 238px;
         }
@@ -246,14 +249,14 @@
       .column-left-gaming {
         .font-hero-gaming {
           max-width: 100%;
-          font-size: 41px;
-          line-height: 36px;
+          font-size: $mobile-title;
+          line-height: $mobile-title-line-height;
           overflow: hidden;
           margin-bottom: 37px;
         }
         .subtext-1-gaming {
-          font-size: 16px;
-          line-height: 20px;
+          font-size: $tablet-description;
+          line-height: $tablet-description-line-height;
           max-width: 100%;
           margin-bottom: 12px;
           overflow: hidden;

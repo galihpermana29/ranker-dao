@@ -3,6 +3,7 @@ import Home from './home';
 import LitePaper from './litepaper';
 import MintBadge from './mintbadge';
 import RankerToken from './ranker-token';
+import Shop from './shop';
 import Staking from './staking';
 
-export { About, Home, LitePaper, Staking, MintBadge, RankerToken };
+export { About, Home, LitePaper, Staking, MintBadge, Shop, RankerToken };

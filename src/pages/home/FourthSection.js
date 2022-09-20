@@ -83,7 +83,7 @@ export const FourthSection = ({
           href="/ranker-token"
           size={{ mobile: '172px', tablet: '175px', desktop: '278px' }}
         />
-        <p className="description-common">
+        <p className="description-common mt-4">
           Or mint yours now on these websites:
         </p>
         <div className="minting-sites-container d-block d-sm-none">
@@ -130,7 +130,7 @@ export const FourthSection = ({
         <img
           src={FourthHero}
           alt="get set play earn"
-          className={`home-section-hero-image animate__animated ${
+          className={`m-0 p-0 home-section-hero-image animate__animated ${
             isVisible ? 'animate__fadeIn' : 'animate__fadeOut'
           }`}
         />

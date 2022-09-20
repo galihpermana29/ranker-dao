@@ -1,5 +1,12 @@
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
-import { RankerToken, Home, LitePaper, MintBadge, Staking } from './pages';
+import {
+  RankerToken,
+  Home,
+  LitePaper,
+  MintBadge,
+  Staking,
+  Shop,
+} from './pages';
 import { Footer, Header } from './components';
 
 import './components/scss/global.scss';
@@ -15,6 +22,7 @@ const App = () => {
         <Route path="/ranker-token" element={<RankerToken />} />
         <Route path="/litepaper" element={<LitePaper />} />
         <Route path="/staking" element={<Staking />} />
+        <Route path="/shop" element={<Shop />} />
       </Routes>
       <Footer />
     </BrowserRouter>

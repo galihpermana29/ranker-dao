@@ -1,0 +1,293 @@
+@import '../../components/scss/utils/fontSize.scss';
+@import '../../components/scss/utils/lineHeight.scss';
+
+.shop {
+  &-container {
+    padding-top: 10vh;
+    padding-bottom: 20vh;
+  }
+
+  &-title {
+    padding: 0 20px;
+    margin-top: 3rem;
+    p {
+      word-break: normal;
+      white-space: normal;
+    }
+    &-black,
+    &-yellow {
+      text-align: center;
+      font-family: 'Akira';
+      font-weight: 800;
+      font-size: $small-mobile-title;
+      line-height: $small-mobile-title-line-height;
+    }
+
+    &-black {
+      color: #1f2326;
+    }
+
+    &-yellow {
+      color: #ffc700;
+    }
+  }
+
+  &-wrapper {
+    justify-content: center;
+    align-items: center;
+    padding: 0 40px;
+    .shop-left-side {
+      .shop-logo {
+        max-width: 260px;
+        max-height: 106px;
+        margin-bottom: 12px;
+        object-fit: contain;
+      }
+
+      .description {
+        text-align: center;
+        font-family: 'Montserrat';
+        font-weight: 500;
+        font-size: $small-mobile-description;
+        line-height: $small-mobile-description-line-height;
+      }
+    }
+
+    .shop-list {
+      &-img {
+        height: 120px;
+        object-fit: cover;
+        border-radius: 11px;
+        box-shadow: 3px 3px 4px 2px rgba(0, 0, 0, 0.25);
+      }
+      .title {
+        margin-top: 10px;
+        font-family: 'Montserrat';
+        font-weight: 800;
+        font-size: 8px;
+        line-height: 10px;
+        height: 20px;
+      }
+      .ranker-coin-img {
+        width: 20px;
+        height: 20px;
+      }
+      .price {
+        font-size: 6px;
+        font-weight: 600;
+        font-family: 'Montserrat';
+      }
+    }
+  }
+
+  &-selector {
+    &-item {
+      cursor: pointer;
+      p {
+        font-size: 7px;
+        font-weight: 700;
+        font-family: 'Montserrat';
+        line-height: 9px;
+        border-top: 1px solid #cacaca;
+        border-bottom: 1px solid #cacaca;
+        padding: 8px 0;
+      }
+    }
+  }
+}
+
+@media only screen and (min-width: 425px) {
+  .shop {
+    &-title {
+      padding: 0;
+      &-black,
+      &-yellow {
+        font-size: $mobile-title;
+        line-height: $mobile-title-line-height;
+      }
+    }
+    &-wrapper {
+      .shop-left-side {
+        .shop-logo {
+          width: 124px;
+          height: 122px;
+        }
+        .description {
+          font-size: $mobile-description;
+          line-height: $mobile-description-line-height;
+        }
+      }
+      .shop-list {
+        &-img {
+          height: 150px;
+        }
+
+        .ranker-coin-img {
+          width: 24px;
+          height: 24px;
+        }
+        .price {
+          font-size: 8px;
+        }
+      }
+    }
+  }
+}
+@media only screen and (min-width: 768px) {
+  .shop {
+    &-title {
+      &-black,
+      &-yellow {
+        font-size: $tablet-title;
+        line-height: $tablet-title-line-height;
+      }
+      &-sub {
+        font-size: 7px;
+        font-weight: 500;
+        color: #1f2326;
+        text-align: center;
+        font-family: 'Montserrat';
+      }
+    }
+
+    &-wrapper {
+      .shop-left-side {
+        flex: 2;
+        padding: 0 20px;
+        .shop-logo {
+          width: auto;
+          max-height: 95px;
+        }
+        .description {
+          font-size: $tablet-description;
+          line-height: $tablet-description-line-height;
+        }
+      }
+      .shop-list {
+        flex: 5;
+
+        &-img {
+          height: 120px;
+        }
+
+        .ranker-coin-img {
+          width: 18px;
+          height: 18px;
+        }
+        .price {
+          font-size: 8px;
+        }
+        .buy-now {
+          &-wrapper-active {
+            height: 28px;
+            background-color: #6d2ea1;
+            text-align: center;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            border-radius: 0px 0px 8px 8px;
+          }
+          &-wrapper-inactive {
+            height: 28px;
+          }
+
+          &-text {
+            font-size: 12px;
+            line-height: $tablet-description-line-height;
+            font-weight: 600;
+            font-family: 'Montserrat';
+            color: white;
+          }
+        }
+      }
+    }
+  }
+}
+@media only screen and (min-width: 992px) {
+  .shop {
+    &-title {
+      &-black,
+      &-yellow {
+        font-size: $desktop-title;
+        line-height: $desktop-title-line-height;
+      }
+      &-sub {
+        font-size: 10px;
+      }
+    }
+
+    &-wrapper {
+      .shop-left-side {
+        .shop-logo {
+          width: 124px;
+          height: 122px;
+        }
+        .description {
+          font-size: $desktop-description;
+          line-height: $desktop-description-line-height;
+        }
+      }
+
+      .shop-list {
+        &-wrapper-active {
+          height: 39px;
+        }
+        &-wrapper-inactive {
+          height: 39px;
+        }
+        &-text {
+          font-size: 18px;
+          line-height: $desktop-description-line-height;
+        }
+        &-img {
+          height: 160px;
+        }
+      }
+    }
+  }
+}
+@media only screen and (min-width: 1200px) {
+  .shop {
+    &-title {
+      &-black,
+      &-yellow {
+        font-size: $large-desktop-title;
+        line-height: $large-desktop-title-line-height;
+      }
+      &-sub {
+        font-size: 18px;
+      }
+    }
+
+    &-wrapper {
+      .shop-left-side {
+        .shop-logo {
+          width: 189px;
+          height: 189px;
+        }
+        .description {
+          font-size: $large-desktop-description;
+          line-height: $large-desktop-description-line-height;
+        }
+      }
+      .shop-list {
+        &-img {
+          height: 240px;
+          max-height: 100%;
+        }
+        .title {
+          font-size: 16px;
+          line-height: 20px;
+          height: 40px;
+        }
+        .ranker-coin-img {
+          width: 33px;
+          height: 33px;
+        }
+        .price {
+          font-size: 18px;
+        }
+      }
+    }
+  }
+}

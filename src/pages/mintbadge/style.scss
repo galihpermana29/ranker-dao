@@ -1,6 +1,10 @@
+@import '../../components/scss/utils/fontSize.scss';
+@import '../../components/scss/utils/lineHeight.scss';
+
 // Screen 1200++
 .container-hero {
   padding: 0px 80px;
+  padding-bottom: 20vh;
   width: 100%;
   overflow: hidden;
   &.height-hero {
@@ -21,9 +25,9 @@
         max-width: 503px;
         font-family: 'Akira';
         font-weight: 800;
-        font-size: 62px;
         letter-spacing: 0.05em;
-        line-height: 60px;
+        font-size: $large-desktop-title;
+        line-height: $large-desktop-title-line-height;
         margin-bottom: 33px;
         color: #1f2326;
         span {
@@ -35,8 +39,8 @@
     .subtext-mint {
       font-family: 'Montserrat';
       font-weight: 500;
-      line-height: 30px;
-      font-size: 25px;
+      font-size: $large-desktop-description;
+      line-height: $large-desktop-description-line-height;
       max-width: 526px;
       margin-bottom: 46px;
     }
@@ -46,11 +50,12 @@
       border-left: none;
       border-right: none;
       max-width: 451px;
+
       &.badges-mint:last-child {
         border-bottom: 1px solid #cacaca;
       }
       h3 {
-        font-weight: 700;
+        font-weight: 900;
         margin: 0;
         font-size: 16px;
         line-height: 20px;
@@ -85,6 +90,8 @@
 @media only screen and (max-width: 1199px) {
   .container-hero {
     padding: 0 49px;
+    padding-bottom: 20vh;
+
     width: 100%;
 
     .content-wrapper {
@@ -98,17 +105,17 @@
       .column-left {
         .font-hero {
           margin-top: 3rem;
-          font-size: 40px;
+          font-size: $desktop-title;
+          line-height: $desktop-title-line-height;
           margin-bottom: 21px;
-          line-height: 36px;
           color: #1f2326;
           span {
             color: #ffc700;
           }
         }
         .subtext-mint {
-          font-size: 16px;
-          line-height: 20px;
+          font-size: $desktop-description;
+          line-height: $desktop-description-line-height;
           max-width: 307px;
           margin-bottom: 30px;
         }
@@ -137,6 +144,8 @@
 @media only screen and (max-width: 991px) {
   .container-hero {
     padding: 0 40px;
+    padding-bottom: 20vh;
+
     width: 100%;
 
     .content-wrapper {
@@ -146,12 +155,13 @@
         .font-hero {
           max-width: 255px;
           margin-bottom: 16px;
-          font-size: 31px;
-          line-height: 36px;
+          font-size: $desktop-title;
+          line-height: $desktop-title-line-height;
         }
+
         .subtext-mint {
-          font-size: 12px;
-          line-height: 15px;
+          font-size: $desktop-description;
+          line-height: $desktop-description-line-height;
           max-width: 238px;
           margin-bottom: 22px;
         }
@@ -184,6 +194,8 @@
 @media only screen and (max-width: 767px) {
   .container-hero {
     padding: 0 32px;
+    padding-bottom: 20vh;
+
     width: 100%;
     &.height-hero {
       height: 100%;
@@ -201,13 +213,13 @@
           max-width: 100%;
           margin-top: 3rem;
           margin-bottom: 30px;
-          font-size: 41px;
-          line-height: 36px;
           overflow: hidden;
+          font-size: $tablet-title;
+          line-height: $tablet-title-line-height;
         }
         .subtext-mint {
-          font-size: 16px;
-          line-height: 20px;
+          font-size: $tablet-description;
+          line-height: $tablet-description-line-height;
           max-width: 100%;
           margin-bottom: 20px;
           overflow: hidden;
@@ -231,6 +243,23 @@
         }
         .text-collections {
           min-height: inherit;
+        }
+      }
+    }
+  }
+}
+
+@media only screen and(max-width: 425px) {
+  .container-hero {
+    .content-wrapper {
+      .column-left {
+        .font-hero {
+          font-size: $mobile-title;
+          line-height: $mobile-title-line-height;
+        }
+        .subtext-mint {
+          font-size: $mobile-description;
+          line-height: $mobile-description-line-height;
         }
       }
     }
