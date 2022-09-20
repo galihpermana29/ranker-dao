@@ -16,11 +16,14 @@ const ShopSelector = ({ setActiveGame, list = {} }) => {
             <div
               onClick={() => onClickChangeGame(name)}
               key={index}
-              className="shop-selector-item col-12">
-              <p>{name.toUpperCase()}</p>
+              className="shop-selector-item col-12 px-0">
+              <p className="m-0 py-2 px-0">{name.toUpperCase()}</p>
             </div>
           );
         })}
+      <div className="shop-selector-item col-12 px-0">
+        <p className="m-0 py-2 px-0">More Games</p>
+      </div>
     </div>
   );
 };

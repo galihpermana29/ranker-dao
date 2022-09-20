@@ -104,7 +104,7 @@ const Shop = () => {
             const { img, title = '', price = 0 } = shop;
             return (
               <div key={index} className="col-6 col-md-4 my-3">
-                <img src={img} className="shop-list-img w-100" alt="ape iron" />
+                <img src={img} className="shop-list-img" alt="ape iron" />
                 <p className="title p-0 m-0 mt-2">{title}</p>
                 <p className="title p-0 m-0 mt-2">Price</p>
                 <div
