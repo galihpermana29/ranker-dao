@@ -54,6 +54,14 @@ export const ThirdSection = ({ id = '' }) => {
             );
           })}
         </div>
+        <div className="third-section-button-wrapper mt-3">
+          <p>Got a badge already? Check out our Inventory right here!</p>
+        </div>
+        <HomeButton
+          label="OUR SHOP"
+          href="/shop"
+          size={{ mobile: '150px', tablet: '136px', desktop: '234px' }}
+        />
       </div>
       <div className="home-section-right">
         <img

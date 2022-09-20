@@ -50,7 +50,8 @@
     margin: 0 auto;
     flex-wrap: wrap;
     direction: rtl;
-    overflow: scroll;
+    overflow-y: scroll;
+    overflow-x: hidden;
     gap: 15px;
   }
   &-logo {

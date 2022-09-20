@@ -57,7 +57,7 @@ const Sidebar = ({ activeSection, setActiveSection }) => {
             onSetActive={setActiveSection}
             spy={true}
             smooth={true}
-            duration={500}
+            duration={300}
             horizontal={isMobile}
             containerId="home">
             {isMobile ? (

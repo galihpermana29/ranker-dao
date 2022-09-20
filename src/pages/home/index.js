@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 
 import { ModalFriends, Sidebar } from 'components';
 import { FirstSection } from './FirstSection';
@@ -14,6 +14,10 @@ import './style.scss';
 const Home = () => {
   const [activeSection, setActiveSection] = useState('home-first-section');
   const [isOpenMintingSites, setIsOpenMintingSites] = useState(false);
+
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
 
   return (
     <div className="container-fluid p-0 m-0 home-section-parent" id="home">

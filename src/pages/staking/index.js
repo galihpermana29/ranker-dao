@@ -1,7 +1,6 @@
 import './style.scss';
 
 const Staking = () => {
-  console.log('staking');
   return (
     <div className="staking-container" id="staking">
       <div className="staking-wrapper">
