@@ -55,7 +55,10 @@
 
     .shop-list {
       &-img {
-        height: 120px;
+        height: auto;
+        max-height: 120px;
+        min-height: 120px;
+        width: 100%;
         object-fit: cover;
         border-radius: 11px;
         box-shadow: 3px 3px 4px 2px rgba(0, 0, 0, 0.25);
@@ -83,15 +86,23 @@
   &-selector {
     &-item {
       cursor: pointer;
+      border-top: 1px solid #cacaca;
+
       p {
         font-size: 7px;
         font-weight: 700;
         font-family: 'Montserrat';
         line-height: 9px;
-        border-top: 1px solid #cacaca;
-        border-bottom: 1px solid #cacaca;
-        padding: 8px 0;
+        // padding: 8px 0;
       }
+      .triangle-more-games {
+        width: 10px;
+        height: 10px;
+        object-fit: contain;
+      }
+    }
+    &-item:last-child {
+      border-bottom: 1px solid #cacaca;
     }
   }
 }
@@ -119,7 +130,9 @@
       }
       .shop-list {
         &-img {
-          height: 150px;
+          height: auto;
+          max-height: 160px;
+          min-height: 160px;
         }
 
         .ranker-coin-img {
@@ -161,13 +174,16 @@
         .description {
           font-size: $tablet-description;
           line-height: $tablet-description-line-height;
+          text-align: start;
         }
       }
       .shop-list {
         flex: 5;
 
         &-img {
-          height: 120px;
+          height: auto;
+          max-height: 135px;
+          min-height: 135px;
         }
 
         .ranker-coin-img {
@@ -179,6 +195,8 @@
         }
         .buy-now {
           &-wrapper-active {
+            cursor: pointer;
+
             height: 28px;
             background-color: #6d2ea1;
             text-align: center;
@@ -223,8 +241,8 @@
           height: 122px;
         }
         .description {
-          font-size: $desktop-description;
-          line-height: $desktop-description-line-height;
+          font-size: $tablet-description;
+          line-height: $tablet-description-line-height;
         }
       }
 
@@ -240,7 +258,9 @@
           line-height: $desktop-description-line-height;
         }
         &-img {
-          height: 160px;
+          height: auto;
+          max-height: 195px;
+          min-height: 195px;
         }
       }
     }
@@ -272,7 +292,9 @@
       }
       .shop-list {
         &-img {
-          height: 240px;
+          height: auto;
+          min-height: 290px;
+          max-height: 290px;
           max-height: 100%;
         }
         .title {
@@ -286,6 +308,14 @@
         }
         .price {
           font-size: 18px;
+        }
+      }
+    }
+    &-selector {
+      &-item {
+        p {
+          font-size: 11px;
+          line-height: 13px;
         }
       }
     }
