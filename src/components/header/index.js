@@ -59,7 +59,7 @@ const Header = () => {
       style={{ backgroundColor: pathname === '/' ? 'transparent' : 'black' }}>
       <div className="d-flex justify-content-between align-items-center">
         <Link to="/">
-          <img src={Logo} className="pd-nav-logo" />
+          <img src={Logo} className="pd-nav-logo" alt="ranker dao" />
         </Link>
         <button
           className="pd-nav-button d-md-none"
@@ -105,56 +105,3 @@ const Header = () => {
 };
 
 export default Header;
-
-{
-  /* <button
-          className="navbar-toggler"
-          ">
-          <span className="navbar-toggler-icon"></span>
-        </button>
-        <div className="collapse navbar-collapse" id="navbarNav">
-          <ul className="navbar-nav ms-auto">
-            <li className="nav-item">
-              <a href="/mint-badge">MINT BADGE</a>
-            </li>
-            <li className="nav-item">
-              <a
-                href="https://t.me/rankerdao"
-                target="_blank"
-                rel="noopener noreferrer"
-                aria-current="page">
-                TELEGRAM
-              </a>
-            </li>
-            <li className="nav-item">
-              <a
-                href="https://twitter.com/rankerdao"
-                target="_blank"
-                rel="noopener noreferrer">
-                TWITTER
-              </a>
-            </li>
-            <li className="nav-item">
-              <a
-                href="http://discord.gg/rankerdao"
-                target="_blank"
-                rel="noopener noreferrer">
-                DISCORD
-              </a>
-            </li>
-            <li className="nav-item">
-              <a href="/ranker-token" className="nav-link-custom">
-                $RANKER
-              </a>
-            </li>
-            <li className="nav-item">
-              <a href="https://rankerdao.com/axies/index.html">INVENTORY</a>
-            </li>
-            <li className="nav-item">
-              <a href="[RNKR] Handout Page.pdf" download>
-                LITEPAPER
-              </a>
-            </li>
-          </ul>
-        </div> */
-}

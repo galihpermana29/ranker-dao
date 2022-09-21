@@ -95,7 +95,7 @@ const About = () => {
     <div className="container-fluid h-100 p-0">
       <div className="about-wrapper px-3">
         <div className="d-flex justify-content-center flex-column pt-2 pt-md-3 pt-lg-5 ">
-          <img src={Coin} className="img-fluid coin mx-auto" />
+          <img src={Coin} className="img-fluid coin mx-auto" alt="coin" />
           <p className="akira-fill-white text-center">
             <span className="akira-fill-white yellow-half-bottom">$RANKER</span>{' '}
             <span className="akira-outlined-white">TOKEN</span>
@@ -108,9 +108,21 @@ const About = () => {
           <RenderMintList />
         </div>
         {/* DESKTOP ONLY */}
-        <img src={GraphFirst} className="img-fluid d-none d-sm-block" />
-        <img src={GraphSecond} className="img-fluid d-none d-sm-block" />
-        <img src={GraphThird} className="img-fluid d-none d-sm-block" />
+        <img
+          src={GraphFirst}
+          className="img-fluid d-none d-sm-block"
+          alt="first graph"
+        />
+        <img
+          src={GraphSecond}
+          className="img-fluid d-none d-sm-block"
+          alt="second graph"
+        />
+        <img
+          src={GraphThird}
+          className="img-fluid d-none d-sm-block"
+          alt="third graph"
+        />
 
         {/* MOBILE ONLY */}
         {mobileGraphList.map(img => (
