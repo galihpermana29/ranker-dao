@@ -1,6 +1,6 @@
-@import '../../components/scss/utils/color.scss';
-@import '../../components/scss/utils/fontSize.scss';
-@import '../../components/scss/utils/lineHeight.scss';
+@import '../../scss/utils/color.scss';
+@import '../../scss/utils/fontSize.scss';
+@import '../../scss/utils/lineHeight.scss';
 @import url('https://fonts.googleapis.com/css2?family=Montserrat&display=swap');
 
 // :root {
@@ -72,7 +72,7 @@ body {
       font-weight: 800;
       color: white;
       font-family: 'Akira' !important;
-      letter-spacing: 5%;
+      // letter-spacing: 5%;
       text-align: start;
     }
     .description-common {

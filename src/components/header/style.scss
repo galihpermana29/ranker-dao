@@ -1,4 +1,4 @@
-@import '../scss/utils/color.scss';
+@import '../../scss/utils/color.scss';
 .pd-nav {
   z-index: 10;
   position: fixed;
@@ -29,7 +29,8 @@
       border-bottom: 1px solid #cacaca;
       padding: 16px 20px;
       text-align: end;
-      a {
+      a,
+      p {
         text-align: end;
         text-decoration: none;
         color: black;
@@ -56,12 +57,13 @@
       width: 56px;
       height: 12px;
       cursor: pointer;
-      a {
+      a,
+      p {
         white-space: nowrap;
         font-size: 5px;
         font-weight: 700;
         text-decoration: none;
-        color: $white;
+        color: $white !important;
         -webkit-transform: skew(20deg);
         -moz-transform: skew(20deg);
         transform: skew(20deg);
@@ -88,7 +90,8 @@
         width: 71px;
         height: 16px;
       }
-      a {
+      a,
+      p {
         font-size: 7px;
       }
     }
@@ -101,7 +104,8 @@
         width: 108px;
         height: 25px;
       }
-      a {
+      a,
+      p {
         font-size: 10px;
       }
     }

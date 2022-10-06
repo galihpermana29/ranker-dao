@@ -69,8 +69,10 @@ const Shop = () => {
   return (
     <div className="shop-container">
       <div className="shop-title mt-5">
-        <div className="my-5">
-          <p className="shop-title-black d-block d-sm-none">STARTED ON</p>
+        <div className="my-4">
+          <p className="shop-title-black d-block d-sm-none m-0 p-0">
+            STARTED ON
+          </p>
           <p className="shop-title-black d-none d-sm-block">
             LETS GET YOU STARTED ON
           </p>
@@ -85,11 +87,10 @@ const Shop = () => {
 
       <div className="shop-wrapper d-flex flex-column flex-sm-row align-items-start">
         <div className="shop-left-side d-flex flex-column align-items-center justify-content-center">
-          <img
-            src={SHOP_GAME_LIST[activeGame].img}
-            alt="apeiron"
-            className="shop-logo w-100"
-          />
+          <div className="shop-logo-wrapper">
+            <img src={SHOP_GAME_LIST[activeGame].img} alt="apeiron" />
+          </div>
+          <p className="shop-name">{SHOP_GAME_LIST[activeGame].label}</p>
           <p className="description">
             {SHOP_GAME_LIST[activeGame].description}
           </p>
@@ -103,8 +104,10 @@ const Shop = () => {
           {SHOP_GAME_LIST[activeGame].imageList.map((shop, index) => {
             const { img, title = '', price = 0 } = shop;
             return (
-              <div key={index} className="col-6 col-md-4 my-3">
-                <img src={img} className="shop-list-img" alt="ape iron" />
+              <div key={index} className="col-6 col-md-4 mt-3 mt-md-0 mb-3">
+                <div className="shop-list-product">
+                  <img src={img} className="shop-list-img" alt="ape iron" />
+                </div>
                 <p className="title p-0 m-0 mt-2">{title}</p>
                 <p className="title p-0 m-0 mt-2">Price</p>
                 <div

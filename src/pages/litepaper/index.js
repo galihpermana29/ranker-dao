@@ -18,28 +18,32 @@ const LitePaper = () => {
   return (
     <div className="container-fluid p-0 litepaper-container">
       <div className="d-flex justify-content-end">
-        <img src={FirstSection} className="img-fluid my-5 ps-5" />
+        <img alt="section" src={FirstSection} className="img-fluid my-5 ps-5" />
       </div>
       <div className="d-flex justify-content-start">
-        <img src={SecondSection} className="img-fluid my-5 pe-5" />
+        <img
+          alt="section"
+          src={SecondSection}
+          className="img-fluid my-5 pe-5"
+        />
       </div>
       <div className="d-flex justify-content-center p-1 p-lg-0">
-        <img src={ThirdSection} className="img-fluid my-5" />
+        <img alt="section" src={ThirdSection} className="img-fluid my-5" />
       </div>
       <div className="d-flex justify-content-center p-1 p-lg-0">
-        <img src={FourthSection} className="img-fluid my-5" />
+        <img alt="section" src={FourthSection} className="img-fluid my-5" />
       </div>
       <div className="d-flex justify-content-center p-1 p-lg-0">
-        <img src={FifthSection} className="img-fluid my-5" />
+        <img alt="section" src={FifthSection} className="img-fluid my-5" />
       </div>
       <div className="d-flex justify-content-center p-0 p-lg-0">
-        <img src={SixthSection} className="img-fluid my-5" />
+        <img alt="section" src={SixthSection} className="img-fluid my-5" />
       </div>
       <div className="d-flex justify-content-center p-1 p-lg-0">
-        <img src={SeventhSection} className="img-fluid my-5" />
+        <img alt="section" src={SeventhSection} className="img-fluid my-5" />
       </div>
       <div className="d-flex justify-content-center p-1 p-lg-0">
-        <img src={EighthSection} className="img-fluid my-5" />
+        <img alt="section" src={EighthSection} className="img-fluid my-5" />
       </div>
     </div>
   );

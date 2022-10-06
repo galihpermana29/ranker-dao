@@ -68,6 +68,7 @@ const Sidebar = ({ activeSection, setActiveSection }) => {
                     : MobileInactive
                 }
                 className="home-sidebar-mobile-button"
+                alt="sidebar"
               />
             ) : (
               <img
@@ -77,6 +78,7 @@ const Sidebar = ({ activeSection, setActiveSection }) => {
                     : SidebarInactive
                 }
                 className="home-sidebar-button"
+                alt="sidebar"
               />
             )}
           </Link>

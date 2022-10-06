@@ -1,18 +1,30 @@
 import { useRef } from 'react';
 import { useIntersectionObserver } from 'usehooks-ts';
 
+import { useWalletContext } from 'contexts/WalletContext';
+
 import { HomeButton } from './HomeButton';
 import ThirdBg from 'assets/img/home/background/green-bg.png';
 import ThirdHero from 'assets/img/home/hero/third-hero.png';
 import ThirdBgMobile from 'assets/img/home/background/green-bg-mobile.png';
 
 export const ThirdSection = ({ id = '' }) => {
+  const { onConnect, isConnect } = useWalletContext();
+
   const thirdRef = useRef();
   const entry = useIntersectionObserver(thirdRef, {
     threshold: 0.1,
     freezeOnceVisible: false,
   });
   const isVisible = entry ? !!entry.isIntersecting : false;
+
+  const onClickConnect = () => {
+    if (!isConnect) {
+      onConnect()
+        .then(response => console.log('response', response))
+        .catch(error => console.log('error: ', error));
+    }
+  };
 
   return (
     <section className="home-section px-4 pb-0" id={id} ref={thirdRef}>
@@ -57,11 +69,19 @@ export const ThirdSection = ({ id = '' }) => {
         <div className="third-section-button-wrapper mt-3">
           <p>Got a badge already? Check out our Inventory right here!</p>
         </div>
-        <HomeButton
-          label="OUR SHOP"
-          href="/shop"
-          size={{ mobile: '150px', tablet: '136px', desktop: '234px' }}
-        />
+        <div className="second-section-button-wrapper">
+          <HomeButton
+            label="OUR SHOP"
+            href="/shop"
+            size={{ mobile: '150px', tablet: '136px', desktop: '234px' }}
+          />
+          <HomeButton
+            label={isConnect ? 'CONNECTED' : 'CONNECT WALLET'}
+            connectWallet={true}
+            onClick={onClickConnect}
+            size={{ mobile: '150px', tablet: '136px', desktop: '234px' }}
+          />
+        </div>
       </div>
       <div className="home-section-right">
         <img
