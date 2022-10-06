@@ -38,26 +38,34 @@ export default function WhiteListBadge() {
                 best price using our investment badges!
               </p>
               <div className="badges-whitelist d-flex align-items-center justify-content-between">
-                <h3>BRONZE BADGES</h3>
-                <span className="plus" onClick={() => handleChange('bronze')}>
+                <h3 className="m-0 p-0">BRONZE BADGES</h3>
+                <span
+                  className="plus m-0 p-0"
+                  onClick={() => handleChange('bronze')}>
                   +
                 </span>
               </div>
               <div className="badges-whitelist d-flex align-items-center justify-content-between">
-                <h3>SILVER BADGES</h3>
-                <span className="plus" onClick={() => handleChange('silver')}>
+                <h3 className="m-0 p-0">SILVER BADGES</h3>
+                <span
+                  className="plus m-0 p-0"
+                  onClick={() => handleChange('silver')}>
                   +
                 </span>
               </div>
               <div className="badges-whitelist d-flex align-items-center justify-content-between">
-                <h3>GOLD BADGES</h3>
-                <span className="plus" onClick={() => handleChange('gold')}>
+                <h3 className="m-0 p-0">GOLD BADGES</h3>
+                <span
+                  className="plus m-0 p-0"
+                  onClick={() => handleChange('gold')}>
                   +
                 </span>
               </div>
               <div className="badges-whitelist d-flex align-items-center justify-content-between">
-                <h3>GAMING BADGES</h3>
-                <span className="plus" onClick={() => handleChange('gaming')}>
+                <h3 className="m-0 p-0">GAMING BADGES</h3>
+                <span
+                  className="plus m-0 p-0"
+                  onClick={() => handleChange('gaming')}>
                   +
                 </span>
               </div>

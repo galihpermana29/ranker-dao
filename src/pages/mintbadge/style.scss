@@ -1,265 +1,351 @@
-@import '../../components/scss/utils/fontSize.scss';
-@import '../../components/scss/utils/lineHeight.scss';
+@import '../../scss/utils/color.scss';
+@import '../../scss/utils/fontSize.scss';
+@import '../../scss/utils/lineHeight.scss';
 
-// Screen 1200++
-.container-hero {
-  padding: 0px 80px;
-  padding-bottom: 20vh;
-  width: 100%;
-  overflow: hidden;
-  &.height-hero {
-    height: 82vh;
-  }
-
-  .content-wrapper {
-    padding-top: 10vh;
-
+.mint-badge {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  min-height: 100vh;
+  padding: 120px 30px;
+  .left {
     width: 100%;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    .column-left {
-      .font-hero {
-        margin-top: 3rem;
-        overflow: hidden;
-        max-width: 503px;
+    .title {
+      max-width: 240px;
+      letter-spacing: 5%;
+      font-family: 'Akira';
+      font-weight: 800;
+      color: $black;
+      font-size: $small-mobile-title;
+      line-height: $small-mobile-title-line-height;
+      span {
+        font-size: $mobile-title;
+        line-height: $mobile-title-line-height;
+        font-family: 'Akira';
+        font-weight: 800;
+        color: $yellow;
+      }
+    }
+
+    .description {
+      margin-top: 25px;
+      &-normal {
+        max-width: 280px;
+        font-size: $small-mobile-description;
+        line-height: $small-mobile-description-line-height;
+        font-weight: 500;
+        color: #000;
+      }
+
+      &-bold {
+        max-width: 280px;
+        font-size: $small-mobile-description;
+        line-height: $small-mobile-description-line-height;
+        font-weight: 700;
+        color: #000;
+      }
+    }
+
+    .price {
+      p {
+        color: $yellow;
+        font-size: 18px;
+        line-height: 36px;
         font-family: 'Akira';
         font-weight: 800;
         letter-spacing: 0.05em;
-        font-size: $large-desktop-title;
-        line-height: $large-desktop-title-line-height;
-        margin-bottom: 33px;
-        color: #1f2326;
-        span {
-          color: #ffc700;
-          font-family: 'Akira';
-        }
       }
     }
-    .subtext-mint {
+
+    .supply {
+      p {
+        color: #a8a6a6;
+        font-size: 12px;
+        font-weight: 700;
+        line-height: 15px;
+      }
+    }
+
+    .connect-button {
+      border: none;
+      background-color: $black;
+      color: #fff;
+      font-weight: 700;
+      font-size: $small-mobile-description;
+      padding: 8px 16px;
       font-family: 'Montserrat';
-      font-weight: 500;
-      font-size: $large-desktop-description;
-      line-height: $large-desktop-description-line-height;
-      max-width: 526px;
-      margin-bottom: 46px;
-    }
-    .badges-mint {
-      padding: 7px 0 14px 0;
-      border-top: 1px solid #cacaca;
-      border-left: none;
-      border-right: none;
-      max-width: 451px;
-
-      &.badges-mint:last-child {
-        border-bottom: 1px solid #cacaca;
-      }
-      h3 {
-        font-weight: 900;
-        margin: 0;
-        font-size: 16px;
-        line-height: 20px;
-      }
-      .plus {
-        font-weight: 900;
-        font-size: 15px;
-        line-height: 18px;
-        color: #1f2326;
-        cursor: pointer;
-        margin-right: 5px;
-      }
-    }
-  }
-
-  .column-right {
-    .mint-badge-shield-img {
-      max-width: 680px;
-      max-height: 453px;
-    }
-    .text-collections {
-      width: 100%;
-      text-align: center;
-      font-weight: 500;
-      font-size: 16px;
-      line-height: 20px;
-      font-style: italic;
-    }
-  }
-}
-
-@media only screen and (max-width: 1199px) {
-  .container-hero {
-    padding: 0 49px;
-    padding-bottom: 20vh;
-
-    width: 100%;
-
-    .content-wrapper {
-      padding-top: 10vh;
-
-      width: 100%;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-
-      .column-left {
-        .font-hero {
-          margin-top: 3rem;
-          font-size: $desktop-title;
-          line-height: $desktop-title-line-height;
-          margin-bottom: 21px;
-          color: #1f2326;
-          span {
-            color: #ffc700;
-          }
-        }
-        .subtext-mint {
-          font-size: $desktop-description;
-          line-height: $desktop-description-line-height;
-          max-width: 307px;
-          margin-bottom: 30px;
-        }
-        .badges-mint {
-          padding: 5px 0 9px 0;
-          border-top: 1px solid #cacaca;
-          max-width: 296px;
-          h3 {
-            font-size: 12px;
-            line-height: 15px;
-            margin: 0;
-          }
-        }
-      }
-
-      .column-right {
-        .mint-badge-shield-img {
-          max-width: 447px;
-          max-height: 297px;
-        }
-      }
-    }
-  }
-}
-
-@media only screen and (max-width: 991px) {
-  .container-hero {
-    padding: 0 40px;
-    padding-bottom: 20vh;
-
-    width: 100%;
-
-    .content-wrapper {
-      width: 100%;
-
-      .column-left {
-        .font-hero {
-          max-width: 255px;
-          margin-bottom: 16px;
-          font-size: $desktop-title;
-          line-height: $desktop-title-line-height;
-        }
-
-        .subtext-mint {
-          font-size: $desktop-description;
-          line-height: $desktop-description-line-height;
-          max-width: 238px;
-          margin-bottom: 22px;
-        }
-        .badges-mint {
-          padding: 4px 0 7px 0;
-          border-top: 1px solid #cacaca;
-          max-width: 230px;
-          h3 {
-            font-size: 9px;
-            line-height: 11px;
-            margin: 0;
-          }
-        }
-      }
-
-      .column-right {
-        .mint-badge-shield-img {
-          max-width: 347px;
-          max-height: 228px;
-        }
-        .text-collections {
-          font-size: 8px;
-          line-height: 10px;
-        }
-      }
-    }
-  }
-}
-
-@media only screen and (max-width: 767px) {
-  .container-hero {
-    padding: 0 32px;
-    padding-bottom: 20vh;
-
-    width: 100%;
-    &.height-hero {
-      height: 100%;
     }
 
-    .content-wrapper {
-      width: 100%;
+    .nav {
       display: flex;
       flex-direction: column;
-      align-items: center;
-      justify-content: center;
+      div {
+        cursor: pointer;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        border-top: 1px solid $grey;
+        padding: 0 8px;
 
-      .column-left {
-        .font-hero {
-          max-width: 100%;
-          margin-top: 3rem;
-          margin-bottom: 30px;
-          overflow: hidden;
-          font-size: $tablet-title;
-          line-height: $tablet-title-line-height;
+        .name {
+          font-weight: 700;
+          font-size: $small-mobile-description;
         }
-        .subtext-mint {
-          font-size: $tablet-description;
-          line-height: $tablet-description-line-height;
-          max-width: 100%;
-          margin-bottom: 20px;
-          overflow: hidden;
+        .plus {
+          font-weight: 900;
+          -webkit-text-stroke-width: 1px;
+          -webkit-text-stroke-color: black;
+          font-size: 14px;
         }
-        .badges-mint {
-          padding: 10px 0 12px 0;
-          border-top: 1px solid #cacaca;
-          max-width: 100%;
-          h3 {
-            font-size: 12px;
-            line-height: 15px;
-            margin: 0;
-          }
+        .name,
+        .plus {
+          margin: 0;
+          padding: 10px 0;
         }
       }
+      div:last-child {
+        border-bottom: 1px solid $grey;
+      }
+    }
+  }
+  .right {
+    margin-top: 40px;
 
-      .column-right {
-        .mint-badge-shield-img {
-          max-width: 100%;
-          max-height: 100%;
-        }
-        .text-collections {
-          min-height: inherit;
-        }
+    height: 100%;
+    .hero-wrapper {
+      text-align: center;
+      img {
+        max-height: 244px;
+        width: 100%;
+        height: 100%;
+        object-fit: contain;
+      }
+      em {
+        margin-top: 20px;
+        font-weight: 500;
+        font-size: 8px;
+        color: #000;
       }
     }
   }
 }
 
-@media only screen and(max-width: 425px) {
-  .container-hero {
-    .content-wrapper {
-      .column-left {
-        .font-hero {
+@media only screen and (min-width: 425px) {
+  .mint-badge {
+    .left {
+      .title {
+        font-size: $mobile-title;
+        line-height: $mobile-title-line-height;
+        span {
           font-size: $mobile-title;
           line-height: $mobile-title-line-height;
         }
-        .subtext-mint {
+      }
+
+      .description {
+        margin-top: 30px;
+        &-normal {
           font-size: $mobile-description;
           line-height: $mobile-description-line-height;
+        }
+
+        &-bold {
+          font-size: $mobile-description;
+          line-height: $mobile-description-line-height;
+        }
+      }
+    }
+  }
+}
+
+@media only screen and (min-width: 768px) {
+  .mint-badge {
+    flex-direction: row;
+    align-items: flex-start;
+    // justify-content: space-between;
+    padding: 120px 40px;
+    .left {
+      max-width: 250px;
+      .title {
+        font-size: $tablet-title;
+        line-height: $tablet-title-line-height;
+        span {
+          font-size: $tablet-title;
+          line-height: $tablet-title-line-height;
+        }
+      }
+
+      .description {
+        margin-top: 16px;
+        max-width: 200px;
+        &-normal {
+          font-size: $tablet-description;
+          line-height: $tablet-description-line-height;
+        }
+
+        &-bold {
+          font-size: $tablet-description;
+          line-height: $tablet-description-line-height;
+        }
+      }
+      .price {
+        p {
+          font-size: 12px;
+          line-height: 36px;
+        }
+      }
+
+      .supply {
+        p {
+          font-size: 10px;
+          line-height: 22px;
+        }
+      }
+    }
+    .right {
+      // flex: 1;
+      margin-top: 0;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      .hero-wrapper {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        img {
+          width: 350px;
+          height: 300px;
+          max-width: 100%;
+          max-height: 100%;
+        }
+        em {
+          margin-top: 10px;
+        }
+      }
+    }
+  }
+}
+
+@media only screen and (min-width: 992px) {
+  .mint-badge {
+    padding: 120px 50px;
+
+    .left {
+      margin-top: 10px;
+      max-width: 250px;
+      .title {
+        font-size: $desktop-title;
+        line-height: $desktop-title-line-height;
+        span {
+          font-size: $desktop-title;
+          line-height: $desktop-title-line-height;
+        }
+      }
+
+      .description {
+        max-width: 250px;
+        &-normal {
+          font-size: $desktop-description;
+          line-height: $desktop-description-line-height;
+        }
+
+        &-bold {
+          font-size: $desktop-description;
+          line-height: $desktop-description-line-height;
+        }
+      }
+      .price {
+        p {
+          font-size: 14px;
+          line-height: 36px;
+        }
+      }
+
+      .supply {
+        p {
+          font-size: 10px;
+          line-height: 22px;
+        }
+      }
+    }
+    .right {
+      .hero-wrapper {
+        img {
+          width: 400px;
+          height: 400px;
+          max-width: 100%;
+          max-height: 100%;
+        }
+        em {
+          font-size: 12px;
+        }
+      }
+    }
+  }
+}
+
+@media only screen and (min-width: 1200px) {
+  .mint-badge {
+    padding: 120px 70px;
+
+    .left {
+      min-width: 500px;
+      .title {
+        min-width: 400px;
+        font-size: $large-desktop-title;
+        line-height: $large-desktop-title-line-height;
+        span {
+          font-size: $large-desktop-title;
+          line-height: $large-desktop-title-line-height;
+        }
+      }
+
+      .description {
+        min-width: 450px;
+        &-normal {
+          max-width: 400px;
+          font-size: $large-desktop-description;
+          line-height: $large-desktop-description-line-height;
+        }
+
+        &-bold {
+          max-width: 400px;
+          font-size: $large-desktop-description;
+          line-height: $large-desktop-description-line-height;
+        }
+      }
+      .price {
+        p {
+          font-size: 20px;
+          line-height: 36px;
+        }
+      }
+
+      .supply {
+        p {
+          font-size: 18px;
+          line-height: 22px;
+        }
+      }
+
+      .nav {
+        width: 262px;
+      }
+    }
+    .right {
+      flex: 1;
+      .hero-wrapper {
+        img {
+          width: 600px;
+          height: 450px;
+          max-width: 100%;
+          max-height: 100%;
+        }
+        em {
+          font-size: 14px;
         }
       }
     }

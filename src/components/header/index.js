@@ -1,18 +1,18 @@
-/* eslint-disable no-unused-vars */
-
 import { useState } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 
-// import LitePaperPDF from '../../../public/[RNKR] Litepaper.pdf';
+import { useWalletContext } from 'contexts/WalletContext';
 
 import Logo from 'assets/img/ranker-dao-logo.png';
 import BurgerIcon from 'assets/img/header/mobile-menu-hamburger.png';
 import './style.scss';
 const Header = () => {
+  const { onConnect, isConnect } = useWalletContext();
+
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
   const { pathname } = useLocation();
-  const NAV_LIST = [
+  const NAV_LIST_MOBILE = [
     {
       href: '/mint-badge',
       label: 'MINT BADGE',
@@ -51,7 +51,63 @@ const Header = () => {
       label: 'LITEPAPER',
       download: true,
     },
+    {
+      label: 'CONNECT TO WALLET',
+    },
   ];
+  const NAV_LIST_DESKTOP = [
+    {
+      href: '/mint-badge',
+      label: 'MINT BADGE',
+    },
+    { href: '/shop', label: 'OUR SHOP' },
+    {
+      href: 'https://t.me/rankerdao',
+      label: 'TELEGRAM',
+      target: '_blank',
+      rel: 'noopener noreferrer',
+    },
+    {
+      href: 'https://twitter.com/rankerdao',
+      label: 'TWITTER',
+      target: '_blank',
+      rel: 'noopener noreferrer',
+    },
+    {
+      label: 'CONNECT WALLET',
+    },
+    {
+      href: 'http://discord.gg/rankerdao',
+      label: 'DISCORD',
+      target: '_blank',
+      rel: 'noopener noreferrer',
+    },
+    {
+      href: '/ranker-token',
+      label: '$RANKER',
+    },
+    {
+      href: 'https://rankerdao.com/axies/index.html',
+      label: 'INVENTORY',
+      target: '_blank',
+      rel: 'noopener noreferrer',
+    },
+    {
+      href: '[RNKR] Handout Page.pdf',
+      label: 'LITEPAPER',
+      download: true,
+    },
+  ];
+
+  const onClickConnect = () => {
+    if (!isConnect) {
+      onConnect()
+        .then(response => console.log('response', response))
+        .catch(error => console.log('error: ', error));
+    }
+  };
+
+  console.log('isConnect: ', isConnect);
 
   return (
     <nav
@@ -78,7 +134,20 @@ const Header = () => {
         </button>
 
         <ul className="pd-nav-list-desktop-wrapper d-none d-md-flex">
-          {NAV_LIST.map((item, index) => {
+          {NAV_LIST_DESKTOP.map((item, index) => {
+            if (item.label === 'CONNECT WALLET') {
+              return (
+                <li
+                  onClick={onClickConnect}
+                  key={index}
+                  className="pd-nav-list-desktop-wrapper-item">
+                  <p className="m-0 p-0">
+                    {isConnect ? 'CONNECTED' : item.label}
+                  </p>
+                </li>
+              );
+            }
+
             return (
               <li key={index} className="pd-nav-list-desktop-wrapper-item">
                 <a {...item}>{item.label}</a>
@@ -90,7 +159,19 @@ const Header = () => {
       <div className="d-flex justify-content-end d-md-none">
         {isMenuOpen && (
           <ul className="pd-nav-list-wrapper d-flex flex-column p-0 px-3">
-            {NAV_LIST.map((item, index) => {
+            {NAV_LIST_MOBILE.map((item, index) => {
+              if (item.label === 'CONNECT TO WALLET') {
+                return (
+                  <li
+                    onClick={onClickConnect}
+                    key={index}
+                    className="pd-nav-list-wrapper-item">
+                    <p className="m-0 p-0">
+                      {isConnect ? 'CONNECTED' : item.label}
+                    </p>
+                  </li>
+                );
+              }
               return (
                 <li key={index} className="pd-nav-list-wrapper-item">
                   <a {...item}>{item.label}</a>

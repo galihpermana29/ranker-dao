@@ -11,7 +11,7 @@ const ShopSelector = ({ setActiveGame, list = {} }) => {
   });
 
   return (
-    <div className="shop-selector row w-100">
+    <div className="shop-selector row w-100 mt-5">
       {result.length &&
         result.map(({ name = '' }, index) => {
           return (

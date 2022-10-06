@@ -1,5 +1,5 @@
-@import '../../components/scss/utils/fontSize.scss';
-@import '../../components/scss/utils/lineHeight.scss';
+@import '../../scss/utils/fontSize.scss';
+@import '../../scss/utils/lineHeight.scss';
 
 .shop {
   &-container {
@@ -37,13 +37,14 @@
     align-items: center;
     padding: 0 40px;
     .shop-left-side {
-      .shop-logo {
-        max-width: 260px;
-        max-height: 106px;
-        margin-bottom: 12px;
-        object-fit: contain;
+      .shop-logo-wrapper {
+        img {
+          width: 100%;
+          max-height: 106px;
+          margin-bottom: 12px;
+          object-fit: contain;
+        }
       }
-
       .description {
         text-align: center;
         font-family: 'Montserrat';
@@ -51,18 +52,33 @@
         font-size: $small-mobile-description;
         line-height: $small-mobile-description-line-height;
       }
+      .shop-name {
+        font-family: 'Akira';
+        font-weight: 800;
+        font-size: 25px;
+        line-height: 36px;
+        color: #1f2326;
+      }
     }
 
     .shop-list {
-      &-img {
-        height: auto;
-        max-height: 120px;
-        min-height: 120px;
+      .shop-list-product {
+        display: flex;
+        justify-content: center;
+        align-items: center;
         width: 100%;
-        object-fit: cover;
-        border-radius: 11px;
-        box-shadow: 3px 3px 4px 2px rgba(0, 0, 0, 0.25);
+        min-height: 110px;
+        max-height: 110px;
+        img {
+          box-shadow: 3px 3px 4px 2px rgba(0, 0, 0, 0.25);
+          min-height: 110px;
+          max-height: 110px;
+          width: 100%;
+          object-fit: cover;
+          border-radius: 11px;
+        }
       }
+
       .title {
         margin-top: 10px;
         font-family: 'Montserrat';
@@ -79,6 +95,31 @@
         font-size: 6px;
         font-weight: 600;
         font-family: 'Montserrat';
+      }
+
+      .buy-now {
+        &-wrapper-active {
+          cursor: pointer;
+
+          height: 20px;
+          background-color: #6d2ea1;
+          text-align: center;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          border-radius: 0px 0px 8px 8px;
+        }
+        &-wrapper-inactive {
+          height: 20px;
+        }
+
+        &-text {
+          font-size: 8px;
+          line-height: $mobile-description-line-height;
+          font-weight: 600;
+          font-family: 'Montserrat';
+          color: white;
+        }
       }
     }
   }
@@ -119,22 +160,27 @@
     }
     &-wrapper {
       .shop-left-side {
-        .shop-logo {
-          width: 124px;
-          height: 122px;
+        .shop-logo-wrapper {
+          height: 160px;
+          img {
+            max-height: 130px;
+          }
         }
+
         .description {
           font-size: $mobile-description;
           line-height: $mobile-description-line-height;
         }
       }
       .shop-list {
-        &-img {
-          height: auto;
-          max-height: 160px;
-          min-height: 160px;
+        .shop-list-product {
+          min-height: 157px;
+          max-height: 157px;
+          img {
+            min-height: 157px;
+            max-height: 157px;
+          }
         }
-
         .ranker-coin-img {
           width: 24px;
           height: 24px;
@@ -167,9 +213,13 @@
       .shop-left-side {
         flex: 2;
         padding: 0 20px;
-        .shop-logo {
-          width: auto;
-          max-height: 95px;
+        .shop-logo-wrapper {
+          height: 120px;
+          img {
+            margin-bottom: 0;
+
+            max-height: 95px;
+          }
         }
         .description {
           font-size: $tablet-description;
@@ -180,10 +230,13 @@
       .shop-list {
         flex: 5;
 
-        &-img {
-          height: auto;
-          max-height: 135px;
-          min-height: 135px;
+        .shop-list-product {
+          min-height: 120px;
+          max-height: 120px;
+          img {
+            min-height: 120px;
+            max-height: 120px;
+          }
         }
 
         .ranker-coin-img {
@@ -236,9 +289,11 @@
 
     &-wrapper {
       .shop-left-side {
-        .shop-logo {
-          width: 124px;
-          height: 122px;
+        .shop-logo-wrapper {
+          height: 160px;
+          img {
+            max-height: 122px;
+          }
         }
         .description {
           font-size: $tablet-description;
@@ -257,10 +312,14 @@
           font-size: 18px;
           line-height: $desktop-description-line-height;
         }
-        &-img {
-          height: auto;
-          max-height: 195px;
-          min-height: 195px;
+
+        .shop-list-product {
+          min-height: 160px;
+          max-height: 160px;
+          img {
+            min-height: 160px;
+            max-height: 160px;
+          }
         }
       }
     }
@@ -281,22 +340,31 @@
 
     &-wrapper {
       .shop-left-side {
-        .shop-logo {
-          width: 189px;
-          height: 189px;
+        .shop-logo-wrapper {
+          height: 240px;
+          img {
+            max-height: 190px;
+          }
         }
         .description {
           font-size: $large-desktop-description;
           line-height: $large-desktop-description-line-height;
         }
+        .shop-name {
+          font-size: 45px;
+          line-height: 55px;
+        }
       }
       .shop-list {
-        &-img {
-          height: auto;
-          min-height: 290px;
-          max-height: 290px;
-          max-height: 100%;
+        .shop-list-product {
+          min-height: 190px;
+          max-height: 240px;
+          img {
+            min-height: 190px;
+            max-height: 240px;
+          }
         }
+
         .title {
           font-size: 16px;
           line-height: 20px;
@@ -316,6 +384,25 @@
         p {
           font-size: 11px;
           line-height: 13px;
+        }
+      }
+    }
+  }
+}
+
+@media only screen and (min-width: 1300px) {
+  .shop {
+    &-wrapper {
+      .shop-left-side {
+        .shop-logo {
+          max-height: 190px;
+        }
+      }
+      .shop-list {
+        &-img {
+          height: auto;
+          max-height: 195px;
+          min-height: 195px;
         }
       }
     }

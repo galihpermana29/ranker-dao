@@ -1,30 +1,44 @@
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
+import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
+
 import {
-  RankerToken,
   Home,
   LitePaper,
   MintBadge,
-  Staking,
+  RankerToken,
   Shop,
+  Staking,
+  SuccessPage,
 } from './pages';
 import { Footer, Header } from './components';
 
-import './components/scss/global.scss';
+import './scss/global.scss';
 import 'animate.css';
+import MainContext from 'contexts/MainContext';
 
 const App = () => {
+  const queryClient = new QueryClient();
+
   return (
     <BrowserRouter>
-      <Header />
-      <Routes>
-        <Route path="/" element={<Home />} />
-        <Route path="/mint-badge" element={<MintBadge />} />
-        <Route path="/ranker-token" element={<RankerToken />} />
-        <Route path="/litepaper" element={<LitePaper />} />
-        <Route path="/staking" element={<Staking />} />
-        <Route path="/shop" element={<Shop />} />
-      </Routes>
-      <Footer />
+      <QueryClientProvider client={queryClient}>
+        <MainContext>
+          <Header />
+          <Routes>
+            <Route path="/" element={<Home />} />
+            <Route path="/mint-badge" element={<MintBadge />} />
+            <Route
+              path="/mint-badge/success/:badge"
+              element={<SuccessPage />}
+            />
+            <Route path="/ranker-token" element={<RankerToken />} />
+            <Route path="/litepaper" element={<LitePaper />} />
+            <Route path="/staking" element={<Staking />} />
+            <Route path="/shop" element={<Shop />} />
+          </Routes>
+          <Footer />
+        </MainContext>
+      </QueryClientProvider>
     </BrowserRouter>
   );
 };

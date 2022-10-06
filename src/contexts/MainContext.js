@@ -1,7 +1,11 @@
-import { EthereumProvider } from './EthereumContext';
-
+import { WalletContextProvider } from './WalletContext';
+import { MintContextProvider } from './MintContext';
 const MainContext = ({ children }) => {
-  return <EthereumProvider>{children}</EthereumProvider>;
+  return (
+    <WalletContextProvider>
+      <MintContextProvider>{children}</MintContextProvider>
+    </WalletContextProvider>
+  );
 };
 
 export default MainContext;

@@ -4,11 +4,18 @@ import BronzeBadge from '../bronze-badge';
 import GoldBadge from '../gold-badge';
 import GamingBadges from '../gaming-badges';
 import './style.scss';
+import { useWalletContext } from 'contexts/WalletContext';
+import { useMintContext } from 'contexts/MintContext';
+import { TextSwitch } from 'utils/TextSwitch';
 
 const SilverBadge = () => {
   const [isActive, setIsActive] = useState({ name: 'silver' });
   const [classFadeOut, setClassFadeOut] = useState('animate__fadeInLeft');
   const [imageFadeOut, setImageFadeOut] = useState('animate__fadeIn');
+
+  const { onConnect, address, isConnect, isLoading, isError } =
+    useWalletContext();
+  const { mintTask } = useMintContext();
 
   const handleChange = name => {
     setTimeout(() => {
@@ -16,6 +23,16 @@ const SilverBadge = () => {
     }, 300);
     setClassFadeOut('animate__fadeOut');
     setImageFadeOut('animate__fadeOut');
+  };
+
+  const onClickMintSilver = () => {
+    return mintTask.execute({ type: 'silver', address, amount: 1 });
+  };
+
+  const onClickConnect = () => {
+    onConnect()
+      .then(response => console.log('response', response))
+      .catch(error => console.log('error: ', error));
   };
 
   return (
@@ -36,7 +53,28 @@ const SilverBadge = () => {
                 <br />
                 <span>(UNLIMITED SUPPLY)</span>
               </p>
-              <button className="button-silver">MINT YOURS NOW</button>
+
+              {isConnect ? (
+                <button className="button-silver" onClick={onClickMintSilver}>
+                  MINT YOURS NOW
+                </button>
+              ) : (
+                <button className="button-silver" onClick={onClickConnect}>
+                  <TextSwitch
+                    isLoading={isLoading}
+                    isError={isError}
+                    isSuccess={isConnect}
+                    successText="CONNECTED"
+                    initText="CONNECT"
+                    errorText="ERROR"
+                  />
+                </button>
+              )}
+
+              {address && (
+                <p className="subtext-2-bronze">address: {address}</p>
+              )}
+              {/* <button className="button-silver">MINT YOURS NOW</button> */}
               <div className="badges-silver d-flex align-items-center justify-content-between">
                 <h3>BRONZE BADGE</h3>
                 <span className="plus" onClick={() => handleChange('bronze')}>
