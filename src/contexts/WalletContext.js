@@ -37,6 +37,7 @@ export const WalletContextProvider = ({ children }) => {
       value={{
         onConnect: walletConnectQuery.mutateAsync,
         isError: walletConnectQuery.isError,
+        errorMessage: walletConnectQuery.error?.message,
         isLoading: walletConnectQuery.isLoading,
         isConnect: connected,
         address: walletAddress,

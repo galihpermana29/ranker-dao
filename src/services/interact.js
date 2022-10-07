@@ -47,9 +47,7 @@ export const onMintBadge = async (type, address, amount) => {
     signer,
   );
 
-  console.log('type, amount', type, amount);
   const tx = await contractBadge.safeMint(type, amount);
-  console.log('tx: ', tx);
   return tx;
 
   // const tx = await contractBadge

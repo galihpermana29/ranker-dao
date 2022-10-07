@@ -6,8 +6,14 @@ import { useWalletContext } from 'contexts/WalletContext';
 import Logo from 'assets/img/ranker-dao-logo.png';
 import BurgerIcon from 'assets/img/header/mobile-menu-hamburger.png';
 import './style.scss';
+import { PdToast } from 'components/toast';
 const Header = () => {
-  const { onConnect, isConnect } = useWalletContext();
+  const {
+    onConnect,
+    isConnect,
+    isError = false,
+    errorMessage = '',
+  } = useWalletContext();
 
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
@@ -107,12 +113,14 @@ const Header = () => {
     }
   };
 
-  console.log('isConnect: ', isConnect);
-
   return (
     <nav
       className="pd-nav px-4 py-4"
       style={{ backgroundColor: pathname === '/' ? 'transparent' : 'black' }}>
+      <PdToast
+        isOpen={isError}
+        message={`${errorMessage}, please open metamask`}
+      />
       <div className="d-flex justify-content-between align-items-center">
         <Link to="/">
           <img src={Logo} className="pd-nav-logo" alt="ranker dao" />
