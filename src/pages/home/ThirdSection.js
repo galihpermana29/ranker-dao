@@ -7,9 +7,15 @@ import { HomeButton } from './HomeButton';
 import ThirdBg from 'assets/img/home/background/green-bg.png';
 import ThirdHero from 'assets/img/home/hero/third-hero.png';
 import ThirdBgMobile from 'assets/img/home/background/green-bg-mobile.png';
+import { PdToast } from 'components/toast';
 
 export const ThirdSection = ({ id = '' }) => {
-  const { onConnect, isConnect } = useWalletContext();
+  const {
+    onConnect,
+    isConnect,
+    isError = false,
+    errorMessage = '',
+  } = useWalletContext();
 
   const thirdRef = useRef();
   const entry = useIntersectionObserver(thirdRef, {
@@ -19,6 +25,7 @@ export const ThirdSection = ({ id = '' }) => {
   const isVisible = entry ? !!entry.isIntersecting : false;
 
   const onClickConnect = () => {
+    console.log('test');
     if (!isConnect) {
       onConnect()
         .then(response => console.log('response', response))
@@ -29,6 +36,10 @@ export const ThirdSection = ({ id = '' }) => {
   return (
     <section className="home-section px-4 pb-0" id={id} ref={thirdRef}>
       {/* Mobile */}
+      <PdToast
+        isOpen={isError}
+        message={`${errorMessage}, please open metamask`}
+      />
       <img
         src={ThirdBgMobile}
         alt="background section"
