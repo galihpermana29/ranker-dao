@@ -25,7 +25,6 @@ export const ThirdSection = ({ id = '' }) => {
   const isVisible = entry ? !!entry.isIntersecting : false;
 
   const onClickConnect = () => {
-    console.log('test');
     if (!isConnect) {
       onConnect()
         .then(response => console.log('response', response))

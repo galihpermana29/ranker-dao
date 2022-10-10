@@ -1,5 +1,5 @@
-import { useMutation } from '@tanstack/react-query';
-import { onMintBadge } from 'services/interact';
+import { useMutation, useQuery } from '@tanstack/react-query';
+import { onCheckBadgeLimit, onMintBadge } from 'services/interact';
 
 const { createContext, useContext } = require('react');
 
@@ -39,6 +39,10 @@ export const MintContextProvider = ({ children }) => {
     },
   );
 
+  const goldSupply = useQuery(['gold'], () => {
+    return onCheckBadgeLimit(BADGE_LEVEL_LIST['gold']);
+  });
+
   return (
     <MintContext.Provider
       value={{
@@ -52,6 +56,7 @@ export const MintContextProvider = ({ children }) => {
           isSuccess: onMintMutation.isSuccess,
           // data: onMintQuery.data,
         },
+        goldSupply: goldSupply,
       }}>
       {children}
     </MintContext.Provider>
