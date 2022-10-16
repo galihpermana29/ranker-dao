@@ -35,6 +35,7 @@ import HelixFund from 'assets/img/home/friends/helixfund-34.png';
 
 import './style.scss';
 
+import { ScrollTop, ScrollBottom } from 'pages/home/ScrollPosition';
 const FRIENDS_LIST = [
   {
     img: Seed,
@@ -242,10 +243,15 @@ const FRIENDS_LIST = [
   },
 ];
 
-const ModalFriends = ({ modalRef, onClose }) => {
+const ModalFriends = ({
+  isBottom = false,
+  isTop = false,
+  modalRef,
+  onClose,
+  onScroll,
+}) => {
   return (
     <div
-      // onClick={onClose}
       ref={modalRef}
       className="modal fade"
       id="friends-modal"
@@ -264,7 +270,11 @@ const ModalFriends = ({ modalRef, onClose }) => {
               data-bs-dismiss="modal"
               aria-label="Close"></button>
           </div>
-          <div className="modal-body modal-friends-list" onClick={onClose}>
+          <ScrollTop isTop={isTop} />
+          <div
+            className="modal-body modal-friends-list"
+            onClick={onClose}
+            onScroll={onScroll}>
             <div className="modal-friends-list">
               {FRIENDS_LIST.map(({ img, width, height, alt }, index) => {
                 return (
@@ -279,6 +289,7 @@ const ModalFriends = ({ modalRef, onClose }) => {
               })}
             </div>
           </div>
+          <ScrollBottom isBottom={isBottom} />
         </div>
       </div>
     </div>

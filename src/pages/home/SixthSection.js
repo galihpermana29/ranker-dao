@@ -1,4 +1,4 @@
-import { useEffect, useRef } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import { Modal } from 'bootstrap';
 
 import { useIntersectionObserver } from 'usehooks-ts';
@@ -11,6 +11,8 @@ import SixthHeroMobile from 'assets/img/home/hero/sixth-hero-mobile.png';
 import { ModalFriends } from 'components';
 
 export const SixthSection = ({ id = '' }) => {
+  const [isTop, setIsTop] = useState(true);
+  const [isBottom, setIsBottom] = useState(false);
   const modalRef = useRef(null);
   const sixthRef = useRef();
   const entry = useIntersectionObserver(sixthRef, {
@@ -32,6 +34,23 @@ export const SixthSection = ({ id = '' }) => {
     bsModal.hide();
   };
 
+  const onScrollModal = event => {
+    const { scrollHeight, scrollTop, clientHeight } = event.target;
+    const bottom = scrollHeight - clientHeight;
+
+    if (scrollTop === 0) {
+      setIsTop(true);
+    } else {
+      setIsTop(false);
+    }
+
+    if (bottom === scrollTop) {
+      setIsBottom(true);
+    } else {
+      setIsBottom(false);
+    }
+  };
+
   const isVisible = entry ? !!entry.isIntersecting : false;
 
   useEffect(() => {
@@ -45,7 +64,13 @@ export const SixthSection = ({ id = '' }) => {
 
   return (
     <>
-      <ModalFriends onClose={closeFriendsModal} modalRef={modalRef} />
+      <ModalFriends
+        onScroll={onScrollModal}
+        onClose={closeFriendsModal}
+        modalRef={modalRef}
+        isTop={isTop}
+        isBottom={isBottom}
+      />
       <section className="home-section px-4 pb-0" id={id} ref={sixthRef}>
         {/* Mobile */}
         <img
