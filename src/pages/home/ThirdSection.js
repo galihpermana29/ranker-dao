@@ -6,6 +6,7 @@ import { useWalletContext } from 'contexts/WalletContext';
 import { HomeButton } from './HomeButton';
 import ThirdBg from 'assets/img/home/background/green-bg.png';
 import ThirdHero from 'assets/img/home/hero/third-hero.png';
+import ThirdHeroMobile from 'assets/img/home/hero/third-hero-mobile.png';
 import ThirdBgMobile from 'assets/img/home/background/green-bg-mobile.png';
 import { PdToast } from 'components/toast';
 
@@ -97,7 +98,14 @@ export const ThirdSection = ({ id = '' }) => {
         <img
           src={ThirdHero}
           alt="get set play earn"
-          className={`home-section-hero-image animate__animated ${
+          className={`d-none d-md-flex home-section-hero-image animate__animated ${
+            isVisible ? 'animate__fadeIn' : 'animate__fadeOut'
+          }`}
+        />
+        <img
+          src={ThirdHeroMobile}
+          alt="get set play earn"
+          className={`d-md-none home-section-hero-image animate__animated ${
             isVisible ? 'animate__fadeIn' : 'animate__fadeOut'
           }`}
         />

@@ -121,6 +121,8 @@ const Header = () => {
         isOpen={isError}
         message={`${errorMessage}, please open metamask`}
       />
+
+      {/* Tablet && Desktop */}
       <div className="d-flex justify-content-between align-items-center">
         <Link to="/">
           <img src={Logo} className="pd-nav-logo" alt="ranker dao" />
@@ -164,6 +166,8 @@ const Header = () => {
           })}
         </ul>
       </div>
+
+      {/* Mobile */}
       <div className="d-flex justify-content-end d-md-none">
         {isMenuOpen && (
           <ul className="pd-nav-list-wrapper d-flex flex-column p-0 px-3">

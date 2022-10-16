@@ -4,7 +4,8 @@ import { useIntersectionObserver } from 'usehooks-ts';
 import { HomeButton } from './HomeButton';
 import FourthBg from 'assets/img/home/background/yellow-bg.png';
 import FourthHero from 'assets/img/home/hero/fourth-hero.png';
-import FourthHeroMobile from 'assets/img/home/background/yellow-bg-mobile.png';
+import FourthHeroMobile from 'assets/img/home/hero/fourth-hero-mobile.png';
+import FourthBgMobile from 'assets/img/home/background/yellow-bg-mobile.png';
 
 const MINTING_SITES = [
   {
@@ -55,7 +56,7 @@ export const FourthSection = ({
     <section className="home-section px-4 pb-0" id={id} ref={fourthRef}>
       {/* Mobile */}
       <img
-        src={FourthHeroMobile}
+        src={FourthBgMobile}
         alt="background section"
         className=" home-section-background d-block d-sm-none"
       />
@@ -130,7 +131,14 @@ export const FourthSection = ({
         <img
           src={FourthHero}
           alt="get set play earn"
-          className={`m-0 p-0 home-section-hero-image animate__animated ${
+          className={`d-none d-md-flex m-0 p-0 home-section-hero-image animate__animated ${
+            isVisible ? 'animate__fadeIn' : 'animate__fadeOut'
+          }`}
+        />
+        <img
+          src={FourthHeroMobile}
+          alt="get set play earn"
+          className={`d-md-none m-0 p-0 home-section-hero-image animate__animated ${
             isVisible ? 'animate__fadeIn' : 'animate__fadeOut'
           }`}
         />

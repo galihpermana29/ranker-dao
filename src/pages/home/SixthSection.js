@@ -5,8 +5,9 @@ import { useIntersectionObserver } from 'usehooks-ts';
 
 import { HomeButton } from './HomeButton';
 import SixthBg from 'assets/img/home/background/teal-bg.png';
+import SixthBgMobile from 'assets/img/home/background/teal-bg-mobile.png';
 import SixthHero from 'assets/img/home/hero/sixth-hero.png';
-import SixthHeroMobile from 'assets/img/home/background/teal-bg-mobile.png';
+import SixthHeroMobile from 'assets/img/home/hero/sixth-hero-mobile.png';
 import { ModalFriends } from 'components';
 
 export const SixthSection = ({ id = '' }) => {
@@ -48,7 +49,7 @@ export const SixthSection = ({ id = '' }) => {
       <section className="home-section px-4 pb-0" id={id} ref={sixthRef}>
         {/* Mobile */}
         <img
-          src={SixthHeroMobile}
+          src={SixthBgMobile}
           alt="background section"
           className=" home-section-background d-block d-sm-none"
         />
@@ -90,7 +91,14 @@ export const SixthSection = ({ id = '' }) => {
           <img
             src={SixthHero}
             alt="get set play earn"
-            className={`home-section-hero-image animate__animated ${
+            className={`d-none d-md-flex home-section-hero-image animate__animated ${
+              isVisible ? 'animate__fadeIn' : 'animate__fadeOut'
+            }`}
+          />
+          <img
+            src={SixthHeroMobile}
+            alt="get set play earn"
+            className={`d-md-none home-section-hero-image animate__animated ${
               isVisible ? 'animate__fadeIn' : 'animate__fadeOut'
             }`}
           />

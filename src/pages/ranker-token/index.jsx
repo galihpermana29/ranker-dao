@@ -34,17 +34,7 @@ const RankerToken = () => {
               <div
                 className="d-flex align-items-center justify-content-between w-100"
                 key={item.id}>
-                <p
-                  className={[
-                    'title-text-information',
-                    item.isMarginTitle
-                      ? 'margin-title'
-                      : item.isMarginSubTitle
-                      ? 'margin-subtitle'
-                      : '',
-                  ].join(' ')}>
-                  {item.title}
-                </p>
+                <p className="title-text-information">{item.title}</p>
                 <p className="subtitle-text-information">{item.subtitle}</p>
               </div>
             ))}
