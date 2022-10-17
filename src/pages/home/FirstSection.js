@@ -4,6 +4,7 @@ import { useIntersectionObserver } from 'usehooks-ts';
 import { HomeButton } from './HomeButton';
 import FirstBg from 'assets/img/home/background/blue-bg.png';
 import FirstHero from 'assets/img/home/hero/first-hero.png';
+import FirstHeroMobile from 'assets/img/home/hero/first-hero-mobile.png';
 import FirstBgMobile from 'assets/img/home/background/blue-bg-mobile.png';
 
 export const FirstSection = ({ id = '' }) => {
@@ -54,7 +55,14 @@ export const FirstSection = ({ id = '' }) => {
         <img
           src={FirstHero}
           alt="get set play earn"
-          className={`home-section-hero-image animate__animated ${
+          className={`d-none d-md-flex home-section-hero-image animate__animated ${
+            isVisible ? 'animate__fadeIn' : 'animate__fadeOut'
+          }`}
+        />
+        <img
+          src={FirstHeroMobile}
+          alt="get set play earn"
+          className={`d-md-none home-section-hero-image animate__animated ${
             isVisible ? 'animate__fadeIn' : 'animate__fadeOut'
           }`}
         />

@@ -1,15 +1,18 @@
-import { useEffect, useRef } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import { Modal } from 'bootstrap';
 
 import { useIntersectionObserver } from 'usehooks-ts';
 
 import { HomeButton } from './HomeButton';
 import SixthBg from 'assets/img/home/background/teal-bg.png';
+import SixthBgMobile from 'assets/img/home/background/teal-bg-mobile.png';
 import SixthHero from 'assets/img/home/hero/sixth-hero.png';
-import SixthHeroMobile from 'assets/img/home/background/teal-bg-mobile.png';
+import SixthHeroMobile from 'assets/img/home/hero/sixth-hero-mobile.png';
 import { ModalFriends } from 'components';
 
 export const SixthSection = ({ id = '' }) => {
+  const [isTop, setIsTop] = useState(true);
+  const [isBottom, setIsBottom] = useState(false);
   const modalRef = useRef(null);
   const sixthRef = useRef();
   const entry = useIntersectionObserver(sixthRef, {
@@ -31,6 +34,23 @@ export const SixthSection = ({ id = '' }) => {
     bsModal.hide();
   };
 
+  const onScrollModal = event => {
+    const { scrollHeight, scrollTop, clientHeight } = event.target;
+    const bottom = scrollHeight - clientHeight;
+
+    if (scrollTop === 0) {
+      setIsTop(true);
+    } else {
+      setIsTop(false);
+    }
+
+    if (bottom === scrollTop) {
+      setIsBottom(true);
+    } else {
+      setIsBottom(false);
+    }
+  };
+
   const isVisible = entry ? !!entry.isIntersecting : false;
 
   useEffect(() => {
@@ -44,11 +64,17 @@ export const SixthSection = ({ id = '' }) => {
 
   return (
     <>
-      <ModalFriends onClose={closeFriendsModal} modalRef={modalRef} />
+      <ModalFriends
+        onScroll={onScrollModal}
+        onClose={closeFriendsModal}
+        modalRef={modalRef}
+        isTop={isTop}
+        isBottom={isBottom}
+      />
       <section className="home-section px-4 pb-0" id={id} ref={sixthRef}>
         {/* Mobile */}
         <img
-          src={SixthHeroMobile}
+          src={SixthBgMobile}
           alt="background section"
           className=" home-section-background d-block d-sm-none"
         />
@@ -90,7 +116,14 @@ export const SixthSection = ({ id = '' }) => {
           <img
             src={SixthHero}
             alt="get set play earn"
-            className={`home-section-hero-image animate__animated ${
+            className={`d-none d-md-flex home-section-hero-image animate__animated ${
+              isVisible ? 'animate__fadeIn' : 'animate__fadeOut'
+            }`}
+          />
+          <img
+            src={SixthHeroMobile}
+            alt="get set play earn"
+            className={`d-md-none home-section-hero-image animate__animated ${
               isVisible ? 'animate__fadeIn' : 'animate__fadeOut'
             }`}
           />

@@ -82,7 +82,7 @@ const MintBadge = () => {
   const navigate = useNavigate();
 
   const { onConnect, address, isConnect } = useWalletContext();
-  const { mintTask } = useMintContext();
+  const { mintTask, goldSupply } = useMintContext();
 
   const [activeBadge, setActiveBadge] = useState('init');
   const [fadeTextClass, setFadeTextClass] = useState('animate__fadeInLeft');
@@ -183,13 +183,26 @@ const MintBadge = () => {
         )}
 
         {activeBadge !== 'init' && activeBadge !== 'whitelist' && (
-          <button className="connect-button mt-4" onClick={handleMintBadge}>
+          <button
+            disabled={activeBadge === 'gold' && goldSupply > 24 ? true : false}
+            className={`${
+              activeBadge === 'gold' && goldSupply > 24
+                ? 'connect-button-disabled mt-4'
+                : 'connect-button mt-4'
+            }`}
+            onClick={
+              activeBadge === 'gold' && goldSupply > 24 ? null : handleMintBadge
+            }>
             <TextSwitch
               isLoading={mintTask.loading}
               isError={mintTask.error}
               // isSuccess={isConnect}
               successText="CONNECTED"
-              initText="MINT YOURS NOW"
+              initText={
+                activeBadge === 'gold' && goldSupply > 24
+                  ? 'OUT OF STOCK'
+                  : 'MINT YOURS NOW'
+              }
               errorText="MINT YOURS NOW"
             />
           </button>

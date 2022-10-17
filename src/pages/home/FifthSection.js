@@ -2,8 +2,9 @@ import { useRef } from 'react';
 import { useIntersectionObserver } from 'usehooks-ts';
 
 import FifthBg from 'assets/img/home/background/red-bg.png';
+import FifthBgMobile from 'assets/img/home/background/red-bg-mobile.png';
 import FifthHero from 'assets/img/home/hero/fifth-hero.png';
-import FifthHeroMobile from 'assets/img/home/background/red-bg-mobile.png';
+import FifthHeroMobile from 'assets/img/home/hero/fifth-hero-mobile.png';
 
 export const FifthSection = ({ id = '' }) => {
   const fifthRef = useRef();
@@ -17,7 +18,7 @@ export const FifthSection = ({ id = '' }) => {
     <section className="home-section px-4 pb-0" id={id} ref={fifthRef}>
       {/* Mobile */}
       <img
-        src={FifthHeroMobile}
+        src={FifthBgMobile}
         alt="background section"
         className=" home-section-background d-block d-sm-none"
       />
@@ -47,7 +48,14 @@ export const FifthSection = ({ id = '' }) => {
         <img
           src={FifthHero}
           alt="get set play earn"
-          className={`home-section-hero-image animate__animated ${
+          className={`d-none d-md-flex home-section-hero-image animate__animated ${
+            isVisible ? 'animate__fadeIn' : 'animate__fadeOut'
+          }`}
+        />
+        <img
+          src={FifthHeroMobile}
+          alt="get set play earn"
+          className={`d-md-none home-section-hero-image animate__animated ${
             isVisible ? 'animate__fadeIn' : 'animate__fadeOut'
           }`}
         />

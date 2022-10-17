@@ -75,6 +75,20 @@
       font-size: $small-mobile-description;
       padding: 8px 16px;
       font-family: 'Montserrat';
+      &:hover {
+        background-color: #b4b5b5;
+      }
+    }
+
+    .connect-button-disabled {
+      cursor: not-allowed;
+      border: none;
+      background-color: #b4b5b5;
+      color: #fff;
+      font-weight: 700;
+      font-size: $small-mobile-description;
+      padding: 8px 16px;
+      font-family: 'Montserrat';
     }
 
     .nav {
