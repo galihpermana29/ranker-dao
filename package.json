@@ -66,9 +66,11 @@
     "web3modal": "^1.9.5"
   },
   "scripts": {
-    "start": "react-scripts start",
-    "build": "react-scripts build",
-    "test": "react-scripts test"
+    "start:staging": "env-cmd -f .env.staging react-scripts start",
+    "start:production": "env-cmd -f .env.production react-scripts build",
+    "build:staging": "env-cmd -f .env.staging react-script build",
+    "build:production": "env-cmd -f .env.production react-script build",
+    "test": "env-cmd -f .env.staging  react-scripts test"
   },
   "eslintConfig": {
     "extends": [

@@ -39,6 +39,7 @@ const BADGE_DATA = {
     limited: false,
     img: BronzeBadge,
     imgCaption: 'Bronze investment badge',
+    disabled: true,
   },
   silver: {
     title: 'SILVER BADGE',
@@ -47,6 +48,7 @@ const BADGE_DATA = {
     limited: false,
     img: SilverBadge,
     imgCaption: 'Silver investment badge',
+    disabled: true,
   },
   gold: {
     title: 'GOLD BADGE',
@@ -54,17 +56,21 @@ const BADGE_DATA = {
     descriptionEm: 'Guaranteed ',
     price: '500.000',
     limited: true,
+    limitTo: 25,
     img: GoldBadge,
     imgCaption: 'Gold investment badge',
+    disabled: true,
   },
   gaming: {
     title: 'GAMING BADGE',
     description:
       'With the gaming badge you will be notified of the hottest new games available for scholarships ! Start earning by playing a collection of the latest blockchain games.',
-    price: '500',
-    limited: false,
+    price: '1500',
+    limited: true,
+    limitTo: 1000,
     img: GamingBadge,
     imgCaption: 'Gaming badge',
+    disabled: false,
   },
 };
 const MAIN_NAV = [
@@ -81,7 +87,7 @@ const BADGE_NAV = [
 const MintBadge = () => {
   const navigate = useNavigate();
 
-  const { onConnect, address, isConnect } = useWalletContext();
+  const { onConnect = () => {}, address = '', isConnect } = useWalletContext();
   const { mintTask, goldSupply } = useMintContext();
 
   const [activeBadge, setActiveBadge] = useState('init');
@@ -175,18 +181,19 @@ const MintBadge = () => {
         {activeBadge !== 'init' && activeBadge !== 'whitelist' && (
           <div className="supply">
             {BADGE_DATA[activeBadge].limited ? (
-              <p className="m-0 p-0">(LIMITED TO 25 BADGE)</p>
+              <p className="m-0 p-0">
+                (LIMITED TO {BADGE_DATA[activeBadge].limitTo} BADGE)
+              </p>
             ) : (
               <p className="m-0 p-0">(UNLIMITED SUPPLY)</p>
             )}
           </div>
         )}
-
         {activeBadge !== 'init' && activeBadge !== 'whitelist' && (
           <button
-            disabled={activeBadge === 'gold' && goldSupply > 24 ? true : false}
+            disabled={BADGE_DATA[activeBadge].disabled}
             className={`${
-              activeBadge === 'gold' && goldSupply > 24
+              BADGE_DATA[activeBadge].disabled
                 ? 'connect-button-disabled mt-4'
                 : 'connect-button mt-4'
             }`}
@@ -196,7 +203,6 @@ const MintBadge = () => {
             <TextSwitch
               isLoading={mintTask.loading}
               isError={mintTask.error}
-              // isSuccess={isConnect}
               successText="CONNECTED"
               initText={
                 activeBadge === 'gold' && goldSupply > 24
