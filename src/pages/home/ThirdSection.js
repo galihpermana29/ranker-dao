@@ -81,11 +81,11 @@ export const ThirdSection = ({ id = '' }) => {
           <p>Got a badge already? Check out our Inventory right here!</p>
         </div>
         <div className="second-section-button-wrapper">
-          <HomeButton
+          {/* <HomeButton
             label="OUR SHOP"
             href="/shop"
             size={{ mobile: '150px', tablet: '136px', desktop: '234px' }}
-          />
+          /> */}
           <HomeButton
             label={isConnect ? 'CONNECTED' : 'CONNECT WALLET'}
             connectWallet={true}

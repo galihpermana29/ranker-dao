@@ -10,7 +10,13 @@ v16.15.1
 
 In the project directory, you can run:
 
-### `npm start`
+### `npm run start:staging`
+
+## for staging environment
+
+### `npm run start:production`
+
+## for production environment
 
 Runs the app in the development mode.\
 Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
