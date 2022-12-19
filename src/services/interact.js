@@ -30,14 +30,6 @@ export const onConnectWallet = async () => {
 
 console.log('process.env', process.env);
 console.log('window.ethereum.networkVersion', window.ethereum.networkVersion);
-console.log(
-  process.env.REACT_APP_CONTRACT_BADGE_ADDRESS,
-  process.env.NODE_ENV === 'development'
-    ? 'BadgeContractAbi'
-    : process.env.NODE_ENV === 'production'
-    ? 'ProductionBadgeContractAbi'
-    : null,
-);
 
 export const onMintBadge = async (type, address, amount) => {
   const BSC_CHAIN_ID = 56; //0x38
@@ -50,7 +42,6 @@ export const onMintBadge = async (type, address, amount) => {
       });
       console.log('response: ', response);
     } catch (err) {
-      // console.log('err: ', err);
       // This error code indicates that the chain has not been added to MetaMask
       if (err.code === 4902) {
         await window.ethereum.request({
@@ -72,18 +63,16 @@ export const onMintBadge = async (type, address, amount) => {
       }
     }
   }
-  console.log('window.ethereum', window.ethereum);
 
   provider = new ethers.providers.Web3Provider(window.ethereum);
-  console.log('provider', provider);
   signer = provider.getSigner();
 
   const contractBadge = new ethers.Contract(
     process.env.REACT_APP_CONTRACT_BADGE_ADDRESS,
     process.env.NODE_ENV === 'development'
-      ? ProductionBadgeContractAbi
-      : process.env.NODE_ENV === 'production'
       ? BadgeContractAbi
+      : process.env.NODE_ENV === 'production'
+      ? ProductionBadgeContractAbi
       : null,
     signer,
   );
@@ -94,30 +83,6 @@ export const onMintBadge = async (type, address, amount) => {
     console.log('err mint', err);
     throw err;
   }
-  // return tx;
-
-  // const params = [
-  //   {
-  //     chainId: '0x38', // 56 in decimal
-  //     chainName: 'Smart Chain',
-  //     rpcUrls: ['https://bscrpc.com'],
-  // nativeCurrency: {
-  //   name: 'Binance Coin',
-  //   symbol: 'BNB',
-  //   decimals: 18,
-  // },
-  //     blockExplorerUrls: ['https://bscscan.com'],
-  //   },
-  // ];
-
-  // try {
-  //   await window.ethereum.request({
-  //     method: 'wallet_addEthereumChain',
-  //     params,
-  //   });
-  // } catch (error) {
-  //   console.log('error: ', error);
-  //   // something failed, e.g., user denied request
 };
 
 export const onCheckBadgeLimit = async badgeType => {

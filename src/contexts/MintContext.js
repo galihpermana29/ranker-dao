@@ -33,7 +33,6 @@ export const MintContextProvider = ({ children }) => {
         return variable;
       },
       onError: error => {
-        console.log('error', error);
         const code = error.code;
         const message = error.error.message;
         console.log('code', code);
@@ -42,8 +41,6 @@ export const MintContextProvider = ({ children }) => {
       },
     },
   );
-
-  console.log('onMintMutation', onMintMutation);
 
   const goldSupply = useQuery(['gold'], () => {
     return onCheckBadgeLimit(BADGE_LEVEL_LIST['gold']);

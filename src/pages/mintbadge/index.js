@@ -140,7 +140,6 @@ const MintBadge = () => {
   useEffect(() => {
     const triggeredWhenSuccess = () => {
       if (mintTask.isSuccess) {
-        console.log('mintTask', mintTask);
         setTimeout(() => {
           navigate(`/mint-badge/success/${activeBadge}`);
         }, 1000);
