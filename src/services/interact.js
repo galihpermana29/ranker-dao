@@ -2,6 +2,7 @@ import { ethers } from 'ethers';
 import Web3Modal from 'web3modal';
 import WalletConnectProvider from '@walletconnect/web3-provider';
 import BadgeContractAbi from 'artifacts/contracts/BadgeContract.json';
+import ProductionBadgeContractAbi from 'artifacts/contracts/ProductionBadgeContract.json';
 
 let provider = null;
 let signer = null;
@@ -26,6 +27,8 @@ export const onConnectWallet = async () => {
   return provider;
 };
 
+console.log('process.env', process.env);
+
 export const onMintBadge = async (type, address, amount) => {
   // const contractToken = ethers.Contract(
   //   TokenContractAbi,
@@ -38,7 +41,9 @@ export const onMintBadge = async (type, address, amount) => {
 
   const contractBadge = new ethers.Contract(
     process.env.REACT_APP_CONTRACT_BADGE_ADDRESS,
-    BadgeContractAbi,
+    process.env.NODE_ENV === 'development'
+      ? BadgeContractAbi
+      : ProductionBadgeContractAbi,
     signer,
   );
 
@@ -52,7 +57,9 @@ export const onCheckBadgeLimit = async badgeType => {
 
   const contractBadge = new ethers.Contract(
     process.env.REACT_APP_CONTRACT_BADGE_ADDRESS,
-    BadgeContractAbi,
+    process.env.NODE_ENV === 'development'
+      ? BadgeContractAbi
+      : ProductionBadgeContractAbi,
     signer,
   );
 
