@@ -1,4 +1,5 @@
 import { ethers } from 'ethers';
+import web3 from 'web3';
 import Web3Modal from 'web3modal';
 import WalletConnectProvider from '@walletconnect/web3-provider';
 import BadgeContractAbi from 'artifacts/contracts/BadgeContract.json';
@@ -28,27 +29,95 @@ export const onConnectWallet = async () => {
 };
 
 console.log('process.env', process.env);
+console.log('window.ethereum.networkVersion', window.ethereum.networkVersion);
+console.log(
+  process.env.REACT_APP_CONTRACT_BADGE_ADDRESS,
+  process.env.NODE_ENV === 'development'
+    ? 'BadgeContractAbi'
+    : process.env.NODE_ENV === 'production'
+    ? 'ProductionBadgeContractAbi'
+    : null,
+);
 
 export const onMintBadge = async (type, address, amount) => {
-  // const contractToken = ethers.Contract(
-  //   TokenContractAbi,
-  //   CONTRACT_TOKEN_ADDRESS,
-  //   address,
-  // );
+  const BSC_CHAIN_ID = 56; //0x38
+
+  if (window.ethereum.networkVersion !== BSC_CHAIN_ID) {
+    try {
+      const response = await window.ethereum.request({
+        method: 'wallet_switchEthereumChain',
+        params: [{ chainId: web3.utils.toHex(BSC_CHAIN_ID) }],
+      });
+      console.log('response: ', response);
+    } catch (err) {
+      // console.log('err: ', err);
+      // This error code indicates that the chain has not been added to MetaMask
+      if (err.code === 4902) {
+        await window.ethereum.request({
+          method: 'wallet_addEthereumChain',
+          params: [
+            {
+              chainName: 'Binance Smart Chain',
+              chainId: web3.utils.toHex(BSC_CHAIN_ID),
+              nativeCurrency: {
+                name: 'Binance Coin',
+                symbol: 'BNB',
+                decimals: 18,
+              },
+              rpcUrls: ['https://bscrpc.com'],
+              blockExplorerUrls: ['https://bscscan.com'],
+            },
+          ],
+        });
+      }
+    }
+  }
+  console.log('window.ethereum', window.ethereum);
 
   provider = new ethers.providers.Web3Provider(window.ethereum);
+  console.log('provider', provider);
   signer = provider.getSigner();
 
   const contractBadge = new ethers.Contract(
     process.env.REACT_APP_CONTRACT_BADGE_ADDRESS,
     process.env.NODE_ENV === 'development'
+      ? ProductionBadgeContractAbi
+      : process.env.NODE_ENV === 'production'
       ? BadgeContractAbi
-      : ProductionBadgeContractAbi,
+      : null,
     signer,
   );
+  try {
+    const tx = await contractBadge.safeMint(type, amount);
+    return tx;
+  } catch (err) {
+    console.log('err mint', err);
+    throw err;
+  }
+  // return tx;
 
-  const tx = await contractBadge.safeMint(type, amount);
-  return tx;
+  // const params = [
+  //   {
+  //     chainId: '0x38', // 56 in decimal
+  //     chainName: 'Smart Chain',
+  //     rpcUrls: ['https://bscrpc.com'],
+  // nativeCurrency: {
+  //   name: 'Binance Coin',
+  //   symbol: 'BNB',
+  //   decimals: 18,
+  // },
+  //     blockExplorerUrls: ['https://bscscan.com'],
+  //   },
+  // ];
+
+  // try {
+  //   await window.ethereum.request({
+  //     method: 'wallet_addEthereumChain',
+  //     params,
+  //   });
+  // } catch (error) {
+  //   console.log('error: ', error);
+  //   // something failed, e.g., user denied request
 };
 
 export const onCheckBadgeLimit = async badgeType => {
@@ -59,7 +128,9 @@ export const onCheckBadgeLimit = async badgeType => {
     process.env.REACT_APP_CONTRACT_BADGE_ADDRESS,
     process.env.NODE_ENV === 'development'
       ? BadgeContractAbi
-      : ProductionBadgeContractAbi,
+      : process.env.NODE_ENV === 'production'
+      ? ProductionBadgeContractAbi
+      : null,
     signer,
   );
 

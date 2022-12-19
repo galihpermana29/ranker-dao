@@ -125,20 +125,25 @@ const MintBadge = () => {
         .then(response => console.log('response: ', response))
         .catch(err => console.log('err', err));
     } else {
-      mintTask.execute({
-        type: activeBadge,
-        address,
-        amount: 1,
-      });
+      try {
+        mintTask.execute({
+          type: activeBadge,
+          address,
+          amount: 1,
+        });
+      } catch (err) {
+        console.log('err 2 ', err);
+      }
     }
   };
 
   useEffect(() => {
     const triggeredWhenSuccess = () => {
       if (mintTask.isSuccess) {
+        console.log('mintTask', mintTask);
         setTimeout(() => {
           navigate(`/mint-badge/success/${activeBadge}`);
-        }, 500);
+        }, 1000);
       }
     };
     triggeredWhenSuccess();

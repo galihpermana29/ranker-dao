@@ -12,6 +12,7 @@ const BADGE_LEVEL_LIST = {
 
 const COPY_WRITING_CONFIG = {
   UNPREDICTABLE_GAS_LIMIT: 'Insufficient Allowance',
+  '-32603': 'Insufficient Allowance',
   4001: 'User denied transaction signature',
 };
 
@@ -28,16 +29,21 @@ export const MintContextProvider = ({ children }) => {
     },
     {
       onSuccess: (_, variable) => {
+        console.log('success');
         return variable;
       },
       onError: error => {
+        console.log('error', error);
         const code = error.code;
         const message = error.error.message;
         console.log('code', code);
         console.log('message', message);
+        return error;
       },
     },
   );
+
+  console.log('onMintMutation', onMintMutation);
 
   const goldSupply = useQuery(['gold'], () => {
     return onCheckBadgeLimit(BADGE_LEVEL_LIST['gold']);
