@@ -12,9 +12,9 @@
 /build
 
 # misc
-.env
-.env.production
-.env.staging
+# .env
+# .env.production
+# .env.staging
 .DS_Store
 .env.local
 .env.development.local
