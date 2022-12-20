@@ -15,11 +15,6 @@ const Home = () => {
   const [activeSection, setActiveSection] = useState('home-first-section');
   const [isOpenMintingSites, setIsOpenMintingSites] = useState(false);
 
-  console.log(
-    'Used Address Contract: ',
-    process.env.REACT_APP_CONTRACT_BADGE_ADDRESS,
-  );
-
   useEffect(() => {
     window.scrollTo(0, 0);
   }, []);

@@ -2,11 +2,33 @@ import { ethers } from 'ethers';
 import web3 from 'web3';
 import Web3Modal from 'web3modal';
 import WalletConnectProvider from '@walletconnect/web3-provider';
+
 import BadgeContractAbi from 'artifacts/contracts/BadgeContract.json';
 import ProductionBadgeContractAbi from 'artifacts/contracts/ProductionBadgeContract.json';
 
+import TokenContractAbi from 'artifacts/contracts/TokenContract.json';
+import ProductionTokenContractAbi from 'artifacts/contracts/ProductionTokenContract.json';
+
 let provider = null;
 let signer = null;
+
+console.log('process.env', process.env);
+
+const CONTRACT_TOKEN_ABI =
+  process.env.NODE_ENV === 'production'
+    ? ProductionTokenContractAbi
+    : process.env.NODE_ENV === 'development'
+    ? TokenContractAbi
+    : null;
+
+const CONTRACT_BADGE_ABI =
+  process.env.NODE_ENV === 'production'
+    ? ProductionBadgeContractAbi
+    : process.env.NODE_ENV === 'development'
+    ? BadgeContractAbi
+    : null;
+
+const GAMING_BADGE_PRICE = 1500;
 
 export const onConnectWallet = async () => {
   const providerOptions = {
@@ -28,19 +50,15 @@ export const onConnectWallet = async () => {
   return provider;
 };
 
-console.log('process.env', process.env);
-console.log('window.ethereum.networkVersion', window.ethereum.networkVersion);
-
-export const onMintBadge = async (type, address, amount) => {
+export const checkUserNetwork = async () => {
   const BSC_CHAIN_ID = 56; //0x38
 
   if (window.ethereum.networkVersion !== BSC_CHAIN_ID) {
     try {
-      const response = await window.ethereum.request({
+      await window.ethereum.request({
         method: 'wallet_switchEthereumChain',
         params: [{ chainId: web3.utils.toHex(BSC_CHAIN_ID) }],
       });
-      console.log('response: ', response);
     } catch (err) {
       // This error code indicates that the chain has not been added to MetaMask
       if (err.code === 4902) {
@@ -63,17 +81,24 @@ export const onMintBadge = async (type, address, amount) => {
       }
     }
   }
+};
+
+export const onMintBadge = async (type, address, amount) => {
+  await checkUserNetwork();
+  const allowance = await getAllowance(address);
+  const { _hex = '' } = allowance;
+  const userAllowance = parseInt(_hex);
+
+  if (userAllowance.toString() < '1500000000000000000000') {
+    await getApprove(address);
+  }
 
   provider = new ethers.providers.Web3Provider(window.ethereum);
   signer = provider.getSigner();
 
   const contractBadge = new ethers.Contract(
     process.env.REACT_APP_CONTRACT_BADGE_ADDRESS,
-    process.env.NODE_ENV === 'development'
-      ? BadgeContractAbi
-      : process.env.NODE_ENV === 'production'
-      ? ProductionBadgeContractAbi
-      : null,
+    CONTRACT_BADGE_ABI,
     signer,
   );
   try {
@@ -85,17 +110,61 @@ export const onMintBadge = async (type, address, amount) => {
   }
 };
 
+const getApprove = async () => {
+  const contractToken = new ethers.Contract(
+    process.env.REACT_APP_CONTRACT_TOKEN_ADDRESS,
+    CONTRACT_TOKEN_ABI,
+    signer,
+  );
+  let receipt = null;
+
+  while (receipt === null) {
+    try {
+      receipt = await contractToken.approve(
+        process.env.REACT_APP_CONTRACT_BADGE_ADDRESS,
+        GAMING_BADGE_PRICE,
+      );
+      console.log('receipt', receipt);
+      await receipt.wait();
+      if (receipt === null) {
+        continue;
+      }
+    } catch (e) {
+      console.log(`Receipt error:`, e);
+      break;
+    }
+  }
+};
+
+export const getAllowance = async address => {
+  await checkUserNetwork();
+  provider = new ethers.providers.Web3Provider(window.ethereum);
+  signer = provider.getSigner();
+
+  const contractToken = new ethers.Contract(
+    process.env.REACT_APP_CONTRACT_TOKEN_ADDRESS,
+    CONTRACT_TOKEN_ABI,
+    signer,
+  );
+
+  try {
+    const tx = await contractToken.allowance(
+      address,
+      process.env.REACT_APP_CONTRACT_BADGE_ADDRESS,
+    );
+    return tx;
+  } catch (err) {
+    throw err;
+  }
+};
+
 export const onCheckBadgeLimit = async badgeType => {
   provider = new ethers.providers.Web3Provider(window.ethereum);
   signer = provider.getSigner();
 
   const contractBadge = new ethers.Contract(
     process.env.REACT_APP_CONTRACT_BADGE_ADDRESS,
-    process.env.NODE_ENV === 'development'
-      ? BadgeContractAbi
-      : process.env.NODE_ENV === 'production'
-      ? ProductionBadgeContractAbi
-      : null,
+    CONTRACT_BADGE_ABI,
     signer,
   );
 
