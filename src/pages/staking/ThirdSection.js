@@ -1,7 +1,11 @@
 import { Accordion } from 'components/accordion';
+import { Modal } from 'components/modal';
 import { useState } from 'react';
+import { ConfirmAlert } from './modal/confirm-alert';
+import { StakeConfirmationModal, StakeModal } from './modal/stake';
+import { UnstakeConfirmationModal, UnstakeModal } from './modal/unstake';
 
-const StakingCard = () => {
+const StakingCard = ({ onClickBuyRanker, onClickStake, onClickUnstake }) => {
   return (
     <div className="staking-card">
       <h5 className="staking-card-title">YOUR STAKE</h5>
@@ -15,7 +19,9 @@ const StakingCard = () => {
         name="available-token"
       />
 
-      <button className="staking-card-button">BUY $RANKER</button>
+      <button className="staking-card-button" onClick={onClickBuyRanker}>
+        BUY $RANKER
+      </button>
 
       <label className="staking-card-label" htmlFor="staked-token">
         STAKED TOKEN
@@ -28,14 +34,17 @@ const StakingCard = () => {
 
       <button
         className="staking-card-button"
-        style={{ marginBottom: '0.5rem' }}>
+        style={{ marginBottom: '0.5rem' }}
+        onClick={onClickStake}>
         STAKE
       </button>
-      <button className="staking-card-button">UNSTAKE</button>
+      <button className="staking-card-button" onClick={onClickUnstake}>
+        UNSTAKE
+      </button>
     </div>
   );
 };
-const RewardsCard = () => {
+const RewardsCard = ({ onClickClaim }) => {
   return (
     <div className="staking-card">
       <h5 className="staking-card-title">YOUR REWARDS</h5>
@@ -61,12 +70,14 @@ const RewardsCard = () => {
       <p className="staking-card-reward">REWADS CLAIMABLE IN</p>
       <p className="staking-card-time yellow">XX:XX:XX</p>
 
-      <button className="staking-card-button">CLAIM</button>
+      <button className="staking-card-button" onClick={onClickClaim}>
+        CLAIM
+      </button>
     </div>
   );
 };
 
-const InnerAccordion = () => {
+const InnerAccordion = ({ handleModal }) => {
   return (
     <div className="staking-accordion">
       <div className="staking-accordion-info">
@@ -89,18 +100,60 @@ const InnerAccordion = () => {
           </p>
         </div>
       </div>
-      <StakingCard />
-      <RewardsCard />
+      <StakingCard
+        onClickBuyRanker={() => handleModal('BUY_RANKER')}
+        onClickStake={() => handleModal('STAKE')}
+        onClickUnstake={() => handleModal('UNSTAKE')}
+      />
+      <RewardsCard onClickClaim={() => handleModal('CLAIM')} />
     </div>
   );
 };
 
 export const StakingThirdSection = () => {
   const [isOpen, setIsOpen] = useState(null);
+  const [isOpenModal, setIsOpenModal] = useState(false);
+  const [modalType, setModalType] = useState(null);
+
+  const handleModal = (type, visibility = true) => {
+    setIsOpenModal(visibility);
+    setModalType(type);
+  };
+  const modalTypeDict = {
+    STAKE: (
+      <StakeModal onClickStake={() => handleModal('STAKE_CONFIRMATION')} />
+    ),
+    STAKE_CONFIRMATION: (
+      <StakeConfirmationModal
+        onClickBack={() => handleModal('STAKE')}
+        onClickConfirm={() => handleModal('STAKE_SUCCESS')}
+      />
+    ),
+    STAKE_SUCCESS: <ConfirmAlert type="STAKE_SUCCESS" />,
+    UNSTAKE: (
+      <UnstakeModal
+        onClickUnstake={() => handleModal('UNSTAKE_CONFIRMATION')}
+      />
+    ),
+    UNSTAKE_CONFIRMATION: (
+      <UnstakeConfirmationModal
+        onClickBack={() => handleModal('UNSTAKE')}
+        onClickConfirm={() => handleModal('UNSTAKE_SUCCESS')}
+      />
+    ),
+    UNSTAKE_SUCCESS: <ConfirmAlert type="UNSTAKE_SUCCESS" />,
+    CLAIM: <ConfirmAlert type="CLAIM" />,
+  };
 
   return (
     <section className="staking-section">
-      {/* <Accordion title="LOCKER RANKER STAKING" key="locker_ranker_staking" /> */}
+      <Modal
+        isOpen={isOpenModal}
+        onClose={() => {
+          handleModal(null, false);
+        }}>
+        {modalTypeDict?.[modalType] || <></>}
+      </Modal>
       <Accordion
         title="LOCKER RANKER STAKING"
         key="locker_ranker_staking"
@@ -110,7 +163,7 @@ export const StakingThirdSection = () => {
           );
         }}
         isOpen={isOpen === 'LOCKER_RANKER'}>
-        <InnerAccordion />
+        <InnerAccordion handleModal={handleModal} />
       </Accordion>
       <Accordion
         title="LOCKED RANKER-USDT LP STAKING"
@@ -119,7 +172,7 @@ export const StakingThirdSection = () => {
           setIsOpen(prev => (prev === 'LP_STAKING' ? null : 'LP_STAKING'));
         }}
         isOpen={isOpen === 'LP_STAKING'}>
-        <InnerAccordion />
+        <InnerAccordion handleModal={handleModal} />
       </Accordion>
       <Accordion
         title="FLEXIBLE RANKER STAKING"
@@ -128,7 +181,7 @@ export const StakingThirdSection = () => {
           setIsOpen(prev => (prev === 'FLEXIBLE' ? null : 'FLEXIBLE'));
         }}
         isOpen={isOpen === 'FLEXIBLE'}>
-        <InnerAccordion />
+        <InnerAccordion handleModal={handleModal} />
       </Accordion>
     </section>
   );
