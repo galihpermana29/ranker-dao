@@ -56,12 +56,7 @@ export const Accordion = ({
             : () => setIsExpand(prev => !prev)
         }>
         {title}
-        <span
-          className={`accordion-title-icon ${
-            isOpen || isExpand ? 'accordion-title-icon--open' : ''
-          }`}>
-          +
-        </span>
+        <span className="accordion-title-icon">{!isOpen ? '+' : '-'}</span>
       </div>
 
       {children && (

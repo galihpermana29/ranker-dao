@@ -25,10 +25,6 @@
       top: 50%;
       translate: 0 -50%;
       right: 1rem;
-      transition: transform 0.9s;
-      &--open {
-        transform: rotateZ(270deg) scale(0%);
-      }
     }
   }
 
