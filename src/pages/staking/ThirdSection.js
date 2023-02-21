@@ -5,6 +5,11 @@ import { ConfirmAlert } from './modal/confirm-alert';
 import { StakeConfirmationModal, StakeModal } from './modal/stake';
 import { UnstakeConfirmationModal, UnstakeModal } from './modal/unstake';
 
+/**
+ *
+ * @typedef {'STAKE' | 'STAKE_CONFIRMATION' | 'STAKE_SUCCESS' | 'UNSTAKE' | 'UNSTAKE_CONFIRMATION' | 'UNSTAKE_SUCCESS' | 'CLAIM'} TmodalType
+ */
+
 const StakingCard = ({ onClickBuyRanker, onClickStake, onClickUnstake }) => {
   return (
     <div className="staking-card">
@@ -44,6 +49,7 @@ const StakingCard = ({ onClickBuyRanker, onClickStake, onClickUnstake }) => {
     </div>
   );
 };
+
 const RewardsCard = ({ onClickClaim }) => {
   return (
     <div className="staking-card">
@@ -115,10 +121,15 @@ export const StakingThirdSection = () => {
   const [isOpenModal, setIsOpenModal] = useState(false);
   const [modalType, setModalType] = useState(null);
 
+  /**
+   * @param {TmodalType | null} type
+   * @param {boolean} [visibility]
+   */
   const handleModal = (type, visibility = true) => {
     setIsOpenModal(visibility);
     setModalType(type);
   };
+  /** @type {Record<TmodalType, React.ReactNode>} */
   const modalTypeDict = {
     STAKE: (
       <StakeModal onClickStake={() => handleModal('STAKE_CONFIRMATION')} />

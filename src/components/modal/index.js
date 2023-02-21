@@ -1,11 +1,21 @@
-import { useEffect } from 'react';
+import React, { useEffect } from 'react';
 import { createPortal } from 'react-dom';
 import './style.scss';
 
+/**
+ *
+ * @typedef {object} IModalProps
+ * @property {boolean} [isOpen]
+ * @property {React.ReactNode} [children]
+ * @property {React.HTMLProps<HTMLButtonElement>['onClick']} [onClose]
+ * @property {React.CSSProperties['maxWidth']} [maxWidth]
+ */
+
+/** @type React.FC<IModalProps>  */
 export const Modal = ({
   isOpen = false,
   children,
-  onClose,
+  onClose = () => {},
   maxWidth = 360,
 }) => {
   useEffect(() => {
