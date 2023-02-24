@@ -37,7 +37,7 @@ const SuccessPage = () => {
         </div>
       </div>
       <div className="body">
-        <img src={BADGE_IMG[badge].img} alt="bronze badge" />
+        <img src={BADGE_IMG[badge]?.img || ''} alt="bronze badge" />
       </div>
       <div className="foot">
         <p className="title">PURCHASE SUCCESSFULL</p>

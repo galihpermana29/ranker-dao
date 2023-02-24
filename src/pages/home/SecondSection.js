@@ -61,14 +61,14 @@ export const SecondSection = ({ id = '' }) => {
               rel: 'noopener noreferrer',
             },
             {
-              label: 'PLAY SOUNI ',
-              href: 'https://souni.io/',
+              label: 'PLAY THE HARVEST',
+              href: 'https://theharvestgame.com/',
               target: '_blank',
               rel: 'noopener noreferrer',
             },
             {
-              label: 'PLAY METAGEAR',
-              href: 'https://metagear.game/',
+              label: 'PLAY TATSUMEEKO',
+              href: 'https://tatsumeeko.com/',
               target: '_blank',
               rel: 'noopener noreferrer',
             },

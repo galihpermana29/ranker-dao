@@ -9,6 +9,14 @@ import ProductionBadgeContractAbi from 'artifacts/contracts/ProductionBadgeContr
 import TokenContractAbi from 'artifacts/contracts/TokenContract.json';
 import ProductionTokenContractAbi from 'artifacts/contracts/ProductionTokenContract.json';
 
+const PRIZE = {
+  1: 20000000000000000000000n,
+  2: 100000000000000000000000n,
+  3: 500000000000000000000000n,
+  4: 2000000000000000000000n,
+};
+// const GAMING_BADGE_PRICE = 1500;
+
 let provider = null;
 let signer = null;
 
@@ -27,8 +35,6 @@ const CONTRACT_BADGE_ABI =
     : process.env.NODE_ENV === 'development'
     ? BadgeContractAbi
     : null;
-
-const GAMING_BADGE_PRICE = 1500;
 
 export const onConnectWallet = async () => {
   const providerOptions = {
@@ -83,15 +89,16 @@ export const checkUserNetwork = async () => {
   }
 };
 
-export const onMintBadge = async (type, address, amount) => {
+export const onMintBadge = async (type, address, amount, isDisabled) => {
+  // return true;
   await checkUserNetwork();
   const allowance = await getAllowance(address);
   const { _hex = '' } = allowance;
   const userAllowance = parseInt(_hex);
-
-  if (userAllowance.toString() < '1500000000000000000000') {
-    await getApprove(address);
+  if (userAllowance < PRIZE[type]) {
+    await getApprove(type);
   }
+  console.log('PRIZE[type]', PRIZE[type]);
 
   provider = new ethers.providers.Web3Provider(window.ethereum);
   signer = provider.getSigner();
@@ -110,7 +117,7 @@ export const onMintBadge = async (type, address, amount) => {
   }
 };
 
-const getApprove = async () => {
+const getApprove = async type => {
   const contractToken = new ethers.Contract(
     process.env.REACT_APP_CONTRACT_TOKEN_ADDRESS,
     CONTRACT_TOKEN_ABI,
@@ -119,18 +126,19 @@ const getApprove = async () => {
   let receipt = null;
 
   while (receipt === null) {
+    // console.log('price getApprove', PRIZE[type], type);
     try {
       receipt = await contractToken.approve(
         process.env.REACT_APP_CONTRACT_BADGE_ADDRESS,
-        GAMING_BADGE_PRICE,
+        PRIZE[type],
       );
-      console.log('receipt', receipt);
+      // console.log('receipt', receipt);
       await receipt.wait();
       if (receipt === null) {
         continue;
       }
     } catch (e) {
-      console.log(`Receipt error:`, e);
+      // console.log(`Receipt error:`, e);
       break;
     }
   }

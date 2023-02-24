@@ -23,9 +23,14 @@ export const useMintContext = () => useContext(MintContext);
 export const MintContextProvider = ({ children }) => {
   const onMintMutation = useMutation(
     payload => {
-      const { type = '', address = '', amount = 0 } = payload;
+      const {
+        type = '',
+        address = '',
+        amount = 0,
+        isDisabled = false,
+      } = payload;
       if (!type || !address || !amount) return 'error on payload';
-      return onMintBadge(BADGE_LEVEL_LIST[type], address, amount);
+      return onMintBadge(BADGE_LEVEL_LIST[type], address, amount, isDisabled);
     },
     {
       onSuccess: (_, variable) => {
