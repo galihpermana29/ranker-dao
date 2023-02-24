@@ -19,7 +19,7 @@ function getWindowDimensions() {
 }
 
 const Sidebar = ({ activeSection, setActiveSection }) => {
-  const SECTION_LIST = ['first', 'second', 'third', 'fourth', 'fifth', 'sixth'];
+  const SECTION_LIST = ['first', 'second', 'third', 'fourth', 'fifth'];
   const [windowDimensions, setWindowDimensions] = useState(
     getWindowDimensions(),
   );

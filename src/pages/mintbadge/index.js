@@ -1,7 +1,9 @@
 import { useEffect, useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 
 import { useWalletContext } from 'contexts/WalletContext';
 import { useMintContext } from 'contexts/MintContext';
+import { PdToast } from 'components/toast';
 import { TextSwitch } from 'utils/TextSwitch';
 
 import InitBadge from '../../assets/img/mint/hero.png';
@@ -11,8 +13,6 @@ import SilverBadge from '../../assets/img/mint/whitelist-badge/silver-badge.png'
 import GoldBadge from '../../assets/img/mint/whitelist-badge/gold-badge.png';
 import GamingBadge from '../../assets/img/mint/gaming-badge/wonderhero-badge.png';
 import './style.scss';
-import { PdToast } from 'components/toast';
-import { useNavigate } from 'react-router-dom';
 
 const BADGE_DATA = {
   init: {
@@ -24,7 +24,7 @@ const BADGE_DATA = {
     imgCaption: 'Our badge collections!',
   },
   whitelist: {
-    title: 'WHITELIST BADGE',
+    title: 'IGO BADGES',
     description:
       'Our investment badge allows you to participate and get a chance to earn in our upcoming IGOs.',
     descriptionBold:
@@ -65,8 +65,8 @@ const BADGE_DATA = {
     title: 'GAMING BADGE',
     description:
       'With the gaming badge you will be notified of the hottest new games available for scholarships ! Start earning by playing a collection of the latest blockchain games.',
-    price: '1500',
-    limited: true,
+    price: '2000',
+    limited: false,
     limitTo: 1000,
     img: GamingBadge,
     imgCaption: 'Gaming badge',
@@ -74,7 +74,7 @@ const BADGE_DATA = {
   },
 };
 const MAIN_NAV = [
-  { title: 'WHITELIST BADGE', nav: 'whitelist' },
+  { title: 'IGO BADGES', nav: 'whitelist' },
   { title: 'GAMING BADGE', nav: 'gaming' },
 ];
 const BADGE_NAV = [
@@ -140,7 +140,6 @@ const MintBadge = () => {
   useEffect(() => {
     const triggeredWhenSuccess = () => {
       if (mintTask.isSuccess) {
-        console.log('mintTask', mintTask);
         setTimeout(() => {
           navigate(`/mint-badge/success/${activeBadge}`);
         }, 1000);
@@ -179,7 +178,10 @@ const MintBadge = () => {
 
         {BADGE_DATA[activeBadge].price && (
           <div className="price m-0 p-0 mt-3">
-            <p className="m-0 p-0">{BADGE_DATA[activeBadge].price} $RANKER</p>
+            <p className="m-0 p-0">
+              {BADGE_DATA[activeBadge].price}
+              $RANKER
+            </p>
           </div>
         )}
 
@@ -196,9 +198,9 @@ const MintBadge = () => {
         )}
         {activeBadge !== 'init' && activeBadge !== 'whitelist' && (
           <button
-            disabled={BADGE_DATA[activeBadge].disabled}
+            disabled={false}
             className={`${
-              BADGE_DATA[activeBadge].disabled
+              activeBadge === 'gold' && goldSupply > 24
                 ? 'connect-button-disabled mt-4'
                 : 'connect-button mt-4'
             }`}

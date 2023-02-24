@@ -6,7 +6,7 @@ import { SecondSection } from './SecondSection';
 import { ThirdSection } from './ThirdSection';
 import { FourthSection } from './FourthSection';
 import { FifthSection } from './FifthSection';
-import { SixthSection } from './SixthSection';
+// import { SixthSection } from './SixthSection';
 
 import 'animate.css';
 import './style.scss';
@@ -14,11 +14,6 @@ import './style.scss';
 const Home = () => {
   const [activeSection, setActiveSection] = useState('home-first-section');
   const [isOpenMintingSites, setIsOpenMintingSites] = useState(false);
-
-  console.log(
-    'Used Address Contract: ',
-    process.env.REACT_APP_CONTRACT_BADGE_ADDRESS,
-  );
 
   useEffect(() => {
     window.scrollTo(0, 0);
@@ -42,7 +37,7 @@ const Home = () => {
         setIsOpenMintingSites={setIsOpenMintingSites}
       />
       <FifthSection id="home-fifth-section" />
-      <SixthSection id="home-sixth-section" />
+      {/* <SixthSection id="home-sixth-section" /> */}
     </div>
   );
 };

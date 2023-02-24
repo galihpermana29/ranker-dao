@@ -23,9 +23,14 @@ export const useMintContext = () => useContext(MintContext);
 export const MintContextProvider = ({ children }) => {
   const onMintMutation = useMutation(
     payload => {
-      const { type = '', address = '', amount = 0 } = payload;
+      const {
+        type = '',
+        address = '',
+        amount = 0,
+        isDisabled = false,
+      } = payload;
       if (!type || !address || !amount) return 'error on payload';
-      return onMintBadge(BADGE_LEVEL_LIST[type], address, amount);
+      return onMintBadge(BADGE_LEVEL_LIST[type], address, amount, isDisabled);
     },
     {
       onSuccess: (_, variable) => {
@@ -33,7 +38,6 @@ export const MintContextProvider = ({ children }) => {
         return variable;
       },
       onError: error => {
-        console.log('error', error);
         const code = error.code;
         const message = error.error.message;
         console.log('code', code);
@@ -42,8 +46,6 @@ export const MintContextProvider = ({ children }) => {
       },
     },
   );
-
-  console.log('onMintMutation', onMintMutation);
 
   const goldSupply = useQuery(['gold'], () => {
     return onCheckBadgeLimit(BADGE_LEVEL_LIST['gold']);
