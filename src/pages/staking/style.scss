@@ -1,39 +1,305 @@
-.staking-container {
-  // padding-top: 10vh;
-  height: 100vh;
-  width: 100vw;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  flex-direction: column;
-  .staking-wrapper {
-    h3 {
-      font-size: 40px;
-      font-weight: 600;
-      text-align: center;
+@import '../../scss/utils/color.scss';
+@import '../../scss/utils/fontSize.scss';
+@import '../../scss/utils/lineHeight.scss';
+@import url('https://fonts.googleapis.com/css2?family=Montserrat&display=swap');
+
+@mixin paddingStackingSection($solo: false) {
+  padding-inline: 1.875rem;
+  padding-block: 1.875rem;
+  @media only screen and (min-width: 768px) {
+    padding-inline: 2.5rem;
+    padding-block: 2.5rem;
+  }
+  @media only screen and (min-width: 992px) {
+    padding-inline: 3.125rem;
+    padding-block: unset;
+    @if $solo {
+      padding-block: 3.125rem;
     }
-    p {
-      color: #b8b8b8;
+  }
+  @media only screen and (min-width: 1200px) {
+    padding-inline: 4.374rem;
+    @if $solo {
+      padding-block: 4.374rem;
+    }
+  }
+}
+
+.yellow {
+  color: $yellow !important;
+  white-space: nowrap;
+}
+
+.staking-accordion {
+  display: grid;
+  gap: 1.5rem;
+  margin-top: 1rem;
+  justify-content: stretch;
+  &-info {
+    display: none;
+
+    &-label {
+      font-size: 16px;
+      font-weight: 800;
+
+    }
+    &-value {
       font-size: 20px;
-      font-weight: 500;
+      font-weight: 600;
+    }
+  }
+}
+
+.staking-card {
+  box-shadow: 1px 2px 10px -1px #00000045;
+  background-color: white;
+  border-radius: 10px;
+  padding: 1.5rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  max-width: 360px;
+  width: 100%;
+  flex-shrink: 0;
+  margin: auto;
+  &-title {
+    font-size: 16px;
+    font-weight: 800;
+    text-align: center;
+  }
+
+  &-label {
+    font-size: 10px;
+    display: block;
+    text-align: center;
+    margin-top: 1rem;
+  }
+
+  &-input {
+    background-color: #f5f5f5;
+    border-radius: 8px;
+    border: thin solid #b8b8b8;
+    font-size: 10px;
+    margin-bottom: 10px;
+    margin-top: 14px;
+    padding: 10px;
+    text-align: center;
+    width: 100%;
+  }
+  &-button {
+    border: none;
+    color: white;
+    background-color: black;
+    font-size: 10px;
+    max-width: 120px;
+    padding-block: 0.5rem;
+    width: 100%;
+    cursor: pointer;
+    font-weight: 800;
+  }
+  &-reward {
+    font-size: 10px;
+    margin: 0;
+    margin-top: 1rem;
+    font-weight: 800;
+  }
+  &-time {
+    font-size: 20px;
+  }
+}
+
+.staking-container {
+  margin-top: 82px;
+  margin-bottom: 38px;
+}
+
+.staking-title {
+  font-weight: 800;
+  color: #000;
+  font-family: 'Akira' !important;
+  text-align: center;
+  font-size: $small-mobile-title;
+  line-height: $small-mobile-title-line-height;
+}
+
+.staking-section {
+  @include paddingStackingSection(true);
+}
+
+.staking-section-hero {
+  @include paddingStackingSection();
+  align-items: center;
+  display: grid;
+  min-height: calc(100vh - calc(82px + 38px));
+  &-image {
+    width: 100%;
+    margin-inline: auto;
+    max-width: 225px;
+  }
+}
+
+.staking-description {
+  text-align: center;
+  font-size: $small-mobile-description;
+  line-height: $small-mobile-description-line-height;
+  &-container {
+    &--desktop {
+      display: none;
+    }
+    &--mobile {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+  }
+}
+
+.staking-button {
+  color: white;
+  background-color: #000000;
+  text-transform: uppercase;
+  border: none;
+  font-size: 10px;
+  font-weight: 700;
+  padding: 6px 16px;
+}
+
+.staking-pricing {
+  &-container {
+    display: grid;
+    margin-top: 2.25rem;
+    grid-template-columns: 1fr;
+    text-align: center;
+    gap: 1.5rem;
+  }
+
+  &-label {
+    font-size: 1rem;
+    font-weight: 800;
+  }
+  &-price {
+    font-size: 1.25rem;
+    font-weight: 600;
+    margin: 0;
+  }
+}
+
+@media only screen and (min-width: 768px) {
+  .staking-container {
+    margin-bottom: 22.8px;
+  }
+
+  .staking-title {
+    font-size: $tablet-title;
+    line-height: $tablet-title-line-height;
+  }
+
+  .staking-section-hero {
+    min-height: calc(100vh - calc(82px + 22.8px));
+
+    &-image {
+      max-width: 300px;
+    }
+  }
+
+  .staking-description {
+    max-width: 350px;
+    font-size: $tablet-description;
+    line-height: $tablet-description-line-height;
+  }
+
+  .staking-button {
+    font-size: 14px;
+  }
+}
+
+@media only screen and (min-width: 992px) {
+  .staking-accordion {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    &-info {
+      display: block;
+    }
+  }
+
+  .staking-title {
+    font-size: $desktop-title;
+    line-height: $desktop-title-line-height;
+    margin-bottom: 0.53em;
+    text-align: start;
+  }
+
+  .staking-section-hero {
+    grid-template-columns: 1fr 1fr;
+    align-items: center;
+    gap: 3.125rem;
+    &-image {
+      max-width: 400px;
+    }
+  }
+
+  .staking-description {
+    max-width: 250px;
+    font-size: $desktop-description;
+    line-height: $desktop-description-line-height;
+    text-align: start;
+    &-container {
+      &--desktop {
+        display: block;
+      }
+      &--mobile {
+        display: none;
+      }
+    }
+  }
+
+  .staking-pricing {
+    &-container {
+      display: grid;
+      margin-top: 3.25rem;
+      grid-template-columns: repeat(3, 1fr);
       text-align: center;
+      gap: 0;
     }
 
-    &__inner {
-      //   display: flex;
-      //   flex-wrap: wrap;
-      // flex-direction: row;
-      border: 1px solid #b8b8b8;
-      border-radius: 20px;
-      padding: 40px;
-      // label {
-      //   display: block;
-      // }
-      // .input-wrapper {
-      //   // display: flex;
-      //   // justify-content: flex-start;
-      //   // flex-direction: column;
-      // }
+    &-label {
+      font-size: 1rem;
+      font-weight: 800;
+    }
+    &-price {
+      font-size: 1.25rem;
+      font-weight: 600;
+    }
+  }
+}
+
+@media only screen and (min-width: 1200px) {
+  .staking-title {
+    font-size: $large-desktop-title;
+    line-height: $large-desktop-title-line-height;
+  }
+
+  .staking-section-hero {
+    gap: 4.374rem;
+  }
+
+  .staking-description {
+    max-width: 400px;
+    font-size: $large-desktop-description;
+    line-height: $large-desktop-description-line-height;
+  }
+
+  .staking-pricing {
+    &-container {
+      margin-top: 4.5rem;
+    }
+
+    &-label {
+      font-size: 1.25rem;
+      font-weight: 800;
+    }
+    &-price {
+      font-size: 1.875rem;
+      font-weight: 600;
     }
   }
 }
