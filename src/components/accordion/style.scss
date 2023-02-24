@@ -1,0 +1,62 @@
+.accordion {
+  border-top: thin solid #cacaca;
+  transition: height 0.5s;
+  overflow: hidden;
+
+  &-title {
+    padding: 1.5rem;
+    cursor: pointer;
+    will-change: background-color, font-size;
+    transition: background-color 0.3s, font-size 0.5s;
+    text-align: center;
+    font-weight: 800;
+    font-size: 0.5rem;
+    position: relative;
+    &:hover {
+      background-color: rgba(15, 15, 15, 0.05);
+    }
+    &:active {
+      background-color: rgba(15, 15, 15, 0.1);
+    }
+
+    &-icon {
+      display: block;
+      position: absolute;
+      top: 50%;
+      translate: 0 -50%;
+      right: 1rem;
+    }
+  }
+
+  &-content {
+    padding: 1rem;
+    padding-top: 0;
+  }
+
+  &--open {
+    .accordion {
+      &-title {
+        font-size: 0.75rem;
+        padding-block: 1.75rem;
+      }
+    }
+  }
+}
+
+@media only screen and (min-width: 768px) {
+  .accordion {
+    &-title {
+      padding: 1rem;
+      font-size: 1rem;
+    }
+
+    &--open {
+      .accordion {
+        &-title {
+          font-size: 1.25rem;
+          padding-block: calc(1.6875rem - 5px);
+        }
+      }
+    }
+  }
+}
