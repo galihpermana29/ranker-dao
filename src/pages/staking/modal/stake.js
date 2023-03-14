@@ -1,6 +1,17 @@
 import './style.scss';
 
-export const StakeModal = ({ onClickStake }) => {
+/**
+ *
+ * @param {integer} stakeValue - user input for stake value of their token
+ * @param {integer} walletToken - user current avail token from wallet
+ */
+
+export const StakeModal = ({
+  onClickStake,
+  stakeValue,
+  onChangeStakeValue,
+  walletToken,
+}) => {
   return (
     <div className="staking-modal">
       <h5 className="staking-modal-title">YOUR STAKE</h5>
@@ -20,6 +31,8 @@ export const StakeModal = ({ onClickStake }) => {
         className="staking-modal-input-field"
         id="available-token"
         name="available-token"
+        disabled
+        value={`${walletToken} $RNKR`}
       />
 
       <label className="staking-modal-input-label" htmlFor="staking-now">
@@ -29,22 +42,46 @@ export const StakeModal = ({ onClickStake }) => {
         className="staking-modal-input-field"
         id="staking-now"
         name="staking-now"
+        value={`${stakeValue}`}
+        onChange={e => {
+          onChangeStakeValue(e.target.value);
+          // console.log(e.target.value, 'if');
+          // if (
+          //   ['$RNK', '$RNR', '$NKR', '$RKR'].includes(
+          //     e.target.value.split(' ')[1],
+          //   ) ||
+          //   e.target.value.split(' ')[1] !== '$RNKR'
+          // ) {
+          //   return;
+          // } else {
+          //   onChangeStakeValue(e.target.value);
+          //   // console.log(e.target.value.replace('$RNKR', ''), 'not if');
+          //   // onChangeStakeValue(e.target.value.replace('$RNKR', ''));
+          // }
+        }}
       />
 
       <button
         className="staking-modal-button yellow"
         style={{ marginTop: '1rem', marginBottom: '0.5rem' }}
-        onClick={() => {}}>
+        onClick={() => onChangeStakeValue(walletToken)}>
         MAX AMOUNT
       </button>
-      <button className="staking-modal-button" onClick={onClickStake}>
+      <button
+        disabled={stakeValue === 0 ? true : false}
+        className="staking-modal-button"
+        onClick={onClickStake}>
         STAKE
       </button>
     </div>
   );
 };
 
-export const StakeConfirmationModal = ({ onClickConfirm, onClickBack }) => {
+export const StakeConfirmationModal = ({
+  onClickConfirm,
+  onClickBack,
+  stakeValue,
+}) => {
   return (
     <div className="staking-modal">
       <h5 className="staking-modal-title">YOUR STAKE</h5>
@@ -64,6 +101,8 @@ export const StakeConfirmationModal = ({ onClickConfirm, onClickBack }) => {
         className="staking-modal-input-field"
         id="staking-now"
         name="staking-now"
+        disabled
+        value={stakeValue + ' $RNKR'}
       />
 
       <button

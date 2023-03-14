@@ -6,7 +6,6 @@ import {
   LitePaper,
   MintBadge,
   RankerToken,
-  Shop,
   Staking,
   SuccessPage,
 } from './pages';
@@ -15,6 +14,8 @@ import { Footer, Header } from './components';
 import './scss/global.scss';
 import 'animate.css';
 import MainContext from 'contexts/MainContext';
+import DetailShop from 'pages/shop/detail';
+import OurShop from 'pages/shop';
 
 const App = () => {
   const queryClient = new QueryClient();
@@ -34,7 +35,8 @@ const App = () => {
             <Route path="/ranker-token" element={<RankerToken />} />
             <Route path="/litepaper" element={<LitePaper />} />
             <Route path="/staking" element={<Staking />} />
-            <Route path="/shop" element={<Shop />} />
+            <Route path="/shop/" element={<OurShop />} />
+            <Route path="/shop/:id" element={<DetailShop />} />
           </Routes>
           <Footer />
         </MainContext>
