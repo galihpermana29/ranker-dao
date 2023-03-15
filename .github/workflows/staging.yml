@@ -23,7 +23,7 @@ jobs:
           npm install
       - name: Staging build
         run: |
-          npm run build
+          npm run build:staging
       - name: Deployment
         uses: jakejarvis/s3-sync-action@master
         with:
