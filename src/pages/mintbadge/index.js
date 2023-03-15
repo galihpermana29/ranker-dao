@@ -30,7 +30,7 @@ const BADGE_DATA = {
     descriptionBold:
       'Be the first to fully experience our new partner games with the best price using our investment badges!',
     img: WhiteListBadge,
-    imgCaption: 'Our whitelist badges!',
+    imgCaption: 'Our IGO badges!',
   },
   bronze: {
     title: 'BRONZE BADGE',

@@ -1,3 +1,4 @@
+import { Link } from 'react-router-dom';
 import { stakingContentFirst as s } from './constants/content';
 
 const Description = () => (
@@ -8,9 +9,13 @@ const Description = () => (
       </p>
     ))}
 
-    <button className="staking-button" onClick={() => {}}>
+    <Link
+      to="/mint-badge"
+      style={{ textDecoration: 'none' }}
+      className="staking-button"
+      onClick={() => {}}>
       Mint yours now
-    </button>
+    </Link>
   </>
 );
 
@@ -20,9 +25,7 @@ export const StakingFirstSection = () => {
       <div>
         <h1 className="staking-title">
           {s.title}{' '}
-          <span className="staking-title yellow">
-            {s.titleHighlight}
-          </span>
+          <span className="staking-title yellow">{s.titleHighlight}</span>
         </h1>
 
         <div className="staking-description-container--desktop">
@@ -30,7 +33,11 @@ export const StakingFirstSection = () => {
         </div>
       </div>
 
-      <img src={s.img.src} alt={s.img.alt} className="staking-section-hero-image" />
+      <img
+        src={s.img.src}
+        alt={s.img.alt}
+        className="staking-section-hero-image"
+      />
 
       <div className="staking-description-container--mobile">
         <Description />

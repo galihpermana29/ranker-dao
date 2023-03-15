@@ -3,7 +3,7 @@ import Home from './home';
 import LitePaper from './litepaper';
 import MintBadge from './mintbadge';
 import RankerToken from './ranker-token';
-import Shop from './shop';
+import Shop from './shop/detail';
 import Staking from './staking';
 import SuccessPage from './success-page';
 

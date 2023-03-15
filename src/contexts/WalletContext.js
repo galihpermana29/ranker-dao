@@ -3,6 +3,9 @@ import { useMutation, useQuery } from '@tanstack/react-query';
 import { onConnectWallet } from 'services/interact';
 import { ethers } from 'ethers';
 
+import stakeToken from '../services/stakeToken.json';
+
+
 const INITIAL_STATE = {
   isLoading: '',
   isError: '',
@@ -32,6 +35,18 @@ export const WalletContextProvider = ({ children }) => {
     walletAddress = listAccountQuery.data[0];
   }
 
+  const getBalanceForSpesificToken = async () => {
+    const contract = new ethers.Contract(
+      process.env.REACT_APP_CONTRACT_STAKE_TOKEN_SAMPLE,
+      stakeToken.result,
+      web3Service,
+    );
+    let list = await web3Service.listAccounts();
+    walletAddress = list[0];
+    const balance = (await contract.balanceOf(walletAddress)).toString();
+    return parseInt(balance);
+  };
+
   return (
     <WalletContext.Provider
       value={{
@@ -41,6 +56,7 @@ export const WalletContextProvider = ({ children }) => {
         isLoading: walletConnectQuery.isLoading,
         isConnect: connected,
         address: walletAddress,
+        getBalance: getBalanceForSpesificToken,
       }}>
       {children}
     </WalletContext.Provider>
