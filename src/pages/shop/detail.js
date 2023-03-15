@@ -57,7 +57,6 @@ const SHOP_GAME_LIST = {
 };
 
 const DetailShop = () => {
-  const [activeGame, setActiveGame] = useState('apeiron');
   const [isHovered, setIsHovered] = useState({});
   const { id } = useParams();
   const [data, setData] = useState({});
@@ -106,15 +105,9 @@ const DetailShop = () => {
           <div className="w-full align-self-start">
             <Link className="button">BROWSE OTHER GAMES</Link>
           </div>
-
-          {/* <ShopSelector
-            activeGame={activeGame}
-            setActiveGame={setActiveGame}
-            list={SHOP_GAME_LIST}
-          /> */}
         </div>
         <div className="shop-list row">
-          {SHOP_GAME_LIST[activeGame].imageList.map((shop, index) => {
+          {SHOP_GAME_LIST['apeiron'].imageList.map((shop, index) => {
             const { img, title = '', price = 0 } = shop;
             return (
               <div key={index} className="col-6 col-md-4 mt-3 mt-md-0 mb-3">
