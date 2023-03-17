@@ -33,7 +33,7 @@ const BADGE_DATA = {
     imgCaption: 'Our IGO badges!',
   },
   bronze: {
-    title: 'BRONZE BADGE',
+    title: 'BRONZE IGO BADGE',
     description: 'A chance at investment slots on upcoming IGOs.',
     price: '20.000',
     limited: false,
@@ -42,7 +42,7 @@ const BADGE_DATA = {
     disabled: true,
   },
   silver: {
-    title: 'SILVER BADGE',
+    title: 'SILVER IGO BADGE',
     description: 'Higher chance at investment slots on upcoming IGOs.',
     price: '100.000',
     limited: false,
@@ -51,7 +51,7 @@ const BADGE_DATA = {
     disabled: true,
   },
   gold: {
-    title: 'GOLD BADGE',
+    title: 'GOLD IGO BADGE',
     description: 'investment slots on upcoming IGOs.',
     descriptionEm: 'Guaranteed ',
     price: '500.000',
@@ -62,7 +62,7 @@ const BADGE_DATA = {
     disabled: true,
   },
   gaming: {
-    title: 'GAMING BADGE',
+    title: 'GAMING IGO BADGE',
     description:
       'With the gaming badge you will be notified of the hottest new games available for scholarships ! Start earning by playing a collection of the latest blockchain games.',
     price: '2000',
@@ -78,10 +78,10 @@ const MAIN_NAV = [
   { title: 'GAMING BADGE', nav: 'gaming' },
 ];
 const BADGE_NAV = [
-  { title: 'BRONZE BADGE', nav: 'bronze' },
-  { title: 'SILVER BADGE', nav: 'silver' },
-  { title: 'GOLD BADGE', nav: 'gold' },
-  { title: 'GAMING BADGE', nav: 'gaming' },
+  { title: 'BRONZE IGO BADGE', nav: 'bronze' },
+  { title: 'SILVER IGO BADGE', nav: 'silver' },
+  { title: 'GOLD IGO BADGE', nav: 'gold' },
+  { title: 'GAMING IGO BADGE', nav: 'gaming' },
 ];
 
 const MintBadge = () => {
@@ -144,6 +144,7 @@ const MintBadge = () => {
           navigate(`/mint-badge/success/${activeBadge}`);
         }, 1000);
       }
+
     };
     triggeredWhenSuccess();
   }, [mintTask, activeBadge, navigate]);

@@ -1,14 +1,14 @@
 import { Accordion } from 'components/accordion';
-import {
-  allowanceAmount,
-  checkCurrentStakeValue,
-  checkTodaysReward,
-  checkTotalStakeInPool,
-  checkUnclaimableReward,
-  claimRewardStacking,
-  stacking,
-  unstacking,
-} from 'services/stacking';
+// import {
+//   allowanceAmount,
+//   checkCurrentStakeValue,
+//   checkTodaysReward,
+//   checkTotalStakeInPool,
+//   checkUnclaimableReward,
+//   claimRewardStacking,
+//   stacking,
+//   unstacking,
+// } from 'services/stacking';
 import { ConfirmAlert } from './modal/confirm-alert';
 import { Modal } from 'components/modal';
 import { StakeConfirmationModal, StakeModal } from './modal/stake';
@@ -17,7 +17,7 @@ import { useState } from 'react';
 import { useWalletContext } from 'contexts/WalletContext';
 import { useEffect } from 'react';
 
-import { checkFinishedAt } from 'services/stacking';
+import { useStakingHooks } from 'services/stacking';
 import CountDown from 'components/countdown';
 import { PdToast } from 'components/toast';
 
@@ -51,7 +51,10 @@ const StakingCard = ({
         disabled
       />
 
-      <button className="staking-card-button" onClick={onClickBuyRanker}>
+      <button
+        className="staking-card-button"
+        disabled={!data}
+        onClick={onClickBuyRanker}>
         BUY $RANKER
         <div className={`dropdown ${buyRanker ? 'active' : ''}`}>
           <a
@@ -104,12 +107,16 @@ const StakingCard = ({
       />
 
       <button
+        disabled={!currentStakeValue}
         className="staking-card-button"
         style={{ marginBottom: '0.5rem' }}
         onClick={onClickStake}>
         STAKE
       </button>
-      <button className="staking-card-button" onClick={onClickUnstake}>
+      <button
+        disabled={!currentStakeValue}
+        className="staking-card-button"
+        onClick={onClickUnstake}>
         UNSTAKE
       </button>
     </div>
@@ -147,8 +154,10 @@ const RewardsCard = ({ onClickClaim, data, claimDate }) => {
       <p className="staking-card-time yellow">
         <CountDown date={claimDate} />
       </p>
-
-      <button className="staking-card-button" onClick={onClickClaim}>
+      <button
+        disabled={!data}
+        className="staking-card-button"
+        onClick={onClickClaim}>
         CLAIM
       </button>
     </div>
@@ -172,7 +181,7 @@ const InnerAccordion = ({
           <h5 className="staking-accordion-info-label">TODAY'S REWARD</h5>
           <p className="staking-accordion-info-price">
             <span className="yellow">
-              {parseInt(data.todaysReward)
+              {parseFloat(data.todaysReward)
                 .toFixed(2)
                 .replace(/\d(?=(\d{3})+\.)/g, '$&,')}
             </span>{' '}
@@ -182,14 +191,20 @@ const InnerAccordion = ({
         <div>
           <h5 className="staking-accordion-info-label">TOTAL REWARD</h5>
           <p className="staking-accordion-info-price">
-            <span className="yellow">700,000</span> $RANKER
+            <span className="yellow">
+              {' '}
+              {parseFloat(data.totalRewardEachSection)
+                .toFixed(2)
+                .replace(/\d(?=(\d{3})+\.)/g, '$&,')}
+            </span>{' '}
+            $RANKER
           </p>
         </div>
         <div>
           <h5 className="staking-accordion-info-label">TOTAL STAKED IN POOL</h5>
           <p className="staking-accordion-info-price">
             <span className="yellow">
-              {parseInt(data.totalStakeInPool)
+              {parseFloat(data.totalStakeInPool)
                 .toFixed(2)
                 .replace(/\d(?=(\d{3})+\.)/g, '$&,')}
             </span>{' '}
@@ -221,10 +236,24 @@ const InnerAccordion = ({
  * @param {integer} availToken - value for avail token from metamask user
  */
 export const StakingThirdSection = ({ availToken }) => {
+  //staking hooks
+  const { address = '', provider } = useWalletContext();
+  const {
+    allowanceAmount,
+    checkCurrentStakeValue,
+    checkFinishedAt,
+    checkTodaysReward,
+    checkTotalStakeInPool,
+    checkUnclaimableReward,
+    claimRewardStacking,
+    checkTotalRewardEachSection,
+    stacking,
+    unstacking,
+  } = useStakingHooks(address, provider);
+
   const [isOpen, setIsOpen] = useState(null);
   const [isOpenModal, setIsOpenModal] = useState(false);
   const [modalType, setModalType] = useState(null);
-  const { address } = useWalletContext();
 
   //stake value
   const [stakeValue, setStakeValue] = useState(0);
@@ -240,10 +269,14 @@ export const StakingThirdSection = ({ availToken }) => {
     todaysReward: 0,
     totalStakeInPool: 0,
     totalReward: 0,
+    totalRewardEachSection: 0,
   });
 
   //reward value
-  const [unclaimedReward, setUnclaimedReward] = useState(0);
+  const [unclaimedReward, setUnclaimedReward] = useState({
+    nonLockReward: 0,
+    lockReward: 0,
+  });
   const { nonLockReward, lockReward } = unclaimedReward;
 
   const [claimedTime, setClaimedTime] = useState(0);
@@ -393,8 +426,10 @@ export const StakingThirdSection = ({ availToken }) => {
         lockReward: earnedInRankerLock,
       });
     };
-
-    getRewardForUser();
+    if (address) {
+      getRewardForUser();
+    }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [address, activeStakingType]);
 
   useEffect(() => {
@@ -402,7 +437,8 @@ export const StakingThirdSection = ({ availToken }) => {
       const timing = await checkFinishedAt();
       setClaimedTime(timing);
     };
-    getTiming();
+    if (address) getTiming();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [claimedTime]);
 
   useEffect(() => {
@@ -411,14 +447,20 @@ export const StakingThirdSection = ({ availToken }) => {
         const env = ['LOCKER_RANKER', 'LP_STAKING'].includes(isOpen)
           ? process.env.REACT_APP_CONTRACT_STAKING_ADDRESS_LOCK
           : process.env.REACT_APP_CONTRACT_STAKING_ADDRESS;
-        const todaysReward = await checkTodaysReward(env);
+        const todaysReward = await checkTodaysReward(env, address);
         const totalStakeInPool = await checkTotalStakeInPool(env);
-        setPoolStat({ todaysReward, totalStakeInPool });
+        const totalRewardEachSection = await checkTotalRewardEachSection(env);
+        setPoolStat({ todaysReward, totalStakeInPool, totalRewardEachSection });
       } catch (error) {
         console.log('Error while getting stats', error);
       }
     };
-    getStat();
+    if (address) {
+      setTimeout(() => {
+        getStat();
+      }, 5000);
+    }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [isOpen]);
 
   return (

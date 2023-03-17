@@ -5,7 +5,6 @@ import { ethers } from 'ethers';
 
 import stakeToken from '../services/stakeToken.json';
 
-
 const INITIAL_STATE = {
   isLoading: '',
   isError: '',
@@ -57,6 +56,7 @@ export const WalletContextProvider = ({ children }) => {
         isConnect: connected,
         address: walletAddress,
         getBalance: getBalanceForSpesificToken,
+        provider: web3Service,
       }}>
       {children}
     </WalletContext.Provider>
