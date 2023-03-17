@@ -62,7 +62,7 @@ const BADGE_DATA = {
     disabled: true,
   },
   gaming: {
-    title: 'GAMING IGO BADGE',
+    title: 'GAMING BADGE',
     description:
       'With the gaming badge you will be notified of the hottest new games available for scholarships ! Start earning by playing a collection of the latest blockchain games.',
     price: '2000',
@@ -81,7 +81,7 @@ const BADGE_NAV = [
   { title: 'BRONZE IGO BADGE', nav: 'bronze' },
   { title: 'SILVER IGO BADGE', nav: 'silver' },
   { title: 'GOLD IGO BADGE', nav: 'gold' },
-  { title: 'GAMING IGO BADGE', nav: 'gaming' },
+  { title: 'GAMING BADGE', nav: 'gaming' },
 ];
 
 const MintBadge = () => {
