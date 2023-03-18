@@ -22,6 +22,10 @@ jobs:
       - name: Build and Test
         run: |
           npm install
-          ${{ (github.event.pull_request.head.ref == 'master') ? 'npm run build:prod' : 'npm run build:staging' }}
+          if [ "${{ github.event.pull_request.head.ref }}" == "master" ]; then
+             npm run build:prod
+          else
+             npm run build:staging
+          fi
           npm run test
 
