@@ -426,11 +426,29 @@ export const StakingThirdSection = ({ availToken }) => {
         lockReward: earnedInRankerLock,
       });
     };
+
+    const getStat = async () => {
+      try {
+        const env = ['LOCKER_RANKER', 'LP_STAKING'].includes(isOpen)
+          ? process.env.REACT_APP_CONTRACT_STAKING_ADDRESS_LOCK
+          : process.env.REACT_APP_CONTRACT_STAKING_ADDRESS;
+        const todaysReward = await checkTodaysReward(env, address);
+        const totalStakeInPool = await checkTotalStakeInPool(env);
+        const totalRewardEachSection = await checkTotalRewardEachSection(env);
+        setPoolStat({ todaysReward, totalStakeInPool, totalRewardEachSection });
+      } catch (error) {
+        console.log('Error while getting stats', error);
+      }
+    };
+
     if (address) {
-      const interval1 = setInterval(() => getRewardForUser(), 1000);
-      return () => {
-        clearInterval(interval1);
-      };
+      setInterval(() => {
+        getRewardForUser();
+        getStat();
+      }, 1000);
+      // return () => {
+      //   clearInterval(interval1);
+      // };
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [address, activeStakingType]);
@@ -445,25 +463,12 @@ export const StakingThirdSection = ({ availToken }) => {
   }, [claimedTime]);
 
   useEffect(() => {
-    const getStat = async () => {
-      try {
-        const env = ['LOCKER_RANKER', 'LP_STAKING'].includes(isOpen)
-          ? process.env.REACT_APP_CONTRACT_STAKING_ADDRESS_LOCK
-          : process.env.REACT_APP_CONTRACT_STAKING_ADDRESS;
-        const todaysReward = await checkTodaysReward(env, address);
-        const totalStakeInPool = await checkTotalStakeInPool(env);
-        const totalRewardEachSection = await checkTotalRewardEachSection(env);
-        setPoolStat({ todaysReward, totalStakeInPool, totalRewardEachSection });
-      } catch (error) {
-        console.log('Error while getting stats', error);
-      }
-    };
-    if (address) {
-      const interval = setInterval(() => getStat(), 1000);
-      return () => {
-        clearInterval(interval);
-      };
-    }
+    // if (address) {
+    //   const interval = setInterval(() => getStat(), 1000);
+    //   return () => {
+    //     clearInterval(interval);
+    //   };
+    // }
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
