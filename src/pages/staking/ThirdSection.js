@@ -427,7 +427,10 @@ export const StakingThirdSection = ({ availToken }) => {
       });
     };
     if (address) {
-      getRewardForUser();
+      const interval1 = setInterval(() => getRewardForUser(), 1000);
+      return () => {
+        clearInterval(interval1);
+      };
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [address, activeStakingType]);
@@ -456,12 +459,13 @@ export const StakingThirdSection = ({ availToken }) => {
       }
     };
     if (address) {
-      setTimeout(() => {
-        getStat();
-      }, 5000);
+      const interval = setInterval(() => getStat(), 1000);
+      return () => {
+        clearInterval(interval);
+      };
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [isOpen]);
+  }, []);
 
   return (
     <section className="staking-section">
