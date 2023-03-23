@@ -20,7 +20,6 @@ const PRIZE = {
 let provider = null;
 let signer = null;
 
-console.log('process.env', process.env);
 
 const CONTRACT_TOKEN_ABI =
   process.env.NODE_ENV === 'production'
@@ -98,7 +97,6 @@ export const onMintBadge = async (type, address, amount, isDisabled) => {
   if (userAllowance < PRIZE[type]) {
     await getApprove(type);
   }
-  console.log('PRIZE[type]', PRIZE[type]);
 
   provider = new ethers.providers.Web3Provider(window.ethereum);
   signer = provider.getSigner();

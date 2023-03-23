@@ -3,7 +3,6 @@ import stackingABI from 'services/stackingABI.json';
 import stakeTokenABI from 'services/stakeToken.json';
 
 export function useStakingHooks(walletAddress, walletProvider) {
-  console.log(walletAddress, walletProvider, 'walletA');
   let signer;
   if (walletAddress) {
     signer = walletProvider.getSigner();
@@ -51,7 +50,6 @@ export function useStakingHooks(walletAddress, walletProvider) {
       stakeTokenABI.result,
       signer,
     );
-    console.log(contract, 'approval');
     const val = (parseFloat(amount) * 10 ** 18).toString();
     let receipt = null;
 
@@ -185,9 +183,7 @@ export function useStakingHooks(walletAddress, walletProvider) {
 
     try {
       const totalStakeInPool = await contract.totalReward();
-      console.log(totalStakeInPool, 'stake')
       const floating = (totalStakeInPool / 10 ** 18).toFixed(2);
-      console.log(floating, 'floating total reward');
       return floating;
     } catch (error) {
       console.log(error, 'error');
