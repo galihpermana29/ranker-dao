@@ -53,7 +53,7 @@ const StakingCard = ({
 
       <button
         className="staking-card-button"
-        disabled={!data}
+        // disabled={!data}
         onClick={onClickBuyRanker}>
         BUY $RANKER
         <div className={`dropdown ${buyRanker ? 'active' : ''}`}>
@@ -181,9 +181,11 @@ const InnerAccordion = ({
           <h5 className="staking-accordion-info-label">TODAY'S REWARD</h5>
           <p className="staking-accordion-info-price">
             <span className="yellow">
-              {parseFloat(data.todaysReward)
-                .toFixed(2)
-                .replace(/\d(?=(\d{3})+\.)/g, '$&,')}
+              {typeof data.todaysReward === 'string'
+                ? '-'
+                : parseFloat(data.todaysReward)
+                    .toFixed(2)
+                    .replace(/\d(?=(\d{3})+\.)/g, '$&,')}
             </span>{' '}
             $RANKER
           </p>
@@ -192,10 +194,11 @@ const InnerAccordion = ({
           <h5 className="staking-accordion-info-label">TOTAL REWARD</h5>
           <p className="staking-accordion-info-price">
             <span className="yellow">
-              {' '}
-              {parseFloat(data.totalRewardEachSection)
-                .toFixed(2)
-                .replace(/\d(?=(\d{3})+\.)/g, '$&,')}
+              {typeof data.totalRewardEachSection === 'string'
+                ? '-'
+                : parseFloat(data.totalRewardEachSection)
+                    .toFixed(2)
+                    .replace(/\d(?=(\d{3})+\.)/g, '$&,')}
             </span>{' '}
             $RANKER
           </p>
@@ -204,9 +207,11 @@ const InnerAccordion = ({
           <h5 className="staking-accordion-info-label">TOTAL STAKED IN POOL</h5>
           <p className="staking-accordion-info-price">
             <span className="yellow">
-              {parseFloat(data.totalStakeInPool)
-                .toFixed(2)
-                .replace(/\d(?=(\d{3})+\.)/g, '$&,')}
+              {typeof data.totalStakeInPool === 'string'
+                ? '-'
+                : parseFloat(data.totalStakeInPool)
+                    .toFixed(2)
+                    .replace(/\d(?=(\d{3})+\.)/g, '$&,')}
             </span>{' '}
             $RANKER
           </p>
@@ -266,10 +271,10 @@ export const StakingThirdSection = ({ availToken }) => {
 
   // statistics
   const [poolStat, setPoolStat] = useState({
-    todaysReward: 0,
-    totalStakeInPool: 0,
-    totalReward: 0,
-    totalRewardEachSection: 0,
+    todaysReward: address ? 0 : '-',
+    totalStakeInPool: address ? 0 : '-',
+    totalReward: address ? 0 : '-',
+    totalRewardEachSection: address ? 0 : '-',
   });
 
   //reward value
@@ -446,9 +451,6 @@ export const StakingThirdSection = ({ availToken }) => {
         getRewardForUser();
         getStat();
       }, 1000);
-      // return () => {
-      //   clearInterval(interval1);
-      // };
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [address, activeStakingType]);
@@ -461,16 +463,6 @@ export const StakingThirdSection = ({ availToken }) => {
     if (address) getTiming();
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [claimedTime]);
-
-  useEffect(() => {
-    // if (address) {
-    //   const interval = setInterval(() => getStat(), 1000);
-    //   return () => {
-    //     clearInterval(interval);
-    //   };
-    // }
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, []);
 
   return (
     <section className="staking-section">

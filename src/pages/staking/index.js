@@ -12,7 +12,13 @@ import { StakingThirdSection } from './ThirdSection';
 import axios from 'axios';
 
 const Staking = () => {
-  const { address = '', provider, getBalance } = useWalletContext();
+  const {
+    address = '',
+    provider,
+    getBalance,
+    onConnect,
+    isConnect,
+  } = useWalletContext();
   const { checkTotalStakeInPool, checkTotalRewardEachSection } =
     useStakingHooks(address, provider);
 
@@ -38,6 +44,17 @@ const Staking = () => {
       console.log(error, 'err');
     }
   };
+
+  useEffect(() => {
+    const onClickConnect = () => {
+      if (!isConnect) {
+        onConnect()
+          .then(response => console.log('response', response))
+          .catch(error => console.log('error: ', error));
+      }
+    };
+    onClickConnect();
+  }, [isConnect, onConnect]);
 
   useEffect(() => {
     const getStat = async () => {
