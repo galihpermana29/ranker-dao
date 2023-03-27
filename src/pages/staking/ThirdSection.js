@@ -174,6 +174,7 @@ const InnerAccordion = ({
   setIsBuyClicked,
   type,
 }) => {
+  console.log(data, 'data');
   return (
     <div className="staking-accordion">
       <div className="staking-accordion-info">
@@ -181,7 +182,7 @@ const InnerAccordion = ({
           <h5 className="staking-accordion-info-label">TODAY'S REWARD</h5>
           <p className="staking-accordion-info-price">
             <span className="yellow">
-              {typeof data.todaysReward === 'string'
+              {data.todaysReward === '-'
                 ? '-'
                 : parseFloat(data.todaysReward)
                     .toFixed(2)
@@ -194,7 +195,7 @@ const InnerAccordion = ({
           <h5 className="staking-accordion-info-label">TOTAL REWARD</h5>
           <p className="staking-accordion-info-price">
             <span className="yellow">
-              {typeof data.totalRewardEachSection === 'string'
+              {data.totalRewardEachSection === '-'
                 ? '-'
                 : parseFloat(data.totalRewardEachSection)
                     .toFixed(2)
@@ -207,7 +208,7 @@ const InnerAccordion = ({
           <h5 className="staking-accordion-info-label">TOTAL STAKED IN POOL</h5>
           <p className="staking-accordion-info-price">
             <span className="yellow">
-              {typeof data.totalStakeInPool === 'string'
+              {data.totalStakeInPool === '-'
                 ? '-'
                 : parseFloat(data.totalStakeInPool)
                     .toFixed(2)
@@ -242,7 +243,7 @@ const InnerAccordion = ({
  */
 export const StakingThirdSection = ({ availToken }) => {
   //staking hooks
-  const { address = '', provider } = useWalletContext();
+  const { address = '', provider, isConnect } = useWalletContext();
   const {
     allowanceAmount,
     checkCurrentStakeValue,
@@ -271,10 +272,10 @@ export const StakingThirdSection = ({ availToken }) => {
 
   // statistics
   const [poolStat, setPoolStat] = useState({
-    todaysReward: address ? 0 : '-',
-    totalStakeInPool: address ? 0 : '-',
-    totalReward: address ? 0 : '-',
-    totalRewardEachSection: address ? 0 : '-',
+    todaysReward: isConnect ? 0 : '-',
+    totalStakeInPool: isConnect ? 0 : '-',
+    totalReward: isConnect ? 0 : '-',
+    totalRewardEachSection: isConnect ? 0 : '-',
   });
 
   //reward value
