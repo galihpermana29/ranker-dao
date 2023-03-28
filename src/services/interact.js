@@ -20,7 +20,6 @@ const PRIZE = {
 let provider = null;
 let signer = null;
 
-
 const CONTRACT_TOKEN_ABI =
   process.env.NODE_ENV === 'production'
     ? ProductionTokenContractAbi
@@ -53,6 +52,39 @@ export const onConnectWallet = async () => {
   web3Modal.clearCachedProvider();
   provider = await web3Modal.connect();
   return provider;
+};
+
+export const checkUserNetworkForTestnet = async () => {
+  const BSC_CHAIN_ID = 97; //0x38
+
+  if (window.ethereum.networkVersion !== BSC_CHAIN_ID) {
+    try {
+      await window.ethereum.request({
+        method: 'wallet_switchEthereumChain',
+        params: [{ chainId: web3.utils.toHex(BSC_CHAIN_ID) }],
+      });
+    } catch (err) {
+      // This error code indicates that the chain has not been added to MetaMask
+      if (err.code === 4902) {
+        await window.ethereum.request({
+          method: 'wallet_addEthereumChain',
+          params: [
+            {
+              chainName: 'Binance Smart Chain',
+              chainId: web3.utils.toHex(BSC_CHAIN_ID),
+              nativeCurrency: {
+                name: 'Binance Coin',
+                symbol: 'BNBT',
+                decimals: 18,
+              },
+              rpcUrls: ['https://data-seed-prebsc-1-s1.binance.org:8545'],
+              blockExplorerUrls: ['https://testnet.bscscan.com'],
+            },
+          ],
+        });
+      }
+    }
+  }
 };
 
 export const checkUserNetwork = async () => {

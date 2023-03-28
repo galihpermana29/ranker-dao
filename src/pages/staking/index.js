@@ -10,6 +10,7 @@ import './style.scss';
 import { StakingThirdSection } from './ThirdSection';
 
 import axios from 'axios';
+import { checkUserNetworkForTestnet } from 'services/interact';
 
 const Staking = () => {
   const {
@@ -54,6 +55,7 @@ const Staking = () => {
       }
     };
     onClickConnect();
+    checkUserNetworkForTestnet();
   }, [isConnect, onConnect]);
 
   useEffect(() => {
