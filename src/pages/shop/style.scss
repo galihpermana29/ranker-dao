@@ -37,7 +37,6 @@
     align-items: center;
     padding: 0 40px;
     .shop-left-side {
-
       @media only screen and (min-width: 625px) {
         max-width: 30% !important;
       }
@@ -66,7 +65,6 @@
     }
 
     .shop-list {
-
       @media only screen and (min-width: 625px) {
         max-width: 60% !important;
       }
@@ -78,7 +76,7 @@
         min-height: 110px;
         max-height: 110px;
         max-width: 260px;
-  
+
         img {
           box-shadow: 3px 3px 4px 2px rgba(0, 0, 0, 0.25);
           min-height: 110px;
@@ -112,8 +110,8 @@
         &-wrapper-active {
           cursor: pointer;
 
-          height: 20px;
-          background-color: #6d2ea1;
+          height: 30px;
+          background-color: #ffc700;
           text-align: center;
           display: flex;
           justify-content: center;
@@ -121,7 +119,7 @@
           border-radius: 0px 0px 8px 8px;
         }
         &-wrapper-inactive {
-          height: 20px;
+          height: 30px;
         }
 
         &-text {
@@ -172,10 +170,13 @@
     &-wrapper {
       .shop-left-side {
         .shop-logo-wrapper {
-          height: 160px;
           img {
-            max-height: 130px;
+            max-height: 90px;
           }
+        }
+
+        .shop-name {
+          align-self: center !important;
         }
 
         .description {
@@ -223,19 +224,27 @@
     &-wrapper {
       .shop-left-side {
         flex: 2;
-        padding: 0 20px;
-        .shop-logo-wrapper {
-          height: 120px;
-          img {
-            margin-bottom: 0;
+        margin: 0 40px;
 
+        .shop-logo-wrapper {
+          align-self: flex-start !important;
+          img {
+            text-align: start;
+            margin-bottom: 0;
             max-height: 95px;
+            width: 100%;
           }
+        }
+        .shop-name {
+          align-self: flex-start !important;
         }
         .description {
           font-size: $tablet-description;
           line-height: $tablet-description-line-height;
           text-align: start;
+          max-width: 360px;
+          align-self: flex-start;
+          width: 100%;
         }
       }
       .shop-list {
@@ -260,9 +269,9 @@
         .buy-now {
           &-wrapper-active {
             cursor: pointer;
-
-            height: 28px;
-            background-color: #6d2ea1;
+            max-width: 260px;
+            height: 30px;
+            background-color: #ffc700;
             text-align: center;
             display: flex;
             justify-content: center;
@@ -270,7 +279,8 @@
             border-radius: 0px 0px 8px 8px;
           }
           &-wrapper-inactive {
-            height: 28px;
+            height: 30px;
+            max-width: 260px;
           }
 
           &-text {
@@ -301,7 +311,6 @@
     &-wrapper {
       .shop-left-side {
         .shop-logo-wrapper {
-          height: 160px;
           img {
             max-height: 122px;
           }
@@ -352,7 +361,6 @@
     &-wrapper {
       .shop-left-side {
         .shop-logo-wrapper {
-          height: 240px;
           img {
             max-height: 190px;
           }
@@ -362,7 +370,7 @@
           line-height: $large-desktop-description-line-height;
         }
         .shop-name {
-          font-size: 45px;
+          font-size: 36px;
           line-height: 55px;
         }
       }
@@ -440,6 +448,7 @@
     text-decoration: none;
     color: black;
     max-width: 224px;
+
     background: #ffffff;
     box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
     border-radius: 14px;
@@ -464,7 +473,32 @@
   margin-top: 124px;
 }
 
-.button {
+.button-wrapper {
+  align-self: center !important;
+  .button {
+    background-color: black;
+    padding: 12px 27px;
+    border-radius: 14px;
+    color: white;
+    display: inline-block;
+    text-decoration: none;
+    width: max-content;
+    font-weight: 700;
+
+    font-size: 12px;
+
+    @media only screen and (min-width: 1200px) {
+      font-size: 16px;
+    }
+  }
+
+  @media only screen and (min-width: 768px) {
+    width: 100%;
+    align-self: flex-start !important;
+  }
+}
+
+.button-outside {
   background-color: black;
   padding: 12px 27px;
   border-radius: 14px;
@@ -473,5 +507,10 @@
   text-decoration: none;
   width: max-content;
   font-weight: 700;
-  font-size: 16px;
+
+  font-size: 12px;
+
+  @media only screen and (min-width: 1200px) {
+    font-size: 16px;
+  }
 }
