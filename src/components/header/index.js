@@ -23,7 +23,7 @@ const Header = () => {
       href: '/mint-badge',
       label: 'MINT BADGE',
     },
-    // { href: '/shop', label: 'OUR SHOP' },
+    { href: '/shop', label: 'OUR SHOP' },
     { href: '/staking', label: 'STAKING' },
     {
       href: 'https://t.me/rankerdao',
@@ -67,7 +67,7 @@ const Header = () => {
       href: '/mint-badge',
       label: 'MINT BADGE',
     },
-    // { href: '/shop', label: 'OUR SHOP' },
+    { href: '/shop', label: 'OUR SHOP' },
     { href: '/staking', label: 'STAKING' },
     {
       href: 'https://t.me/rankerdao',

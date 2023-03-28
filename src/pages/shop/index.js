@@ -41,7 +41,7 @@ const OurShop = () => {
           Simply by getting yourself a badge and officially be a part of our
           guild!
         </div>
-        <Link className="button mt-5">MINT YOURS NOW</Link>
+        <Link className="button-outside mt-5">MINT YOURS NOW</Link>
       </div>
     </div>
   );

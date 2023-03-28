@@ -102,8 +102,10 @@ const DetailShop = () => {
           <p className="shop-name align-self-start">{data.title}</p>
           <p className="description">{data.desc}</p>
 
-          <div className="w-full align-self-start">
-            <Link className="button">BROWSE OTHER GAMES</Link>
+          <div className="w-full button-wrapper">
+            <Link className="button" to="/shop">
+              BROWSE OTHER GAMES
+            </Link>
           </div>
         </div>
         <div className="shop-list row">
