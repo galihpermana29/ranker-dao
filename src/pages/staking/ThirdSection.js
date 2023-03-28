@@ -174,7 +174,6 @@ const InnerAccordion = ({
   setIsBuyClicked,
   type,
 }) => {
-  console.log(data, 'data');
   return (
     <div className="staking-accordion">
       <div className="staking-accordion-info">
