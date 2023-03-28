@@ -1,6 +1,7 @@
 import { ethers } from 'ethers';
 import stackingABI from 'services/stackingABI.json';
 import stakeTokenABI from 'services/stakeToken.json';
+import rankerLPABI from 'services/rankerLPABI.json';
 
 export function useStakingHooks(walletAddress, walletProvider) {
   let signer;
@@ -107,6 +108,21 @@ export function useStakingHooks(walletAddress, walletProvider) {
     }
   };
 
+  const checkCurrentLP = async (address, env) => {
+    const contract = new ethers.Contract(
+      env,
+      rankerLPABI.result,
+      walletProvider,
+    );
+    try {
+      const currentLP = await contract.balanceOf(address);
+      const floating = (currentLP / 10 ** 18).toFixed(2);
+      return floating;
+    } catch (error) {
+      console.log(error, 'error current');
+    }
+  };
+
   const checkFinishedAt = async () => {
     const contract = new ethers.Contract(
       process.env.REACT_APP_CONTRACT_STAKING_ADDRESS,
@@ -192,6 +208,7 @@ export function useStakingHooks(walletAddress, walletProvider) {
 
   return {
     allowanceAmount,
+    checkCurrentLP,
     checkCurrentStakeValue,
     checkFinishedAt,
     checkTodaysReward,

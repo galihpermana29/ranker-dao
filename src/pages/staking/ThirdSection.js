@@ -1,14 +1,4 @@
 import { Accordion } from 'components/accordion';
-// import {
-//   allowanceAmount,
-//   checkCurrentStakeValue,
-//   checkTodaysReward,
-//   checkTotalStakeInPool,
-//   checkUnclaimableReward,
-//   claimRewardStacking,
-//   stacking,
-//   unstacking,
-// } from 'services/stacking';
 import { ConfirmAlert } from './modal/confirm-alert';
 import { Modal } from 'components/modal';
 import { StakeConfirmationModal, StakeModal } from './modal/stake';
@@ -245,13 +235,14 @@ export const StakingThirdSection = ({ availToken }) => {
   const { address = '', provider, isConnect } = useWalletContext();
   const {
     allowanceAmount,
+    // checkCurrentLP,
     checkCurrentStakeValue,
     checkFinishedAt,
     checkTodaysReward,
+    checkTotalRewardEachSection,
     checkTotalStakeInPool,
     checkUnclaimableReward,
     claimRewardStacking,
-    checkTotalRewardEachSection,
     stacking,
     unstacking,
   } = useStakingHooks(address, provider);
@@ -439,6 +430,10 @@ export const StakingThirdSection = ({ availToken }) => {
           : process.env.REACT_APP_CONTRACT_STAKING_ADDRESS;
         const todaysReward = await checkTodaysReward(env, address);
         const totalStakeInPool = await checkTotalStakeInPool(env);
+        // const totalStakeLP = await checkCurrentLP(
+        //   process.env.REACT_APP_CONTRACT_LP_APESWAP,
+        //   process.env.REACT_APP_CONTRACT_RANKER_PRODUCTION,
+        // );
         const totalRewardEachSection = await checkTotalRewardEachSection(env);
         setPoolStat({ todaysReward, totalStakeInPool, totalRewardEachSection });
       } catch (error) {
