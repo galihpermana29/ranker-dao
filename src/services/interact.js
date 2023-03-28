@@ -77,7 +77,12 @@ export const checkUserNetworkForTestnet = async () => {
                 symbol: 'BNBT',
                 decimals: 18,
               },
-              rpcUrls: ['https://data-seed-prebsc-1-s1.binance.org:8545'],
+              rpcUrls: [
+                'https://endpoints.omniatech.io/v1/bsc/testnet/public',
+                'https://bsc-testnet.public.blastapi.io',
+                // 'https://data-seed-prebsc-1-s1.binance.org:8545',
+                // 'https://www.ankr.com/rpc/bsc/bsc_testnet_chapel/',
+              ],
               blockExplorerUrls: ['https://testnet.bscscan.com'],
             },
           ],
