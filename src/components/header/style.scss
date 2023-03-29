@@ -101,12 +101,21 @@
   .pd-nav {
     &-list-desktop-wrapper {
       &-item {
-        width: 108px;
+        width: 90px;
         height: 25px;
       }
       a,
       p {
         font-size: 10px;
+      }
+    }
+  }
+}
+@media only screen and (min-width: 1300px) {
+  .pd-nav {
+    &-list-desktop-wrapper {
+      &-item {
+        width: 108px;
       }
     }
   }
