@@ -274,11 +274,14 @@ body {
       .home-title {
         font-size: $large-desktop-title;
         line-height: $large-desktop-title-line-height;
+        width: 65%;
       }
       .description-common {
         font-weight: 500;
         font-size: $large-desktop-description;
         line-height: $large-desktop-description-line-height;
+
+        width: 50%;
       }
       .third-section-button-wrapper {
         p {
@@ -292,12 +295,44 @@ body {
     }
     &-hero-image {
       height: 100%;
-      max-height: 600px;
+      max-height: 750px;
     }
   }
   .pd-button {
     &-text {
       font-size: 16px;
+    }
+  }
+}
+
+@media only screen and (min-width: 1500px) {
+  .home-section {
+    &-left {
+      .description-common {
+        font-weight: 500;
+        font-size: $large-desktop-description;
+        line-height: $large-desktop-description-line-height;
+      }
+    }
+    &-hero-image {
+      height: 100%;
+      max-height: 800px;
+    }
+  }
+}
+
+@media only screen and (min-width: 1700px) {
+  .home-section {
+    &-left {
+      .description-common {
+        font-weight: 500;
+        font-size: $large-desktop-description;
+        line-height: $large-desktop-description-line-height;
+      }
+    }
+    &-hero-image {
+      height: 100%;
+      max-height: 850px;
     }
   }
 }
