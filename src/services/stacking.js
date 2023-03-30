@@ -22,7 +22,7 @@ export function useStakingHooks(walletAddress, walletProvider) {
       const stacking = (await contract.stake(val)).toString();
       return stacking;
     } catch (error) {
-      console.log(error, 'stacking error');
+      throw error;
     }
   };
 
@@ -145,7 +145,7 @@ export function useStakingHooks(walletAddress, walletProvider) {
       const claimReward = await contract.claimReward();
       return claimReward;
     } catch (error) {
-      console.log(error, 'error');
+      throw error
     }
   };
 

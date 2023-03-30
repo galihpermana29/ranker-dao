@@ -296,12 +296,7 @@ export const StakingThirdSection = ({ availToken }) => {
       await stacking(stakeValue, variableOfContract);
       handleModal(activeStakingType, 'STAKE_SUCCESS');
     } catch (error) {
-      handleModal('', null, false);
-
-      setIsError({
-        visible: true,
-        message: 'Error while staking',
-      });
+      handleModal(activeStakingType, 'STAKE_FAILED');
       console.log(error);
     }
   };
@@ -316,11 +311,9 @@ export const StakingThirdSection = ({ availToken }) => {
       await unstacking(unstakeValue, variableOfContract);
       handleModal(activeStakingType, 'UNSTAKE_SUCCESS');
     } catch (error) {
-      handleModal('', null, false);
-      setIsError({
-        visible: true,
-        message: 'Error! cannot unstake during locked period',
-      });
+      handleModal(activeStakingType, 'UNSTAKE_FAILED');
+      // handleModal('', null, false);
+
       console.log(error);
     }
   };
@@ -335,6 +328,10 @@ export const StakingThirdSection = ({ availToken }) => {
       await claimRewardStacking(variableOfContract);
       handleModal(activeStakingType, 'CLAIM');
     } catch (error) {
+      setIsError({
+        visible: true,
+        message: 'Failed when claiming reward!',
+      });
       console.log(error, 'Errow while claiming reward');
     }
   };
@@ -369,6 +366,8 @@ export const StakingThirdSection = ({ availToken }) => {
       />
     ),
     STAKE_SUCCESS: <ConfirmAlert type="STAKE_SUCCESS" />,
+    STAKE_FAILED: <ConfirmAlert type="STAKE_FAILED" />,
+    UNSTAKE_FAILED: <ConfirmAlert type="UNSTAKE_FAILED" />,
     UNSTAKE: (
       <UnstakeModal
         onClickUnstake={() =>
