@@ -54,7 +54,7 @@ export const onConnectWallet = async () => {
   return provider;
 };
 
-export const checkUserNetworkForTestnet = async () => {
+export const checkUserNetworkForTestnet = async setNetworkChain => {
   const BSC_CHAIN_ID = 97; //0x38
 
   if (window.ethereum.networkVersion !== BSC_CHAIN_ID) {
@@ -63,6 +63,7 @@ export const checkUserNetworkForTestnet = async () => {
         method: 'wallet_switchEthereumChain',
         params: [{ chainId: web3.utils.toHex(BSC_CHAIN_ID) }],
       });
+      setNetworkChain(BSC_CHAIN_ID);
     } catch (err) {
       // This error code indicates that the chain has not been added to MetaMask
       if (err.code === 4902) {
@@ -87,6 +88,7 @@ export const checkUserNetworkForTestnet = async () => {
             },
           ],
         });
+        setNetworkChain(BSC_CHAIN_ID);
       }
     }
   }

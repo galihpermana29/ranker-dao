@@ -25,6 +25,7 @@ const Staking = () => {
 
   // state from avail token metamask read
   const [availTokenFromWallet, setAvailTokenFromWallet] = useState(0);
+  const [networkChain, setNetworkChain] = useState(0);
 
   const [stats, setStats] = useState({
     totalStakeInPool: 0,
@@ -50,12 +51,15 @@ const Staking = () => {
     const onClickConnect = () => {
       if (!isConnect) {
         onConnect()
-          .then(response => console.log('response', response))
+          .then(response => {
+            console.log('response', response);
+          })
           .catch(error => console.log('error: ', error));
       }
     };
     onClickConnect();
-    checkUserNetworkForTestnet();
+    checkUserNetworkForTestnet(setNetworkChain);
+    console.log('connected!');
   }, [isConnect, onConnect]);
 
   useEffect(() => {
@@ -86,6 +90,7 @@ const Staking = () => {
         console.log('Error while getting stats', error);
       }
     };
+
     if (address) {
       getStat();
       getRankerToIDRT();
@@ -103,6 +108,16 @@ const Staking = () => {
       getBal();
     }
   }, [address, getBalance]);
+
+  useEffect(() => {
+    if (
+      parseInt(window.ethereum.networkVersion) !== 97 &&
+      networkChain === 97
+    ) {
+      console.log('RELOAD!');
+      window.location.reload();
+    }
+  }, [networkChain]);
 
   return (
     <main className="staking-container" id="staking">
