@@ -1,7 +1,7 @@
 import stakingSuccessImg from 'assets/img/staking/staking-successful.png';
 import unstakingSuccessImg from 'assets/img/staking/unstaking-successful.png';
 import rewardClaimedImg from 'assets/img/staking/reward-claimed.png';
-import stakingFailImg from 'assets/img/staking/unsuccesfull-stake.png'
+import stakingFailImg from 'assets/img/staking/unsuccesfull-stake.png';
 
 export const ConfirmAlert = ({ type }) => {
   const contentDict = {
@@ -28,6 +28,11 @@ export const ConfirmAlert = ({ type }) => {
     UNSTAKE_FAILED: {
       title: 'UNSTAKING UNUCCESSFUL',
       subtitle: 'See you next time!!',
+      image: stakingFailImg,
+    },
+    UNSTAKE_FAILED_LOCKED: {
+      title: 'UNSTAKING UNUCCESSFUL',
+      subtitle: 'Stacking period is still locked!',
       image: stakingFailImg,
     },
   };

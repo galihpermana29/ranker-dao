@@ -15,15 +15,14 @@ export const StakingSecondSection = ({ statistic }) => {
         <div>
           <h5 className="staking-pricing-label">$Ranker Price</h5>
           <p className="staking-pricing-price">
-            <span className="yellow">{statistic.currentRankerPrice}</span>{' '}
-            USD
+            <span className="yellow">{statistic.currentRankerPrice}</span> USD
           </p>
         </div>
         <div>
           <h5 className="staking-pricing-label">Total Distributed Rewards</h5>
           <p className="staking-pricing-price">
             <span className="yellow">
-              {parseFloat(statistic.totalRewardEachSection * 3)
+              {parseFloat(statistic.totalRewardEachSection)
                 .toFixed(2)
                 .replace(/\d(?=(\d{3})+\.)/g, '$&,')}
             </span>{' '}
@@ -35,7 +34,7 @@ export const StakingSecondSection = ({ statistic }) => {
           <p className="staking-pricing-price">
             <span className="yellow">
               {' '}
-              {parseFloat(statistic.totalStakeInPool * 3)
+              {parseFloat(statistic.totalStakeInPool)
                 .toFixed(2)
                 .replace(/\d(?=(\d{3})+\.)/g, '$&,')}
             </span>{' '}

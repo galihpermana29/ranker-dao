@@ -145,7 +145,7 @@ export function useStakingHooks(walletAddress, walletProvider) {
       const claimReward = await contract.claimReward();
       return claimReward;
     } catch (error) {
-      throw error
+      throw error;
     }
   };
 
@@ -206,11 +206,26 @@ export function useStakingHooks(walletAddress, walletProvider) {
     }
   };
 
+  const checkIsUnstakeLocked = async env => {
+    const contract = new ethers.Contract(
+      env,
+      stackingABI.result,
+      walletProvider,
+    );
+    try {
+      const isLocked = await contract.locked();
+      return isLocked;
+    } catch (error) {
+      console.log(error, 'error');
+    }
+  };
+
   return {
     allowanceAmount,
     checkCurrentLP,
     checkCurrentStakeValue,
     checkFinishedAt,
+    checkIsUnstakeLocked,
     checkTodaysReward,
     checkTotalRewardEachSection,
     checkTotalStakeInPool,
