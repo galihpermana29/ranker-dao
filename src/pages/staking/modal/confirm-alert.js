@@ -26,7 +26,7 @@ export const ConfirmAlert = ({ type }) => {
     },
     UNSTAKE_FAILED: {
       title: 'UNSTAKING UNUCCESSFUL',
-      subtitle: 'See you next time!!',
+      subtitle: 'See you next time!',
       image: stakingFailImg,
     },
     UNSTAKE_FAILED_LOCKED: {
