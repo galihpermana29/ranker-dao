@@ -61,13 +61,26 @@ const Staking = () => {
   useEffect(() => {
     const getStat = async () => {
       try {
-        const env = process.env.REACT_APP_CONTRACT_STAKING_ADDRESS;
-        const totalStakeInPool = await checkTotalStakeInPool(env);
-        const totalRewardEachSection = await checkTotalRewardEachSection(env);
+        const envUnlocked = process.env.REACT_APP_CONTRACT_STAKING_ADDRESS;
+        const envLocked = process.env.REACT_APP_CONTRACT_STAKING_ADDRESS_LOCK;
+        const totalStakeInUnlocked = await checkTotalStakeInPool(envUnlocked);
+        const totalStakeInLocked = await checkTotalStakeInPool(envLocked);
+        const totalRewardInUnlocked = await checkTotalRewardEachSection(
+          envUnlocked,
+        );
+        const totalRewardInLocked = await checkTotalRewardEachSection(
+          envLocked,
+        );
+        const SUMOFSTAKE = (
+          parseFloat(totalStakeInLocked) + parseFloat(totalStakeInUnlocked)
+        ).toFixed(2);
+        const SUMOFREWARD = (
+          parseFloat(totalRewardInLocked) + parseFloat(totalRewardInUnlocked)
+        ).toFixed(2);
         setStats(stats => ({
           ...stats,
-          totalStakeInPool,
-          totalRewardEachSection,
+          totalStakeInPool: SUMOFSTAKE,
+          totalRewardEachSection: SUMOFREWARD,
         }));
       } catch (error) {
         console.log('Error while getting stats', error);

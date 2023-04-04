@@ -23,7 +23,6 @@ const StakingCard = ({
   currentStakeValue,
   buyRanker,
   data,
-  type,
 }) => {
   return (
     <div className="staking-card">
@@ -163,6 +162,7 @@ const InnerAccordion = ({
   isBuyClicked,
   setIsBuyClicked,
   type,
+  setIsError,
 }) => {
   return (
     <div className="staking-accordion">
@@ -210,9 +210,20 @@ const InnerAccordion = ({
       <StakingCard
         onClickBuyRanker={() => setIsBuyClicked(!isBuyClicked)}
         onClickStake={() => handleModal(type, 'STAKE')}
-        onClickUnstake={() => handleModal(type, 'UNSTAKE')}
+        onClickUnstake={() => {
+          if (data.isUnstakeLocked) {
+            setIsError({
+              visible: true,
+              message:
+                'Failed and will be available after period of staking ends!',
+            });
+          } else {
+            handleModal(type, 'UNSTAKE');
+          }
+        }}
         currentStakeValue={currentStakeValue}
         data={data.availToken}
+        isUnstakeLocked={data.isUnstakeLocked}
         buyRanker={isBuyClicked}
         type={type}
       />
@@ -243,6 +254,7 @@ export const StakingThirdSection = ({ availToken }) => {
     checkTotalStakeInPool,
     checkUnclaimableReward,
     claimRewardStacking,
+    checkIsUnstakeLocked,
     stacking,
     unstacking,
   } = useStakingHooks(address, provider);
@@ -311,10 +323,16 @@ export const StakingThirdSection = ({ availToken }) => {
       await unstacking(unstakeValue, variableOfContract);
       handleModal(activeStakingType, 'UNSTAKE_SUCCESS');
     } catch (error) {
-      handleModal(activeStakingType, 'UNSTAKE_FAILED');
+      if (error.error.code === -32603) {
+        console.log(error.error.code);
+        handleModal(activeStakingType, 'UNSTAKE_FAILED_LOCKED');
+      } else {
+        handleModal(activeStakingType, 'UNSTAKE_FAILED');
+      }
+
       // handleModal('', null, false);
 
-      console.log(error);
+      console.dir(error);
     }
   };
 
@@ -368,6 +386,7 @@ export const StakingThirdSection = ({ availToken }) => {
     STAKE_SUCCESS: <ConfirmAlert type="STAKE_SUCCESS" />,
     STAKE_FAILED: <ConfirmAlert type="STAKE_FAILED" />,
     UNSTAKE_FAILED: <ConfirmAlert type="UNSTAKE_FAILED" />,
+    UNSTAKE_FAILED_LOCKED: <ConfirmAlert type="UNSTAKE_FAILED_LOCKED" />,
     UNSTAKE: (
       <UnstakeModal
         onClickUnstake={() =>
@@ -422,11 +441,8 @@ export const StakingThirdSection = ({ availToken }) => {
       });
     };
 
-    const getStat = async () => {
+    const getStat = async env => {
       try {
-        const env = ['LOCKER_RANKER', 'LP_STAKING'].includes(isOpen)
-          ? process.env.REACT_APP_CONTRACT_STAKING_ADDRESS_LOCK
-          : process.env.REACT_APP_CONTRACT_STAKING_ADDRESS;
         const todaysReward = await checkTodaysReward(env, address);
         const totalStakeInPool = await checkTotalStakeInPool(env);
         // const totalStakeLP = await checkCurrentLP(
@@ -434,20 +450,31 @@ export const StakingThirdSection = ({ availToken }) => {
         //   process.env.REACT_APP_CONTRACT_RANKER_PRODUCTION,
         // );
         const totalRewardEachSection = await checkTotalRewardEachSection(env);
-        setPoolStat({ todaysReward, totalStakeInPool, totalRewardEachSection });
+        const isUnstakeLocked = await checkIsUnstakeLocked(env);
+        setPoolStat({
+          todaysReward,
+          totalStakeInPool,
+          totalRewardEachSection,
+          isUnstakeLocked,
+        });
       } catch (error) {
         console.log('Error while getting stats', error);
       }
     };
 
     if (address) {
-      setInterval(() => {
+      const env = ['LOCKER_RANKER', 'LP_STAKING'].includes(isOpen)
+        ? process.env.REACT_APP_CONTRACT_STAKING_ADDRESS_LOCK
+        : process.env.REACT_APP_CONTRACT_STAKING_ADDRESS;
+      const intervalId = setInterval(() => {
         getRewardForUser();
-        getStat();
+        getStat(env);
       }, 1000);
+
+      return () => clearInterval(intervalId);
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [address, activeStakingType]);
+  }, [address, activeStakingType, isOpen]);
 
   useEffect(() => {
     const getTiming = async () => {
@@ -490,6 +517,7 @@ export const StakingThirdSection = ({ availToken }) => {
           isBuyClicked={isBuyClicked}
           setIsBuyClicked={setIsBuyClicked}
           type="locker"
+          setIsError={setIsError}
         />
       </Accordion>
       <Accordion
@@ -512,6 +540,7 @@ export const StakingThirdSection = ({ availToken }) => {
           isBuyClicked={isBuyClicked}
           setIsBuyClicked={setIsBuyClicked}
           type="lpLocker"
+          setIsError={setIsError}
         />
       </Accordion>
       <Accordion
@@ -534,6 +563,7 @@ export const StakingThirdSection = ({ availToken }) => {
           isBuyClicked={isBuyClicked}
           setIsBuyClicked={setIsBuyClicked}
           type="flexible"
+          setIsError={setIsError}
         />
       </Accordion>
     </section>
