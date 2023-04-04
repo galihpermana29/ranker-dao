@@ -496,7 +496,7 @@ export const StakingThirdSection = ({ availToken }) => {
         {modalTypeDict?.[modalType] || <></>}
       </Modal>
       <Accordion
-        title="LOCKER RANKER STAKING"
+        title="LOCKED RANKER STAKING"
         key="locker_ranker_staking"
         onClick={() => {
           setIsOpen(prev =>
