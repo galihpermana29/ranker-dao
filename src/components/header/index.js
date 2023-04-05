@@ -23,8 +23,8 @@ const Header = () => {
       href: '/mint-badge',
       label: 'MINT BADGE',
     },
-    // { href: '/shop', label: 'OUR SHOP' },
-    // { href: '/staking', label: 'STAKING' },
+    { href: '/shop', label: 'OUR SHOP' },
+    { href: '/staking', label: 'STAKING' },
     {
       href: 'https://t.me/rankerdao',
       label: 'TELEGRAM',
@@ -67,8 +67,8 @@ const Header = () => {
       href: '/mint-badge',
       label: 'MINT BADGE',
     },
-    // { href: '/shop', label: 'OUR SHOP' },
-    // { href: '/staking', label: 'STAKING' },
+    { href: '/shop', label: 'OUR SHOP' },
+    { href: '/staking', label: 'STAKING' },
     {
       href: 'https://t.me/rankerdao',
       label: 'TELEGRAM',

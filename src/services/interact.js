@@ -20,8 +20,6 @@ const PRIZE = {
 let provider = null;
 let signer = null;
 
-console.log('process.env', process.env);
-
 const CONTRACT_TOKEN_ABI =
   process.env.NODE_ENV === 'production'
     ? ProductionTokenContractAbi
@@ -54,6 +52,46 @@ export const onConnectWallet = async () => {
   web3Modal.clearCachedProvider();
   provider = await web3Modal.connect();
   return provider;
+};
+
+export const checkUserNetworkForTestnet = async setNetworkChain => {
+  const BSC_CHAIN_ID = 97; //0x38
+
+  if (window.ethereum.networkVersion !== BSC_CHAIN_ID) {
+    try {
+      await window.ethereum.request({
+        method: 'wallet_switchEthereumChain',
+        params: [{ chainId: web3.utils.toHex(BSC_CHAIN_ID) }],
+      });
+      setNetworkChain(BSC_CHAIN_ID);
+    } catch (err) {
+      // This error code indicates that the chain has not been added to MetaMask
+      if (err.code === 4902) {
+        await window.ethereum.request({
+          method: 'wallet_addEthereumChain',
+          params: [
+            {
+              chainName: 'Binance Smart Chain',
+              chainId: web3.utils.toHex(BSC_CHAIN_ID),
+              nativeCurrency: {
+                name: 'Binance Coin',
+                symbol: 'BNBT',
+                decimals: 18,
+              },
+              rpcUrls: [
+                'https://endpoints.omniatech.io/v1/bsc/testnet/public',
+                'https://bsc-testnet.public.blastapi.io',
+                // 'https://data-seed-prebsc-1-s1.binance.org:8545',
+                // 'https://www.ankr.com/rpc/bsc/bsc_testnet_chapel/',
+              ],
+              blockExplorerUrls: ['https://testnet.bscscan.com'],
+            },
+          ],
+        });
+        setNetworkChain(BSC_CHAIN_ID);
+      }
+    }
+  }
 };
 
 export const checkUserNetwork = async () => {
@@ -98,7 +136,6 @@ export const onMintBadge = async (type, address, amount, isDisabled) => {
   if (userAllowance < PRIZE[type]) {
     await getApprove(type);
   }
-  console.log('PRIZE[type]', PRIZE[type]);
 
   provider = new ethers.providers.Web3Provider(window.ethereum);
   signer = provider.getSigner();

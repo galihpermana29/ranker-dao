@@ -10,14 +10,22 @@ import './style.scss';
 import { StakingThirdSection } from './ThirdSection';
 
 import axios from 'axios';
+import { checkUserNetworkForTestnet } from 'services/interact';
 
 const Staking = () => {
-  const { address = '', provider, getBalance } = useWalletContext();
+  const {
+    address = '',
+    provider,
+    getBalance,
+    onConnect,
+    isConnect,
+  } = useWalletContext();
   const { checkTotalStakeInPool, checkTotalRewardEachSection } =
     useStakingHooks(address, provider);
 
   // state from avail token metamask read
   const [availTokenFromWallet, setAvailTokenFromWallet] = useState(0);
+  const [networkChain, setNetworkChain] = useState(0);
 
   const [stats, setStats] = useState({
     totalStakeInPool: 0,
@@ -40,20 +48,49 @@ const Staking = () => {
   };
 
   useEffect(() => {
+    const onClickConnect = () => {
+      if (!isConnect) {
+        onConnect()
+          .then(response => {
+            console.log('response', response);
+          })
+          .catch(error => console.log('error: ', error));
+      }
+    };
+    onClickConnect();
+    checkUserNetworkForTestnet(setNetworkChain);
+    console.log('connected!');
+  }, [isConnect, onConnect]);
+
+  useEffect(() => {
     const getStat = async () => {
       try {
-        const env = process.env.REACT_APP_CONTRACT_STAKING_ADDRESS;
-        const totalStakeInPool = await checkTotalStakeInPool(env);
-        const totalRewardEachSection = await checkTotalRewardEachSection(env);
+        const envUnlocked = process.env.REACT_APP_CONTRACT_STAKING_ADDRESS;
+        const envLocked = process.env.REACT_APP_CONTRACT_STAKING_ADDRESS_LOCK;
+        const totalStakeInUnlocked = await checkTotalStakeInPool(envUnlocked);
+        const totalStakeInLocked = await checkTotalStakeInPool(envLocked);
+        const totalRewardInUnlocked = await checkTotalRewardEachSection(
+          envUnlocked,
+        );
+        const totalRewardInLocked = await checkTotalRewardEachSection(
+          envLocked,
+        );
+        const SUMOFSTAKE = (
+          parseFloat(totalStakeInLocked) + parseFloat(totalStakeInUnlocked)
+        ).toFixed(2);
+        const SUMOFREWARD = (
+          parseFloat(totalRewardInLocked) + parseFloat(totalRewardInUnlocked)
+        ).toFixed(2);
         setStats(stats => ({
           ...stats,
-          totalStakeInPool,
-          totalRewardEachSection,
+          totalStakeInPool: SUMOFSTAKE,
+          totalRewardEachSection: SUMOFREWARD,
         }));
       } catch (error) {
         console.log('Error while getting stats', error);
       }
     };
+
     if (address) {
       getStat();
       getRankerToIDRT();
@@ -71,6 +108,16 @@ const Staking = () => {
       getBal();
     }
   }, [address, getBalance]);
+
+  useEffect(() => {
+    if (
+      parseInt(window.ethereum.networkVersion) !== 97 &&
+      networkChain === 97
+    ) {
+      console.log('RELOAD!');
+      window.location.reload();
+    }
+  }, [networkChain]);
 
   return (
     <main className="staking-container" id="staking">

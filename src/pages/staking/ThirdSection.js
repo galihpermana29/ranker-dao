@@ -1,14 +1,4 @@
 import { Accordion } from 'components/accordion';
-// import {
-//   allowanceAmount,
-//   checkCurrentStakeValue,
-//   checkTodaysReward,
-//   checkTotalStakeInPool,
-//   checkUnclaimableReward,
-//   claimRewardStacking,
-//   stacking,
-//   unstacking,
-// } from 'services/stacking';
 import { ConfirmAlert } from './modal/confirm-alert';
 import { Modal } from 'components/modal';
 import { StakeConfirmationModal, StakeModal } from './modal/stake';
@@ -33,7 +23,6 @@ const StakingCard = ({
   currentStakeValue,
   buyRanker,
   data,
-  type,
 }) => {
   return (
     <div className="staking-card">
@@ -53,7 +42,7 @@ const StakingCard = ({
 
       <button
         className="staking-card-button"
-        disabled={!data}
+        // disabled={!data}
         onClick={onClickBuyRanker}>
         BUY $RANKER
         <div className={`dropdown ${buyRanker ? 'active' : ''}`}>
@@ -173,6 +162,7 @@ const InnerAccordion = ({
   isBuyClicked,
   setIsBuyClicked,
   type,
+  setIsError,
 }) => {
   return (
     <div className="staking-accordion">
@@ -181,9 +171,11 @@ const InnerAccordion = ({
           <h5 className="staking-accordion-info-label">TODAY'S REWARD</h5>
           <p className="staking-accordion-info-price">
             <span className="yellow">
-              {parseFloat(data.todaysReward)
-                .toFixed(2)
-                .replace(/\d(?=(\d{3})+\.)/g, '$&,')}
+              {data.todaysReward === '-'
+                ? '-'
+                : parseFloat(data.todaysReward)
+                    .toFixed(2)
+                    .replace(/\d(?=(\d{3})+\.)/g, '$&,')}
             </span>{' '}
             $RANKER
           </p>
@@ -192,10 +184,11 @@ const InnerAccordion = ({
           <h5 className="staking-accordion-info-label">TOTAL REWARD</h5>
           <p className="staking-accordion-info-price">
             <span className="yellow">
-              {' '}
-              {parseFloat(data.totalRewardEachSection)
-                .toFixed(2)
-                .replace(/\d(?=(\d{3})+\.)/g, '$&,')}
+              {data.totalRewardEachSection === '-'
+                ? '-'
+                : parseFloat(data.totalRewardEachSection)
+                    .toFixed(2)
+                    .replace(/\d(?=(\d{3})+\.)/g, '$&,')}
             </span>{' '}
             $RANKER
           </p>
@@ -204,9 +197,11 @@ const InnerAccordion = ({
           <h5 className="staking-accordion-info-label">TOTAL STAKED IN POOL</h5>
           <p className="staking-accordion-info-price">
             <span className="yellow">
-              {parseFloat(data.totalStakeInPool)
-                .toFixed(2)
-                .replace(/\d(?=(\d{3})+\.)/g, '$&,')}
+              {data.totalStakeInPool === '-'
+                ? '-'
+                : parseFloat(data.totalStakeInPool)
+                    .toFixed(2)
+                    .replace(/\d(?=(\d{3})+\.)/g, '$&,')}
             </span>{' '}
             $RANKER
           </p>
@@ -215,9 +210,20 @@ const InnerAccordion = ({
       <StakingCard
         onClickBuyRanker={() => setIsBuyClicked(!isBuyClicked)}
         onClickStake={() => handleModal(type, 'STAKE')}
-        onClickUnstake={() => handleModal(type, 'UNSTAKE')}
+        onClickUnstake={() => {
+          if (data.isUnstakeLocked) {
+            setIsError({
+              visible: true,
+              message:
+                'Failed and will be available after period of staking ends!',
+            });
+          } else {
+            handleModal(type, 'UNSTAKE');
+          }
+        }}
         currentStakeValue={currentStakeValue}
         data={data.availToken}
+        isUnstakeLocked={data.isUnstakeLocked}
         buyRanker={isBuyClicked}
         type={type}
       />
@@ -237,16 +243,18 @@ const InnerAccordion = ({
  */
 export const StakingThirdSection = ({ availToken }) => {
   //staking hooks
-  const { address = '', provider } = useWalletContext();
+  const { address = '', provider, isConnect } = useWalletContext();
   const {
     allowanceAmount,
+    // checkCurrentLP,
     checkCurrentStakeValue,
     checkFinishedAt,
     checkTodaysReward,
+    checkTotalRewardEachSection,
     checkTotalStakeInPool,
     checkUnclaimableReward,
     claimRewardStacking,
-    checkTotalRewardEachSection,
+    checkIsUnstakeLocked,
     stacking,
     unstacking,
   } = useStakingHooks(address, provider);
@@ -266,10 +274,10 @@ export const StakingThirdSection = ({ availToken }) => {
 
   // statistics
   const [poolStat, setPoolStat] = useState({
-    todaysReward: 0,
-    totalStakeInPool: 0,
-    totalReward: 0,
-    totalRewardEachSection: 0,
+    todaysReward: isConnect ? 0 : '-',
+    totalStakeInPool: isConnect ? 0 : '-',
+    totalReward: isConnect ? 0 : '-',
+    totalRewardEachSection: isConnect ? 0 : '-',
   });
 
   //reward value
@@ -300,12 +308,7 @@ export const StakingThirdSection = ({ availToken }) => {
       await stacking(stakeValue, variableOfContract);
       handleModal(activeStakingType, 'STAKE_SUCCESS');
     } catch (error) {
-      handleModal('', null, false);
-
-      setIsError({
-        visible: true,
-        message: 'Error while staking',
-      });
+      handleModal(activeStakingType, 'STAKE_FAILED');
       console.log(error);
     }
   };
@@ -320,12 +323,16 @@ export const StakingThirdSection = ({ availToken }) => {
       await unstacking(unstakeValue, variableOfContract);
       handleModal(activeStakingType, 'UNSTAKE_SUCCESS');
     } catch (error) {
-      handleModal('', null, false);
-      setIsError({
-        visible: true,
-        message: 'Error! cannot unstake during locked period',
-      });
-      console.log(error);
+      if (error.error.code === -32603) {
+        console.log(error.error.code);
+        handleModal(activeStakingType, 'UNSTAKE_FAILED_LOCKED');
+      } else {
+        handleModal(activeStakingType, 'UNSTAKE_FAILED');
+      }
+
+      // handleModal('', null, false);
+
+      console.dir(error);
     }
   };
 
@@ -339,6 +346,10 @@ export const StakingThirdSection = ({ availToken }) => {
       await claimRewardStacking(variableOfContract);
       handleModal(activeStakingType, 'CLAIM');
     } catch (error) {
+      setIsError({
+        visible: true,
+        message: 'Failed when claiming reward!',
+      });
       console.log(error, 'Errow while claiming reward');
     }
   };
@@ -373,6 +384,9 @@ export const StakingThirdSection = ({ availToken }) => {
       />
     ),
     STAKE_SUCCESS: <ConfirmAlert type="STAKE_SUCCESS" />,
+    STAKE_FAILED: <ConfirmAlert type="STAKE_FAILED" />,
+    UNSTAKE_FAILED: <ConfirmAlert type="UNSTAKE_FAILED" />,
+    UNSTAKE_FAILED_LOCKED: <ConfirmAlert type="UNSTAKE_FAILED_LOCKED" />,
     UNSTAKE: (
       <UnstakeModal
         onClickUnstake={() =>
@@ -426,11 +440,41 @@ export const StakingThirdSection = ({ availToken }) => {
         lockReward: earnedInRankerLock,
       });
     };
+
+    const getStat = async env => {
+      try {
+        const todaysReward = await checkTodaysReward(env, address);
+        const totalStakeInPool = await checkTotalStakeInPool(env);
+        // const totalStakeLP = await checkCurrentLP(
+        //   process.env.REACT_APP_CONTRACT_LP_APESWAP,
+        //   process.env.REACT_APP_CONTRACT_RANKER_PRODUCTION,
+        // );
+        const totalRewardEachSection = await checkTotalRewardEachSection(env);
+        const isUnstakeLocked = await checkIsUnstakeLocked(env);
+        setPoolStat({
+          todaysReward,
+          totalStakeInPool,
+          totalRewardEachSection,
+          isUnstakeLocked,
+        });
+      } catch (error) {
+        console.log('Error while getting stats', error);
+      }
+    };
+
     if (address) {
-      getRewardForUser();
+      const env = ['LOCKER_RANKER', 'LP_STAKING'].includes(isOpen)
+        ? process.env.REACT_APP_CONTRACT_STAKING_ADDRESS_LOCK
+        : process.env.REACT_APP_CONTRACT_STAKING_ADDRESS;
+      const intervalId = setInterval(() => {
+        getRewardForUser();
+        getStat(env);
+      }, 1000);
+
+      return () => clearInterval(intervalId);
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [address, activeStakingType]);
+  }, [address, activeStakingType, isOpen]);
 
   useEffect(() => {
     const getTiming = async () => {
@@ -440,28 +484,6 @@ export const StakingThirdSection = ({ availToken }) => {
     if (address) getTiming();
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [claimedTime]);
-
-  useEffect(() => {
-    const getStat = async () => {
-      try {
-        const env = ['LOCKER_RANKER', 'LP_STAKING'].includes(isOpen)
-          ? process.env.REACT_APP_CONTRACT_STAKING_ADDRESS_LOCK
-          : process.env.REACT_APP_CONTRACT_STAKING_ADDRESS;
-        const todaysReward = await checkTodaysReward(env, address);
-        const totalStakeInPool = await checkTotalStakeInPool(env);
-        const totalRewardEachSection = await checkTotalRewardEachSection(env);
-        setPoolStat({ todaysReward, totalStakeInPool, totalRewardEachSection });
-      } catch (error) {
-        console.log('Error while getting stats', error);
-      }
-    };
-    if (address) {
-      setTimeout(() => {
-        getStat();
-      }, 5000);
-    }
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [isOpen]);
 
   return (
     <section className="staking-section">
@@ -474,7 +496,7 @@ export const StakingThirdSection = ({ availToken }) => {
         {modalTypeDict?.[modalType] || <></>}
       </Modal>
       <Accordion
-        title="LOCKER RANKER STAKING"
+        title="LOCKED RANKER STAKING"
         key="locker_ranker_staking"
         onClick={() => {
           setIsOpen(prev =>
@@ -495,6 +517,7 @@ export const StakingThirdSection = ({ availToken }) => {
           isBuyClicked={isBuyClicked}
           setIsBuyClicked={setIsBuyClicked}
           type="locker"
+          setIsError={setIsError}
         />
       </Accordion>
       <Accordion
@@ -517,6 +540,7 @@ export const StakingThirdSection = ({ availToken }) => {
           isBuyClicked={isBuyClicked}
           setIsBuyClicked={setIsBuyClicked}
           type="lpLocker"
+          setIsError={setIsError}
         />
       </Accordion>
       <Accordion
@@ -539,6 +563,7 @@ export const StakingThirdSection = ({ availToken }) => {
           isBuyClicked={isBuyClicked}
           setIsBuyClicked={setIsBuyClicked}
           type="flexible"
+          setIsError={setIsError}
         />
       </Accordion>
     </section>

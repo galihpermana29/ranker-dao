@@ -1,9 +1,9 @@
 import { ethers } from 'ethers';
 import stackingABI from 'services/stackingABI.json';
 import stakeTokenABI from 'services/stakeToken.json';
+import rankerLPABI from 'services/rankerLPABI.json';
 
 export function useStakingHooks(walletAddress, walletProvider) {
-  console.log(walletAddress, walletProvider, 'walletA');
   let signer;
   if (walletAddress) {
     signer = walletProvider.getSigner();
@@ -22,7 +22,7 @@ export function useStakingHooks(walletAddress, walletProvider) {
       const stacking = (await contract.stake(val)).toString();
       return stacking;
     } catch (error) {
-      console.log(error, 'stacking error');
+      throw error;
     }
   };
 
@@ -51,7 +51,6 @@ export function useStakingHooks(walletAddress, walletProvider) {
       stakeTokenABI.result,
       signer,
     );
-    console.log(contract, 'approval');
     const val = (parseFloat(amount) * 10 ** 18).toString();
     let receipt = null;
 
@@ -109,6 +108,21 @@ export function useStakingHooks(walletAddress, walletProvider) {
     }
   };
 
+  const checkCurrentLP = async (address, env) => {
+    const contract = new ethers.Contract(
+      env,
+      rankerLPABI.result,
+      walletProvider,
+    );
+    try {
+      const currentLP = await contract.balanceOf(address);
+      const floating = (currentLP / 10 ** 18).toFixed(2);
+      return floating;
+    } catch (error) {
+      console.log(error, 'error current');
+    }
+  };
+
   const checkFinishedAt = async () => {
     const contract = new ethers.Contract(
       process.env.REACT_APP_CONTRACT_STAKING_ADDRESS,
@@ -131,7 +145,7 @@ export function useStakingHooks(walletAddress, walletProvider) {
       const claimReward = await contract.claimReward();
       return claimReward;
     } catch (error) {
-      console.log(error, 'error');
+      throw error;
     }
   };
 
@@ -185,10 +199,22 @@ export function useStakingHooks(walletAddress, walletProvider) {
 
     try {
       const totalStakeInPool = await contract.totalReward();
-      console.log(totalStakeInPool, 'stake')
       const floating = (totalStakeInPool / 10 ** 18).toFixed(2);
-      console.log(floating, 'floating total reward');
       return floating;
+    } catch (error) {
+      console.log(error, 'error');
+    }
+  };
+
+  const checkIsUnstakeLocked = async env => {
+    const contract = new ethers.Contract(
+      env,
+      stackingABI.result,
+      walletProvider,
+    );
+    try {
+      const isLocked = await contract.locked();
+      return isLocked;
     } catch (error) {
       console.log(error, 'error');
     }
@@ -196,8 +222,10 @@ export function useStakingHooks(walletAddress, walletProvider) {
 
   return {
     allowanceAmount,
+    checkCurrentLP,
     checkCurrentStakeValue,
     checkFinishedAt,
+    checkIsUnstakeLocked,
     checkTodaysReward,
     checkTotalRewardEachSection,
     checkTotalStakeInPool,
