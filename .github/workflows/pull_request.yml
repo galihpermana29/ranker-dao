@@ -1,0 +1,31 @@
+name: Pull Request Workflow
+on:
+  pull_request:
+    types: [opened]
+    branches:
+      - master
+      - development
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    strategy: 
+      matrix: 
+        node-version: [16.x]
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
+      - name: Use Node.js ${{ matrix.node-version }}
+        uses: actions/setup-node@v3
+        with:
+          node-version: ${{ matrix.node-version }}
+      - name: Build and Test
+        run: |
+          npm install
+          if [ "${{ github.event.pull_request.head.ref }}" == "master" ]; then
+             npm run build:prod
+          else
+             npm run build:staging
+          fi
+          npm run test
+
