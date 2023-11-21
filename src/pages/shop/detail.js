@@ -31,11 +31,17 @@ const DetailShop = () => {
     type: null,
   });
 
+  const isDev = process.env.NODE_ENV === 'development';
+
   const getListingData = async () => {
     try {
       const {
         data: { data },
-      } = await axios.get('/api/v1' + `/listings?gameId=${id}&sold=false`);
+      } = await axios.get(
+        isDev
+          ? `/api/v1/listings?gameId=${id}&sold=false`
+          : `${process.env.REACT_APP_BASE_URL}/api/v1/listings?gameId=${id}&sold=false`,
+      );
       const mappedData = data.map(d => ({
         ...d,
         raw_data: JSON.parse(d.raw_data),
@@ -48,7 +54,11 @@ const DetailShop = () => {
   const { data: listings } = useQuery(['listings'], getListingData);
   const mutation = useMutation({
     mutationFn: idListing => {
-      return axios.patch(`/api/v1/listings/sold/${idListing}`);
+      return axios.patch(
+        isDev
+          ? `/api/v1/listings/sold/${idListing}`
+          : `${process.env.REACT_APP_BASE_URL}/api/v1/listings/sold/${idListing}`,
+      );
     },
     onSuccess: (data, variables, context) => {
       queryClient.invalidateQueries({ queryKey: ['listings'] });
