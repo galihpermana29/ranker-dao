@@ -35,7 +35,7 @@ const App = () => {
             <Route path="/ranker-token" element={<RankerToken />} />
             <Route path="/litepaper" element={<LitePaper />} />
             <Route path="/staking" element={<Staking />} />
-            <Route path="/shop/" element={<OurShop />} />
+            <Route path="/shop" element={<OurShop />} />
             <Route path="/shop/:id" element={<DetailShop />} />
           </Routes>
           <Footer />

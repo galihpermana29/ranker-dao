@@ -9,7 +9,6 @@
 
   &-title {
     padding: 0 20px;
-    margin-top: 3rem;
     p {
       word-break: normal;
       white-space: normal;
@@ -88,12 +87,11 @@
       }
 
       .title {
-        margin-top: 10px;
+        margin-top: 20px !important;
         font-family: 'Montserrat';
         font-weight: 800;
         font-size: 8px;
-        line-height: 10px;
-        height: 20px;
+        height: 25px !important;
         max-width: 260px;
       }
       .ranker-coin-img {
@@ -186,11 +184,11 @@
       }
       .shop-list {
         .shop-list-product {
-          min-height: 157px;
-          max-height: 157px;
+          min-height: 200px;
+          max-height: 210px;
           img {
-            min-height: 157px;
-            max-height: 157px;
+            height: 250px;
+            object-fit: cover;
           }
         }
         .ranker-coin-img {
@@ -395,6 +393,10 @@
         }
         .price {
           font-size: 18px;
+        }
+        .tokenType {
+          font-size: 15px;
+          font-weight: 500;
         }
       }
     }
