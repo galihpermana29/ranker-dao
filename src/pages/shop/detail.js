@@ -1,65 +1,75 @@
 import { useEffect, useState } from 'react';
 
-// import { ShopSelector } from './ShopSelector';
-
 import RankerCoinImg from 'assets/img/shop/ranker-coin.png';
-
-import MetaGearImg from 'assets/img/shop/metagear.png';
-import MetaGear1 from 'assets/img/shop/metagear-1.png';
-import MetaGear2 from 'assets/img/shop/metagear-2.png';
-import MetaGear3 from 'assets/img/shop/metagear-3.png';
-import MetaGear4 from 'assets/img/shop/metagear-4.png';
-import ApeironImg from 'assets/img/shop/apeiron.png';
-import Apeiron1 from 'assets/img/shop/apeiron-1.png';
-import Apeiron2 from 'assets/img/shop/apeiron-2.png';
-import Apeiron3 from 'assets/img/shop/apeiron-3.png';
-import Apeiron4 from 'assets/img/shop/apeiron-4.png';
 
 import './style.scss';
 import { Link, useParams } from 'react-router-dom';
 import { DUMMY_DATA } from './constant';
+import { useMutation, useQuery, useQueryClient } from '@tanstack/react-query';
+import axios from 'axios';
+import { useWalletContext } from 'contexts/WalletContext';
+import { useStakingHooks } from 'services/stacking';
+import { ConfirmAlert } from 'pages/staking/modal/confirm-alert';
+import { Modal } from 'components/modal';
 
-const SHOP_GAME_LIST = {
-  apeiron: {
-    name: 'apeiron',
-    label: 'APEIRON',
-    img: ApeironImg,
-    description:
-      "Apeiron is the world's first ever god-game on the blockchain. Come uncover the mysteries of the Godiverse! Step into your role as a Wandering God and build up planets, explore celestial dungeons, and battle the forces of Chaos!",
-    imageList: [
-      { img: Apeiron1, title: 'FOONIE EMBLEMS', price: 0.0005 },
-      { img: Apeiron2, title: 'DOOD PLUSHIE', price: 0.0005 },
-      {
-        img: Apeiron3,
-        title: 'ORIGINS GUARDIANS APOSTLE MINT TICKET',
-        price: 0.0005,
-      },
-      { img: Apeiron4, title: 'FOONIE EMBLEMS', price: 0.0005 },
-    ],
-  },
-  metagear: {
-    name: 'metagear',
-    label: 'METAGEAR',
-    img: MetaGearImg,
-    description:
-      'MetaGear is a game that shows creativity in assembling robots to fight. You can visit other players’ garages, decorate and protect their garages by the surprise attack from other players!',
-    imageList: [
-      { img: MetaGear1, title: 'BRAKE DISC', price: 0.0005 },
-      { img: MetaGear2, title: 'BRAKE DISC 2', price: 0.0005 },
-      {
-        img: MetaGear3,
-        title: 'HEADLAMP',
-        price: 0.0005,
-      },
-      { img: MetaGear4, title: 'ARMORED HEADLAMP', price: 0.0005 },
-    ],
-  },
+export const checkImageUrl = (url = '') => {
+  const images = url.split('//');
+  if (images[0] === '')
+    return 'https://ipfs.io/ipfs/QmQtbA1RdTzRBLxEWAkdzdF7N1yxSyphfBDBak2DZYBBc9/B.gif';
+  if (images[0] === 'https:') return url;
+  else if (images[0] === 'ipfs:') return 'https://ipfs.io/ipfs/' + images[1];
 };
 
 const DetailShop = () => {
   const [isHovered, setIsHovered] = useState({});
   const { id } = useParams();
   const [data, setData] = useState({});
+  const queryClient = useQueryClient();
+
+  const [isOpenModal, setIsOpenModal] = useState({
+    visible: false,
+    type: null,
+  });
+
+  const isDev = process.env.NODE_ENV === 'development';
+
+  const getListingData = async () => {
+    try {
+      const {
+        data: { data },
+      } = await axios.get(
+        isDev
+          ? `/api/v1/listings?gameId=${id}&sold=false`
+          : `${process.env.REACT_APP_BASE_URL}/api/v1/listings?gameId=${id}&sold=false`,
+      );
+      const mappedData = data.map(d => ({
+        ...d,
+        raw_data: JSON.parse(d.raw_data),
+      }));
+      return mappedData;
+    } catch (err) {
+      throw err;
+    }
+  };
+  const { data: listings } = useQuery(['listings'], getListingData);
+  const mutation = useMutation({
+    mutationFn: idListing => {
+      return axios.patch(
+        isDev
+          ? `/api/v1/listings/sold/${idListing}`
+          : `${process.env.REACT_APP_BASE_URL}/api/v1/listings/sold/${idListing}`,
+      );
+    },
+    onSuccess: (data, variables, context) => {
+      queryClient.invalidateQueries({ queryKey: ['listings'] });
+    },
+  });
+
+  const { address = '', provider } = useWalletContext();
+  const { allowanceNFTMint, purchaseErc721, purchaseERC1155 } = useStakingHooks(
+    address,
+    provider,
+  );
 
   const onMouseEnterPrice = shop => {
     setIsHovered(shop);
@@ -69,14 +79,44 @@ const DetailShop = () => {
     setIsHovered({});
   };
 
+  const onBuyItem = async value => {
+    const { price, contractAddress, raw_data, id } = value;
+    const { tokenId, tokenType } = raw_data;
+
+    try {
+      await allowanceNFTMint(process.env.REACT_APP_CONTRACT_TRADER, price);
+      if (tokenType === 'ERC721') {
+        await purchaseErc721(contractAddress, tokenId);
+      } else {
+        await purchaseERC1155(contractAddress, tokenId);
+      }
+      mutation.mutate(id);
+      setIsOpenModal({ visible: true, type: 'STAKE_SUCCESS' });
+    } catch (error) {
+      setIsOpenModal({ visible: true, type: 'STAKE_FAILED' });
+      console.log(error, 'error');
+    }
+  };
+
+  const modalType = {
+    STAKE_SUCCESS: <ConfirmAlert type="MINT_SUCCESS" />,
+    STAKE_FAILED: <ConfirmAlert type="MINT_FAILED" />,
+  };
+
   useEffect(() => {
     let filtered = DUMMY_DATA.filter(datas => datas.id === parseInt(id));
-    console.log(filtered, 'filterd');
     setData(filtered[0]);
   }, [id]);
 
   return (
     <div className="shop-container">
+      <Modal
+        isOpen={isOpenModal.visible}
+        onClose={() => {
+          setIsOpenModal({ visible: false, type: null });
+        }}>
+        {modalType[isOpenModal.type] || <></>}
+      </Modal>
       <div className="shop-title mt-5">
         <div className="my-4">
           <p className="shop-title-black d-block d-sm-none m-0 p-0">
@@ -109,36 +149,49 @@ const DetailShop = () => {
           </div>
         </div>
         <div className="shop-list row">
-          {SHOP_GAME_LIST['apeiron'].imageList.map((shop, index) => {
-            const { img, title = '', price = 0 } = shop;
+          {listings?.map((shop, index) => {
+            const { raw_data, title = '', price = 0 } = shop;
+            console.log(raw_data, 'raw dat');
+            const { image, tokenType, lister } = raw_data;
             return (
-              <div key={index} className="col-6 col-md-4 mt-3 mt-md-0 mb-3">
+              <div
+                key={index}
+                className="col-6 col-md-4 mt-3 mt-md-0 mb-3"
+                onMouseLeave={onMouseLeavePrice}
+                onMouseEnter={() => onMouseEnterPrice(shop)}>
                 <div className="shop-list-product">
-                  <img src={img} className="shop-list-img" alt="ape iron" />
+                  <img
+                    src={checkImageUrl(image)}
+                    className="shop-list-img"
+                    alt="ape iron"
+                  />
                 </div>
                 <p className="title p-0 m-0 mt-2">{title}</p>
+                <p className="tokenType p-0 m-0">{tokenType}</p>
                 <p className="title p-0 m-0 mt-2">Price</p>
-                <div
-                  className={`${
-                    isHovered.title === title
-                      ? 'buy-now-wrapper-active'
-                      : 'buy-now-wrapper-inactive'
-                  } d-flex flex-row align-items-center`}
-                  onMouseLeave={onMouseLeavePrice}
-                  onMouseEnter={() => onMouseEnterPrice(shop)}>
-                  {isHovered.title === title ? (
-                    <p className="buy-now-text p-0 m-0">Buy Now</p>
-                  ) : (
-                    <>
-                      <img
-                        src={RankerCoinImg}
-                        alt="ranker coin"
-                        className="ranker-coin-img"
-                      />
-                      <p className="m-0 p-0 ms-2 price">{price}</p>
-                    </>
-                  )}
-                </div>
+                {(address === lister || isHovered.title !== title) && (
+                  <div className="d-flex flex-row align-items-center">
+                    <img
+                      src={RankerCoinImg}
+                      alt="ranker coin"
+                      className="ranker-coin-img"
+                    />
+                    <p className="m-0 p-0 ms-2 price">{price}</p>
+                  </div>
+                )}
+                {address !== lister && (
+                  <div
+                    onClick={() => onBuyItem(shop)}
+                    className={`${
+                      isHovered.title === title
+                        ? 'buy-now-wrapper-active'
+                        : 'buy-now-wrapper-inactive'
+                    } d-flex flex-row align-items-center`}>
+                    {isHovered.title === title && (
+                      <p className="buy-now-text p-0 m-0">Buy Now</p>
+                    )}
+                  </div>
+                )}
               </div>
             );
           })}

@@ -2,6 +2,7 @@ import { ethers } from 'ethers';
 import stackingABI from 'services/stackingABI.json';
 import stakeTokenABI from 'services/stakeToken.json';
 import rankerLPABI from 'services/rankerLPABI.json';
+import traderAbi from 'services/traderAbi.json';
 
 export function useStakingHooks(walletAddress, walletProvider) {
   let signer;
@@ -64,6 +65,90 @@ export function useStakingHooks(walletAddress, walletProvider) {
       } catch (e) {
         console.log(`Receipt error:`, e);
         break;
+      }
+    }
+  };
+
+  /**
+   *
+   * @param {address} spender - contract trader address spender address
+   * @param {integer} amount - amount to be allowance
+   */
+
+  const allowanceNFTMint = async (spender, amount) => {
+    const contract = new ethers.Contract(
+      process.env.REACT_APP_CONTRACT_TOKEN_ADDRESS,
+      stakeTokenABI.result,
+      signer,
+    );
+    // const val = (parseFloat(amount) * 10 ** 18).toString();
+    const val = amount;
+    let receipt = null;
+
+    while (receipt === null) {
+      try {
+        receipt = await contract.approve(spender, val);
+        await receipt.wait();
+        if (receipt === null) {
+          continue;
+        }
+      } catch (e) {
+        console.log(`Receipt error:`, e);
+        break;
+      }
+    }
+  };
+
+  /**
+   *
+   * @param {address} nftAdress - contract trader address nftAdress address
+   * @param {integer} amount - amount to be allowance
+   */
+
+  const purchaseErc721 = async (nftAdress, tokenId) => {
+    const contract = new ethers.Contract(
+      process.env.REACT_APP_CONTRACT_TRADER,
+      traderAbi,
+      signer,
+    );
+
+    let receipt = null;
+    while (receipt === null) {
+      try {
+        receipt = await contract.purchaseERC721(nftAdress, tokenId);
+        await receipt.wait();
+        if (receipt === null) {
+          continue;
+        }
+      } catch (e) {
+        throw e;
+      }
+    }
+  };
+
+  /**
+   *
+   * @param {address} nftAdress - contract trader address nftAdress address
+   * @param {integer} amount - amount to be allowance
+   */
+
+  const purchaseERC1155 = async (nftAdress, tokenId) => {
+    const contract = new ethers.Contract(
+      process.env.REACT_APP_CONTRACT_TRADER,
+      traderAbi,
+      signer,
+    );
+
+    let receipt = null;
+    while (receipt === null) {
+      try {
+        receipt = await contract.purchaseERC1155(nftAdress, tokenId, 1);
+        await receipt.wait();
+        if (receipt === null) {
+          continue;
+        }
+      } catch (e) {
+        throw e;
       }
     }
   };
@@ -233,5 +318,8 @@ export function useStakingHooks(walletAddress, walletProvider) {
     claimRewardStacking,
     stacking,
     unstacking,
+    allowanceNFTMint,
+    purchaseErc721,
+    purchaseERC1155,
   };
 }

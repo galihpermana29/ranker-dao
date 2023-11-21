@@ -34,6 +34,16 @@ export const ConfirmAlert = ({ type }) => {
       subtitle: 'Stacking period is still locked!',
       image: stakingFailImg,
     },
+    MINT_SUCCESS: {
+      title: 'MINT SUCCESSFUL',
+      subtitle: 'Look forward to your rewards!',
+      image: stakingSuccessImg,
+    },
+    MINT_FAILED: {
+      title: 'MINTING UNUCCESSFUL',
+      subtitle: 'See you next time!',
+      image: stakingFailImg,
+    },
   };
 
   return (
