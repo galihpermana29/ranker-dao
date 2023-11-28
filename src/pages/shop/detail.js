@@ -11,6 +11,7 @@ import { useWalletContext } from 'contexts/WalletContext';
 import { useStakingHooks } from 'services/stacking';
 import { ConfirmAlert } from 'pages/staking/modal/confirm-alert';
 import { Modal } from 'components/modal';
+import { Spin } from 'antd';
 
 export const checkImageUrl = (url = '') => {
   const images = url.split('//');
@@ -31,6 +32,7 @@ const DetailShop = () => {
     type: null,
   });
 
+  const [loading, setLoading] = useState(false);
   const isDev = process.env.NODE_ENV === 'development';
 
   const getListingData = async () => {
@@ -84,6 +86,7 @@ const DetailShop = () => {
     const { tokenId, tokenType } = raw_data;
 
     try {
+      setLoading(true);
       await allowanceNFTMint(process.env.REACT_APP_CONTRACT_TRADER, price);
       if (tokenType === 'ERC721') {
         await purchaseErc721(contractAddress, tokenId);
@@ -95,6 +98,8 @@ const DetailShop = () => {
     } catch (error) {
       setIsOpenModal({ visible: true, type: 'STAKE_FAILED' });
       console.log(error, 'error');
+    } finally {
+      setLoading(false);
     }
   };
 
@@ -134,69 +139,76 @@ const DetailShop = () => {
         </p>
       </div>
 
-      <div className="shop-wrapper d-flex flex-column flex-sm-row align-items-start">
-        <div className="shop-left-side d-flex flex-column align-items-center justify-content-center">
-          <div className="shop-logo-wrapper">
-            <img src={data.logo} alt="apeiron" />
-          </div>
-          <p className="shop-name align-self-start">{data.title}</p>
-          <p className="description">{data.desc}</p>
+      {loading && (
+        <div className="loading">
+          <Spin />
+        </div>
+      )}
 
-          <div className="w-full button-wrapper">
-            <Link className="button" to="/shop">
-              BROWSE OTHER GAMES
-            </Link>
+      {!loading && (
+        <div className="shop-wrapper d-flex flex-column flex-sm-row align-items-start">
+          <div className="shop-left-side d-flex flex-column align-items-center justify-content-center">
+            <div className="shop-logo-wrapper">
+              <img src={data.logo} alt="apeiron" />
+            </div>
+            <p className="shop-name align-self-start">{data.title}</p>
+            <p className="description">{data.desc}</p>
+
+            <div className="w-full button-wrapper">
+              <Link className="button" to="/shop">
+                BROWSE OTHER GAMES
+              </Link>
+            </div>
+          </div>
+          <div className="shop-list row">
+            {listings?.map((shop, index) => {
+              const { raw_data, title = '', price = 0 } = shop;
+              const { image, tokenType, lister } = raw_data;
+              return (
+                <div
+                  key={index}
+                  className="col-6 col-md-4 mt-3 mt-md-0 mb-3"
+                  onMouseLeave={onMouseLeavePrice}
+                  onMouseEnter={() => onMouseEnterPrice(shop)}>
+                  <div className="shop-list-product">
+                    <img
+                      src={checkImageUrl(image)}
+                      className="shop-list-img"
+                      alt="ape iron"
+                    />
+                  </div>
+                  <p className="title p-0 m-0 mt-2">{title}</p>
+                  <p className="tokenType p-0 m-0">{tokenType}</p>
+                  <p className="title p-0 m-0 mt-2">Price</p>
+                  {(address === lister || isHovered.title !== title) && (
+                    <div className="d-flex flex-row align-items-center">
+                      <img
+                        src={RankerCoinImg}
+                        alt="ranker coin"
+                        className="ranker-coin-img"
+                      />
+                      <p className="m-0 p-0 ms-2 price">{price}</p>
+                    </div>
+                  )}
+                  {address !== lister && (
+                    <div
+                      onClick={() => onBuyItem(shop)}
+                      className={`${
+                        isHovered.title === title
+                          ? 'buy-now-wrapper-active'
+                          : 'buy-now-wrapper-inactive'
+                      } d-flex flex-row align-items-center`}>
+                      {isHovered.title === title && (
+                        <p className="buy-now-text p-0 m-0">Buy Now</p>
+                      )}
+                    </div>
+                  )}
+                </div>
+              );
+            })}
           </div>
         </div>
-        <div className="shop-list row">
-          {listings?.map((shop, index) => {
-            const { raw_data, title = '', price = 0 } = shop;
-            console.log(raw_data, 'raw dat');
-            const { image, tokenType, lister } = raw_data;
-            return (
-              <div
-                key={index}
-                className="col-6 col-md-4 mt-3 mt-md-0 mb-3"
-                onMouseLeave={onMouseLeavePrice}
-                onMouseEnter={() => onMouseEnterPrice(shop)}>
-                <div className="shop-list-product">
-                  <img
-                    src={checkImageUrl(image)}
-                    className="shop-list-img"
-                    alt="ape iron"
-                  />
-                </div>
-                <p className="title p-0 m-0 mt-2">{title}</p>
-                <p className="tokenType p-0 m-0">{tokenType}</p>
-                <p className="title p-0 m-0 mt-2">Price</p>
-                {(address === lister || isHovered.title !== title) && (
-                  <div className="d-flex flex-row align-items-center">
-                    <img
-                      src={RankerCoinImg}
-                      alt="ranker coin"
-                      className="ranker-coin-img"
-                    />
-                    <p className="m-0 p-0 ms-2 price">{price}</p>
-                  </div>
-                )}
-                {address !== lister && (
-                  <div
-                    onClick={() => onBuyItem(shop)}
-                    className={`${
-                      isHovered.title === title
-                        ? 'buy-now-wrapper-active'
-                        : 'buy-now-wrapper-inactive'
-                    } d-flex flex-row align-items-center`}>
-                    {isHovered.title === title && (
-                      <p className="buy-now-text p-0 m-0">Buy Now</p>
-                    )}
-                  </div>
-                )}
-              </div>
-            );
-          })}
-        </div>
-      </div>
+      )}
     </div>
   );
 };

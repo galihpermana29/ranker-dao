@@ -18,7 +18,6 @@ export const mint = async () => {
 
 export const getAccountBalance = async account => {
   const provider = getProvider();
-  console.log(provider, 'provider');
   const signer = provider.getSigner();
   const contract = new ethers.Contract(
     process.env.REACT_APP_NFT_ADDRESS,
