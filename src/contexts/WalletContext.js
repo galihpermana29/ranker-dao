@@ -1,4 +1,4 @@
-import { createContext, useContext } from 'react';
+import { createContext, useContext, useEffect } from 'react';
 import { useMutation, useQuery } from '@tanstack/react-query';
 import { onConnectWallet } from 'services/interact';
 import { ethers } from 'ethers';
@@ -46,6 +46,13 @@ export const WalletContextProvider = ({ children }) => {
     return parseInt(balance);
   };
 
+  useEffect(() => {
+    if (window.ethereum) {
+      window.ethereum.on('accountsChanged', () => {
+        web3Service.listAccounts().then(data => (walletAddress = data[0]));
+      });
+    }
+  }, []);
   return (
     <WalletContext.Provider
       value={{

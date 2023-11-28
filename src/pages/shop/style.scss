@@ -516,3 +516,10 @@
     font-size: 16px;
   }
 }
+
+.loading {
+  display: flex;
+  justify-content: center;
+  min-height: 80vh;
+  align-items: center;
+}
